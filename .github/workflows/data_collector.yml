@@ -1,0 +1,41 @@
+name: GitHub Actions Dataset Collector (sync, limited gemini calls)
+
+on:
+  schedule:
+    - cron: "0 0 * * *"   # runs daily at midnight UTC — change if you want
+  workflow_dispatch:      # allows manual run via 'Run workflow' button
+
+jobs:
+  collect-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Run data collection (sync)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          MAX_GEMINI_CALLS_PER_RUN: "10"   # default 10 per run; edit here if needed
+          SEARCH_STARS_FILTER: "2"          # optional: e.g. "stars:>10" to prefer more popular repos
+        run: python scripts/collector_sync.py
+
+      - name: Commit and push dataset & processed files
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add datasets/*.json || true
+          git commit -m "Update datasets via GitHub Actions data collector" || echo "No changes to commit"
+          git push || echo "Push failed"
