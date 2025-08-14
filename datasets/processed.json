@@ -1,12 +1,22 @@
 [
   "COMSYS/SymbolicLivenessAnalysis:.github/workflows/build.yaml",
   "Cimpress-MCP/PostalCodes.Net:.github/workflows/dotnetcore.yml",
+  "DeepLink-org/ParrotsDL-mmpose:.github/workflows/build.yml",
+  "MrE-Fog/range-v3:.github/workflows/range-v3-ci.yml",
+  "americanexpress/jest-json-schema:.github/workflows/release.yml",
   "antlr/jetbrains-plugin-st4:.github/workflows/gradle.yml",
   "apache/pekko-persistence-dynamodb:.github/workflows/format.yml",
   "bnb-chain/greenfield-cometbft:.github/workflows/e2e-nightly-37x.yml",
   "dart-lang/pub-dev:.github/workflows/dart.yml",
+  "ipr-cnrs/glpi-agent:.github/workflows/release.yaml",
   "magicstone-dev/ecko:.github/workflows/check-i18n.yml",
+  "meruhealth/calendso:.github/workflows/lint.yml",
   "nampereira/desofs-tp04:.github/workflows/2-context.yaml",
   "nervetattoo/banner-card:.github/workflows/nodejs.yml",
-  "scibian/puppet-module-puppet-archive:.github/workflows/ci.yml"
+  "scibian/puppet-module-puppet-archive:.github/workflows/ci.yml",
+  "sofarocean/zephyr:.github/workflows/compliance.yml",
+  "specklesystems/Mott-mac-demo:.github/workflows/main.yml",
+  "unjs/runtime-compat:.github/workflows/autofix.yml",
+  "void0620/ASP.NET-Core:.github/workflows/quest-bulk.yml",
+  "zal-orz/pytorch:.github/workflows/trunk.yml"
 ]
