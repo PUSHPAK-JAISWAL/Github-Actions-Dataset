@@ -44,7 +44,7 @@ else:
     raise RuntimeError("GEMINI_API_KEY environment variable is not set.")
 
 # Initialize the Gemini model
-model = genai.GenerativeModel('gemini-pro')
+model = genai.GenerativeModel('gemini-2.0-flash')
 
 # ---------- dataset helpers ----------
 def list_dataset_files():
