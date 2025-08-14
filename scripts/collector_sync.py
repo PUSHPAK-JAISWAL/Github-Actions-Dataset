@@ -17,6 +17,8 @@ import base64
 import json
 import time
 from datetime import datetime
+import google.generativeai as genai
+from google.api_core.exceptions import GoogleAPIError
 
 # ---------- Config (from env)
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN") or os.getenv("GH_TOKEN")
@@ -28,8 +30,6 @@ MAX_ENTRIES_PER_FILE = 1000
 GITHUB_SEARCH_PER_PAGE = 100  # GitHub max
 SEARCH_STARS_FILTER = os.getenv("SEARCH_STARS_FILTER", "").strip()  # optional e.g. "stars:>10"
 
-GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent"
-
 HEADERS = {}
 if GITHUB_TOKEN:
     HEADERS["Authorization"] = f"token {GITHUB_TOKEN}"
@@ -37,6 +37,14 @@ HEADERS["Accept"] = "application/vnd.github.v3+json"
 
 os.makedirs(DATASET_DIR, exist_ok=True)
 
+# Configure Gemini API client
+if GEMINI_KEY:
+    genai.configure(api_key=GEMINI_KEY)
+else:
+    raise RuntimeError("GEMINI_API_KEY environment variable is not set.")
+
+# Initialize the Gemini model
+model = genai.GenerativeModel('gemini-pro')
 
 # ---------- dataset helpers ----------
 def list_dataset_files():
@@ -130,29 +138,23 @@ def fetch_file_contents(contents_url):
 
 # ---------- Gemini call ----------
 def call_gemini(prompt):
-    if not GEMINI_KEY:
-        raise RuntimeError("GEMINI_API_KEY not set")
-    payload = {"contents": [{"parts": [{"text": prompt}]}]}
-    params = {"key": GEMINI_KEY}
-    headers = {"Content-Type": "application/json"}
-    resp = requests.post(GEMINI_API_URL, params=params, json=payload, headers=headers, timeout=60)
-    if resp.status_code == 429:
-        print("[gemini] rate limited (429)")
-        return ""
-    resp.raise_for_status()
-    data = resp.json()
-    # extract candidate text
     try:
-        candidates = data.get("candidates", [])
-        if candidates:
-            content = candidates[0].get("content", {})
-            parts = content.get("parts", [])
-            if parts:
-                return parts[0].get("text", "").strip()
-    except Exception:
-        pass
-    # fallback to stringified content
-    return json.dumps(data)[:2000]
+        response = model.generate_content(prompt)
+        # Check if the response is a BlockedPromptError
+        if response.candidates and response.candidates[0].safety_ratings and \
+           any(rating.blocked for rating in response.candidates[0].safety_ratings):
+            print("[gemini] response was blocked due to safety policy.")
+            return ""
+        return response.text.strip()
+    except genai.types.BlockedPromptException:
+        print("[gemini] prompt was blocked due to safety policy.")
+        return ""
+    except GoogleAPIError as e:
+        print(f"[gemini] API error: {e}")
+        return ""
+    except Exception as e:
+        print(f"[gemini] Unknown error during API call: {e}")
+        return ""
 
 
 # ---------- main flow ----------
@@ -241,6 +243,7 @@ def main():
                 continue
 
         page += 1
+        time.sleep(1) # Add a small delay between pages to avoid hitting GitHub rate limits
 
     save_processed(processed)
     print(f"[finished] gemini_used={gemini_used}, total_added={total_added}")
