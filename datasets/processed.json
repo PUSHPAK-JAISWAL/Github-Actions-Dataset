@@ -1,0 +1,12 @@
+[
+  "COMSYS/SymbolicLivenessAnalysis:.github/workflows/build.yaml",
+  "Cimpress-MCP/PostalCodes.Net:.github/workflows/dotnetcore.yml",
+  "antlr/jetbrains-plugin-st4:.github/workflows/gradle.yml",
+  "apache/pekko-persistence-dynamodb:.github/workflows/format.yml",
+  "bnb-chain/greenfield-cometbft:.github/workflows/e2e-nightly-37x.yml",
+  "dart-lang/pub-dev:.github/workflows/dart.yml",
+  "magicstone-dev/ecko:.github/workflows/check-i18n.yml",
+  "nampereira/desofs-tp04:.github/workflows/2-context.yaml",
+  "nervetattoo/banner-card:.github/workflows/nodejs.yml",
+  "scibian/puppet-module-puppet-archive:.github/workflows/ci.yml"
+]
