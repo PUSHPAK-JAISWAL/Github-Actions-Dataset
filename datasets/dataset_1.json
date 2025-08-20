@@ -638,5 +638,85 @@
     "path": ".github/workflows/lint.yaml",
     "url": "https://github.com/pddg/latex-template-ja/blob/b70233e3e83958d22d7e42ad121d9eafa77c3721/.github/workflows/lint.yaml",
     "retrieved_at": "2025-08-19T01:45:39.022048Z"
+  },
+  {
+    "question": "What triggers this workflow, and how often does it run automatically?",
+    "answer": "# Licensed to the Apache Software Foundation (ASF) under one\n# or more contributor license agreements.  See the NOTICE file\n# distributed with this work for additional information\n# regarding copyright ownership.  The ASF licenses this file\n# to you under the Apache License, Version 2.0 (the\n# \"License\"); you may not use this file except in compliance\n# with the License.  You may obtain a copy of the License at\n#\n#   http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing,\n# software distributed under the License is distributed on an\n# \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY\n# KIND, either express or implied.  See the License for the\n# specific language governing permissions and limitations\n# under the License.\n\nname: Publish nightly artifacts\n\non:\n  schedule:\n    - cron: \"0 0 * * *\"\n  workflow_dispatch:\n\npermissions:\n  contents: read\n\njobs:\n  publish-nightly:\n    name: Publish nightly\n    runs-on: ubuntu-latest\n    if: github.repository == 'apache/pekko-persistence-dynamodb'\n    steps:\n      - name: Checkout\n        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2\n        with:\n          fetch-depth: 0\n          fetch-tags: true\n\n      - name: Setup Java 8\n        uses: actions/setup-java@c5195efecf7bdfc987ee8bae7a71cb8b11521c00 # v4.7.1\n        with:\n          distribution: temurin\n          java-version: 8\n\n      - name: Install sbt\n        uses: sbt/setup-sbt@6c68d2fe8dfbc0a0534d70101baa2e0420e1a506 # v1.1.9\n\n      - name: Publish to Apache Maven repo\n        env:\n          NEXUS_USER: ${{ secrets.NEXUS_USER }}\n          NEXUS_PW: ${{ secrets.NEXUS_PW }}\n        run: sbt +publish\n\n      - name: Cache Coursier cache\n        uses: coursier/cache-action@4e2615869d13561d626ed48655e1a39e5b192b3c # v6.4.7\n",
+    "source": "apache/pekko-persistence-dynamodb",
+    "path": ".github/workflows/publish-nightly.yml",
+    "url": "https://github.com/apache/pekko-persistence-dynamodb/blob/f88b6b9b20b4d5cec7285a5f049da220998f2dcb/.github/workflows/publish-nightly.yml",
+    "retrieved_at": "2025-08-20T01:44:10.404579Z"
+  },
+  {
+    "question": "Under what conditions will the workflow execute a dry run of the npm publish?",
+    "answer": "name: Publish npm package\n\non:\n  workflow_dispatch:\n    inputs:\n      dry-run:\n        description: 'Dry run'\n        required: true\n        type: boolean\n        default: true\n  schedule:\n    - cron: '48 3 * * 1' # 3:48 AM UTC every Monday\n\njobs:\n  preflight:\n    name: Preflight\n    runs-on: ubuntu-latest\n    outputs:\n      dry-run: ${{ steps.get-dry-run.outputs.dry-run }}\n\n    steps:\n      - name: Get dry run\n        id: get-dry-run\n        shell: pwsh\n        run: |\n          $IsDryRun = '${{ github.event.inputs.dry-run }}' -Eq 'true' -Or '${{ github.event_name }}' -Eq 'schedule'\n\n          if ($IsDryRun) {\n            echo \"dry-run=true\" >> $Env:GITHUB_OUTPUT\n          } else {\n            echo \"dry-run=false\" >> $Env:GITHUB_OUTPUT\n          }\n\n  build:\n    name: Build package\n    runs-on: ubuntu-latest\n    needs:\n      - preflight\n\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v4\n\n      - name: Setup wasm-pack\n        shell: bash\n        run: |\n          curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh      \n\n      - name: Install dependencies\n        shell: pwsh\n        run: |\n          Set-Location -Path ./web-client/iron-remote-gui/\n          npm install\n\n      - name: Build package\n        shell: pwsh\n        run: |\n          Set-PSDebug -Trace 1\n\n          Set-Location -Path ./web-client/iron-remote-gui/\n          npm run build\n          Set-Location -Path ./dist\n          npm pack\n\n      - name: Harvest package\n        shell: pwsh\n        run: |\n          Set-PSDebug -Trace 1\n\n          New-Item -ItemType \"directory\" -Path . -Name \"npm-packages\"\n          Get-ChildItem -Path ./web-client/ -Recurse *.tgz | ForEach { Copy-Item $_ \"./npm-packages\" }\n\n      - name: Upload package artifact\n        uses: actions/upload-artifact@v4\n        with:\n          name: npm\n          path: npm-packages/*.tgz\n\n  publish:\n    name: Publish package\n    runs-on: ubuntu-latest\n    if: github.event_name == 'workflow_dispatch'\n    environment: publish\n    needs:\n      - preflight\n      - build\n\n    steps:\n      - name: Download NPM packages artifact\n        uses: actions/download-artifact@v4\n        with:\n          name: npm\n          path: npm-packages\n\n      - name: Prepare npm\n        shell: pwsh\n        run: npm config set \"//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}\"\n\n      - name: Publish\n        shell: pwsh\n        run: |\n          Set-PSDebug -Trace 1\n\n          $isDryRun = '${{ needs.preflight.outputs.dry-run }}' -Eq 'true'\n\n          $files = Get-ChildItem -Recurse npm-packages/*.tgz\n\n          foreach ($file in $files) {\n            Write-Host \"Publishing $($File.Name)...\"\n\n            $publishCmd = @(\n              'npm', \n              'publish', \n              \"$File\",\n              '--access=public'\n            )\n\n            if ($isDryRun) {\n              $publishCmd += '--dry-run'\n            }\n\n            $publishCmd = $publishCmd -Join ' '\n            Invoke-Expression $publishCmd\n          }\n\n  notify:\n    name: Notify failure\n    runs-on: ubuntu-latest\n    if: ${{ always() && contains(needs.*.result, 'failure') && github.event_name == 'schedule' }}\n    needs:\n      - preflight\n      - build\n    env:\n      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_ARCHITECTURE }}\n      SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK\n    steps:\n      - name: Send slack notification\n        id: slack\n        uses: slackapi/slack-github-action@v1.26.0\n        with:\n          payload: |\n            {\n              \"blocks\": [\n                {\n                  \"type\": \"section\",\n                  \"text\": {\n                    \"type\": \"mrkdwn\",\n                    \"text\": \"*${{ github.repository }}* :fire::fire::fire::fire::fire: \\n The scheduled build for *${{ github.repository }}* is <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|broken>\"\n                  }\n                }\n              ]\n            }\n",
+    "source": "lidarbtc/ironrdp",
+    "path": ".github/workflows/npm-publish.yml",
+    "url": "https://github.com/lidarbtc/ironrdp/blob/27650265c811f80b4a23edd448cde487d37f0664/.github/workflows/npm-publish.yml",
+    "retrieved_at": "2025-08-20T01:44:11.203949Z"
+  },
+  {
+    "question": "What is the purpose of the `GH_PAT` secret used in the deploy step?",
+    "answer": "name: Deploy on GitHub Pages\n\non:\n  push:\n    branches:\n    - master\n\njobs:\n  build-deploy:\n    runs-on: ubuntu-latest\n    steps:\n    - name: Checkout code\n      uses: actions/checkout@v2\n    - name: Yarn install\n      uses: Borales/actions-yarn@v2.3.0\n      with:\n        cmd: install\n    - name: Yarn build\n      uses: Borales/actions-yarn@v2.3.0\n      with:\n        cmd: build:prod\n    - name: Deploy\n      uses: maxheld83/ghpages@v0.3.0\n      env:\n        BUILD_DIR: dist/\n        GH_PAT: ${{ secrets.GH_PAT }}\n",
+    "source": "Cardoso-topdev/vue_template",
+    "path": ".github/workflows/deploy.yml",
+    "url": "https://github.com/Cardoso-topdev/vue_template/blob/6dbd6b9c3c0d9c28e7a88253da87158cca6d72f7/.github/workflows/deploy.yml",
+    "retrieved_at": "2025-08-20T01:44:11.900755Z"
+  },
+  {
+    "question": "What event triggers this workflow to run?",
+    "answer": "name: e2e\n\non: push\n\njobs:\n  e2e:\n    name: E2E tests\n    runs-on: ubuntu-22.04\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v4\n      - uses: pnpm/action-setup@v2\n        with:\n          version: 8\n      - name: Install cypress\n        uses: cypress-io/github-action@v5\n        with:\n          runTests: false\n      - run: pnpm build\n      - name: Cypress run\n        uses: cypress-io/github-action@v6\n        with:\n          install: false\n          working-directory: apps/web\n          start: pnpm start\n          wait-on: \"http://localhost:3000\"\n        env:\n          NEXT_PUBLIC_SITE_URL: ${{secrets.NEXT_PUBLIC_SITE_URL}}\n          DATABASE_URL: ${{secrets.DATABASE_URL}}\n          STRIPE_SECRET_KEY: ${{secrets.STRIPE_SECRET_KEY}}\n",
+    "source": "284247028/supastarter-nextjs",
+    "path": ".github/workflows/main.yml",
+    "url": "https://github.com/284247028/supastarter-nextjs/blob/efd0e6fec2a94bfdefa9e99ca2725ce6ee3b292b/.github/workflows/main.yml",
+    "retrieved_at": "2025-08-20T01:44:12.588345Z"
+  },
+  {
+    "question": "What is the purpose of the `docs:build` script executed during the build step?",
+    "answer": "name: Qiankun Github Pages Deploy\non:\n  push:\n    branches:\n      - master\njobs:\n  deploy-gh-pages:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - name: build\n        run: |\n          yarn\n          yarn docs:build\n\n      - name: Deploy\n        uses: peaceiris/actions-gh-pages@v3\n        with:\n          github_token: ${{ secrets.GITHUB_TOKEN }}\n          publish_dir: ./dist\n",
+    "source": "baron65/qianKun",
+    "path": ".github/workflows/github-pages.yml",
+    "url": "https://github.com/baron65/qianKun/blob/513293336bb536e4ab329cd3db9653b4b5c4df49/.github/workflows/github-pages.yml",
+    "retrieved_at": "2025-08-20T01:44:13.384986Z"
+  },
+  {
+    "question": "Under what conditions does this workflow deploy the Hugo site to GitHub Pages?",
+    "answer": "name: GitHub Pages\n\non:\n  push:\n    branches:\n      - main  # Set a branch to deploy\n  pull_request:\n\njobs:\n  deploy:\n    runs-on: ubuntu-20.04\n    concurrency:\n      group: ${{ github.workflow }}-${{ github.ref }}\n    steps:\n      - uses: actions/checkout@v2\n        with:\n          submodules: true  # Fetch Hugo themes (true OR recursive)\n          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod\n\n      - name: Setup Hugo\n        uses: peaceiris/actions-hugo@v2\n        with:\n          hugo-version: '0.85.0'\n          # extended: true\n\n      - name: Build\n        run: hugo --minify\n\n      - name: Deploy\n        uses: peaceiris/actions-gh-pages@v3\n        if: ${{ github.ref == 'refs/heads/main' }}\n        with:\n          github_token: ${{ secrets.GITHUB_TOKEN }}\n          publish_dir: ./public",
+    "source": "sharadcodes/hugo-theme-serial-programmer",
+    "path": ".github/workflows/main.yml",
+    "url": "https://github.com/sharadcodes/hugo-theme-serial-programmer/blob/df0f7ab4cb4a48d5a9fabdae21ed8d5d83e02b99/.github/workflows/main.yml",
+    "retrieved_at": "2025-08-20T01:44:14.050529Z"
+  },
+  {
+    "question": "What actions are performed to build the Hugo site in this workflow?",
+    "answer": "name: Build\n\non:\n  push:\n    branches: [ main ]\n  pull_request:\n    branches: [ main ]\n  workflow_dispatch:\n\njobs:\n  build:\n    runs-on: ${{ matrix.os }}\n    strategy:\n      fail-fast: false\n      matrix:\n        os: [ubuntu-latest]\n        hugo_version: [\"latest\"]\n    steps:\n      - uses: actions/checkout@v3\n\n      - name: Hugo setup\n        uses: peaceiris/actions-hugo@v2\n        with:\n          hugo-version: ${{ matrix.hugo_version }}\n          extended: true\n\n      - uses: actions/setup-node@v3\n        with:\n          node-version: '16'\n\n      - name: Install dependencies\n        run: npm install\n\n      - name: Build\n        run: hugo -v --source=exampleSite --themesDir ../.. --gc\n",
+    "source": "minseong0609/hugo_blog",
+    "path": ".github/workflows/build.yml",
+    "url": "https://github.com/minseong0609/hugo_blog/blob/f925223e9480ed0556ad8a8d1b5efd6559aa8dfc/.github/workflows/build.yml",
+    "retrieved_at": "2025-08-20T01:44:14.795432Z"
+  },
+  {
+    "question": "Does this workflow run molecule tests on every push and pull request to the master branch?",
+    "answer": "---\nname: ipr-cnrs.nftables.molecule\n\non:\n  push:\n    branches: [master]\n  pull_request:\n    branches: [master]\n\n  workflow_dispatch:\n\njobs:\n  test:\n    runs-on:  ubuntu-latest\n    steps:\n\n      - name: checkout\n        uses: actions/checkout@v2\n        with:\n          path: \"${{ github.repository }}\"\n\n      - name: Ansible Molecule\n        uses: robertdebock/molecule-action@4.0.9\n        with:\n          molecule_working_dir: \"${{ github.repository }}\"\n",
+    "source": "chrisvanmeer/ansible-role-nftables",
+    "path": ".github/workflows/main.yml",
+    "url": "https://github.com/chrisvanmeer/ansible-role-nftables/blob/c4da513d08a24df4ae042b85a10d9d3f7a27ca8a/.github/workflows/main.yml",
+    "retrieved_at": "2025-08-20T01:44:15.432056Z"
+  },
+  {
+    "question": "Under what conditions does the workflow build and push the \"latest\" tagged Docker image?",
+    "answer": "name: Build & Publish PodDefaults Docker image\non:\n  push:\n    branches:\n      - master\n      - v*-branch\n    paths:\n      - components/admission-webhook/**\n      - releasing/version/VERSION\n\nenv:\n  DOCKER_USER: kubeflownotebookswg\n  IMG: kubeflownotebookswg/poddefaults-webhook\n  ARCH: linux/ppc64le,linux/amd64\n\njobs:\n  push_to_registry:\n    name: Build & Push Docker image to Docker Hub\n    runs-on: ubuntu-latest\n    steps:\n    - name: Checkout\n      uses: actions/checkout@v3\n\n    - uses: dorny/paths-filter@v2\n      id: filter\n      with:\n        filters: |\n          version:\n            - 'releasing/version/VERSION'\n\n    - name: Login to DockerHub\n      uses: docker/login-action@v2\n      with:\n        username: ${{ env.DOCKER_USER }}\n        password: ${{ secrets.KUBEFLOWNOTEBOOKSWG_DOCKER_TOKEN }}\n\n    - name: Setup QEMU\n      uses: docker/setup-qemu-action@v2\n\n    - name: Setup Docker Buildx\n      uses: docker/setup-buildx-action@v2\n\n    - name: Build and push multi-arch docker image\n      run: |\n        cd components/admission-webhook\n        make docker-build-push-multi-arch\n\n    - name: Build and push latest multi-arch docker image\n      if: github.ref == 'refs/heads/master'\n      run: |\n        export TAG=latest\n        cd components/admission-webhook\n        make docker-build-push-multi-arch\n\n    - name: Build and push multi-arch docker image on Version change\n      id: version\n      if: steps.filter.outputs.version == 'true'\n      run: |\n        export TAG=$(cat releasing/version/VERSION)\n        cd components/admission-webhook\n        make docker-build-push-multi-arch\n",
+    "source": "Zveroloff/kubeflow",
+    "path": ".github/workflows/poddefaults_docker_publish.yaml",
+    "url": "https://github.com/Zveroloff/kubeflow/blob/1552c90ccaee7acdea3495175592fcca46ae3a77/.github/workflows/poddefaults_docker_publish.yaml",
+    "retrieved_at": "2025-08-20T01:44:16.317719Z"
+  },
+  {
+    "question": "What specific contribution graph is generated and pushed to the repository by this workflow?",
+    "answer": "name: GitHub-Profile-3D-Contrib\n\non:\n  schedule: # 03:00 JST == 18:00 UTC\n    - cron: \"0 18 * * *\"\n  workflow_dispatch:\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n    name: generate-github-profile-3d-contrib\n    steps:\n      - uses: actions/checkout@v2\n      - uses: yoshi389111/github-profile-3d-contrib@0.7.0\n        env:\n          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n          USERNAME: ${{ github.repository_owner }}\n      - name: Commit & Push\n        run: |\n          git config user.name github-actions\n          git config user.email github-actions@github.com\n          git add -A .\n          git commit -m \"generated\"\n          git push",
+    "source": "Maximilian-Stefan-Ernst/Maximilian-Stefan-Ernst",
+    "path": ".github/workflows/contributions.yml",
+    "url": "https://github.com/Maximilian-Stefan-Ernst/Maximilian-Stefan-Ernst/blob/89c52643a1b5bc4a3eb2e4143f6e020acfe79ac0/.github/workflows/contributions.yml",
+    "retrieved_at": "2025-08-20T01:44:17.095344Z"
   }
 ]
