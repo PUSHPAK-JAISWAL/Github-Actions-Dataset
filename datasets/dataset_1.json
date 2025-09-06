@@ -1,0 +1,92 @@
+[
+  {
+    "question": "Create a GitHub Actions workflow that replicates the CI process of testing CloudFormation Guard rules and building a ruleset, as defined in the provided YAML.",
+    "answer": "name: Continuous Integration\n\non:\n  push:\n  pull_request:\n    branches:\n      - main\n\nenv:\n  VERSION: \"1.0.2\"\n\njobs:\n  testRules:\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/checkout@v2\n    - name: Run guard rules tests\n      shell: bash\n      run: |\n        curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloudformation/cloudformation-guard/main/install-guard.sh | sh\n        export PATH=${PATH}:~/.guard/bin\n        cfn-guard test -d ./rules/\n    ## If test fails run step to pull out only failed tests\n    - name: Display Failed Rules Only\n      if: ${{ failure() }}\n      shell: bash\n      run: |\n        curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloudformation/cloudformation-guard/main/install-guard.sh | sh\n        export PATH=${PATH}:~/.guard/bin\n        cfn-guard test -d ./rules/ | grep \"FAIL Rules:\" -B 2 -A 1\n  buildRuleSet:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Check out repo\n        uses: actions/checkout@v2\n      - run: |\n          chmod +x ./mappings/build.py\n          python3 ./mappings/build.py -r $VERSION\n        shell: bash\n      - uses: actions/upload-artifact@v3\n        with:\n          name: ruleset-build\n          path: |\n            docker/output/\n            mappings/rule_set_guard_rules_registry_all_rules.json\n          if-no-files-found: error\n",
+    "source": "aws-cloudformation/aws-guard-rules-registry",
+    "path": ".github/workflows/ci.yml",
+    "url": "https://github.com/aws-cloudformation/aws-guard-rules-registry/blob/7f7340c26ae5d5e8874651dbffeb12e0e9f505b6/.github/workflows/ci.yml",
+    "retrieved_at": "2025-09-06T12:39:57.650917Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events and branch configurations trigger this GitHub Actions workflow?",
+    "answer": "name: Continuous Integration\n\non:\n  push:\n  pull_request:\n    branches:\n      - main\n\nenv:\n  VERSION: \"1.0.2\"\n\njobs:\n  testRules:\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/checkout@v2\n    - name: Run guard rules tests\n      shell: bash\n      run: |\n        curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloudformation/cloudformation-guard/main/install-guard.sh | sh\n        export PATH=${PATH}:~/.guard/bin\n        cfn-guard test -d ./rules/\n    ## If test fails run step to pull out only failed tests\n    - name: Display Failed Rules Only\n      if: ${{ failure() }}\n      shell: bash\n      run: |\n        curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloudformation/cloudformation-guard/main/install-guard.sh | sh\n        export PATH=${PATH}:~/.guard/bin\n        cfn-guard test -d ./rules/ | grep \"FAIL Rules:\" -B 2 -A 1\n  buildRuleSet:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Check out repo\n        uses: actions/checkout@v2\n      - run: |\n          chmod +x ./mappings/build.py\n          python3 ./mappings/build.py -r $VERSION\n        shell: bash\n      - uses: actions/upload-artifact@v3\n        with:\n          name: ruleset-build\n          path: |\n            docker/output/\n            mappings/rule_set_guard_rules_registry_all_rules.json\n          if-no-files-found: error\n",
+    "source": "aws-cloudformation/aws-guard-rules-registry",
+    "path": ".github/workflows/ci.yml",
+    "url": "https://github.com/aws-cloudformation/aws-guard-rules-registry/blob/7f7340c26ae5d5e8874651dbffeb12e0e9f505b6/.github/workflows/ci.yml",
+    "retrieved_at": "2025-09-06T12:39:58.212878Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within this workflow execute concurrently or sequentially based on dependencies?",
+    "answer": "name: Continuous Integration\n\non:\n  push:\n  pull_request:\n    branches:\n      - main\n\nenv:\n  VERSION: \"1.0.2\"\n\njobs:\n  testRules:\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/checkout@v2\n    - name: Run guard rules tests\n      shell: bash\n      run: |\n        curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloudformation/cloudformation-guard/main/install-guard.sh | sh\n        export PATH=${PATH}:~/.guard/bin\n        cfn-guard test -d ./rules/\n    ## If test fails run step to pull out only failed tests\n    - name: Display Failed Rules Only\n      if: ${{ failure() }}\n      shell: bash\n      run: |\n        curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloudformation/cloudformation-guard/main/install-guard.sh | sh\n        export PATH=${PATH}:~/.guard/bin\n        cfn-guard test -d ./rules/ | grep \"FAIL Rules:\" -B 2 -A 1\n  buildRuleSet:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Check out repo\n        uses: actions/checkout@v2\n      - run: |\n          chmod +x ./mappings/build.py\n          python3 ./mappings/build.py -r $VERSION\n        shell: bash\n      - uses: actions/upload-artifact@v3\n        with:\n          name: ruleset-build\n          path: |\n            docker/output/\n            mappings/rule_set_guard_rules_registry_all_rules.json\n          if-no-files-found: error\n",
+    "source": "aws-cloudformation/aws-guard-rules-registry",
+    "path": ".github/workflows/ci.yml",
+    "url": "https://github.com/aws-cloudformation/aws-guard-rules-registry/blob/7f7340c26ae5d5e8874651dbffeb12e0e9f505b6/.github/workflows/ci.yml",
+    "retrieved_at": "2025-09-06T12:39:58.635846Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "How is the `VERSION` environment variable used in the `buildRuleSet` job's Python script execution?",
+    "answer": "name: Continuous Integration\n\non:\n  push:\n  pull_request:\n    branches:\n      - main\n\nenv:\n  VERSION: \"1.0.2\"\n\njobs:\n  testRules:\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/checkout@v2\n    - name: Run guard rules tests\n      shell: bash\n      run: |\n        curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloudformation/cloudformation-guard/main/install-guard.sh | sh\n        export PATH=${PATH}:~/.guard/bin\n        cfn-guard test -d ./rules/\n    ## If test fails run step to pull out only failed tests\n    - name: Display Failed Rules Only\n      if: ${{ failure() }}\n      shell: bash\n      run: |\n        curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloudformation/cloudformation-guard/main/install-guard.sh | sh\n        export PATH=${PATH}:~/.guard/bin\n        cfn-guard test -d ./rules/ | grep \"FAIL Rules:\" -B 2 -A 1\n  buildRuleSet:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Check out repo\n        uses: actions/checkout@v2\n      - run: |\n          chmod +x ./mappings/build.py\n          python3 ./mappings/build.py -r $VERSION\n        shell: bash\n      - uses: actions/upload-artifact@v3\n        with:\n          name: ruleset-build\n          path: |\n            docker/output/\n            mappings/rule_set_guard_rules_registry_all_rules.json\n          if-no-files-found: error\n",
+    "source": "aws-cloudformation/aws-guard-rules-registry",
+    "path": ".github/workflows/ci.yml",
+    "url": "https://github.com/aws-cloudformation/aws-guard-rules-registry/blob/7f7340c26ae5d5e8874651dbffeb12e0e9f505b6/.github/workflows/ci.yml",
+    "retrieved_at": "2025-09-06T12:39:59.079387Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the main function or goal of this CI workflow?",
+    "answer": "name: Continuous Integration\n\non:\n  push:\n  pull_request:\n    branches:\n      - main\n\nenv:\n  VERSION: \"1.0.2\"\n\njobs:\n  testRules:\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/checkout@v2\n    - name: Run guard rules tests\n      shell: bash\n      run: |\n        curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloudformation/cloudformation-guard/main/install-guard.sh | sh\n        export PATH=${PATH}:~/.guard/bin\n        cfn-guard test -d ./rules/\n    ## If test fails run step to pull out only failed tests\n    - name: Display Failed Rules Only\n      if: ${{ failure() }}\n      shell: bash\n      run: |\n        curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloudformation/cloudformation-guard/main/install-guard.sh | sh\n        export PATH=${PATH}:~/.guard/bin\n        cfn-guard test -d ./rules/ | grep \"FAIL Rules:\" -B 2 -A 1\n  buildRuleSet:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Check out repo\n        uses: actions/checkout@v2\n      - run: |\n          chmod +x ./mappings/build.py\n          python3 ./mappings/build.py -r $VERSION\n        shell: bash\n      - uses: actions/upload-artifact@v3\n        with:\n          name: ruleset-build\n          path: |\n            docker/output/\n            mappings/rule_set_guard_rules_registry_all_rules.json\n          if-no-files-found: error\n",
+    "source": "aws-cloudformation/aws-guard-rules-registry",
+    "path": ".github/workflows/ci.yml",
+    "url": "https://github.com/aws-cloudformation/aws-guard-rules-registry/blob/7f7340c26ae5d5e8874651dbffeb12e0e9f505b6/.github/workflows/ci.yml",
+    "retrieved_at": "2025-09-06T12:39:59.523621Z",
+    "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow replicating the given YAML's PR GPU tests, including concurrency, matrix strategy, and secrets.",
+    "answer": "name: PR GPU tests\non:\n  push:\n    branches:\n    - main\n    - release/*\n  pull_request_target:\n    branches:\n    - main\n    - release/**\n  workflow_dispatch:\n# Cancel old runs when a new commit is pushed to the same branch if not on main or dev\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}\n  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}\njobs:\n  pytest-gpu:\n    uses: ./.github/workflows/pytest-gpu.yaml\n    strategy:\n      matrix:\n        include:\n        - name: 'gpu-latest'\n          container: mosaicml/pytorch:latest  # mosaicml/pytorch:1.13.1_cu117-python3.10-ubuntu20.04\n          markers: 'gpu'\n          pytest_command: 'coverage run -m pytest'\n        - name: 'gpu-2.0.1'\n          container: mosaicml/pytorch:2.0.1_cu117-python3.10-ubuntu20.04\n          markers: 'gpu'\n          pytest_command: 'coverage run -m pytest'\n    name: ${{ matrix.name }}\n    if: github.repository_owner == 'mosaicml'\n    with:\n      container: ${{ matrix.container }}\n      mcloud-timeout: 1200\n      name: ${{ matrix.name }}\n      pytest-command: ${{ matrix.pytest_command }}\n      pytest-markers: ${{ matrix.markers }}\n      python-version: 3.9\n    secrets:\n      mcloud-api-key: ${{ secrets.MCLOUD_API_KEY }}\n",
+    "source": "kyegomez/Andromeda",
+    "path": ".github/workflows/pr-gpu.yaml",
+    "url": "https://github.com/kyegomez/Andromeda/blob/991bd81d8c4ed072ec4e6bc2b9c8fc66903463cc/.github/workflows/pr-gpu.yaml",
+    "retrieved_at": "2025-09-06T12:40:00.262442Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events trigger the \"PR GPU tests\" workflow?",
+    "answer": "name: PR GPU tests\non:\n  push:\n    branches:\n    - main\n    - release/*\n  pull_request_target:\n    branches:\n    - main\n    - release/**\n  workflow_dispatch:\n# Cancel old runs when a new commit is pushed to the same branch if not on main or dev\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}\n  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}\njobs:\n  pytest-gpu:\n    uses: ./.github/workflows/pytest-gpu.yaml\n    strategy:\n      matrix:\n        include:\n        - name: 'gpu-latest'\n          container: mosaicml/pytorch:latest  # mosaicml/pytorch:1.13.1_cu117-python3.10-ubuntu20.04\n          markers: 'gpu'\n          pytest_command: 'coverage run -m pytest'\n        - name: 'gpu-2.0.1'\n          container: mosaicml/pytorch:2.0.1_cu117-python3.10-ubuntu20.04\n          markers: 'gpu'\n          pytest_command: 'coverage run -m pytest'\n    name: ${{ matrix.name }}\n    if: github.repository_owner == 'mosaicml'\n    with:\n      container: ${{ matrix.container }}\n      mcloud-timeout: 1200\n      name: ${{ matrix.name }}\n      pytest-command: ${{ matrix.pytest_command }}\n      pytest-markers: ${{ matrix.markers }}\n      python-version: 3.9\n    secrets:\n      mcloud-api-key: ${{ secrets.MCLOUD_API_KEY }}\n",
+    "source": "kyegomez/Andromeda",
+    "path": ".github/workflows/pr-gpu.yaml",
+    "url": "https://github.com/kyegomez/Andromeda/blob/991bd81d8c4ed072ec4e6bc2b9c8fc66903463cc/.github/workflows/pr-gpu.yaml",
+    "retrieved_at": "2025-09-06T12:40:00.703950Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within this workflow run concurrently or sequentially based on dependencies?",
+    "answer": "name: PR GPU tests\non:\n  push:\n    branches:\n    - main\n    - release/*\n  pull_request_target:\n    branches:\n    - main\n    - release/**\n  workflow_dispatch:\n# Cancel old runs when a new commit is pushed to the same branch if not on main or dev\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}\n  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}\njobs:\n  pytest-gpu:\n    uses: ./.github/workflows/pytest-gpu.yaml\n    strategy:\n      matrix:\n        include:\n        - name: 'gpu-latest'\n          container: mosaicml/pytorch:latest  # mosaicml/pytorch:1.13.1_cu117-python3.10-ubuntu20.04\n          markers: 'gpu'\n          pytest_command: 'coverage run -m pytest'\n        - name: 'gpu-2.0.1'\n          container: mosaicml/pytorch:2.0.1_cu117-python3.10-ubuntu20.04\n          markers: 'gpu'\n          pytest_command: 'coverage run -m pytest'\n    name: ${{ matrix.name }}\n    if: github.repository_owner == 'mosaicml'\n    with:\n      container: ${{ matrix.container }}\n      mcloud-timeout: 1200\n      name: ${{ matrix.name }}\n      pytest-command: ${{ matrix.pytest_command }}\n      pytest-markers: ${{ matrix.markers }}\n      python-version: 3.9\n    secrets:\n      mcloud-api-key: ${{ secrets.MCLOUD_API_KEY }}\n",
+    "source": "kyegomez/Andromeda",
+    "path": ".github/workflows/pr-gpu.yaml",
+    "url": "https://github.com/kyegomez/Andromeda/blob/991bd81d8c4ed072ec4e6bc2b9c8fc66903463cc/.github/workflows/pr-gpu.yaml",
+    "retrieved_at": "2025-09-06T12:40:01.091911Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "How is the `MCLOUD_API_KEY` secret used within the `pytest-gpu` job?",
+    "answer": "name: PR GPU tests\non:\n  push:\n    branches:\n    - main\n    - release/*\n  pull_request_target:\n    branches:\n    - main\n    - release/**\n  workflow_dispatch:\n# Cancel old runs when a new commit is pushed to the same branch if not on main or dev\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}\n  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}\njobs:\n  pytest-gpu:\n    uses: ./.github/workflows/pytest-gpu.yaml\n    strategy:\n      matrix:\n        include:\n        - name: 'gpu-latest'\n          container: mosaicml/pytorch:latest  # mosaicml/pytorch:1.13.1_cu117-python3.10-ubuntu20.04\n          markers: 'gpu'\n          pytest_command: 'coverage run -m pytest'\n        - name: 'gpu-2.0.1'\n          container: mosaicml/pytorch:2.0.1_cu117-python3.10-ubuntu20.04\n          markers: 'gpu'\n          pytest_command: 'coverage run -m pytest'\n    name: ${{ matrix.name }}\n    if: github.repository_owner == 'mosaicml'\n    with:\n      container: ${{ matrix.container }}\n      mcloud-timeout: 1200\n      name: ${{ matrix.name }}\n      pytest-command: ${{ matrix.pytest_command }}\n      pytest-markers: ${{ matrix.markers }}\n      python-version: 3.9\n    secrets:\n      mcloud-api-key: ${{ secrets.MCLOUD_API_KEY }}\n",
+    "source": "kyegomez/Andromeda",
+    "path": ".github/workflows/pr-gpu.yaml",
+    "url": "https://github.com/kyegomez/Andromeda/blob/991bd81d8c4ed072ec4e6bc2b9c8fc66903463cc/.github/workflows/pr-gpu.yaml",
+    "retrieved_at": "2025-09-06T12:40:01.665699Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the purpose of this workflow, which runs GPU-based pytest jobs on pull requests and pushes to main/release branches?",
+    "answer": "name: PR GPU tests\non:\n  push:\n    branches:\n    - main\n    - release/*\n  pull_request_target:\n    branches:\n    - main\n    - release/**\n  workflow_dispatch:\n# Cancel old runs when a new commit is pushed to the same branch if not on main or dev\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}\n  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}\njobs:\n  pytest-gpu:\n    uses: ./.github/workflows/pytest-gpu.yaml\n    strategy:\n      matrix:\n        include:\n        - name: 'gpu-latest'\n          container: mosaicml/pytorch:latest  # mosaicml/pytorch:1.13.1_cu117-python3.10-ubuntu20.04\n          markers: 'gpu'\n          pytest_command: 'coverage run -m pytest'\n        - name: 'gpu-2.0.1'\n          container: mosaicml/pytorch:2.0.1_cu117-python3.10-ubuntu20.04\n          markers: 'gpu'\n          pytest_command: 'coverage run -m pytest'\n    name: ${{ matrix.name }}\n    if: github.repository_owner == 'mosaicml'\n    with:\n      container: ${{ matrix.container }}\n      mcloud-timeout: 1200\n      name: ${{ matrix.name }}\n      pytest-command: ${{ matrix.pytest_command }}\n      pytest-markers: ${{ matrix.markers }}\n      python-version: 3.9\n    secrets:\n      mcloud-api-key: ${{ secrets.MCLOUD_API_KEY }}\n",
+    "source": "kyegomez/Andromeda",
+    "path": ".github/workflows/pr-gpu.yaml",
+    "url": "https://github.com/kyegomez/Andromeda/blob/991bd81d8c4ed072ec4e6bc2b9c8fc66903463cc/.github/workflows/pr-gpu.yaml",
+    "retrieved_at": "2025-09-06T12:40:02.253606Z",
+    "question_style": "style_5"
+  }
+]

@@ -1,0 +1,4 @@
+[
+  "aws-cloudformation/aws-guard-rules-registry:.github/workflows/ci.yml",
+  "kyegomez/Andromeda:.github/workflows/pr-gpu.yaml"
+]
