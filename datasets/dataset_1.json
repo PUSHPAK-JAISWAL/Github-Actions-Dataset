@@ -88,5 +88,95 @@
     "url": "https://github.com/kyegomez/Andromeda/blob/991bd81d8c4ed072ec4e6bc2b9c8fc66903463cc/.github/workflows/pr-gpu.yaml",
     "retrieved_at": "2025-09-06T12:40:02.253606Z",
     "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow YAML file that replicates the cabal CI build process defined in the provided YAML file.",
+    "answer": "name: Cabal CI\n\non:\n  push:\n    branches:\n      - master\n  pull_request:\n\njobs:\n  build:\n    name: cabal ${{ matrix.ghc }}\n    runs-on: ubuntu-16.04\n    strategy:\n      matrix:\n        ghc: [\"8.10.1\", \"8.8.1\", \"8.6.5\", \"8.6.4\", \"8.6.3\", \"8.6.2\"]\n        cabal: [\"3.0\"]\n\n    steps:\n    - uses: actions/checkout@v1\n    - uses: actions/setup-haskell@v1\n      name: Setup Haskell\n      with:\n        ghc-version: ${{ matrix.ghc }}\n        cabal-version: ${{ matrix.cabal }}\n\n    - uses: actions/cache@v1\n      name: Cache ~/.cabal/packages\n      with:\n        path: ~/.cabal/packages\n        key: cabal-packages-${{ matrix.ghc }}\n\n    - uses: actions/cache@v1\n      name: Cache ~/.cabal/store\n      with:\n        path: ~/.cabal/store\n        key: cabal-store-${{ matrix.ghc }}\n\n    - uses: actions/cache@v1\n      name: Cache dist-newstyle\n      with:\n        path: dist-newstyle\n        key: dist-newstyle-${{ matrix.ghc }}\n\n    - name: Install dependencies\n      run: |\n        cabal update\n    - name: Build\n      run: |\n        cabal new-build\n",
+    "source": "sdiehl/pairing",
+    "path": ".github/workflows/cabal.yml",
+    "url": "https://github.com/sdiehl/pairing/blob/fa41b722d9f260bd00be0b250ce7cc5324f26a09/.github/workflows/cabal.yml",
+    "retrieved_at": "2025-09-06T13:06:14.635683Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events on which branches trigger this GitHub Actions workflow?",
+    "answer": "name: Cabal CI\n\non:\n  push:\n    branches:\n      - master\n  pull_request:\n\njobs:\n  build:\n    name: cabal ${{ matrix.ghc }}\n    runs-on: ubuntu-16.04\n    strategy:\n      matrix:\n        ghc: [\"8.10.1\", \"8.8.1\", \"8.6.5\", \"8.6.4\", \"8.6.3\", \"8.6.2\"]\n        cabal: [\"3.0\"]\n\n    steps:\n    - uses: actions/checkout@v1\n    - uses: actions/setup-haskell@v1\n      name: Setup Haskell\n      with:\n        ghc-version: ${{ matrix.ghc }}\n        cabal-version: ${{ matrix.cabal }}\n\n    - uses: actions/cache@v1\n      name: Cache ~/.cabal/packages\n      with:\n        path: ~/.cabal/packages\n        key: cabal-packages-${{ matrix.ghc }}\n\n    - uses: actions/cache@v1\n      name: Cache ~/.cabal/store\n      with:\n        path: ~/.cabal/store\n        key: cabal-store-${{ matrix.ghc }}\n\n    - uses: actions/cache@v1\n      name: Cache dist-newstyle\n      with:\n        path: dist-newstyle\n        key: dist-newstyle-${{ matrix.ghc }}\n\n    - name: Install dependencies\n      run: |\n        cabal update\n    - name: Build\n      run: |\n        cabal new-build\n",
+    "source": "sdiehl/pairing",
+    "path": ".github/workflows/cabal.yml",
+    "url": "https://github.com/sdiehl/pairing/blob/fa41b722d9f260bd00be0b250ce7cc5324f26a09/.github/workflows/cabal.yml",
+    "retrieved_at": "2025-09-06T13:06:15.203021Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within the workflow run concurrently or sequentially based on dependencies?",
+    "answer": "name: Cabal CI\n\non:\n  push:\n    branches:\n      - master\n  pull_request:\n\njobs:\n  build:\n    name: cabal ${{ matrix.ghc }}\n    runs-on: ubuntu-16.04\n    strategy:\n      matrix:\n        ghc: [\"8.10.1\", \"8.8.1\", \"8.6.5\", \"8.6.4\", \"8.6.3\", \"8.6.2\"]\n        cabal: [\"3.0\"]\n\n    steps:\n    - uses: actions/checkout@v1\n    - uses: actions/setup-haskell@v1\n      name: Setup Haskell\n      with:\n        ghc-version: ${{ matrix.ghc }}\n        cabal-version: ${{ matrix.cabal }}\n\n    - uses: actions/cache@v1\n      name: Cache ~/.cabal/packages\n      with:\n        path: ~/.cabal/packages\n        key: cabal-packages-${{ matrix.ghc }}\n\n    - uses: actions/cache@v1\n      name: Cache ~/.cabal/store\n      with:\n        path: ~/.cabal/store\n        key: cabal-store-${{ matrix.ghc }}\n\n    - uses: actions/cache@v1\n      name: Cache dist-newstyle\n      with:\n        path: dist-newstyle\n        key: dist-newstyle-${{ matrix.ghc }}\n\n    - name: Install dependencies\n      run: |\n        cabal update\n    - name: Build\n      run: |\n        cabal new-build\n",
+    "source": "sdiehl/pairing",
+    "path": ".github/workflows/cabal.yml",
+    "url": "https://github.com/sdiehl/pairing/blob/fa41b722d9f260bd00be0b250ce7cc5324f26a09/.github/workflows/cabal.yml",
+    "retrieved_at": "2025-09-06T13:06:15.707179Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "How are the cached paths for cabal packages, store, and dist-newstyle differentiated for different GHC versions?",
+    "answer": "name: Cabal CI\n\non:\n  push:\n    branches:\n      - master\n  pull_request:\n\njobs:\n  build:\n    name: cabal ${{ matrix.ghc }}\n    runs-on: ubuntu-16.04\n    strategy:\n      matrix:\n        ghc: [\"8.10.1\", \"8.8.1\", \"8.6.5\", \"8.6.4\", \"8.6.3\", \"8.6.2\"]\n        cabal: [\"3.0\"]\n\n    steps:\n    - uses: actions/checkout@v1\n    - uses: actions/setup-haskell@v1\n      name: Setup Haskell\n      with:\n        ghc-version: ${{ matrix.ghc }}\n        cabal-version: ${{ matrix.cabal }}\n\n    - uses: actions/cache@v1\n      name: Cache ~/.cabal/packages\n      with:\n        path: ~/.cabal/packages\n        key: cabal-packages-${{ matrix.ghc }}\n\n    - uses: actions/cache@v1\n      name: Cache ~/.cabal/store\n      with:\n        path: ~/.cabal/store\n        key: cabal-store-${{ matrix.ghc }}\n\n    - uses: actions/cache@v1\n      name: Cache dist-newstyle\n      with:\n        path: dist-newstyle\n        key: dist-newstyle-${{ matrix.ghc }}\n\n    - name: Install dependencies\n      run: |\n        cabal update\n    - name: Build\n      run: |\n        cabal new-build\n",
+    "source": "sdiehl/pairing",
+    "path": ".github/workflows/cabal.yml",
+    "url": "https://github.com/sdiehl/pairing/blob/fa41b722d9f260bd00be0b250ce7cc5324f26a09/.github/workflows/cabal.yml",
+    "retrieved_at": "2025-09-06T13:06:16.206172Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the primary function of this Cabal CI workflow?",
+    "answer": "name: Cabal CI\n\non:\n  push:\n    branches:\n      - master\n  pull_request:\n\njobs:\n  build:\n    name: cabal ${{ matrix.ghc }}\n    runs-on: ubuntu-16.04\n    strategy:\n      matrix:\n        ghc: [\"8.10.1\", \"8.8.1\", \"8.6.5\", \"8.6.4\", \"8.6.3\", \"8.6.2\"]\n        cabal: [\"3.0\"]\n\n    steps:\n    - uses: actions/checkout@v1\n    - uses: actions/setup-haskell@v1\n      name: Setup Haskell\n      with:\n        ghc-version: ${{ matrix.ghc }}\n        cabal-version: ${{ matrix.cabal }}\n\n    - uses: actions/cache@v1\n      name: Cache ~/.cabal/packages\n      with:\n        path: ~/.cabal/packages\n        key: cabal-packages-${{ matrix.ghc }}\n\n    - uses: actions/cache@v1\n      name: Cache ~/.cabal/store\n      with:\n        path: ~/.cabal/store\n        key: cabal-store-${{ matrix.ghc }}\n\n    - uses: actions/cache@v1\n      name: Cache dist-newstyle\n      with:\n        path: dist-newstyle\n        key: dist-newstyle-${{ matrix.ghc }}\n\n    - name: Install dependencies\n      run: |\n        cabal update\n    - name: Build\n      run: |\n        cabal new-build\n",
+    "source": "sdiehl/pairing",
+    "path": ".github/workflows/cabal.yml",
+    "url": "https://github.com/sdiehl/pairing/blob/fa41b722d9f260bd00be0b250ce7cc5324f26a09/.github/workflows/cabal.yml",
+    "retrieved_at": "2025-09-06T13:06:16.714720Z",
+    "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow YAML that replicates the functionality of the provided YAML, including Go setup, Redis service, and tests.",
+    "answer": "name: Run Tests\non: [push, pull_request]\n\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/checkout@v2\n    - uses: actions/setup-go@v2\n      with:\n        go-version: '^1.16.3'\n    - uses: supercharge/redis-github-action@1.2.0\n      with:\n        redis-version: 6\n    - run: go test -v -race ./\n",
+    "source": "microsoft/redplex",
+    "path": ".github/workflows/validate.yml",
+    "url": "https://github.com/microsoft/redplex/blob/248ac9a6adfc13bb2da2404bea767dde69dc0272/.github/workflows/validate.yml",
+    "retrieved_at": "2025-09-06T13:06:17.347426Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events trigger this workflow to run?",
+    "answer": "name: Run Tests\non: [push, pull_request]\n\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/checkout@v2\n    - uses: actions/setup-go@v2\n      with:\n        go-version: '^1.16.3'\n    - uses: supercharge/redis-github-action@1.2.0\n      with:\n        redis-version: 6\n    - run: go test -v -race ./\n",
+    "source": "microsoft/redplex",
+    "path": ".github/workflows/validate.yml",
+    "url": "https://github.com/microsoft/redplex/blob/248ac9a6adfc13bb2da2404bea767dde69dc0272/.github/workflows/validate.yml",
+    "retrieved_at": "2025-09-06T13:06:17.829708Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within the 'Run Tests' workflow execute concurrently or sequentially based on dependencies?",
+    "answer": "name: Run Tests\non: [push, pull_request]\n\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/checkout@v2\n    - uses: actions/setup-go@v2\n      with:\n        go-version: '^1.16.3'\n    - uses: supercharge/redis-github-action@1.2.0\n      with:\n        redis-version: 6\n    - run: go test -v -race ./\n",
+    "source": "microsoft/redplex",
+    "path": ".github/workflows/validate.yml",
+    "url": "https://github.com/microsoft/redplex/blob/248ac9a6adfc13bb2da2404bea767dde69dc0272/.github/workflows/validate.yml",
+    "retrieved_at": "2025-09-06T13:06:18.272708Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "Does this workflow utilize environment variables, secrets, caching, or artifacts to enhance its testing process?",
+    "answer": "name: Run Tests\non: [push, pull_request]\n\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/checkout@v2\n    - uses: actions/setup-go@v2\n      with:\n        go-version: '^1.16.3'\n    - uses: supercharge/redis-github-action@1.2.0\n      with:\n        redis-version: 6\n    - run: go test -v -race ./\n",
+    "source": "microsoft/redplex",
+    "path": ".github/workflows/validate.yml",
+    "url": "https://github.com/microsoft/redplex/blob/248ac9a6adfc13bb2da2404bea767dde69dc0272/.github/workflows/validate.yml",
+    "retrieved_at": "2025-09-06T13:06:18.768610Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the primary function of this \"Run Tests\" workflow?",
+    "answer": "name: Run Tests\non: [push, pull_request]\n\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/checkout@v2\n    - uses: actions/setup-go@v2\n      with:\n        go-version: '^1.16.3'\n    - uses: supercharge/redis-github-action@1.2.0\n      with:\n        redis-version: 6\n    - run: go test -v -race ./\n",
+    "source": "microsoft/redplex",
+    "path": ".github/workflows/validate.yml",
+    "url": "https://github.com/microsoft/redplex/blob/248ac9a6adfc13bb2da2404bea767dde69dc0272/.github/workflows/validate.yml",
+    "retrieved_at": "2025-09-06T13:06:19.160046Z",
+    "question_style": "style_5"
   }
 ]

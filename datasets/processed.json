@@ -1,4 +1,6 @@
 [
   "aws-cloudformation/aws-guard-rules-registry:.github/workflows/ci.yml",
-  "kyegomez/Andromeda:.github/workflows/pr-gpu.yaml"
+  "kyegomez/Andromeda:.github/workflows/pr-gpu.yaml",
+  "microsoft/redplex:.github/workflows/validate.yml",
+  "sdiehl/pairing:.github/workflows/cabal.yml"
 ]
