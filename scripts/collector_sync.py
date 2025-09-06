@@ -23,7 +23,7 @@ from google.api_core.exceptions import GoogleAPIError
 # ---------- Config (from env)
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN") or os.getenv("GH_TOKEN")
 GEMINI_KEY = os.getenv("GEMINI_API_KEY")
-MAX_GEMINI_CALLS_PER_RUN = int(os.getenv("MAX_GEMINI_CALLS_PER_RUN", "10"))
+MAX_GEMINI_CALLS_PER_RUN = int(os.getenv("MAX_GEMINI_CALLS_PER_RUN", "5"))
 QUESTIONS_PER_WORKFLOW = int(os.getenv("QUESTIONS_PER_WORKFLOW", "5"))  # default: 5 question styles per workflow
 DATASET_DIR = "datasets"
 PROCESSED_PATH = os.path.join(DATASET_DIR, "processed.json")
