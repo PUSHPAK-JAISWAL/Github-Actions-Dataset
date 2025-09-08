@@ -268,5 +268,95 @@
     "url": "https://github.com/ibi-group/datatools-server/blob/80c716e3048828d50e68ee53d10453e658cfdeeb/.github/workflows/codeql-analysis.yml",
     "retrieved_at": "2025-09-07T01:43:26.215093Z",
     "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow that duplicates the functionality of the provided YAML, assigning reviewers based on a configuration file.",
+    "answer": "# This file is related to assigning the Project Lead for the PRs\n\nname: 'Add Project Lead as Reviewer'\non: pull_request\n\njobs:\n  add-reviews:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: kentaro-m/auto-assign-action@v1.1.2\n        with:\n          configuration-path: \".github/auto_assign.yml\"\n",
+    "source": "KamalDGRT/yii2-portfolio",
+    "path": ".github/workflows/assign_pr.yml",
+    "url": "https://github.com/KamalDGRT/yii2-portfolio/blob/5671dcf57fcc4d3451520d36f155dc8263ffc35f/.github/workflows/assign_pr.yml",
+    "retrieved_at": "2025-09-08T01:43:07.200490Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What pull request event triggers this workflow?",
+    "answer": "# This file is related to assigning the Project Lead for the PRs\n\nname: 'Add Project Lead as Reviewer'\non: pull_request\n\njobs:\n  add-reviews:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: kentaro-m/auto-assign-action@v1.1.2\n        with:\n          configuration-path: \".github/auto_assign.yml\"\n",
+    "source": "KamalDGRT/yii2-portfolio",
+    "path": ".github/workflows/assign_pr.yml",
+    "url": "https://github.com/KamalDGRT/yii2-portfolio/blob/5671dcf57fcc4d3451520d36f155dc8263ffc35f/.github/workflows/assign_pr.yml",
+    "retrieved_at": "2025-09-08T01:43:07.654947Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps in this workflow run concurrently or are contingent upon the completion of others?",
+    "answer": "# This file is related to assigning the Project Lead for the PRs\n\nname: 'Add Project Lead as Reviewer'\non: pull_request\n\njobs:\n  add-reviews:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: kentaro-m/auto-assign-action@v1.1.2\n        with:\n          configuration-path: \".github/auto_assign.yml\"\n",
+    "source": "KamalDGRT/yii2-portfolio",
+    "path": ".github/workflows/assign_pr.yml",
+    "url": "https://github.com/KamalDGRT/yii2-portfolio/blob/5671dcf57fcc4d3451520d36f155dc8263ffc35f/.github/workflows/assign_pr.yml",
+    "retrieved_at": "2025-09-08T01:43:08.210769Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "Does the `auto_assign.yml` configuration file contain any secrets or environment variables?",
+    "answer": "# This file is related to assigning the Project Lead for the PRs\n\nname: 'Add Project Lead as Reviewer'\non: pull_request\n\njobs:\n  add-reviews:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: kentaro-m/auto-assign-action@v1.1.2\n        with:\n          configuration-path: \".github/auto_assign.yml\"\n",
+    "source": "KamalDGRT/yii2-portfolio",
+    "path": ".github/workflows/assign_pr.yml",
+    "url": "https://github.com/KamalDGRT/yii2-portfolio/blob/5671dcf57fcc4d3451520d36f155dc8263ffc35f/.github/workflows/assign_pr.yml",
+    "retrieved_at": "2025-09-08T01:43:08.811271Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the primary function of this workflow regarding pull requests?",
+    "answer": "# This file is related to assigning the Project Lead for the PRs\n\nname: 'Add Project Lead as Reviewer'\non: pull_request\n\njobs:\n  add-reviews:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: kentaro-m/auto-assign-action@v1.1.2\n        with:\n          configuration-path: \".github/auto_assign.yml\"\n",
+    "source": "KamalDGRT/yii2-portfolio",
+    "path": ".github/workflows/assign_pr.yml",
+    "url": "https://github.com/KamalDGRT/yii2-portfolio/blob/5671dcf57fcc4d3451520d36f155dc8263ffc35f/.github/workflows/assign_pr.yml",
+    "retrieved_at": "2025-09-08T01:43:09.188007Z",
+    "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow YAML file that replicates the functionality of the provided Crowdin Action workflow.",
+    "answer": "name: Crowdin Action\n\non:\n  push:\n    branches:\n      - main\n\njobs:\n  synchronize-with-crowdin:\n    runs-on: ubuntu-latest\n\n    steps:\n\n    - name: Checkout\n      uses: actions/checkout@v2\n\n    - name: crowdin action\n      uses: crowdin/github-action@1.4.2\n      with:\n        upload_translations: true\n        download_translations: true\n      env:\n        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n        CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}\n        CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}\n",
+    "source": "sagivo/calendso-2",
+    "path": ".github/workflows/crowdin.yml",
+    "url": "https://github.com/sagivo/calendso-2/blob/0d50d278bbb734598e112f507334596544a44955/.github/workflows/crowdin.yml",
+    "retrieved_at": "2025-09-08T01:43:09.946922Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events on the `main` branch trigger this Crowdin synchronization workflow?",
+    "answer": "name: Crowdin Action\n\non:\n  push:\n    branches:\n      - main\n\njobs:\n  synchronize-with-crowdin:\n    runs-on: ubuntu-latest\n\n    steps:\n\n    - name: Checkout\n      uses: actions/checkout@v2\n\n    - name: crowdin action\n      uses: crowdin/github-action@1.4.2\n      with:\n        upload_translations: true\n        download_translations: true\n      env:\n        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n        CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}\n        CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}\n",
+    "source": "sagivo/calendso-2",
+    "path": ".github/workflows/crowdin.yml",
+    "url": "https://github.com/sagivo/calendso-2/blob/0d50d278bbb734598e112f507334596544a44955/.github/workflows/crowdin.yml",
+    "retrieved_at": "2025-09-08T01:43:10.489654Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Does this workflow have any jobs or steps that execute in parallel or depend on the completion of other jobs or steps?",
+    "answer": "name: Crowdin Action\n\non:\n  push:\n    branches:\n      - main\n\njobs:\n  synchronize-with-crowdin:\n    runs-on: ubuntu-latest\n\n    steps:\n\n    - name: Checkout\n      uses: actions/checkout@v2\n\n    - name: crowdin action\n      uses: crowdin/github-action@1.4.2\n      with:\n        upload_translations: true\n        download_translations: true\n      env:\n        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n        CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}\n        CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}\n",
+    "source": "sagivo/calendso-2",
+    "path": ".github/workflows/crowdin.yml",
+    "url": "https://github.com/sagivo/calendso-2/blob/0d50d278bbb734598e112f507334596544a44955/.github/workflows/crowdin.yml",
+    "retrieved_at": "2025-09-08T01:43:11.147387Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "How are the `CROWDIN_PROJECT_ID` and `CROWDIN_PERSONAL_TOKEN` secrets used within the Crowdin Action?",
+    "answer": "name: Crowdin Action\n\non:\n  push:\n    branches:\n      - main\n\njobs:\n  synchronize-with-crowdin:\n    runs-on: ubuntu-latest\n\n    steps:\n\n    - name: Checkout\n      uses: actions/checkout@v2\n\n    - name: crowdin action\n      uses: crowdin/github-action@1.4.2\n      with:\n        upload_translations: true\n        download_translations: true\n      env:\n        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n        CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}\n        CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}\n",
+    "source": "sagivo/calendso-2",
+    "path": ".github/workflows/crowdin.yml",
+    "url": "https://github.com/sagivo/calendso-2/blob/0d50d278bbb734598e112f507334596544a44955/.github/workflows/crowdin.yml",
+    "retrieved_at": "2025-09-08T01:43:11.601051Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the primary function of the Crowdin Action workflow?",
+    "answer": "name: Crowdin Action\n\non:\n  push:\n    branches:\n      - main\n\njobs:\n  synchronize-with-crowdin:\n    runs-on: ubuntu-latest\n\n    steps:\n\n    - name: Checkout\n      uses: actions/checkout@v2\n\n    - name: crowdin action\n      uses: crowdin/github-action@1.4.2\n      with:\n        upload_translations: true\n        download_translations: true\n      env:\n        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n        CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}\n        CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}\n",
+    "source": "sagivo/calendso-2",
+    "path": ".github/workflows/crowdin.yml",
+    "url": "https://github.com/sagivo/calendso-2/blob/0d50d278bbb734598e112f507334596544a44955/.github/workflows/crowdin.yml",
+    "retrieved_at": "2025-09-08T01:43:12.000806Z",
+    "question_style": "style_5"
   }
 ]

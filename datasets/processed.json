@@ -1,8 +1,10 @@
 [
+  "KamalDGRT/yii2-portfolio:.github/workflows/assign_pr.yml",
   "aws-cloudformation/aws-guard-rules-registry:.github/workflows/ci.yml",
   "endlessm/flatpak:.github/workflows/check.yml",
   "ibi-group/datatools-server:.github/workflows/codeql-analysis.yml",
   "kyegomez/Andromeda:.github/workflows/pr-gpu.yaml",
   "microsoft/redplex:.github/workflows/validate.yml",
+  "sagivo/calendso-2:.github/workflows/crowdin.yml",
   "sdiehl/pairing:.github/workflows/cabal.yml"
 ]
