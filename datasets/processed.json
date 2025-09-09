@@ -1,4 +1,6 @@
 [
+  "GPE-Sistemas/zephyr-ncs-gpe:.github/workflows/west_cmds.yml",
+  "Hugongra/code-challenge-2024-Hugongra:.github/workflows/classroom.yml",
   "KamalDGRT/yii2-portfolio:.github/workflows/assign_pr.yml",
   "aws-cloudformation/aws-guard-rules-registry:.github/workflows/ci.yml",
   "endlessm/flatpak:.github/workflows/check.yml",
