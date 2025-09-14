@@ -808,5 +808,95 @@
     "url": "https://github.com/NighCyan/FNF-TG-Engine/blob/84be9d5daa633cad25344c76d2fc40117cb63b5b/.github/workflows/main.yml",
     "retrieved_at": "2025-09-13T01:24:03.930093Z",
     "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow YAML file that replicates the functionality of the provided YAML file.",
+    "answer": "name: \"Main / Pull requests build\"\non:\n    pull_request:\n        paths-ignore:\n            - '.txt'\n            - 'LICENSE'\n            - 'docs/**'\n        branches: [ main ]\n    push:\n        branches:\n            - main\n\njobs:\n    build:\n        runs-on: ${{ matrix.os }}\n        strategy:\n            fail-fast: true\n            matrix:\n                os: [ windows-latest, ubuntu-latest, macos-13 ]\n            max-parallel: 1\n        steps:\n            -   uses: actions/checkout@v4.1.6\n            -   name: Set up JDK 21\n                uses: actions/setup-java@v4.2.1\n                with:\n                    distribution: 'temurin'\n                    java-version: 21\n                    architecture: x64\n            -   name: Cache Maven packages\n                uses: actions/cache@v4.0.2\n                with:\n                    path: ~/.m2\n                    key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}\n                    restore-keys: ${{ runner.os }}-m2-\n            -   name: Build with Maven\n                run: mvn --no-transfer-progress verify\n",
+    "source": "juhablkdk/MyWebGoat",
+    "path": ".github/workflows/build.yml",
+    "url": "https://github.com/juhablkdk/MyWebGoat/blob/a738c5c74d9405b947c6882ffa6513a77f12e4bd/.github/workflows/build.yml",
+    "retrieved_at": "2025-09-14T01:43:05.348385Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events on the `main` branch or pull requests trigger this workflow?",
+    "answer": "name: \"Main / Pull requests build\"\non:\n    pull_request:\n        paths-ignore:\n            - '.txt'\n            - 'LICENSE'\n            - 'docs/**'\n        branches: [ main ]\n    push:\n        branches:\n            - main\n\njobs:\n    build:\n        runs-on: ${{ matrix.os }}\n        strategy:\n            fail-fast: true\n            matrix:\n                os: [ windows-latest, ubuntu-latest, macos-13 ]\n            max-parallel: 1\n        steps:\n            -   uses: actions/checkout@v4.1.6\n            -   name: Set up JDK 21\n                uses: actions/setup-java@v4.2.1\n                with:\n                    distribution: 'temurin'\n                    java-version: 21\n                    architecture: x64\n            -   name: Cache Maven packages\n                uses: actions/cache@v4.0.2\n                with:\n                    path: ~/.m2\n                    key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}\n                    restore-keys: ${{ runner.os }}-m2-\n            -   name: Build with Maven\n                run: mvn --no-transfer-progress verify\n",
+    "source": "juhablkdk/MyWebGoat",
+    "path": ".github/workflows/build.yml",
+    "url": "https://github.com/juhablkdk/MyWebGoat/blob/a738c5c74d9405b947c6882ffa6513a77f12e4bd/.github/workflows/build.yml",
+    "retrieved_at": "2025-09-14T01:43:05.975770Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within the \"Main / Pull requests build\" workflow execute in parallel or sequentially based on dependencies?",
+    "answer": "name: \"Main / Pull requests build\"\non:\n    pull_request:\n        paths-ignore:\n            - '.txt'\n            - 'LICENSE'\n            - 'docs/**'\n        branches: [ main ]\n    push:\n        branches:\n            - main\n\njobs:\n    build:\n        runs-on: ${{ matrix.os }}\n        strategy:\n            fail-fast: true\n            matrix:\n                os: [ windows-latest, ubuntu-latest, macos-13 ]\n            max-parallel: 1\n        steps:\n            -   uses: actions/checkout@v4.1.6\n            -   name: Set up JDK 21\n                uses: actions/setup-java@v4.2.1\n                with:\n                    distribution: 'temurin'\n                    java-version: 21\n                    architecture: x64\n            -   name: Cache Maven packages\n                uses: actions/cache@v4.0.2\n                with:\n                    path: ~/.m2\n                    key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}\n                    restore-keys: ${{ runner.os }}-m2-\n            -   name: Build with Maven\n                run: mvn --no-transfer-progress verify\n",
+    "source": "juhablkdk/MyWebGoat",
+    "path": ".github/workflows/build.yml",
+    "url": "https://github.com/juhablkdk/MyWebGoat/blob/a738c5c74d9405b947c6882ffa6513a77f12e4bd/.github/workflows/build.yml",
+    "retrieved_at": "2025-09-14T01:43:06.453365Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "How are Maven packages cached and restored based on the OS and pom.xml files?",
+    "answer": "name: \"Main / Pull requests build\"\non:\n    pull_request:\n        paths-ignore:\n            - '.txt'\n            - 'LICENSE'\n            - 'docs/**'\n        branches: [ main ]\n    push:\n        branches:\n            - main\n\njobs:\n    build:\n        runs-on: ${{ matrix.os }}\n        strategy:\n            fail-fast: true\n            matrix:\n                os: [ windows-latest, ubuntu-latest, macos-13 ]\n            max-parallel: 1\n        steps:\n            -   uses: actions/checkout@v4.1.6\n            -   name: Set up JDK 21\n                uses: actions/setup-java@v4.2.1\n                with:\n                    distribution: 'temurin'\n                    java-version: 21\n                    architecture: x64\n            -   name: Cache Maven packages\n                uses: actions/cache@v4.0.2\n                with:\n                    path: ~/.m2\n                    key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}\n                    restore-keys: ${{ runner.os }}-m2-\n            -   name: Build with Maven\n                run: mvn --no-transfer-progress verify\n",
+    "source": "juhablkdk/MyWebGoat",
+    "path": ".github/workflows/build.yml",
+    "url": "https://github.com/juhablkdk/MyWebGoat/blob/a738c5c74d9405b947c6882ffa6513a77f12e4bd/.github/workflows/build.yml",
+    "retrieved_at": "2025-09-14T01:43:07.056527Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the primary function or goal of this pull request build workflow?",
+    "answer": "name: \"Main / Pull requests build\"\non:\n    pull_request:\n        paths-ignore:\n            - '.txt'\n            - 'LICENSE'\n            - 'docs/**'\n        branches: [ main ]\n    push:\n        branches:\n            - main\n\njobs:\n    build:\n        runs-on: ${{ matrix.os }}\n        strategy:\n            fail-fast: true\n            matrix:\n                os: [ windows-latest, ubuntu-latest, macos-13 ]\n            max-parallel: 1\n        steps:\n            -   uses: actions/checkout@v4.1.6\n            -   name: Set up JDK 21\n                uses: actions/setup-java@v4.2.1\n                with:\n                    distribution: 'temurin'\n                    java-version: 21\n                    architecture: x64\n            -   name: Cache Maven packages\n                uses: actions/cache@v4.0.2\n                with:\n                    path: ~/.m2\n                    key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}\n                    restore-keys: ${{ runner.os }}-m2-\n            -   name: Build with Maven\n                run: mvn --no-transfer-progress verify\n",
+    "source": "juhablkdk/MyWebGoat",
+    "path": ".github/workflows/build.yml",
+    "url": "https://github.com/juhablkdk/MyWebGoat/blob/a738c5c74d9405b947c6882ffa6513a77f12e4bd/.github/workflows/build.yml",
+    "retrieved_at": "2025-09-14T01:43:07.615127Z",
+    "question_style": "style_5"
+  },
+  {
+    "question": "Generate a GitHub Actions workflow YAML file that replicates the functionality of the provided workflow YAML file.",
+    "answer": "name: Evaluation\n\n# Run this workflow every time a new commit pushed to your repository\non: push\n\njobs:\n\n  unit_tests:\n    name: Unit Tests\n    runs-on: ubuntu-latest\n\n    steps:\n      # Checks out a copy of your repository on the ubuntu-latest machine\n      - name: Checkout code\n        uses: actions/checkout@v3\n\n      - name: Set up Python 3.9\n        uses: actions/setup-python@v2\n        with:\n          python-version: 3.9\n\n      - name: Install dependencies\n        run: |\n          python -m pip install --upgrade pip\n          pip install pytest\n          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi\n\n      - name: Test with pytest\n        timeout-minutes: 2\n        run: |\n          pytest -vv --timeout=20\n\n\n  bash_tests:\n    name: Bash Tests\n    runs-on: ubuntu-latest\n\n    steps:\n      # Checks out a copy of your repository on the ubuntu-latest machine\n      - name: Checkout code\n        uses: actions/checkout@v2\n\n      - name: Set up Python 3.9\n        uses: actions/setup-python@v2\n        with:\n          python-version: 3.9\n\n      - name: Install dependencies\n        run: |\n          python -m pip install --upgrade pip\n          pip install pytest\n          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi\n          chmod +x *.sh\n\n      - name: Launch servers into background\n        run: |\n          bash ./setup.sh > load_balancer.txt &\n\n      - name: stress test on standby\n        run: |\n          bash ./stress_test.sh\n\n      - name: load_balancer Logs\n        uses: actions/upload-artifact@v2\n        with:\n          name: load_balancer logs\n          path: load_balancer.txt\n          retention-days: 1\n",
+    "source": "RGarrido03/CD-Guiao-4",
+    "path": ".github/workflows/score.yml",
+    "url": "https://github.com/RGarrido03/CD-Guiao-4/blob/6cb1b3affae06edfedae5d2fe80a07dc7a4d0276/.github/workflows/score.yml",
+    "retrieved_at": "2025-09-14T01:43:08.426622Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events trigger the \"Evaluation\" workflow?",
+    "answer": "name: Evaluation\n\n# Run this workflow every time a new commit pushed to your repository\non: push\n\njobs:\n\n  unit_tests:\n    name: Unit Tests\n    runs-on: ubuntu-latest\n\n    steps:\n      # Checks out a copy of your repository on the ubuntu-latest machine\n      - name: Checkout code\n        uses: actions/checkout@v3\n\n      - name: Set up Python 3.9\n        uses: actions/setup-python@v2\n        with:\n          python-version: 3.9\n\n      - name: Install dependencies\n        run: |\n          python -m pip install --upgrade pip\n          pip install pytest\n          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi\n\n      - name: Test with pytest\n        timeout-minutes: 2\n        run: |\n          pytest -vv --timeout=20\n\n\n  bash_tests:\n    name: Bash Tests\n    runs-on: ubuntu-latest\n\n    steps:\n      # Checks out a copy of your repository on the ubuntu-latest machine\n      - name: Checkout code\n        uses: actions/checkout@v2\n\n      - name: Set up Python 3.9\n        uses: actions/setup-python@v2\n        with:\n          python-version: 3.9\n\n      - name: Install dependencies\n        run: |\n          python -m pip install --upgrade pip\n          pip install pytest\n          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi\n          chmod +x *.sh\n\n      - name: Launch servers into background\n        run: |\n          bash ./setup.sh > load_balancer.txt &\n\n      - name: stress test on standby\n        run: |\n          bash ./stress_test.sh\n\n      - name: load_balancer Logs\n        uses: actions/upload-artifact@v2\n        with:\n          name: load_balancer logs\n          path: load_balancer.txt\n          retention-days: 1\n",
+    "source": "RGarrido03/CD-Guiao-4",
+    "path": ".github/workflows/score.yml",
+    "url": "https://github.com/RGarrido03/CD-Guiao-4/blob/6cb1b3affae06edfedae5d2fe80a07dc7a4d0276/.github/workflows/score.yml",
+    "retrieved_at": "2025-09-14T01:43:08.880122Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs and steps within jobs run in parallel, and are there any inter-job dependencies defined in the workflow?",
+    "answer": "name: Evaluation\n\n# Run this workflow every time a new commit pushed to your repository\non: push\n\njobs:\n\n  unit_tests:\n    name: Unit Tests\n    runs-on: ubuntu-latest\n\n    steps:\n      # Checks out a copy of your repository on the ubuntu-latest machine\n      - name: Checkout code\n        uses: actions/checkout@v3\n\n      - name: Set up Python 3.9\n        uses: actions/setup-python@v2\n        with:\n          python-version: 3.9\n\n      - name: Install dependencies\n        run: |\n          python -m pip install --upgrade pip\n          pip install pytest\n          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi\n\n      - name: Test with pytest\n        timeout-minutes: 2\n        run: |\n          pytest -vv --timeout=20\n\n\n  bash_tests:\n    name: Bash Tests\n    runs-on: ubuntu-latest\n\n    steps:\n      # Checks out a copy of your repository on the ubuntu-latest machine\n      - name: Checkout code\n        uses: actions/checkout@v2\n\n      - name: Set up Python 3.9\n        uses: actions/setup-python@v2\n        with:\n          python-version: 3.9\n\n      - name: Install dependencies\n        run: |\n          python -m pip install --upgrade pip\n          pip install pytest\n          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi\n          chmod +x *.sh\n\n      - name: Launch servers into background\n        run: |\n          bash ./setup.sh > load_balancer.txt &\n\n      - name: stress test on standby\n        run: |\n          bash ./stress_test.sh\n\n      - name: load_balancer Logs\n        uses: actions/upload-artifact@v2\n        with:\n          name: load_balancer logs\n          path: load_balancer.txt\n          retention-days: 1\n",
+    "source": "RGarrido03/CD-Guiao-4",
+    "path": ".github/workflows/score.yml",
+    "url": "https://github.com/RGarrido03/CD-Guiao-4/blob/6cb1b3affae06edfedae5d2fe80a07dc7a4d0276/.github/workflows/score.yml",
+    "retrieved_at": "2025-09-14T01:43:09.464978Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "How are artifacts used to persist and access the load_balancer.txt file?",
+    "answer": "name: Evaluation\n\n# Run this workflow every time a new commit pushed to your repository\non: push\n\njobs:\n\n  unit_tests:\n    name: Unit Tests\n    runs-on: ubuntu-latest\n\n    steps:\n      # Checks out a copy of your repository on the ubuntu-latest machine\n      - name: Checkout code\n        uses: actions/checkout@v3\n\n      - name: Set up Python 3.9\n        uses: actions/setup-python@v2\n        with:\n          python-version: 3.9\n\n      - name: Install dependencies\n        run: |\n          python -m pip install --upgrade pip\n          pip install pytest\n          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi\n\n      - name: Test with pytest\n        timeout-minutes: 2\n        run: |\n          pytest -vv --timeout=20\n\n\n  bash_tests:\n    name: Bash Tests\n    runs-on: ubuntu-latest\n\n    steps:\n      # Checks out a copy of your repository on the ubuntu-latest machine\n      - name: Checkout code\n        uses: actions/checkout@v2\n\n      - name: Set up Python 3.9\n        uses: actions/setup-python@v2\n        with:\n          python-version: 3.9\n\n      - name: Install dependencies\n        run: |\n          python -m pip install --upgrade pip\n          pip install pytest\n          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi\n          chmod +x *.sh\n\n      - name: Launch servers into background\n        run: |\n          bash ./setup.sh > load_balancer.txt &\n\n      - name: stress test on standby\n        run: |\n          bash ./stress_test.sh\n\n      - name: load_balancer Logs\n        uses: actions/upload-artifact@v2\n        with:\n          name: load_balancer logs\n          path: load_balancer.txt\n          retention-days: 1\n",
+    "source": "RGarrido03/CD-Guiao-4",
+    "path": ".github/workflows/score.yml",
+    "url": "https://github.com/RGarrido03/CD-Guiao-4/blob/6cb1b3affae06edfedae5d2fe80a07dc7a4d0276/.github/workflows/score.yml",
+    "retrieved_at": "2025-09-14T01:43:10.005816Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the main function or goal of this workflow file?",
+    "answer": "name: Evaluation\n\n# Run this workflow every time a new commit pushed to your repository\non: push\n\njobs:\n\n  unit_tests:\n    name: Unit Tests\n    runs-on: ubuntu-latest\n\n    steps:\n      # Checks out a copy of your repository on the ubuntu-latest machine\n      - name: Checkout code\n        uses: actions/checkout@v3\n\n      - name: Set up Python 3.9\n        uses: actions/setup-python@v2\n        with:\n          python-version: 3.9\n\n      - name: Install dependencies\n        run: |\n          python -m pip install --upgrade pip\n          pip install pytest\n          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi\n\n      - name: Test with pytest\n        timeout-minutes: 2\n        run: |\n          pytest -vv --timeout=20\n\n\n  bash_tests:\n    name: Bash Tests\n    runs-on: ubuntu-latest\n\n    steps:\n      # Checks out a copy of your repository on the ubuntu-latest machine\n      - name: Checkout code\n        uses: actions/checkout@v2\n\n      - name: Set up Python 3.9\n        uses: actions/setup-python@v2\n        with:\n          python-version: 3.9\n\n      - name: Install dependencies\n        run: |\n          python -m pip install --upgrade pip\n          pip install pytest\n          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi\n          chmod +x *.sh\n\n      - name: Launch servers into background\n        run: |\n          bash ./setup.sh > load_balancer.txt &\n\n      - name: stress test on standby\n        run: |\n          bash ./stress_test.sh\n\n      - name: load_balancer Logs\n        uses: actions/upload-artifact@v2\n        with:\n          name: load_balancer logs\n          path: load_balancer.txt\n          retention-days: 1\n",
+    "source": "RGarrido03/CD-Guiao-4",
+    "path": ".github/workflows/score.yml",
+    "url": "https://github.com/RGarrido03/CD-Guiao-4/blob/6cb1b3affae06edfedae5d2fe80a07dc7a4d0276/.github/workflows/score.yml",
+    "retrieved_at": "2025-09-14T01:43:10.572437Z",
+    "question_style": "style_5"
   }
 ]
