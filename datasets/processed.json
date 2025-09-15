@@ -1,6 +1,7 @@
 [
   "DiegoJRAleixandre/RemoteID-for-QgroundControl:.github/workflows/linux_release.yml",
   "GPE-Sistemas/zephyr-ncs-gpe:.github/workflows/west_cmds.yml",
+  "GenuineArt/langflow-ai:.github/workflows/release.yml",
   "Hugongra/code-challenge-2024-Hugongra:.github/workflows/classroom.yml",
   "KamalDGRT/yii2-portfolio:.github/workflows/assign_pr.yml",
   "NJITBlockchainLab/bifold:.github/workflows/repolinter.yml",
@@ -18,5 +19,6 @@
   "microsoft/redplex:.github/workflows/validate.yml",
   "sagivo/calendso-2:.github/workflows/crowdin.yml",
   "sdiehl/pairing:.github/workflows/cabal.yml",
-  "tjfernandes/SE2122_57464_58763_57677_58125_63764:.github/workflows/refresh-csl-subtrees.yml"
+  "tjfernandes/SE2122_57464_58763_57677_58125_63764:.github/workflows/refresh-csl-subtrees.yml",
+  "wsdevv/n8n-clockify-workaround:.github/workflows/chromatic.yml"
 ]
