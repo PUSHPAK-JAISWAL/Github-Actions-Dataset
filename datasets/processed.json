@@ -1,4 +1,5 @@
 [
+  "DiegoJRAleixandre/RemoteID-for-QgroundControl:.github/workflows/linux_debug.yml",
   "DiegoJRAleixandre/RemoteID-for-QgroundControl:.github/workflows/linux_release.yml",
   "GPE-Sistemas/zephyr-ncs-gpe:.github/workflows/west_cmds.yml",
   "GenuineArt/langflow-ai:.github/workflows/release.yml",
@@ -8,6 +9,7 @@
   "NighCyan/FNF-TG-Engine:.github/workflows/main.yml",
   "RGarrido03/CD-Guiao-4:.github/workflows/score.yml",
   "YOU-i-Labs/harfbuzz:.github/workflows/msvc-ci.yml",
+  "aave/aave-ui:.github/workflows/draft-release.yml",
   "aws-cloudformation/aws-guard-rules-registry:.github/workflows/ci.yml",
   "da03/hierarchical_diffusion_LM:.github/workflows/add-model-like.yml",
   "elder-plinius/Synthia:.github/workflows/docker-ci.yml",
