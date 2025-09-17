@@ -19,8 +19,10 @@
   "kyegomez/Andromeda:.github/workflows/pr-gpu.yaml",
   "leviYX/netty-source-code:.github/workflows/ci-pr-reports.yml",
   "microsoft/redplex:.github/workflows/validate.yml",
+  "nampereira/desofs-tp04:.github/workflows/3-chaining.yaml",
   "sagivo/calendso-2:.github/workflows/crowdin.yml",
   "sdiehl/pairing:.github/workflows/cabal.yml",
   "tjfernandes/SE2122_57464_58763_57677_58125_63764:.github/workflows/refresh-csl-subtrees.yml",
-  "wsdevv/n8n-clockify-workaround:.github/workflows/chromatic.yml"
+  "wsdevv/n8n-clockify-workaround:.github/workflows/chromatic.yml",
+  "yunghegel/opengl_starter:.github/workflows/cmake-build.yml"
 ]
