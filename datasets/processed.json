@@ -22,6 +22,7 @@
   "endlessm/flatpak:.github/workflows/check.yml",
   "ibi-group/datatools-server:.github/workflows/codeql-analysis.yml",
   "juhablkdk/MyWebGoat:.github/workflows/build.yml",
+  "kuznia-rdzeni/litex_:.github/workflows/ci.yml",
   "kyegomez/Andromeda:.github/workflows/pr-gpu.yaml",
   "leviYX/netty-source-code:.github/workflows/ci-pr-reports.yml",
   "microsoft/redplex:.github/workflows/validate.yml",
@@ -31,6 +32,7 @@
   "sagivo/calendso-2:.github/workflows/crowdin.yml",
   "sdiehl/pairing:.github/workflows/cabal.yml",
   "tjfernandes/SE2122_57464_58763_57677_58125_63764:.github/workflows/refresh-csl-subtrees.yml",
+  "viagogo/HalKit:.github/workflows/halkit-deploy.yml",
   "wsdevv/n8n-clockify-workaround:.github/workflows/chromatic.yml",
   "yunghegel/opengl_starter:.github/workflows/cmake-build.yml"
 ]
