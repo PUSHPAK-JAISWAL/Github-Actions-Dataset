@@ -1618,5 +1618,95 @@
     "url": "https://github.com/kuznia-rdzeni/litex_/blob/6ec1e14269f1b984c0355989a9dbeca6802d21cc/.github/workflows/ci.yml",
     "retrieved_at": "2025-09-22T01:45:48.325879Z",
     "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow YAML file that performs code linting using npm, similar to the provided workflow.",
+    "answer": "name: Code Linting\n\non: [push, pull_request]\n\njobs:\n  lint:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: actions/setup-node@v1\n      - run: npm install\n      - run: >\n          npm install $(node -e \"const deps=require('./package.json').peerDependencies;\n          console.log(Object.keys(deps).map(key=>key+'@'+deps[key]).join(' '));\")\n      - run: npm run lint\n",
+    "source": "MannyCooper/hexo-theme-candy",
+    "path": ".github/workflows/lint.yml",
+    "url": "https://github.com/MannyCooper/hexo-theme-candy/blob/ba535961a05f514e00cd97aad4ab3afd9a5cfcd2/.github/workflows/lint.yml",
+    "retrieved_at": "2025-09-23T01:37:11.875366Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events trigger the execution of this code linting workflow?",
+    "answer": "name: Code Linting\n\non: [push, pull_request]\n\njobs:\n  lint:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: actions/setup-node@v1\n      - run: npm install\n      - run: >\n          npm install $(node -e \"const deps=require('./package.json').peerDependencies;\n          console.log(Object.keys(deps).map(key=>key+'@'+deps[key]).join(' '));\")\n      - run: npm run lint\n",
+    "source": "MannyCooper/hexo-theme-candy",
+    "path": ".github/workflows/lint.yml",
+    "url": "https://github.com/MannyCooper/hexo-theme-candy/blob/ba535961a05f514e00cd97aad4ab3afd9a5cfcd2/.github/workflows/lint.yml",
+    "retrieved_at": "2025-09-23T01:37:12.418227Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within the \"Code Linting\" workflow execute concurrently or sequentially based on dependencies?",
+    "answer": "name: Code Linting\n\non: [push, pull_request]\n\njobs:\n  lint:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: actions/setup-node@v1\n      - run: npm install\n      - run: >\n          npm install $(node -e \"const deps=require('./package.json').peerDependencies;\n          console.log(Object.keys(deps).map(key=>key+'@'+deps[key]).join(' '));\")\n      - run: npm run lint\n",
+    "source": "MannyCooper/hexo-theme-candy",
+    "path": ".github/workflows/lint.yml",
+    "url": "https://github.com/MannyCooper/hexo-theme-candy/blob/ba535961a05f514e00cd97aad4ab3afd9a5cfcd2/.github/workflows/lint.yml",
+    "retrieved_at": "2025-09-23T01:37:13.061312Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "Does this workflow utilize any environment variables, secrets, caching, or artifacts?",
+    "answer": "name: Code Linting\n\non: [push, pull_request]\n\njobs:\n  lint:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: actions/setup-node@v1\n      - run: npm install\n      - run: >\n          npm install $(node -e \"const deps=require('./package.json').peerDependencies;\n          console.log(Object.keys(deps).map(key=>key+'@'+deps[key]).join(' '));\")\n      - run: npm run lint\n",
+    "source": "MannyCooper/hexo-theme-candy",
+    "path": ".github/workflows/lint.yml",
+    "url": "https://github.com/MannyCooper/hexo-theme-candy/blob/ba535961a05f514e00cd97aad4ab3afd9a5cfcd2/.github/workflows/lint.yml",
+    "retrieved_at": "2025-09-23T01:37:13.587829Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What's the primary function of this code linting workflow?",
+    "answer": "name: Code Linting\n\non: [push, pull_request]\n\njobs:\n  lint:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: actions/setup-node@v1\n      - run: npm install\n      - run: >\n          npm install $(node -e \"const deps=require('./package.json').peerDependencies;\n          console.log(Object.keys(deps).map(key=>key+'@'+deps[key]).join(' '));\")\n      - run: npm run lint\n",
+    "source": "MannyCooper/hexo-theme-candy",
+    "path": ".github/workflows/lint.yml",
+    "url": "https://github.com/MannyCooper/hexo-theme-candy/blob/ba535961a05f514e00cd97aad4ab3afd9a5cfcd2/.github/workflows/lint.yml",
+    "retrieved_at": "2025-09-23T01:37:14.201472Z",
+    "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow YAML file equivalent to the provided example, ensuring identical triggers, jobs, and steps.",
+    "answer": "\nname: unitTest\n\non: [push, pull_request]\n\njobs:     \n  unit-test:\n    runs-on: ubuntu-latest\n\n    strategy:\n      matrix:\n        node-version: [14.x, 15.x]\n\n    steps:\n      - uses: actions/checkout@v2\n      - name: Use Node.js ${{ matrix.node-version }}\n        uses: actions/setup-node@v1\n        with:\n          node-version: ${{ matrix.node-version }}\n      - run: npm ci\n      - run: npm run build --if-present\n      - run: npm run test:unit",
+    "source": "mendixlabs/CustomDropdown",
+    "path": ".github/workflows/npm.yml",
+    "url": "https://github.com/mendixlabs/CustomDropdown/blob/4fb9416a401b60f329eba2625a336bf05fb7d7c3/.github/workflows/npm.yml",
+    "retrieved_at": "2025-09-23T01:37:15.098500Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events trigger the execution of the \"unitTest\" workflow?",
+    "answer": "\nname: unitTest\n\non: [push, pull_request]\n\njobs:     \n  unit-test:\n    runs-on: ubuntu-latest\n\n    strategy:\n      matrix:\n        node-version: [14.x, 15.x]\n\n    steps:\n      - uses: actions/checkout@v2\n      - name: Use Node.js ${{ matrix.node-version }}\n        uses: actions/setup-node@v1\n        with:\n          node-version: ${{ matrix.node-version }}\n      - run: npm ci\n      - run: npm run build --if-present\n      - run: npm run test:unit",
+    "source": "mendixlabs/CustomDropdown",
+    "path": ".github/workflows/npm.yml",
+    "url": "https://github.com/mendixlabs/CustomDropdown/blob/4fb9416a401b60f329eba2625a336bf05fb7d7c3/.github/workflows/npm.yml",
+    "retrieved_at": "2025-09-23T01:37:15.894821Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within the \"unitTest\" workflow run concurrently or have dependencies on each other?",
+    "answer": "\nname: unitTest\n\non: [push, pull_request]\n\njobs:     \n  unit-test:\n    runs-on: ubuntu-latest\n\n    strategy:\n      matrix:\n        node-version: [14.x, 15.x]\n\n    steps:\n      - uses: actions/checkout@v2\n      - name: Use Node.js ${{ matrix.node-version }}\n        uses: actions/setup-node@v1\n        with:\n          node-version: ${{ matrix.node-version }}\n      - run: npm ci\n      - run: npm run build --if-present\n      - run: npm run test:unit",
+    "source": "mendixlabs/CustomDropdown",
+    "path": ".github/workflows/npm.yml",
+    "url": "https://github.com/mendixlabs/CustomDropdown/blob/4fb9416a401b60f329eba2625a336bf05fb7d7c3/.github/workflows/npm.yml",
+    "retrieved_at": "2025-09-23T01:37:16.569190Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "Does this workflow utilize any environment variables, secrets, or caching of dependencies or artifacts?",
+    "answer": "\nname: unitTest\n\non: [push, pull_request]\n\njobs:     \n  unit-test:\n    runs-on: ubuntu-latest\n\n    strategy:\n      matrix:\n        node-version: [14.x, 15.x]\n\n    steps:\n      - uses: actions/checkout@v2\n      - name: Use Node.js ${{ matrix.node-version }}\n        uses: actions/setup-node@v1\n        with:\n          node-version: ${{ matrix.node-version }}\n      - run: npm ci\n      - run: npm run build --if-present\n      - run: npm run test:unit",
+    "source": "mendixlabs/CustomDropdown",
+    "path": ".github/workflows/npm.yml",
+    "url": "https://github.com/mendixlabs/CustomDropdown/blob/4fb9416a401b60f329eba2625a336bf05fb7d7c3/.github/workflows/npm.yml",
+    "retrieved_at": "2025-09-23T01:37:17.341224Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the primary function or effect of this unit testing workflow?",
+    "answer": "\nname: unitTest\n\non: [push, pull_request]\n\njobs:     \n  unit-test:\n    runs-on: ubuntu-latest\n\n    strategy:\n      matrix:\n        node-version: [14.x, 15.x]\n\n    steps:\n      - uses: actions/checkout@v2\n      - name: Use Node.js ${{ matrix.node-version }}\n        uses: actions/setup-node@v1\n        with:\n          node-version: ${{ matrix.node-version }}\n      - run: npm ci\n      - run: npm run build --if-present\n      - run: npm run test:unit",
+    "source": "mendixlabs/CustomDropdown",
+    "path": ".github/workflows/npm.yml",
+    "url": "https://github.com/mendixlabs/CustomDropdown/blob/4fb9416a401b60f329eba2625a336bf05fb7d7c3/.github/workflows/npm.yml",
+    "retrieved_at": "2025-09-23T01:37:17.853593Z",
+    "question_style": "style_5"
   }
 ]
