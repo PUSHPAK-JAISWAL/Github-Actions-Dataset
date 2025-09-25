@@ -1,4 +1,5 @@
 [
+  "8212369/SDL:.github/workflows/emscripten.yml",
   "DiegoJRAleixandre/RemoteID-for-QgroundControl:.github/workflows/linux_debug.yml",
   "DiegoJRAleixandre/RemoteID-for-QgroundControl:.github/workflows/linux_release.yml",
   "GPE-Sistemas/zephyr-ncs-gpe:.github/workflows/west_cmds.yml",
@@ -18,6 +19,7 @@
   "X-oss-byte/Novu:.github/workflows/prod-deploy-embed.yml",
   "YOU-i-Labs/harfbuzz:.github/workflows/msvc-ci.yml",
   "aave/aave-ui:.github/workflows/draft-release.yml",
+  "amihaiemil/docker-java-api:.github/workflows/maven.yml",
   "aws-cloudformation/aws-guard-rules-registry:.github/workflows/ci.yml",
   "cnych/microservices-demo:.github/workflows/ci-master.yaml",
   "da03/hierarchical_diffusion_LM:.github/workflows/add-model-like.yml",

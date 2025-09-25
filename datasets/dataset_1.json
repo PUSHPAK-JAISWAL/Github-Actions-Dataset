@@ -1798,5 +1798,95 @@
     "url": "https://github.com/ISISComputingGroup/poco/blob/5cc749aa5baa4405ec2f74ea72975f37f81361c0/.github/workflows/ci.yml",
     "retrieved_at": "2025-09-24T01:38:45.786915Z",
     "question_style": "style_5"
+  },
+  {
+    "question": "Generate a GitHub Actions workflow YAML file that replicates the provided Java CI workflow's functionality, including matrix testing across different JDKs.",
+    "answer": "name: Java CI\n\non: [push]\n\njobs:\n  test:\n    runs-on: ${{ matrix.os }}\n    strategy:\n      matrix:\n        os: [ubuntu-18.04]\n        java: [8, 8.0.192, 11, 11.0.2, 13, 13.0.4, 15, 16-ea]\n      fail-fast: false\n      max-parallel: 2          \n    name: Test JDK ${{ matrix.java }}, ${{ matrix.os }}\n\n    steps:\n    - uses: actions/checkout@v1\n    - name: Set up JDK\n      uses: actions/setup-java@v1\n      with:\n        java-version: ${{ matrix.java }}\n    - name: Test with Maven\n      run: mvn test -B --file pom.xml\n",
+    "source": "amihaiemil/docker-java-api",
+    "path": ".github/workflows/maven.yml",
+    "url": "https://github.com/amihaiemil/docker-java-api/blob/653943a3012fe104ff5d226351cebbe52785eba5/.github/workflows/maven.yml",
+    "retrieved_at": "2025-09-25T01:38:47.879074Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What event triggers the \"Java CI\" workflow?",
+    "answer": "name: Java CI\n\non: [push]\n\njobs:\n  test:\n    runs-on: ${{ matrix.os }}\n    strategy:\n      matrix:\n        os: [ubuntu-18.04]\n        java: [8, 8.0.192, 11, 11.0.2, 13, 13.0.4, 15, 16-ea]\n      fail-fast: false\n      max-parallel: 2          \n    name: Test JDK ${{ matrix.java }}, ${{ matrix.os }}\n\n    steps:\n    - uses: actions/checkout@v1\n    - name: Set up JDK\n      uses: actions/setup-java@v1\n      with:\n        java-version: ${{ matrix.java }}\n    - name: Test with Maven\n      run: mvn test -B --file pom.xml\n",
+    "source": "amihaiemil/docker-java-api",
+    "path": ".github/workflows/maven.yml",
+    "url": "https://github.com/amihaiemil/docker-java-api/blob/653943a3012fe104ff5d226351cebbe52785eba5/.github/workflows/maven.yml",
+    "retrieved_at": "2025-09-25T01:38:48.449883Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within the \"Java CI\" workflow execute in parallel, and which ones have dependencies?",
+    "answer": "name: Java CI\n\non: [push]\n\njobs:\n  test:\n    runs-on: ${{ matrix.os }}\n    strategy:\n      matrix:\n        os: [ubuntu-18.04]\n        java: [8, 8.0.192, 11, 11.0.2, 13, 13.0.4, 15, 16-ea]\n      fail-fast: false\n      max-parallel: 2          \n    name: Test JDK ${{ matrix.java }}, ${{ matrix.os }}\n\n    steps:\n    - uses: actions/checkout@v1\n    - name: Set up JDK\n      uses: actions/setup-java@v1\n      with:\n        java-version: ${{ matrix.java }}\n    - name: Test with Maven\n      run: mvn test -B --file pom.xml\n",
+    "source": "amihaiemil/docker-java-api",
+    "path": ".github/workflows/maven.yml",
+    "url": "https://github.com/amihaiemil/docker-java-api/blob/653943a3012fe104ff5d226351cebbe52785eba5/.github/workflows/maven.yml",
+    "retrieved_at": "2025-09-25T01:38:49.049110Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "Does this workflow utilize any caching or artifacts to optimize build times or share data between jobs?",
+    "answer": "name: Java CI\n\non: [push]\n\njobs:\n  test:\n    runs-on: ${{ matrix.os }}\n    strategy:\n      matrix:\n        os: [ubuntu-18.04]\n        java: [8, 8.0.192, 11, 11.0.2, 13, 13.0.4, 15, 16-ea]\n      fail-fast: false\n      max-parallel: 2          \n    name: Test JDK ${{ matrix.java }}, ${{ matrix.os }}\n\n    steps:\n    - uses: actions/checkout@v1\n    - name: Set up JDK\n      uses: actions/setup-java@v1\n      with:\n        java-version: ${{ matrix.java }}\n    - name: Test with Maven\n      run: mvn test -B --file pom.xml\n",
+    "source": "amihaiemil/docker-java-api",
+    "path": ".github/workflows/maven.yml",
+    "url": "https://github.com/amihaiemil/docker-java-api/blob/653943a3012fe104ff5d226351cebbe52785eba5/.github/workflows/maven.yml",
+    "retrieved_at": "2025-09-25T01:38:49.601829Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the primary function or effect of this Java CI workflow?",
+    "answer": "name: Java CI\n\non: [push]\n\njobs:\n  test:\n    runs-on: ${{ matrix.os }}\n    strategy:\n      matrix:\n        os: [ubuntu-18.04]\n        java: [8, 8.0.192, 11, 11.0.2, 13, 13.0.4, 15, 16-ea]\n      fail-fast: false\n      max-parallel: 2          \n    name: Test JDK ${{ matrix.java }}, ${{ matrix.os }}\n\n    steps:\n    - uses: actions/checkout@v1\n    - name: Set up JDK\n      uses: actions/setup-java@v1\n      with:\n        java-version: ${{ matrix.java }}\n    - name: Test with Maven\n      run: mvn test -B --file pom.xml\n",
+    "source": "amihaiemil/docker-java-api",
+    "path": ".github/workflows/maven.yml",
+    "url": "https://github.com/amihaiemil/docker-java-api/blob/653943a3012fe104ff5d226351cebbe52785eba5/.github/workflows/maven.yml",
+    "retrieved_at": "2025-09-25T01:38:50.022553Z",
+    "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow replicating the given YAML, building an Emscripten project with CMake and running tests.",
+    "answer": "name: Build (Emscripten)\n\non: [push, pull_request]\n\njobs:\n  emscripten:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: mymindstorm/setup-emsdk@v10\n        with:\n          version: 2.0.27\n      - name: Configure CMake\n        run: |\n          emcmake cmake -S . -B build \\\n            -DSDL_TESTS=ON \\\n            -DSDL_INSTALL_TESTS=ON \\\n            -DCMAKE_BUILD_TYPE=Release \\\n            -DCMAKE_INSTALL_PREFIX=prefix\n      - name: Build\n        run: cmake --build build/ --verbose\n      - name: Run build-time tests\n        run: |\n          set -eu\n          export SDL_TESTS_QUICK=1\n          ctest -VV --test-dir build/\n      - name: Install\n        run: |\n          echo \"SDL2_DIR=$(pwd)/prefix\" >> $GITHUB_ENV\n          cmake --install build/\n      - name: Verify CMake configuration files\n        run: |\n          emcmake cmake -S cmake/test -B cmake_config_build \\\n            -DCMAKE_BUILD_TYPE=Release \\\n            -DTEST_SHARED=FALSE \\\n            -DCMAKE_PREFIX_PATH=${{ env.SDL2_DIR }}\n          cmake --build cmake_config_build --verbose\n",
+    "source": "8212369/SDL",
+    "path": ".github/workflows/emscripten.yml",
+    "url": "https://github.com/8212369/SDL/blob/2c421816ca4e645219bc70398df9bf4b862edbd0/.github/workflows/emscripten.yml",
+    "retrieved_at": "2025-09-25T01:38:50.786635Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events (or actions) trigger this GitHub Actions workflow?",
+    "answer": "name: Build (Emscripten)\n\non: [push, pull_request]\n\njobs:\n  emscripten:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: mymindstorm/setup-emsdk@v10\n        with:\n          version: 2.0.27\n      - name: Configure CMake\n        run: |\n          emcmake cmake -S . -B build \\\n            -DSDL_TESTS=ON \\\n            -DSDL_INSTALL_TESTS=ON \\\n            -DCMAKE_BUILD_TYPE=Release \\\n            -DCMAKE_INSTALL_PREFIX=prefix\n      - name: Build\n        run: cmake --build build/ --verbose\n      - name: Run build-time tests\n        run: |\n          set -eu\n          export SDL_TESTS_QUICK=1\n          ctest -VV --test-dir build/\n      - name: Install\n        run: |\n          echo \"SDL2_DIR=$(pwd)/prefix\" >> $GITHUB_ENV\n          cmake --install build/\n      - name: Verify CMake configuration files\n        run: |\n          emcmake cmake -S cmake/test -B cmake_config_build \\\n            -DCMAKE_BUILD_TYPE=Release \\\n            -DTEST_SHARED=FALSE \\\n            -DCMAKE_PREFIX_PATH=${{ env.SDL2_DIR }}\n          cmake --build cmake_config_build --verbose\n",
+    "source": "8212369/SDL",
+    "path": ".github/workflows/emscripten.yml",
+    "url": "https://github.com/8212369/SDL/blob/2c421816ca4e645219bc70398df9bf4b862edbd0/.github/workflows/emscripten.yml",
+    "retrieved_at": "2025-09-25T01:38:51.453911Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within the emscripten job execute concurrently, and what are any dependency relationships between them?",
+    "answer": "name: Build (Emscripten)\n\non: [push, pull_request]\n\njobs:\n  emscripten:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: mymindstorm/setup-emsdk@v10\n        with:\n          version: 2.0.27\n      - name: Configure CMake\n        run: |\n          emcmake cmake -S . -B build \\\n            -DSDL_TESTS=ON \\\n            -DSDL_INSTALL_TESTS=ON \\\n            -DCMAKE_BUILD_TYPE=Release \\\n            -DCMAKE_INSTALL_PREFIX=prefix\n      - name: Build\n        run: cmake --build build/ --verbose\n      - name: Run build-time tests\n        run: |\n          set -eu\n          export SDL_TESTS_QUICK=1\n          ctest -VV --test-dir build/\n      - name: Install\n        run: |\n          echo \"SDL2_DIR=$(pwd)/prefix\" >> $GITHUB_ENV\n          cmake --install build/\n      - name: Verify CMake configuration files\n        run: |\n          emcmake cmake -S cmake/test -B cmake_config_build \\\n            -DCMAKE_BUILD_TYPE=Release \\\n            -DTEST_SHARED=FALSE \\\n            -DCMAKE_PREFIX_PATH=${{ env.SDL2_DIR }}\n          cmake --build cmake_config_build --verbose\n",
+    "source": "8212369/SDL",
+    "path": ".github/workflows/emscripten.yml",
+    "url": "https://github.com/8212369/SDL/blob/2c421816ca4e645219bc70398df9bf4b862edbd0/.github/workflows/emscripten.yml",
+    "retrieved_at": "2025-09-25T01:38:51.944303Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "Does this workflow utilize any caching mechanisms or artifact uploads/downloads to optimize performance or share build outputs?",
+    "answer": "name: Build (Emscripten)\n\non: [push, pull_request]\n\njobs:\n  emscripten:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: mymindstorm/setup-emsdk@v10\n        with:\n          version: 2.0.27\n      - name: Configure CMake\n        run: |\n          emcmake cmake -S . -B build \\\n            -DSDL_TESTS=ON \\\n            -DSDL_INSTALL_TESTS=ON \\\n            -DCMAKE_BUILD_TYPE=Release \\\n            -DCMAKE_INSTALL_PREFIX=prefix\n      - name: Build\n        run: cmake --build build/ --verbose\n      - name: Run build-time tests\n        run: |\n          set -eu\n          export SDL_TESTS_QUICK=1\n          ctest -VV --test-dir build/\n      - name: Install\n        run: |\n          echo \"SDL2_DIR=$(pwd)/prefix\" >> $GITHUB_ENV\n          cmake --install build/\n      - name: Verify CMake configuration files\n        run: |\n          emcmake cmake -S cmake/test -B cmake_config_build \\\n            -DCMAKE_BUILD_TYPE=Release \\\n            -DTEST_SHARED=FALSE \\\n            -DCMAKE_PREFIX_PATH=${{ env.SDL2_DIR }}\n          cmake --build cmake_config_build --verbose\n",
+    "source": "8212369/SDL",
+    "path": ".github/workflows/emscripten.yml",
+    "url": "https://github.com/8212369/SDL/blob/2c421816ca4e645219bc70398df9bf4b862edbd0/.github/workflows/emscripten.yml",
+    "retrieved_at": "2025-09-25T01:38:52.610004Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the main purpose of this Emscripten build workflow?",
+    "answer": "name: Build (Emscripten)\n\non: [push, pull_request]\n\njobs:\n  emscripten:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: mymindstorm/setup-emsdk@v10\n        with:\n          version: 2.0.27\n      - name: Configure CMake\n        run: |\n          emcmake cmake -S . -B build \\\n            -DSDL_TESTS=ON \\\n            -DSDL_INSTALL_TESTS=ON \\\n            -DCMAKE_BUILD_TYPE=Release \\\n            -DCMAKE_INSTALL_PREFIX=prefix\n      - name: Build\n        run: cmake --build build/ --verbose\n      - name: Run build-time tests\n        run: |\n          set -eu\n          export SDL_TESTS_QUICK=1\n          ctest -VV --test-dir build/\n      - name: Install\n        run: |\n          echo \"SDL2_DIR=$(pwd)/prefix\" >> $GITHUB_ENV\n          cmake --install build/\n      - name: Verify CMake configuration files\n        run: |\n          emcmake cmake -S cmake/test -B cmake_config_build \\\n            -DCMAKE_BUILD_TYPE=Release \\\n            -DTEST_SHARED=FALSE \\\n            -DCMAKE_PREFIX_PATH=${{ env.SDL2_DIR }}\n          cmake --build cmake_config_build --verbose\n",
+    "source": "8212369/SDL",
+    "path": ".github/workflows/emscripten.yml",
+    "url": "https://github.com/8212369/SDL/blob/2c421816ca4e645219bc70398df9bf4b862edbd0/.github/workflows/emscripten.yml",
+    "retrieved_at": "2025-09-25T01:38:53.127114Z",
+    "question_style": "style_5"
   }
 ]
