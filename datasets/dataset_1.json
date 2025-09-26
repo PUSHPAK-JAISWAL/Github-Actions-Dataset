@@ -1888,5 +1888,95 @@
     "url": "https://github.com/8212369/SDL/blob/2c421816ca4e645219bc70398df9bf4b862edbd0/.github/workflows/emscripten.yml",
     "retrieved_at": "2025-09-25T01:38:53.127114Z",
     "question_style": "style_5"
+  },
+  {
+    "question": "Generate a GitHub Actions workflow YAML file that replicates the build process defined in the provided YAML.",
+    "answer": "name: Cpp\n\non:\n  push:\n  pull_request:\n    branches: \n      - main\n\njobs:\n  build:\n    strategy:\n      matrix:\n        os: [ ubuntu-22.04, ubuntu-20.04 ]\n    runs-on: ${{ matrix.os }}\n    steps:\n    - uses: actions/checkout@v4\n    - name: Install dependencies\n      run: sudo apt-get install -y build-essential cmake libasio-dev\n    - name: Build and pack\n      run: mkdir build && cd build && cmake -DBUILD_TESTS=ON .. && cmake --build . && cpack    \n",
+    "source": "westonrobot/ugv_sdk",
+    "path": ".github/workflows/standalone-ci.yml",
+    "url": "https://github.com/westonrobot/ugv_sdk/blob/58436e9c1732474566e249ce7f726e12e26304d6/.github/workflows/standalone-ci.yml",
+    "retrieved_at": "2025-09-26T01:38:24.778961Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What push events or pull requests targeting the main branch trigger this workflow?",
+    "answer": "name: Cpp\n\non:\n  push:\n  pull_request:\n    branches: \n      - main\n\njobs:\n  build:\n    strategy:\n      matrix:\n        os: [ ubuntu-22.04, ubuntu-20.04 ]\n    runs-on: ${{ matrix.os }}\n    steps:\n    - uses: actions/checkout@v4\n    - name: Install dependencies\n      run: sudo apt-get install -y build-essential cmake libasio-dev\n    - name: Build and pack\n      run: mkdir build && cd build && cmake -DBUILD_TESTS=ON .. && cmake --build . && cpack    \n",
+    "source": "westonrobot/ugv_sdk",
+    "path": ".github/workflows/standalone-ci.yml",
+    "url": "https://github.com/westonrobot/ugv_sdk/blob/58436e9c1732474566e249ce7f726e12e26304d6/.github/workflows/standalone-ci.yml",
+    "retrieved_at": "2025-09-26T01:38:25.334395Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps in this workflow execute concurrently or have dependencies on the completion of others?",
+    "answer": "name: Cpp\n\non:\n  push:\n  pull_request:\n    branches: \n      - main\n\njobs:\n  build:\n    strategy:\n      matrix:\n        os: [ ubuntu-22.04, ubuntu-20.04 ]\n    runs-on: ${{ matrix.os }}\n    steps:\n    - uses: actions/checkout@v4\n    - name: Install dependencies\n      run: sudo apt-get install -y build-essential cmake libasio-dev\n    - name: Build and pack\n      run: mkdir build && cd build && cmake -DBUILD_TESTS=ON .. && cmake --build . && cpack    \n",
+    "source": "westonrobot/ugv_sdk",
+    "path": ".github/workflows/standalone-ci.yml",
+    "url": "https://github.com/westonrobot/ugv_sdk/blob/58436e9c1732474566e249ce7f726e12e26304d6/.github/workflows/standalone-ci.yml",
+    "retrieved_at": "2025-09-26T01:38:25.916409Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "Does this workflow utilize any environment variables, secrets, caching or artifacts?",
+    "answer": "name: Cpp\n\non:\n  push:\n  pull_request:\n    branches: \n      - main\n\njobs:\n  build:\n    strategy:\n      matrix:\n        os: [ ubuntu-22.04, ubuntu-20.04 ]\n    runs-on: ${{ matrix.os }}\n    steps:\n    - uses: actions/checkout@v4\n    - name: Install dependencies\n      run: sudo apt-get install -y build-essential cmake libasio-dev\n    - name: Build and pack\n      run: mkdir build && cd build && cmake -DBUILD_TESTS=ON .. && cmake --build . && cpack    \n",
+    "source": "westonrobot/ugv_sdk",
+    "path": ".github/workflows/standalone-ci.yml",
+    "url": "https://github.com/westonrobot/ugv_sdk/blob/58436e9c1732474566e249ce7f726e12e26304d6/.github/workflows/standalone-ci.yml",
+    "retrieved_at": "2025-09-26T01:38:26.522032Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What does this workflow accomplish by building and packaging the C++ project?",
+    "answer": "name: Cpp\n\non:\n  push:\n  pull_request:\n    branches: \n      - main\n\njobs:\n  build:\n    strategy:\n      matrix:\n        os: [ ubuntu-22.04, ubuntu-20.04 ]\n    runs-on: ${{ matrix.os }}\n    steps:\n    - uses: actions/checkout@v4\n    - name: Install dependencies\n      run: sudo apt-get install -y build-essential cmake libasio-dev\n    - name: Build and pack\n      run: mkdir build && cd build && cmake -DBUILD_TESTS=ON .. && cmake --build . && cpack    \n",
+    "source": "westonrobot/ugv_sdk",
+    "path": ".github/workflows/standalone-ci.yml",
+    "url": "https://github.com/westonrobot/ugv_sdk/blob/58436e9c1732474566e249ce7f726e12e26304d6/.github/workflows/standalone-ci.yml",
+    "retrieved_at": "2025-09-26T01:38:27.194691Z",
+    "question_style": "style_5"
+  },
+  {
+    "question": "Generate a GitHub Actions workflow YAML file that replicates the functionality of the provided workflow.",
+    "answer": "# This is a basic workflow to help you get started with Actions\n\nname: Auto Minify CSS/JS file\n\n# Controls when the action will run. Triggers the workflow on push or pull request\n# events but only for the dev branch\non:\n  push:\n    branches: [ dev ]\n    paths:\n      - 'public/assets/css/**'\n      - 'public/assets/js/**'\n      - 'public/theme/material/css/**'\n      - 'public/theme/material/js/**'\n  pull_request:\n    branches: [ dev ]\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - name: Auto Minify Theme CSS file\n        uses: nizarmah/auto-minify@master\n        with:\n          directory: 'public/theme/material/css'\n      - name: Auto Minify Theme JS file\n        uses: nizarmah/auto-minify@master\n        with:\n          directory: 'public/theme/material/js'\n      - name: Auto Minify CSS file\n        uses: nizarmah/auto-minify@master\n        with:\n          directory: 'public/assets/css'\n      - name: Auto Minify JS file\n        uses: nizarmah/auto-minify@master\n        with:\n          directory: 'public/assets/js'\n      - name: Auto committing minified files\n        uses: stefanzweifel/git-auto-commit-action@v3.0.0\n        with:\n          repository: 'public'\n          commit_message: \"Github Action: Auto Minified Theme CSS/JS Files\"\n          branch: ${{ github.ref }}\n",
+    "source": "iamsaltedfish/sspanel-v3-tabler",
+    "path": ".github/workflows/minify.yml",
+    "url": "https://github.com/iamsaltedfish/sspanel-v3-tabler/blob/fa82f6ba92e3a2da6439d62d3a712be96db1e575/.github/workflows/minify.yml",
+    "retrieved_at": "2025-09-26T01:38:27.961120Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events and branch conditions trigger this workflow to automatically minify CSS/JS files?",
+    "answer": "# This is a basic workflow to help you get started with Actions\n\nname: Auto Minify CSS/JS file\n\n# Controls when the action will run. Triggers the workflow on push or pull request\n# events but only for the dev branch\non:\n  push:\n    branches: [ dev ]\n    paths:\n      - 'public/assets/css/**'\n      - 'public/assets/js/**'\n      - 'public/theme/material/css/**'\n      - 'public/theme/material/js/**'\n  pull_request:\n    branches: [ dev ]\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - name: Auto Minify Theme CSS file\n        uses: nizarmah/auto-minify@master\n        with:\n          directory: 'public/theme/material/css'\n      - name: Auto Minify Theme JS file\n        uses: nizarmah/auto-minify@master\n        with:\n          directory: 'public/theme/material/js'\n      - name: Auto Minify CSS file\n        uses: nizarmah/auto-minify@master\n        with:\n          directory: 'public/assets/css'\n      - name: Auto Minify JS file\n        uses: nizarmah/auto-minify@master\n        with:\n          directory: 'public/assets/js'\n      - name: Auto committing minified files\n        uses: stefanzweifel/git-auto-commit-action@v3.0.0\n        with:\n          repository: 'public'\n          commit_message: \"Github Action: Auto Minified Theme CSS/JS Files\"\n          branch: ${{ github.ref }}\n",
+    "source": "iamsaltedfish/sspanel-v3-tabler",
+    "path": ".github/workflows/minify.yml",
+    "url": "https://github.com/iamsaltedfish/sspanel-v3-tabler/blob/fa82f6ba92e3a2da6439d62d3a712be96db1e575/.github/workflows/minify.yml",
+    "retrieved_at": "2025-09-26T01:38:28.601227Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within the 'build' job execute in parallel, and are there any dependencies between them?",
+    "answer": "# This is a basic workflow to help you get started with Actions\n\nname: Auto Minify CSS/JS file\n\n# Controls when the action will run. Triggers the workflow on push or pull request\n# events but only for the dev branch\non:\n  push:\n    branches: [ dev ]\n    paths:\n      - 'public/assets/css/**'\n      - 'public/assets/js/**'\n      - 'public/theme/material/css/**'\n      - 'public/theme/material/js/**'\n  pull_request:\n    branches: [ dev ]\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - name: Auto Minify Theme CSS file\n        uses: nizarmah/auto-minify@master\n        with:\n          directory: 'public/theme/material/css'\n      - name: Auto Minify Theme JS file\n        uses: nizarmah/auto-minify@master\n        with:\n          directory: 'public/theme/material/js'\n      - name: Auto Minify CSS file\n        uses: nizarmah/auto-minify@master\n        with:\n          directory: 'public/assets/css'\n      - name: Auto Minify JS file\n        uses: nizarmah/auto-minify@master\n        with:\n          directory: 'public/assets/js'\n      - name: Auto committing minified files\n        uses: stefanzweifel/git-auto-commit-action@v3.0.0\n        with:\n          repository: 'public'\n          commit_message: \"Github Action: Auto Minified Theme CSS/JS Files\"\n          branch: ${{ github.ref }}\n",
+    "source": "iamsaltedfish/sspanel-v3-tabler",
+    "path": ".github/workflows/minify.yml",
+    "url": "https://github.com/iamsaltedfish/sspanel-v3-tabler/blob/fa82f6ba92e3a2da6439d62d3a712be96db1e575/.github/workflows/minify.yml",
+    "retrieved_at": "2025-09-26T01:38:29.201323Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "Does this workflow utilize any environment variables, secrets, or caching/artifacts for its execution?",
+    "answer": "# This is a basic workflow to help you get started with Actions\n\nname: Auto Minify CSS/JS file\n\n# Controls when the action will run. Triggers the workflow on push or pull request\n# events but only for the dev branch\non:\n  push:\n    branches: [ dev ]\n    paths:\n      - 'public/assets/css/**'\n      - 'public/assets/js/**'\n      - 'public/theme/material/css/**'\n      - 'public/theme/material/js/**'\n  pull_request:\n    branches: [ dev ]\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - name: Auto Minify Theme CSS file\n        uses: nizarmah/auto-minify@master\n        with:\n          directory: 'public/theme/material/css'\n      - name: Auto Minify Theme JS file\n        uses: nizarmah/auto-minify@master\n        with:\n          directory: 'public/theme/material/js'\n      - name: Auto Minify CSS file\n        uses: nizarmah/auto-minify@master\n        with:\n          directory: 'public/assets/css'\n      - name: Auto Minify JS file\n        uses: nizarmah/auto-minify@master\n        with:\n          directory: 'public/assets/js'\n      - name: Auto committing minified files\n        uses: stefanzweifel/git-auto-commit-action@v3.0.0\n        with:\n          repository: 'public'\n          commit_message: \"Github Action: Auto Minified Theme CSS/JS Files\"\n          branch: ${{ github.ref }}\n",
+    "source": "iamsaltedfish/sspanel-v3-tabler",
+    "path": ".github/workflows/minify.yml",
+    "url": "https://github.com/iamsaltedfish/sspanel-v3-tabler/blob/fa82f6ba92e3a2da6439d62d3a712be96db1e575/.github/workflows/minify.yml",
+    "retrieved_at": "2025-09-26T01:38:29.725202Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the primary function of this workflow file?",
+    "answer": "# This is a basic workflow to help you get started with Actions\n\nname: Auto Minify CSS/JS file\n\n# Controls when the action will run. Triggers the workflow on push or pull request\n# events but only for the dev branch\non:\n  push:\n    branches: [ dev ]\n    paths:\n      - 'public/assets/css/**'\n      - 'public/assets/js/**'\n      - 'public/theme/material/css/**'\n      - 'public/theme/material/js/**'\n  pull_request:\n    branches: [ dev ]\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - name: Auto Minify Theme CSS file\n        uses: nizarmah/auto-minify@master\n        with:\n          directory: 'public/theme/material/css'\n      - name: Auto Minify Theme JS file\n        uses: nizarmah/auto-minify@master\n        with:\n          directory: 'public/theme/material/js'\n      - name: Auto Minify CSS file\n        uses: nizarmah/auto-minify@master\n        with:\n          directory: 'public/assets/css'\n      - name: Auto Minify JS file\n        uses: nizarmah/auto-minify@master\n        with:\n          directory: 'public/assets/js'\n      - name: Auto committing minified files\n        uses: stefanzweifel/git-auto-commit-action@v3.0.0\n        with:\n          repository: 'public'\n          commit_message: \"Github Action: Auto Minified Theme CSS/JS Files\"\n          branch: ${{ github.ref }}\n",
+    "source": "iamsaltedfish/sspanel-v3-tabler",
+    "path": ".github/workflows/minify.yml",
+    "url": "https://github.com/iamsaltedfish/sspanel-v3-tabler/blob/fa82f6ba92e3a2da6439d62d3a712be96db1e575/.github/workflows/minify.yml",
+    "retrieved_at": "2025-09-26T01:38:30.274429Z",
+    "question_style": "style_5"
   }
 ]
