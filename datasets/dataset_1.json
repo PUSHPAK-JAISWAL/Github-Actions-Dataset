@@ -2158,5 +2158,95 @@
     "url": "https://github.com/brianej/part2ics/blob/9a0cfdb4f643d2dcdd4f4139b3f50ada107cc564/.github/workflows/classroom.yml",
     "retrieved_at": "2025-09-28T01:46:34.209685Z",
     "question_style": "style_5"
+  },
+  {
+    "question": "Generate a GitHub Actions workflow YAML file that builds a mkdocs site with Python 3.11, installing dependencies from requirements.txt.",
+    "answer": "name: Build and Test\non: [push, pull_request]\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n    strategy:\n      matrix:\n        python-version: [3.11]\n\n    steps:\n    - uses: actions/checkout@44c2b7a8a4ea60a981eaca3cf939b5f4305c123b # v4.1.5\n    - name: Set up Python ${{ matrix.python-version }}\n      uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # v5.1.0\n      with:\n        python-version: ${{ matrix.python-version }}\n    - name: Install dependencies\n      run: |\n        python -m pip install --upgrade pip\n        pip install -r requirements.txt\n    - name: Build\n      run: mkdocs build --clean --strict -f mkdocs.yml -d site\n\n",
+    "source": "decred/dcrdocs",
+    "path": ".github/workflows/python.yml",
+    "url": "https://github.com/decred/dcrdocs/blob/46d93edf560c092412620c1d7826ab3ca6d46106/.github/workflows/python.yml",
+    "retrieved_at": "2025-09-29T01:42:23.632802Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events trigger this workflow to run?",
+    "answer": "name: Build and Test\non: [push, pull_request]\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n    strategy:\n      matrix:\n        python-version: [3.11]\n\n    steps:\n    - uses: actions/checkout@44c2b7a8a4ea60a981eaca3cf939b5f4305c123b # v4.1.5\n    - name: Set up Python ${{ matrix.python-version }}\n      uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # v5.1.0\n      with:\n        python-version: ${{ matrix.python-version }}\n    - name: Install dependencies\n      run: |\n        python -m pip install --upgrade pip\n        pip install -r requirements.txt\n    - name: Build\n      run: mkdocs build --clean --strict -f mkdocs.yml -d site\n\n",
+    "source": "decred/dcrdocs",
+    "path": ".github/workflows/python.yml",
+    "url": "https://github.com/decred/dcrdocs/blob/46d93edf560c092412620c1d7826ab3ca6d46106/.github/workflows/python.yml",
+    "retrieved_at": "2025-09-29T01:42:23.989028Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within this workflow definition execute concurrently or in a specific sequential order?",
+    "answer": "name: Build and Test\non: [push, pull_request]\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n    strategy:\n      matrix:\n        python-version: [3.11]\n\n    steps:\n    - uses: actions/checkout@44c2b7a8a4ea60a981eaca3cf939b5f4305c123b # v4.1.5\n    - name: Set up Python ${{ matrix.python-version }}\n      uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # v5.1.0\n      with:\n        python-version: ${{ matrix.python-version }}\n    - name: Install dependencies\n      run: |\n        python -m pip install --upgrade pip\n        pip install -r requirements.txt\n    - name: Build\n      run: mkdocs build --clean --strict -f mkdocs.yml -d site\n\n",
+    "source": "decred/dcrdocs",
+    "path": ".github/workflows/python.yml",
+    "url": "https://github.com/decred/dcrdocs/blob/46d93edf560c092412620c1d7826ab3ca6d46106/.github/workflows/python.yml",
+    "retrieved_at": "2025-09-29T01:42:24.447137Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "Does this workflow use any environment variables, secrets, or caching/artifacts?",
+    "answer": "name: Build and Test\non: [push, pull_request]\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n    strategy:\n      matrix:\n        python-version: [3.11]\n\n    steps:\n    - uses: actions/checkout@44c2b7a8a4ea60a981eaca3cf939b5f4305c123b # v4.1.5\n    - name: Set up Python ${{ matrix.python-version }}\n      uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # v5.1.0\n      with:\n        python-version: ${{ matrix.python-version }}\n    - name: Install dependencies\n      run: |\n        python -m pip install --upgrade pip\n        pip install -r requirements.txt\n    - name: Build\n      run: mkdocs build --clean --strict -f mkdocs.yml -d site\n\n",
+    "source": "decred/dcrdocs",
+    "path": ".github/workflows/python.yml",
+    "url": "https://github.com/decred/dcrdocs/blob/46d93edf560c092412620c1d7826ab3ca6d46106/.github/workflows/python.yml",
+    "retrieved_at": "2025-09-29T01:42:24.913408Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the primary function of this \"Build and Test\" workflow?",
+    "answer": "name: Build and Test\non: [push, pull_request]\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n    strategy:\n      matrix:\n        python-version: [3.11]\n\n    steps:\n    - uses: actions/checkout@44c2b7a8a4ea60a981eaca3cf939b5f4305c123b # v4.1.5\n    - name: Set up Python ${{ matrix.python-version }}\n      uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # v5.1.0\n      with:\n        python-version: ${{ matrix.python-version }}\n    - name: Install dependencies\n      run: |\n        python -m pip install --upgrade pip\n        pip install -r requirements.txt\n    - name: Build\n      run: mkdocs build --clean --strict -f mkdocs.yml -d site\n\n",
+    "source": "decred/dcrdocs",
+    "path": ".github/workflows/python.yml",
+    "url": "https://github.com/decred/dcrdocs/blob/46d93edf560c092412620c1d7826ab3ca6d46106/.github/workflows/python.yml",
+    "retrieved_at": "2025-09-29T01:42:25.465073Z",
+    "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow YAML file replicating the given workflow, including inputs, environment variables, and steps for releasing Axios.",
+    "answer": "name: Release Axios\non:\n  workflow_dispatch:\n    inputs:\n      type:\n        type: choice\n        description: Choose release type\n        options:\n          - auto\n          - patch\n          - minor\n          - major\n        default: auto\n      beta:\n        type: boolean\n        description: Prerelease\n        default: false\n      npm:\n        type: boolean\n        description: NPM release\n        default: true\n      dry:\n        type: boolean\n        description: Dry release\n        default: false\njobs:\n  releaseIt:\n    runs-on: ubuntu-latest\n    env:\n      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}\n      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}\n    steps:\n      - uses: actions/checkout@v2\n        with:\n          fetch-depth: 0\n      - name: git config\n        run: |\n          git config user.name \"${GITHUB_ACTOR}\"\n          git config user.email \"${GITHUB_ACTOR}@users.noreply.github.com\"\n      - name: Setup node\n        uses: actions/setup-node@v3\n        with:\n          node-version: 16\n          cache: npm\n      - name: npm credentials\n        run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN\n      - run: npm install\n      - name: release\n        env:\n          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n          TYPE_ARG: ${{ fromJSON('{\"auto\":\"\", \"patch\":\"--patch\", \"minor\":\"--minor\", \"major\":\"--major\"}')[github.event.inputs.type] }}\n          BETA_ARG: ${{ github.event.inputs.beta == 'true' && '--preRelease=beta' || '' }}\n          DRY_ARG: ${{ github.event.inputs.dry == 'true' && '--dry-run' || '' }}\n        run: npm run release -- --ci --verbose $TYPE_ARG $BETA_ARG $DRY_ARG\n      - name: npm-release\n        if: ${{ github.event.inputs.dry == 'false' && github.event.inputs.npm == 'true' }}\n        run: npm publish\n",
+    "source": "sgtest/pinned-axios",
+    "path": ".github/workflows/release.yml",
+    "url": "https://github.com/sgtest/pinned-axios/blob/a48a63ad823fc20e5a6a705f05f09842ca49f48c/.github/workflows/release.yml",
+    "retrieved_at": "2025-09-29T01:42:26.286817Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events or actions trigger the \"Release Axios\" workflow?",
+    "answer": "name: Release Axios\non:\n  workflow_dispatch:\n    inputs:\n      type:\n        type: choice\n        description: Choose release type\n        options:\n          - auto\n          - patch\n          - minor\n          - major\n        default: auto\n      beta:\n        type: boolean\n        description: Prerelease\n        default: false\n      npm:\n        type: boolean\n        description: NPM release\n        default: true\n      dry:\n        type: boolean\n        description: Dry release\n        default: false\njobs:\n  releaseIt:\n    runs-on: ubuntu-latest\n    env:\n      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}\n      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}\n    steps:\n      - uses: actions/checkout@v2\n        with:\n          fetch-depth: 0\n      - name: git config\n        run: |\n          git config user.name \"${GITHUB_ACTOR}\"\n          git config user.email \"${GITHUB_ACTOR}@users.noreply.github.com\"\n      - name: Setup node\n        uses: actions/setup-node@v3\n        with:\n          node-version: 16\n          cache: npm\n      - name: npm credentials\n        run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN\n      - run: npm install\n      - name: release\n        env:\n          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n          TYPE_ARG: ${{ fromJSON('{\"auto\":\"\", \"patch\":\"--patch\", \"minor\":\"--minor\", \"major\":\"--major\"}')[github.event.inputs.type] }}\n          BETA_ARG: ${{ github.event.inputs.beta == 'true' && '--preRelease=beta' || '' }}\n          DRY_ARG: ${{ github.event.inputs.dry == 'true' && '--dry-run' || '' }}\n        run: npm run release -- --ci --verbose $TYPE_ARG $BETA_ARG $DRY_ARG\n      - name: npm-release\n        if: ${{ github.event.inputs.dry == 'false' && github.event.inputs.npm == 'true' }}\n        run: npm publish\n",
+    "source": "sgtest/pinned-axios",
+    "path": ".github/workflows/release.yml",
+    "url": "https://github.com/sgtest/pinned-axios/blob/a48a63ad823fc20e5a6a705f05f09842ca49f48c/.github/workflows/release.yml",
+    "retrieved_at": "2025-09-29T01:42:26.790572Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps in this workflow run in parallel or have dependencies on other steps?",
+    "answer": "name: Release Axios\non:\n  workflow_dispatch:\n    inputs:\n      type:\n        type: choice\n        description: Choose release type\n        options:\n          - auto\n          - patch\n          - minor\n          - major\n        default: auto\n      beta:\n        type: boolean\n        description: Prerelease\n        default: false\n      npm:\n        type: boolean\n        description: NPM release\n        default: true\n      dry:\n        type: boolean\n        description: Dry release\n        default: false\njobs:\n  releaseIt:\n    runs-on: ubuntu-latest\n    env:\n      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}\n      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}\n    steps:\n      - uses: actions/checkout@v2\n        with:\n          fetch-depth: 0\n      - name: git config\n        run: |\n          git config user.name \"${GITHUB_ACTOR}\"\n          git config user.email \"${GITHUB_ACTOR}@users.noreply.github.com\"\n      - name: Setup node\n        uses: actions/setup-node@v3\n        with:\n          node-version: 16\n          cache: npm\n      - name: npm credentials\n        run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN\n      - run: npm install\n      - name: release\n        env:\n          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n          TYPE_ARG: ${{ fromJSON('{\"auto\":\"\", \"patch\":\"--patch\", \"minor\":\"--minor\", \"major\":\"--major\"}')[github.event.inputs.type] }}\n          BETA_ARG: ${{ github.event.inputs.beta == 'true' && '--preRelease=beta' || '' }}\n          DRY_ARG: ${{ github.event.inputs.dry == 'true' && '--dry-run' || '' }}\n        run: npm run release -- --ci --verbose $TYPE_ARG $BETA_ARG $DRY_ARG\n      - name: npm-release\n        if: ${{ github.event.inputs.dry == 'false' && github.event.inputs.npm == 'true' }}\n        run: npm publish\n",
+    "source": "sgtest/pinned-axios",
+    "path": ".github/workflows/release.yml",
+    "url": "https://github.com/sgtest/pinned-axios/blob/a48a63ad823fc20e5a6a705f05f09842ca49f48c/.github/workflows/release.yml",
+    "retrieved_at": "2025-09-29T01:42:27.337585Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "How are the `NPM_TOKEN` and `GITHUB_TOKEN` secrets used within the workflow?",
+    "answer": "name: Release Axios\non:\n  workflow_dispatch:\n    inputs:\n      type:\n        type: choice\n        description: Choose release type\n        options:\n          - auto\n          - patch\n          - minor\n          - major\n        default: auto\n      beta:\n        type: boolean\n        description: Prerelease\n        default: false\n      npm:\n        type: boolean\n        description: NPM release\n        default: true\n      dry:\n        type: boolean\n        description: Dry release\n        default: false\njobs:\n  releaseIt:\n    runs-on: ubuntu-latest\n    env:\n      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}\n      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}\n    steps:\n      - uses: actions/checkout@v2\n        with:\n          fetch-depth: 0\n      - name: git config\n        run: |\n          git config user.name \"${GITHUB_ACTOR}\"\n          git config user.email \"${GITHUB_ACTOR}@users.noreply.github.com\"\n      - name: Setup node\n        uses: actions/setup-node@v3\n        with:\n          node-version: 16\n          cache: npm\n      - name: npm credentials\n        run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN\n      - run: npm install\n      - name: release\n        env:\n          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n          TYPE_ARG: ${{ fromJSON('{\"auto\":\"\", \"patch\":\"--patch\", \"minor\":\"--minor\", \"major\":\"--major\"}')[github.event.inputs.type] }}\n          BETA_ARG: ${{ github.event.inputs.beta == 'true' && '--preRelease=beta' || '' }}\n          DRY_ARG: ${{ github.event.inputs.dry == 'true' && '--dry-run' || '' }}\n        run: npm run release -- --ci --verbose $TYPE_ARG $BETA_ARG $DRY_ARG\n      - name: npm-release\n        if: ${{ github.event.inputs.dry == 'false' && github.event.inputs.npm == 'true' }}\n        run: npm publish\n",
+    "source": "sgtest/pinned-axios",
+    "path": ".github/workflows/release.yml",
+    "url": "https://github.com/sgtest/pinned-axios/blob/a48a63ad823fc20e5a6a705f05f09842ca49f48c/.github/workflows/release.yml",
+    "retrieved_at": "2025-09-29T01:42:27.822014Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the purpose of the \"Release Axios\" workflow?",
+    "answer": "name: Release Axios\non:\n  workflow_dispatch:\n    inputs:\n      type:\n        type: choice\n        description: Choose release type\n        options:\n          - auto\n          - patch\n          - minor\n          - major\n        default: auto\n      beta:\n        type: boolean\n        description: Prerelease\n        default: false\n      npm:\n        type: boolean\n        description: NPM release\n        default: true\n      dry:\n        type: boolean\n        description: Dry release\n        default: false\njobs:\n  releaseIt:\n    runs-on: ubuntu-latest\n    env:\n      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}\n      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}\n    steps:\n      - uses: actions/checkout@v2\n        with:\n          fetch-depth: 0\n      - name: git config\n        run: |\n          git config user.name \"${GITHUB_ACTOR}\"\n          git config user.email \"${GITHUB_ACTOR}@users.noreply.github.com\"\n      - name: Setup node\n        uses: actions/setup-node@v3\n        with:\n          node-version: 16\n          cache: npm\n      - name: npm credentials\n        run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN\n      - run: npm install\n      - name: release\n        env:\n          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n          TYPE_ARG: ${{ fromJSON('{\"auto\":\"\", \"patch\":\"--patch\", \"minor\":\"--minor\", \"major\":\"--major\"}')[github.event.inputs.type] }}\n          BETA_ARG: ${{ github.event.inputs.beta == 'true' && '--preRelease=beta' || '' }}\n          DRY_ARG: ${{ github.event.inputs.dry == 'true' && '--dry-run' || '' }}\n        run: npm run release -- --ci --verbose $TYPE_ARG $BETA_ARG $DRY_ARG\n      - name: npm-release\n        if: ${{ github.event.inputs.dry == 'false' && github.event.inputs.npm == 'true' }}\n        run: npm publish\n",
+    "source": "sgtest/pinned-axios",
+    "path": ".github/workflows/release.yml",
+    "url": "https://github.com/sgtest/pinned-axios/blob/a48a63ad823fc20e5a6a705f05f09842ca49f48c/.github/workflows/release.yml",
+    "retrieved_at": "2025-09-29T01:42:28.382363Z",
+    "question_style": "style_5"
   }
 ]
