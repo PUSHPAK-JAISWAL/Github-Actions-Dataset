@@ -1,4 +1,5 @@
 [
+  "8212369/SDL:.github/workflows/android.yml",
   "8212369/SDL:.github/workflows/emscripten.yml",
   "DSKonstantin/doctr:.github/workflows/pr-labels.yml",
   "DiegoJRAleixandre/RemoteID-for-QgroundControl:.github/workflows/linux_debug.yml",
@@ -21,6 +22,7 @@
   "YOU-i-Labs/harfbuzz:.github/workflows/msvc-ci.yml",
   "aave/aave-ui:.github/workflows/draft-release.yml",
   "amihaiemil/docker-java-api:.github/workflows/maven.yml",
+  "anaisbetts/postiz:.github/workflows/build.yaml",
   "aws-cloudformation/aws-guard-rules-registry:.github/workflows/ci.yml",
   "brianej/part2ics:.github/workflows/classroom.yml",
   "cnych/microservices-demo:.github/workflows/ci-master.yaml",
