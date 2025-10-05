@@ -2698,5 +2698,95 @@
     "url": "https://github.com/RobertBrunhage/flutter-github-action/blob/914ce62c03493dc621b8a679350add24e2327252/.github/workflows/ci.yml",
     "retrieved_at": "2025-10-04T01:26:20.454697Z",
     "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow that mirrors the functionality of the provided YAML file, including scheduled runs, manual triggering, building a Go-based CLI, and uploading an artifact.",
+    "answer": "name: AVS Rewards Claim\n\non:\n  # Run weekly on Monday at 00:00 UTC\n  schedule:\n    - cron: '0 0 * * 1'\n  \n  # Allow manual trigger\n  workflow_dispatch:\n\njobs:\n  claim-rewards:\n    runs-on: ubuntu-latest\n    \n    steps:\n      - name: Checkout repository\n        uses: actions/checkout@v4\n      \n      - name: Set up Go\n        uses: actions/setup-go@v5\n        with:\n          go-version: '^1.21'\n      \n      - name: Build AVS CLI\n        run: make build\n      \n      - name: Claim rewards\n        env:\n          RPC_URL: ${{ secrets.RPC_URL }}\n        run: |\n          ./avs-cli claim-rewards --all --recipient 0x0c83EAe1FE72c390A02E426572854931EefF93BA\n          # Verify the file was created\n          ls -la avs-operator-bulk-reward-claim-0.json\n      \n      - name: Upload rewards claim file\n        uses: actions/upload-artifact@v4\n        with:\n          name: avs-rewards-claim\n          path: avs-operator-bulk-reward-claim-0.json\n          retention-days: 7\n",
+    "source": "etherfi-protocol/etherfi-avs-operator-CLI",
+    "path": ".github/workflows/avs_rewards_claim.yml",
+    "url": "https://github.com/etherfi-protocol/etherfi-avs-operator-CLI/blob/6889c5e988e791669cfad92adb09fc33860e7c5c/.github/workflows/avs_rewards_claim.yml",
+    "retrieved_at": "2025-10-05T01:45:45.214998Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events or schedules trigger the execution of the \"AVS Rewards Claim\" workflow?",
+    "answer": "name: AVS Rewards Claim\n\non:\n  # Run weekly on Monday at 00:00 UTC\n  schedule:\n    - cron: '0 0 * * 1'\n  \n  # Allow manual trigger\n  workflow_dispatch:\n\njobs:\n  claim-rewards:\n    runs-on: ubuntu-latest\n    \n    steps:\n      - name: Checkout repository\n        uses: actions/checkout@v4\n      \n      - name: Set up Go\n        uses: actions/setup-go@v5\n        with:\n          go-version: '^1.21'\n      \n      - name: Build AVS CLI\n        run: make build\n      \n      - name: Claim rewards\n        env:\n          RPC_URL: ${{ secrets.RPC_URL }}\n        run: |\n          ./avs-cli claim-rewards --all --recipient 0x0c83EAe1FE72c390A02E426572854931EefF93BA\n          # Verify the file was created\n          ls -la avs-operator-bulk-reward-claim-0.json\n      \n      - name: Upload rewards claim file\n        uses: actions/upload-artifact@v4\n        with:\n          name: avs-rewards-claim\n          path: avs-operator-bulk-reward-claim-0.json\n          retention-days: 7\n",
+    "source": "etherfi-protocol/etherfi-avs-operator-CLI",
+    "path": ".github/workflows/avs_rewards_claim.yml",
+    "url": "https://github.com/etherfi-protocol/etherfi-avs-operator-CLI/blob/6889c5e988e791669cfad92adb09fc33860e7c5c/.github/workflows/avs_rewards_claim.yml",
+    "retrieved_at": "2025-10-05T01:45:45.686155Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within the workflow execute concurrently, and which have dependencies on others?",
+    "answer": "name: AVS Rewards Claim\n\non:\n  # Run weekly on Monday at 00:00 UTC\n  schedule:\n    - cron: '0 0 * * 1'\n  \n  # Allow manual trigger\n  workflow_dispatch:\n\njobs:\n  claim-rewards:\n    runs-on: ubuntu-latest\n    \n    steps:\n      - name: Checkout repository\n        uses: actions/checkout@v4\n      \n      - name: Set up Go\n        uses: actions/setup-go@v5\n        with:\n          go-version: '^1.21'\n      \n      - name: Build AVS CLI\n        run: make build\n      \n      - name: Claim rewards\n        env:\n          RPC_URL: ${{ secrets.RPC_URL }}\n        run: |\n          ./avs-cli claim-rewards --all --recipient 0x0c83EAe1FE72c390A02E426572854931EefF93BA\n          # Verify the file was created\n          ls -la avs-operator-bulk-reward-claim-0.json\n      \n      - name: Upload rewards claim file\n        uses: actions/upload-artifact@v4\n        with:\n          name: avs-rewards-claim\n          path: avs-operator-bulk-reward-claim-0.json\n          retention-days: 7\n",
+    "source": "etherfi-protocol/etherfi-avs-operator-CLI",
+    "path": ".github/workflows/avs_rewards_claim.yml",
+    "url": "https://github.com/etherfi-protocol/etherfi-avs-operator-CLI/blob/6889c5e988e791669cfad92adb09fc33860e7c5c/.github/workflows/avs_rewards_claim.yml",
+    "retrieved_at": "2025-10-05T01:45:46.177049Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "How is the `RPC_URL` secret used to authenticate the reward claim process?",
+    "answer": "name: AVS Rewards Claim\n\non:\n  # Run weekly on Monday at 00:00 UTC\n  schedule:\n    - cron: '0 0 * * 1'\n  \n  # Allow manual trigger\n  workflow_dispatch:\n\njobs:\n  claim-rewards:\n    runs-on: ubuntu-latest\n    \n    steps:\n      - name: Checkout repository\n        uses: actions/checkout@v4\n      \n      - name: Set up Go\n        uses: actions/setup-go@v5\n        with:\n          go-version: '^1.21'\n      \n      - name: Build AVS CLI\n        run: make build\n      \n      - name: Claim rewards\n        env:\n          RPC_URL: ${{ secrets.RPC_URL }}\n        run: |\n          ./avs-cli claim-rewards --all --recipient 0x0c83EAe1FE72c390A02E426572854931EefF93BA\n          # Verify the file was created\n          ls -la avs-operator-bulk-reward-claim-0.json\n      \n      - name: Upload rewards claim file\n        uses: actions/upload-artifact@v4\n        with:\n          name: avs-rewards-claim\n          path: avs-operator-bulk-reward-claim-0.json\n          retention-days: 7\n",
+    "source": "etherfi-protocol/etherfi-avs-operator-CLI",
+    "path": ".github/workflows/avs_rewards_claim.yml",
+    "url": "https://github.com/etherfi-protocol/etherfi-avs-operator-CLI/blob/6889c5e988e791669cfad92adb09fc33860e7c5c/.github/workflows/avs_rewards_claim.yml",
+    "retrieved_at": "2025-10-05T01:45:46.690464Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the primary function of this AVS Rewards Claim workflow?",
+    "answer": "name: AVS Rewards Claim\n\non:\n  # Run weekly on Monday at 00:00 UTC\n  schedule:\n    - cron: '0 0 * * 1'\n  \n  # Allow manual trigger\n  workflow_dispatch:\n\njobs:\n  claim-rewards:\n    runs-on: ubuntu-latest\n    \n    steps:\n      - name: Checkout repository\n        uses: actions/checkout@v4\n      \n      - name: Set up Go\n        uses: actions/setup-go@v5\n        with:\n          go-version: '^1.21'\n      \n      - name: Build AVS CLI\n        run: make build\n      \n      - name: Claim rewards\n        env:\n          RPC_URL: ${{ secrets.RPC_URL }}\n        run: |\n          ./avs-cli claim-rewards --all --recipient 0x0c83EAe1FE72c390A02E426572854931EefF93BA\n          # Verify the file was created\n          ls -la avs-operator-bulk-reward-claim-0.json\n      \n      - name: Upload rewards claim file\n        uses: actions/upload-artifact@v4\n        with:\n          name: avs-rewards-claim\n          path: avs-operator-bulk-reward-claim-0.json\n          retention-days: 7\n",
+    "source": "etherfi-protocol/etherfi-avs-operator-CLI",
+    "path": ".github/workflows/avs_rewards_claim.yml",
+    "url": "https://github.com/etherfi-protocol/etherfi-avs-operator-CLI/blob/6889c5e988e791669cfad92adb09fc33860e7c5c/.github/workflows/avs_rewards_claim.yml",
+    "retrieved_at": "2025-10-05T01:45:47.100251Z",
+    "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow YAML file equivalent to the provided YAML configuration.",
+    "answer": "# This file was auto-generated by the Firebase CLI\n# https://github.com/firebase/firebase-tools\n\nname: Deploy to Firebase Hosting on merge\n'on':\n  push:\n    branches:\n      - master\njobs:\n  build_and_deploy:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - run: npm ci && npm run build\n      - uses: FirebaseExtended/action-hosting-deploy@v0\n        with:\n          repoToken: '${{ secrets.GITHUB_TOKEN }}'\n          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_HURRICANE_AGATHA_2022_MAP }}'\n          channelId: live\n          projectId: hurricane-agatha-2022-map\n",
+    "source": "Ihovanna/hurricane-agatha-map",
+    "path": ".github/workflows/firebase-hosting-merge.yml",
+    "url": "https://github.com/Ihovanna/hurricane-agatha-map/blob/61d4f80eaf76a04bcf454625f2dfc75b0fd7db2e/.github/workflows/firebase-hosting-merge.yml",
+    "retrieved_at": "2025-10-05T01:45:47.705378Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What event and branch trigger this workflow to deploy to Firebase Hosting?",
+    "answer": "# This file was auto-generated by the Firebase CLI\n# https://github.com/firebase/firebase-tools\n\nname: Deploy to Firebase Hosting on merge\n'on':\n  push:\n    branches:\n      - master\njobs:\n  build_and_deploy:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - run: npm ci && npm run build\n      - uses: FirebaseExtended/action-hosting-deploy@v0\n        with:\n          repoToken: '${{ secrets.GITHUB_TOKEN }}'\n          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_HURRICANE_AGATHA_2022_MAP }}'\n          channelId: live\n          projectId: hurricane-agatha-2022-map\n",
+    "source": "Ihovanna/hurricane-agatha-map",
+    "path": ".github/workflows/firebase-hosting-merge.yml",
+    "url": "https://github.com/Ihovanna/hurricane-agatha-map/blob/61d4f80eaf76a04bcf454625f2dfc75b0fd7db2e/.github/workflows/firebase-hosting-merge.yml",
+    "retrieved_at": "2025-10-05T01:45:48.243771Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within the build_and_deploy job execute in parallel or have dependencies on each other?",
+    "answer": "# This file was auto-generated by the Firebase CLI\n# https://github.com/firebase/firebase-tools\n\nname: Deploy to Firebase Hosting on merge\n'on':\n  push:\n    branches:\n      - master\njobs:\n  build_and_deploy:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - run: npm ci && npm run build\n      - uses: FirebaseExtended/action-hosting-deploy@v0\n        with:\n          repoToken: '${{ secrets.GITHUB_TOKEN }}'\n          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_HURRICANE_AGATHA_2022_MAP }}'\n          channelId: live\n          projectId: hurricane-agatha-2022-map\n",
+    "source": "Ihovanna/hurricane-agatha-map",
+    "path": ".github/workflows/firebase-hosting-merge.yml",
+    "url": "https://github.com/Ihovanna/hurricane-agatha-map/blob/61d4f80eaf76a04bcf454625f2dfc75b0fd7db2e/.github/workflows/firebase-hosting-merge.yml",
+    "retrieved_at": "2025-10-05T01:45:48.788404Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "How are the `FIREBASE_SERVICE_ACCOUNT_HURRICANE_AGATHA_2022_MAP` and `GITHUB_TOKEN` secrets used for authentication and deployment?",
+    "answer": "# This file was auto-generated by the Firebase CLI\n# https://github.com/firebase/firebase-tools\n\nname: Deploy to Firebase Hosting on merge\n'on':\n  push:\n    branches:\n      - master\njobs:\n  build_and_deploy:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - run: npm ci && npm run build\n      - uses: FirebaseExtended/action-hosting-deploy@v0\n        with:\n          repoToken: '${{ secrets.GITHUB_TOKEN }}'\n          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_HURRICANE_AGATHA_2022_MAP }}'\n          channelId: live\n          projectId: hurricane-agatha-2022-map\n",
+    "source": "Ihovanna/hurricane-agatha-map",
+    "path": ".github/workflows/firebase-hosting-merge.yml",
+    "url": "https://github.com/Ihovanna/hurricane-agatha-map/blob/61d4f80eaf76a04bcf454625f2dfc75b0fd7db2e/.github/workflows/firebase-hosting-merge.yml",
+    "retrieved_at": "2025-10-05T01:45:49.355531Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the primary function of this workflow?",
+    "answer": "# This file was auto-generated by the Firebase CLI\n# https://github.com/firebase/firebase-tools\n\nname: Deploy to Firebase Hosting on merge\n'on':\n  push:\n    branches:\n      - master\njobs:\n  build_and_deploy:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - run: npm ci && npm run build\n      - uses: FirebaseExtended/action-hosting-deploy@v0\n        with:\n          repoToken: '${{ secrets.GITHUB_TOKEN }}'\n          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_HURRICANE_AGATHA_2022_MAP }}'\n          channelId: live\n          projectId: hurricane-agatha-2022-map\n",
+    "source": "Ihovanna/hurricane-agatha-map",
+    "path": ".github/workflows/firebase-hosting-merge.yml",
+    "url": "https://github.com/Ihovanna/hurricane-agatha-map/blob/61d4f80eaf76a04bcf454625f2dfc75b0fd7db2e/.github/workflows/firebase-hosting-merge.yml",
+    "retrieved_at": "2025-10-05T01:45:49.840303Z",
+    "question_style": "style_5"
   }
 ]
