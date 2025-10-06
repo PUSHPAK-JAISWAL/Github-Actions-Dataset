@@ -2788,5 +2788,95 @@
     "url": "https://github.com/Ihovanna/hurricane-agatha-map/blob/61d4f80eaf76a04bcf454625f2dfc75b0fd7db2e/.github/workflows/firebase-hosting-merge.yml",
     "retrieved_at": "2025-10-05T01:45:49.840303Z",
     "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow YAML file that replicates the functionality of the provided workflow.",
+    "answer": "name: Cypress Tests\n\non: push\n\njobs:\n  cypress-run:\n    runs-on: ubuntu-22.04\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v4\n      # Install npm dependencies, cache them correctly\n      # and run all Cypress tests\n      - name: Cypress run\n        uses: cypress-io/github-action@v6\n        with:\n          start: npx cypress run\n",
+    "source": "dquynh1610-test/Testcypress",
+    "path": ".github/workflows/cybress.yml",
+    "url": "https://github.com/dquynh1610-test/Testcypress/blob/d072a363ea30d530ebf776d4e0631709e3640261/.github/workflows/cybress.yml",
+    "retrieved_at": "2025-10-06T01:39:31.013603Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What event triggers the Cypress Tests workflow?",
+    "answer": "name: Cypress Tests\n\non: push\n\njobs:\n  cypress-run:\n    runs-on: ubuntu-22.04\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v4\n      # Install npm dependencies, cache them correctly\n      # and run all Cypress tests\n      - name: Cypress run\n        uses: cypress-io/github-action@v6\n        with:\n          start: npx cypress run\n",
+    "source": "dquynh1610-test/Testcypress",
+    "path": ".github/workflows/cybress.yml",
+    "url": "https://github.com/dquynh1610-test/Testcypress/blob/d072a363ea30d530ebf776d4e0631709e3640261/.github/workflows/cybress.yml",
+    "retrieved_at": "2025-10-06T01:39:31.438046Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within the 'Cypress Tests' workflow run concurrently or have dependencies on one another?",
+    "answer": "name: Cypress Tests\n\non: push\n\njobs:\n  cypress-run:\n    runs-on: ubuntu-22.04\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v4\n      # Install npm dependencies, cache them correctly\n      # and run all Cypress tests\n      - name: Cypress run\n        uses: cypress-io/github-action@v6\n        with:\n          start: npx cypress run\n",
+    "source": "dquynh1610-test/Testcypress",
+    "path": ".github/workflows/cybress.yml",
+    "url": "https://github.com/dquynh1610-test/Testcypress/blob/d072a363ea30d530ebf776d4e0631709e3640261/.github/workflows/cybress.yml",
+    "retrieved_at": "2025-10-06T01:39:32.087772Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "Does the Cypress run step utilize any environment variables or secrets for configuration?",
+    "answer": "name: Cypress Tests\n\non: push\n\njobs:\n  cypress-run:\n    runs-on: ubuntu-22.04\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v4\n      # Install npm dependencies, cache them correctly\n      # and run all Cypress tests\n      - name: Cypress run\n        uses: cypress-io/github-action@v6\n        with:\n          start: npx cypress run\n",
+    "source": "dquynh1610-test/Testcypress",
+    "path": ".github/workflows/cybress.yml",
+    "url": "https://github.com/dquynh1610-test/Testcypress/blob/d072a363ea30d530ebf776d4e0631709e3640261/.github/workflows/cybress.yml",
+    "retrieved_at": "2025-10-06T01:39:32.520191Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the primary function or outcome of this Cypress Tests workflow?",
+    "answer": "name: Cypress Tests\n\non: push\n\njobs:\n  cypress-run:\n    runs-on: ubuntu-22.04\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v4\n      # Install npm dependencies, cache them correctly\n      # and run all Cypress tests\n      - name: Cypress run\n        uses: cypress-io/github-action@v6\n        with:\n          start: npx cypress run\n",
+    "source": "dquynh1610-test/Testcypress",
+    "path": ".github/workflows/cybress.yml",
+    "url": "https://github.com/dquynh1610-test/Testcypress/blob/d072a363ea30d530ebf776d4e0631709e3640261/.github/workflows/cybress.yml",
+    "retrieved_at": "2025-10-06T01:39:33.060286Z",
+    "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow YAML file that replicates the functionality of the provided YAML file.",
+    "answer": "on: [pull_request]\n\njobs:\n  wilco:\n    runs-on: ubuntu-latest\n    name: Pr checks\n\n    services:\n      postgres:\n        image: postgres:13\n        env:\n          POSTGRES_PASSWORD: postgres\n        ports:\n          - 5432:5432\n        options: >-\n          --health-cmd pg_isready\n          --health-interval 10s\n          --health-timeout 5s\n          --health-retries 5\n    steps:\n      - name: Check out project\n        uses: actions/checkout@v2\n\n      - uses: ruby/setup-ruby@v1\n        with:\n          working-directory: backend\n          bundler-cache: true\n\n      - name: Wilco checks\n        id: Wilco\n        uses: trywilco/actions@main\n        with:\n          owner: ${{ github.repository_owner }}\n  Lint:\n    runs-on: ubuntu-latest\n    defaults:\n      run:\n        working-directory: frontend\n    steps:\n      - name: Check out project\n        uses: actions/checkout@v2\n      - name: Lint code\n        uses: actions/setup-node@v1\n        with:\n          node-version: '16'\n          cache: 'yarn'\n      - run: yarn install\n      - run: yarn lint\n",
+    "source": "Wilcolab/Anythink-Market-keomW",
+    "path": ".github/workflows/wilco-actions.yml",
+    "url": "https://github.com/Wilcolab/Anythink-Market-keomW/blob/0817a1cb6aa8cfaed2620e785c445bd5c1802544/.github/workflows/wilco-actions.yml",
+    "retrieved_at": "2025-10-06T01:39:33.668039Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What event triggers this GitHub Actions workflow to run?",
+    "answer": "on: [pull_request]\n\njobs:\n  wilco:\n    runs-on: ubuntu-latest\n    name: Pr checks\n\n    services:\n      postgres:\n        image: postgres:13\n        env:\n          POSTGRES_PASSWORD: postgres\n        ports:\n          - 5432:5432\n        options: >-\n          --health-cmd pg_isready\n          --health-interval 10s\n          --health-timeout 5s\n          --health-retries 5\n    steps:\n      - name: Check out project\n        uses: actions/checkout@v2\n\n      - uses: ruby/setup-ruby@v1\n        with:\n          working-directory: backend\n          bundler-cache: true\n\n      - name: Wilco checks\n        id: Wilco\n        uses: trywilco/actions@main\n        with:\n          owner: ${{ github.repository_owner }}\n  Lint:\n    runs-on: ubuntu-latest\n    defaults:\n      run:\n        working-directory: frontend\n    steps:\n      - name: Check out project\n        uses: actions/checkout@v2\n      - name: Lint code\n        uses: actions/setup-node@v1\n        with:\n          node-version: '16'\n          cache: 'yarn'\n      - run: yarn install\n      - run: yarn lint\n",
+    "source": "Wilcolab/Anythink-Market-keomW",
+    "path": ".github/workflows/wilco-actions.yml",
+    "url": "https://github.com/Wilcolab/Anythink-Market-keomW/blob/0817a1cb6aa8cfaed2620e785c445bd5c1802544/.github/workflows/wilco-actions.yml",
+    "retrieved_at": "2025-10-06T01:39:34.096441Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps in this workflow run concurrently or have dependencies on one another?",
+    "answer": "on: [pull_request]\n\njobs:\n  wilco:\n    runs-on: ubuntu-latest\n    name: Pr checks\n\n    services:\n      postgres:\n        image: postgres:13\n        env:\n          POSTGRES_PASSWORD: postgres\n        ports:\n          - 5432:5432\n        options: >-\n          --health-cmd pg_isready\n          --health-interval 10s\n          --health-timeout 5s\n          --health-retries 5\n    steps:\n      - name: Check out project\n        uses: actions/checkout@v2\n\n      - uses: ruby/setup-ruby@v1\n        with:\n          working-directory: backend\n          bundler-cache: true\n\n      - name: Wilco checks\n        id: Wilco\n        uses: trywilco/actions@main\n        with:\n          owner: ${{ github.repository_owner }}\n  Lint:\n    runs-on: ubuntu-latest\n    defaults:\n      run:\n        working-directory: frontend\n    steps:\n      - name: Check out project\n        uses: actions/checkout@v2\n      - name: Lint code\n        uses: actions/setup-node@v1\n        with:\n          node-version: '16'\n          cache: 'yarn'\n      - run: yarn install\n      - run: yarn lint\n",
+    "source": "Wilcolab/Anythink-Market-keomW",
+    "path": ".github/workflows/wilco-actions.yml",
+    "url": "https://github.com/Wilcolab/Anythink-Market-keomW/blob/0817a1cb6aa8cfaed2620e785c445bd5c1802544/.github/workflows/wilco-actions.yml",
+    "retrieved_at": "2025-10-06T01:39:34.616701Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "Does the 'ruby/setup-ruby' action use caching, and if so, how is the cache configured?",
+    "answer": "on: [pull_request]\n\njobs:\n  wilco:\n    runs-on: ubuntu-latest\n    name: Pr checks\n\n    services:\n      postgres:\n        image: postgres:13\n        env:\n          POSTGRES_PASSWORD: postgres\n        ports:\n          - 5432:5432\n        options: >-\n          --health-cmd pg_isready\n          --health-interval 10s\n          --health-timeout 5s\n          --health-retries 5\n    steps:\n      - name: Check out project\n        uses: actions/checkout@v2\n\n      - uses: ruby/setup-ruby@v1\n        with:\n          working-directory: backend\n          bundler-cache: true\n\n      - name: Wilco checks\n        id: Wilco\n        uses: trywilco/actions@main\n        with:\n          owner: ${{ github.repository_owner }}\n  Lint:\n    runs-on: ubuntu-latest\n    defaults:\n      run:\n        working-directory: frontend\n    steps:\n      - name: Check out project\n        uses: actions/checkout@v2\n      - name: Lint code\n        uses: actions/setup-node@v1\n        with:\n          node-version: '16'\n          cache: 'yarn'\n      - run: yarn install\n      - run: yarn lint\n",
+    "source": "Wilcolab/Anythink-Market-keomW",
+    "path": ".github/workflows/wilco-actions.yml",
+    "url": "https://github.com/Wilcolab/Anythink-Market-keomW/blob/0817a1cb6aa8cfaed2620e785c445bd5c1802544/.github/workflows/wilco-actions.yml",
+    "retrieved_at": "2025-10-06T01:39:35.112248Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the main goal or function of this pull request workflow?",
+    "answer": "on: [pull_request]\n\njobs:\n  wilco:\n    runs-on: ubuntu-latest\n    name: Pr checks\n\n    services:\n      postgres:\n        image: postgres:13\n        env:\n          POSTGRES_PASSWORD: postgres\n        ports:\n          - 5432:5432\n        options: >-\n          --health-cmd pg_isready\n          --health-interval 10s\n          --health-timeout 5s\n          --health-retries 5\n    steps:\n      - name: Check out project\n        uses: actions/checkout@v2\n\n      - uses: ruby/setup-ruby@v1\n        with:\n          working-directory: backend\n          bundler-cache: true\n\n      - name: Wilco checks\n        id: Wilco\n        uses: trywilco/actions@main\n        with:\n          owner: ${{ github.repository_owner }}\n  Lint:\n    runs-on: ubuntu-latest\n    defaults:\n      run:\n        working-directory: frontend\n    steps:\n      - name: Check out project\n        uses: actions/checkout@v2\n      - name: Lint code\n        uses: actions/setup-node@v1\n        with:\n          node-version: '16'\n          cache: 'yarn'\n      - run: yarn install\n      - run: yarn lint\n",
+    "source": "Wilcolab/Anythink-Market-keomW",
+    "path": ".github/workflows/wilco-actions.yml",
+    "url": "https://github.com/Wilcolab/Anythink-Market-keomW/blob/0817a1cb6aa8cfaed2620e785c445bd5c1802544/.github/workflows/wilco-actions.yml",
+    "retrieved_at": "2025-10-06T01:39:35.717347Z",
+    "question_style": "style_5"
   }
 ]
