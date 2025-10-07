@@ -2878,5 +2878,95 @@
     "url": "https://github.com/Wilcolab/Anythink-Market-keomW/blob/0817a1cb6aa8cfaed2620e785c445bd5c1802544/.github/workflows/wilco-actions.yml",
     "retrieved_at": "2025-10-06T01:39:35.717347Z",
     "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow mirroring the provided YAML, including triggering, OS matrix, environment variables, container, checkout, and build steps.",
+    "answer": "name: Cross CI workflow\n\non:\n  pull_request:\n  push:\n    branches:\n      - master\n\njobs:\n\n  build-cross:\n\n    runs-on: ${{ matrix.os }}\n    strategy:\n      matrix:\n        os: [ubuntu-latest]\n      fail-fast: false\n\n    env:\n      ROS_DISTRO: melodic\n      AUTOWARE_CROSS_TARGET_PLATFORM: generic-aarch64\n      AUTOWARE_TARGET_ARCH: aarch64\n      AUTOWARE_TOOLCHAIN_FILE_PATH: ${{ github.workspace }}/cross_toolchain.cmake\n      AUTOWARE_SYSROOT: /sysroot/generic-aarch64\n\n    container:\n      image: autoware/build:generic-aarch64-melodic-bleedingedge\n\n    steps:\n\n    - name: Checkout repo\n      uses: actions/checkout@v2\n\n    - name: Build repo\n      run: |\n        mkdir -p src_tmp/ && mv `find -maxdepth 1 -not -name . -not -name src_tmp` src_tmp/ && mv src_tmp/ src/\n        sudo apt-get update -qq && sudo apt-get install -y python3-vcstool gcc git wget\n        wget https://raw.githubusercontent.com/Autoware-AI/docker/master/crossbuild/cross_toolchain.cmake\n        bash -c 'source $AUTOWARE_SYSROOT/opt/ros/${ROS_DISTRO}/setup.bash; \\\n        colcon build --merge-install \\\n          --cmake-args \\\n          -DCMAKE_TOOLCHAIN_FILE=$AUTOWARE_TOOLCHAIN_FILE_PATH \\\n          -DCMAKE_SYSTEM_PROCESSOR=$AUTOWARE_TARGET_ARCH \\\n          -DCMAKE_PREFIX_PATH=\"$(pwd)/install;${AUTOWARE_SYSROOT}/opt/ros/${ROS_DISTRO}\" \\\n          -DCMAKE_FIND_ROOT_PATH=$(pwd)/install/;'\n",
+    "source": "autowarefoundation/qpoases_vendor",
+    "path": ".github/workflows/cross-ci.yaml",
+    "url": "https://github.com/autowarefoundation/qpoases_vendor/blob/ca4e3e1e1c796f4ce4e17e46ba4372607d87f87b/.github/workflows/cross-ci.yaml",
+    "retrieved_at": "2025-10-07T01:37:23.361933Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What pull requests or pushes to the master branch trigger this workflow?",
+    "answer": "name: Cross CI workflow\n\non:\n  pull_request:\n  push:\n    branches:\n      - master\n\njobs:\n\n  build-cross:\n\n    runs-on: ${{ matrix.os }}\n    strategy:\n      matrix:\n        os: [ubuntu-latest]\n      fail-fast: false\n\n    env:\n      ROS_DISTRO: melodic\n      AUTOWARE_CROSS_TARGET_PLATFORM: generic-aarch64\n      AUTOWARE_TARGET_ARCH: aarch64\n      AUTOWARE_TOOLCHAIN_FILE_PATH: ${{ github.workspace }}/cross_toolchain.cmake\n      AUTOWARE_SYSROOT: /sysroot/generic-aarch64\n\n    container:\n      image: autoware/build:generic-aarch64-melodic-bleedingedge\n\n    steps:\n\n    - name: Checkout repo\n      uses: actions/checkout@v2\n\n    - name: Build repo\n      run: |\n        mkdir -p src_tmp/ && mv `find -maxdepth 1 -not -name . -not -name src_tmp` src_tmp/ && mv src_tmp/ src/\n        sudo apt-get update -qq && sudo apt-get install -y python3-vcstool gcc git wget\n        wget https://raw.githubusercontent.com/Autoware-AI/docker/master/crossbuild/cross_toolchain.cmake\n        bash -c 'source $AUTOWARE_SYSROOT/opt/ros/${ROS_DISTRO}/setup.bash; \\\n        colcon build --merge-install \\\n          --cmake-args \\\n          -DCMAKE_TOOLCHAIN_FILE=$AUTOWARE_TOOLCHAIN_FILE_PATH \\\n          -DCMAKE_SYSTEM_PROCESSOR=$AUTOWARE_TARGET_ARCH \\\n          -DCMAKE_PREFIX_PATH=\"$(pwd)/install;${AUTOWARE_SYSROOT}/opt/ros/${ROS_DISTRO}\" \\\n          -DCMAKE_FIND_ROOT_PATH=$(pwd)/install/;'\n",
+    "source": "autowarefoundation/qpoases_vendor",
+    "path": ".github/workflows/cross-ci.yaml",
+    "url": "https://github.com/autowarefoundation/qpoases_vendor/blob/ca4e3e1e1c796f4ce4e17e46ba4372607d87f87b/.github/workflows/cross-ci.yaml",
+    "retrieved_at": "2025-10-07T01:37:23.891225Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within the 'Cross CI workflow' run in parallel or sequentially based on dependencies?",
+    "answer": "name: Cross CI workflow\n\non:\n  pull_request:\n  push:\n    branches:\n      - master\n\njobs:\n\n  build-cross:\n\n    runs-on: ${{ matrix.os }}\n    strategy:\n      matrix:\n        os: [ubuntu-latest]\n      fail-fast: false\n\n    env:\n      ROS_DISTRO: melodic\n      AUTOWARE_CROSS_TARGET_PLATFORM: generic-aarch64\n      AUTOWARE_TARGET_ARCH: aarch64\n      AUTOWARE_TOOLCHAIN_FILE_PATH: ${{ github.workspace }}/cross_toolchain.cmake\n      AUTOWARE_SYSROOT: /sysroot/generic-aarch64\n\n    container:\n      image: autoware/build:generic-aarch64-melodic-bleedingedge\n\n    steps:\n\n    - name: Checkout repo\n      uses: actions/checkout@v2\n\n    - name: Build repo\n      run: |\n        mkdir -p src_tmp/ && mv `find -maxdepth 1 -not -name . -not -name src_tmp` src_tmp/ && mv src_tmp/ src/\n        sudo apt-get update -qq && sudo apt-get install -y python3-vcstool gcc git wget\n        wget https://raw.githubusercontent.com/Autoware-AI/docker/master/crossbuild/cross_toolchain.cmake\n        bash -c 'source $AUTOWARE_SYSROOT/opt/ros/${ROS_DISTRO}/setup.bash; \\\n        colcon build --merge-install \\\n          --cmake-args \\\n          -DCMAKE_TOOLCHAIN_FILE=$AUTOWARE_TOOLCHAIN_FILE_PATH \\\n          -DCMAKE_SYSTEM_PROCESSOR=$AUTOWARE_TARGET_ARCH \\\n          -DCMAKE_PREFIX_PATH=\"$(pwd)/install;${AUTOWARE_SYSROOT}/opt/ros/${ROS_DISTRO}\" \\\n          -DCMAKE_FIND_ROOT_PATH=$(pwd)/install/;'\n",
+    "source": "autowarefoundation/qpoases_vendor",
+    "path": ".github/workflows/cross-ci.yaml",
+    "url": "https://github.com/autowarefoundation/qpoases_vendor/blob/ca4e3e1e1c796f4ce4e17e46ba4372607d87f87b/.github/workflows/cross-ci.yaml",
+    "retrieved_at": "2025-10-07T01:37:24.544833Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "How are the `ROS_DISTRO`, `AUTOWARE_CROSS_TARGET_PLATFORM`, `AUTOWARE_TARGET_ARCH`, `AUTOWARE_TOOLCHAIN_FILE_PATH`, and `AUTOWARE_SYSROOT` environment variables used within the build script?",
+    "answer": "name: Cross CI workflow\n\non:\n  pull_request:\n  push:\n    branches:\n      - master\n\njobs:\n\n  build-cross:\n\n    runs-on: ${{ matrix.os }}\n    strategy:\n      matrix:\n        os: [ubuntu-latest]\n      fail-fast: false\n\n    env:\n      ROS_DISTRO: melodic\n      AUTOWARE_CROSS_TARGET_PLATFORM: generic-aarch64\n      AUTOWARE_TARGET_ARCH: aarch64\n      AUTOWARE_TOOLCHAIN_FILE_PATH: ${{ github.workspace }}/cross_toolchain.cmake\n      AUTOWARE_SYSROOT: /sysroot/generic-aarch64\n\n    container:\n      image: autoware/build:generic-aarch64-melodic-bleedingedge\n\n    steps:\n\n    - name: Checkout repo\n      uses: actions/checkout@v2\n\n    - name: Build repo\n      run: |\n        mkdir -p src_tmp/ && mv `find -maxdepth 1 -not -name . -not -name src_tmp` src_tmp/ && mv src_tmp/ src/\n        sudo apt-get update -qq && sudo apt-get install -y python3-vcstool gcc git wget\n        wget https://raw.githubusercontent.com/Autoware-AI/docker/master/crossbuild/cross_toolchain.cmake\n        bash -c 'source $AUTOWARE_SYSROOT/opt/ros/${ROS_DISTRO}/setup.bash; \\\n        colcon build --merge-install \\\n          --cmake-args \\\n          -DCMAKE_TOOLCHAIN_FILE=$AUTOWARE_TOOLCHAIN_FILE_PATH \\\n          -DCMAKE_SYSTEM_PROCESSOR=$AUTOWARE_TARGET_ARCH \\\n          -DCMAKE_PREFIX_PATH=\"$(pwd)/install;${AUTOWARE_SYSROOT}/opt/ros/${ROS_DISTRO}\" \\\n          -DCMAKE_FIND_ROOT_PATH=$(pwd)/install/;'\n",
+    "source": "autowarefoundation/qpoases_vendor",
+    "path": ".github/workflows/cross-ci.yaml",
+    "url": "https://github.com/autowarefoundation/qpoases_vendor/blob/ca4e3e1e1c796f4ce4e17e46ba4372607d87f87b/.github/workflows/cross-ci.yaml",
+    "retrieved_at": "2025-10-07T01:37:25.271922Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the main purpose of this cross-compilation CI workflow?",
+    "answer": "name: Cross CI workflow\n\non:\n  pull_request:\n  push:\n    branches:\n      - master\n\njobs:\n\n  build-cross:\n\n    runs-on: ${{ matrix.os }}\n    strategy:\n      matrix:\n        os: [ubuntu-latest]\n      fail-fast: false\n\n    env:\n      ROS_DISTRO: melodic\n      AUTOWARE_CROSS_TARGET_PLATFORM: generic-aarch64\n      AUTOWARE_TARGET_ARCH: aarch64\n      AUTOWARE_TOOLCHAIN_FILE_PATH: ${{ github.workspace }}/cross_toolchain.cmake\n      AUTOWARE_SYSROOT: /sysroot/generic-aarch64\n\n    container:\n      image: autoware/build:generic-aarch64-melodic-bleedingedge\n\n    steps:\n\n    - name: Checkout repo\n      uses: actions/checkout@v2\n\n    - name: Build repo\n      run: |\n        mkdir -p src_tmp/ && mv `find -maxdepth 1 -not -name . -not -name src_tmp` src_tmp/ && mv src_tmp/ src/\n        sudo apt-get update -qq && sudo apt-get install -y python3-vcstool gcc git wget\n        wget https://raw.githubusercontent.com/Autoware-AI/docker/master/crossbuild/cross_toolchain.cmake\n        bash -c 'source $AUTOWARE_SYSROOT/opt/ros/${ROS_DISTRO}/setup.bash; \\\n        colcon build --merge-install \\\n          --cmake-args \\\n          -DCMAKE_TOOLCHAIN_FILE=$AUTOWARE_TOOLCHAIN_FILE_PATH \\\n          -DCMAKE_SYSTEM_PROCESSOR=$AUTOWARE_TARGET_ARCH \\\n          -DCMAKE_PREFIX_PATH=\"$(pwd)/install;${AUTOWARE_SYSROOT}/opt/ros/${ROS_DISTRO}\" \\\n          -DCMAKE_FIND_ROOT_PATH=$(pwd)/install/;'\n",
+    "source": "autowarefoundation/qpoases_vendor",
+    "path": ".github/workflows/cross-ci.yaml",
+    "url": "https://github.com/autowarefoundation/qpoases_vendor/blob/ca4e3e1e1c796f4ce4e17e46ba4372607d87f87b/.github/workflows/cross-ci.yaml",
+    "retrieved_at": "2025-10-07T01:37:25.780985Z",
+    "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow YAML that replicates the functionality of the provided YAML file for labeling.",
+    "answer": "name: Labeler\n\non:\n  push:\n    branches:\n      - main\n      - master\n\njobs:\n  labeler:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Check out the repository\n        uses: actions/checkout@v2.4.0\n\n      - name: Run Labeler\n        uses: crazy-max/ghaction-github-labeler@v3.1.1\n        with:\n          skip-delete: true\n",
+    "source": "AnthonyTechnologies/python-precog",
+    "path": ".github/workflows/labeler.yml",
+    "url": "https://github.com/AnthonyTechnologies/python-precog/blob/bb98bfab65477d78f9eea7113b9ebdb598545a32/.github/workflows/labeler.yml",
+    "retrieved_at": "2025-10-07T01:37:26.634985Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events and branch(es) trigger the \"Labeler\" workflow?",
+    "answer": "name: Labeler\n\non:\n  push:\n    branches:\n      - main\n      - master\n\njobs:\n  labeler:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Check out the repository\n        uses: actions/checkout@v2.4.0\n\n      - name: Run Labeler\n        uses: crazy-max/ghaction-github-labeler@v3.1.1\n        with:\n          skip-delete: true\n",
+    "source": "AnthonyTechnologies/python-precog",
+    "path": ".github/workflows/labeler.yml",
+    "url": "https://github.com/AnthonyTechnologies/python-precog/blob/bb98bfab65477d78f9eea7113b9ebdb598545a32/.github/workflows/labeler.yml",
+    "retrieved_at": "2025-10-07T01:37:27.117208Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps in this workflow run in parallel, or depend on the completion of other jobs or steps?",
+    "answer": "name: Labeler\n\non:\n  push:\n    branches:\n      - main\n      - master\n\njobs:\n  labeler:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Check out the repository\n        uses: actions/checkout@v2.4.0\n\n      - name: Run Labeler\n        uses: crazy-max/ghaction-github-labeler@v3.1.1\n        with:\n          skip-delete: true\n",
+    "source": "AnthonyTechnologies/python-precog",
+    "path": ".github/workflows/labeler.yml",
+    "url": "https://github.com/AnthonyTechnologies/python-precog/blob/bb98bfab65477d78f9eea7113b9ebdb598545a32/.github/workflows/labeler.yml",
+    "retrieved_at": "2025-10-07T01:37:27.688851Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "Does this workflow utilize any environment variables, secrets, or caching/artifacts for the labeler action?",
+    "answer": "name: Labeler\n\non:\n  push:\n    branches:\n      - main\n      - master\n\njobs:\n  labeler:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Check out the repository\n        uses: actions/checkout@v2.4.0\n\n      - name: Run Labeler\n        uses: crazy-max/ghaction-github-labeler@v3.1.1\n        with:\n          skip-delete: true\n",
+    "source": "AnthonyTechnologies/python-precog",
+    "path": ".github/workflows/labeler.yml",
+    "url": "https://github.com/AnthonyTechnologies/python-precog/blob/bb98bfab65477d78f9eea7113b9ebdb598545a32/.github/workflows/labeler.yml",
+    "retrieved_at": "2025-10-07T01:37:28.267303Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the main purpose of the \"Labeler\" workflow?",
+    "answer": "name: Labeler\n\non:\n  push:\n    branches:\n      - main\n      - master\n\njobs:\n  labeler:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Check out the repository\n        uses: actions/checkout@v2.4.0\n\n      - name: Run Labeler\n        uses: crazy-max/ghaction-github-labeler@v3.1.1\n        with:\n          skip-delete: true\n",
+    "source": "AnthonyTechnologies/python-precog",
+    "path": ".github/workflows/labeler.yml",
+    "url": "https://github.com/AnthonyTechnologies/python-precog/blob/bb98bfab65477d78f9eea7113b9ebdb598545a32/.github/workflows/labeler.yml",
+    "retrieved_at": "2025-10-07T01:37:28.778369Z",
+    "question_style": "style_5"
   }
 ]
