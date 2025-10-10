@@ -36,6 +36,7 @@
   "cnych/microservices-demo:.github/workflows/ci-master.yaml",
   "crdroidandroid/android_external_lz4:.github/workflows/ci.yml",
   "da03/hierarchical_diffusion_LM:.github/workflows/add-model-like.yml",
+  "da03/hierarchical_diffusion_LM:.github/workflows/self-nightly-scheduled.yml",
   "decred/dcrdocs:.github/workflows/python.yml",
   "dquynh1610-test/Testcypress:.github/workflows/cybress.yml",
   "elder-plinius/Synthia:.github/workflows/docker-ci.yml",
@@ -68,5 +69,6 @@
   "viagogo/HalKit:.github/workflows/halkit-deploy.yml",
   "westonrobot/ugv_sdk:.github/workflows/standalone-ci.yml",
   "wsdevv/n8n-clockify-workaround:.github/workflows/chromatic.yml",
+  "xsolisolisoli/webgame:.github/workflows/content.yml",
   "yunghegel/opengl_starter:.github/workflows/cmake-build.yml"
 ]
