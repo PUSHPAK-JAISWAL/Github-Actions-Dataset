@@ -3238,5 +3238,95 @@
     "url": "https://github.com/xsolisolisoli/webgame/blob/c2442d1d0b076154da1f6e872c310f72afbe75d4/.github/workflows/content.yml",
     "retrieved_at": "2025-10-10T01:39:01.481669Z",
     "question_style": "style_5"
+  },
+  {
+    "question": "Generate a GitHub Actions workflow YAML file that replicates the functionality of the provided workflow.",
+    "answer": "name: Node.js CI \n\non:\n  push:\n    branches:\n      - main\n  pull_request:\n    branches:\n      - main\n\njobs:\n  build:\n\n    runs-on: ubuntu-latest\n\n    strategy:\n      matrix:\n        node-version: [20.x]\n\n    steps:\n    - name: Checkout repository\n      uses: actions/checkout@v3\n\n    - name: Set up Node.js\n      uses: actions/setup-node@v3\n      with:\n        node-version: ${{ matrix.node-version }}\n\n    - name: Install dependencies\n      run:  npm install || yarn install\n\n    - name: Start application\n      run: npm start\n",
+    "source": "chamara321/Dracula-2.0",
+    "path": ".GitHub/Workflows/main.yml",
+    "url": "https://github.com/chamara321/Dracula-2.0/blob/cb8e8644902e9ae3875ff97f251bf4d08623fd7e/.GitHub/Workflows/main.yml",
+    "retrieved_at": "2025-10-11T01:27:11.014518Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What `push` and `pull_request` events on the `main` branch trigger this workflow?",
+    "answer": "name: Node.js CI \n\non:\n  push:\n    branches:\n      - main\n  pull_request:\n    branches:\n      - main\n\njobs:\n  build:\n\n    runs-on: ubuntu-latest\n\n    strategy:\n      matrix:\n        node-version: [20.x]\n\n    steps:\n    - name: Checkout repository\n      uses: actions/checkout@v3\n\n    - name: Set up Node.js\n      uses: actions/setup-node@v3\n      with:\n        node-version: ${{ matrix.node-version }}\n\n    - name: Install dependencies\n      run:  npm install || yarn install\n\n    - name: Start application\n      run: npm start\n",
+    "source": "chamara321/Dracula-2.0",
+    "path": ".GitHub/Workflows/main.yml",
+    "url": "https://github.com/chamara321/Dracula-2.0/blob/cb8e8644902e9ae3875ff97f251bf4d08623fd7e/.GitHub/Workflows/main.yml",
+    "retrieved_at": "2025-10-11T01:27:11.510419Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within the workflow execute in parallel or serially based on dependencies?",
+    "answer": "name: Node.js CI \n\non:\n  push:\n    branches:\n      - main\n  pull_request:\n    branches:\n      - main\n\njobs:\n  build:\n\n    runs-on: ubuntu-latest\n\n    strategy:\n      matrix:\n        node-version: [20.x]\n\n    steps:\n    - name: Checkout repository\n      uses: actions/checkout@v3\n\n    - name: Set up Node.js\n      uses: actions/setup-node@v3\n      with:\n        node-version: ${{ matrix.node-version }}\n\n    - name: Install dependencies\n      run:  npm install || yarn install\n\n    - name: Start application\n      run: npm start\n",
+    "source": "chamara321/Dracula-2.0",
+    "path": ".GitHub/Workflows/main.yml",
+    "url": "https://github.com/chamara321/Dracula-2.0/blob/cb8e8644902e9ae3875ff97f251bf4d08623fd7e/.GitHub/Workflows/main.yml",
+    "retrieved_at": "2025-10-11T01:27:11.920866Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "Does this workflow utilize any environment variables, secrets, caching, or artifacts?",
+    "answer": "name: Node.js CI \n\non:\n  push:\n    branches:\n      - main\n  pull_request:\n    branches:\n      - main\n\njobs:\n  build:\n\n    runs-on: ubuntu-latest\n\n    strategy:\n      matrix:\n        node-version: [20.x]\n\n    steps:\n    - name: Checkout repository\n      uses: actions/checkout@v3\n\n    - name: Set up Node.js\n      uses: actions/setup-node@v3\n      with:\n        node-version: ${{ matrix.node-version }}\n\n    - name: Install dependencies\n      run:  npm install || yarn install\n\n    - name: Start application\n      run: npm start\n",
+    "source": "chamara321/Dracula-2.0",
+    "path": ".GitHub/Workflows/main.yml",
+    "url": "https://github.com/chamara321/Dracula-2.0/blob/cb8e8644902e9ae3875ff97f251bf4d08623fd7e/.GitHub/Workflows/main.yml",
+    "retrieved_at": "2025-10-11T01:27:12.518357Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the primary function or effect of this Node.js CI workflow?",
+    "answer": "name: Node.js CI \n\non:\n  push:\n    branches:\n      - main\n  pull_request:\n    branches:\n      - main\n\njobs:\n  build:\n\n    runs-on: ubuntu-latest\n\n    strategy:\n      matrix:\n        node-version: [20.x]\n\n    steps:\n    - name: Checkout repository\n      uses: actions/checkout@v3\n\n    - name: Set up Node.js\n      uses: actions/setup-node@v3\n      with:\n        node-version: ${{ matrix.node-version }}\n\n    - name: Install dependencies\n      run:  npm install || yarn install\n\n    - name: Start application\n      run: npm start\n",
+    "source": "chamara321/Dracula-2.0",
+    "path": ".GitHub/Workflows/main.yml",
+    "url": "https://github.com/chamara321/Dracula-2.0/blob/cb8e8644902e9ae3875ff97f251bf4d08623fd7e/.GitHub/Workflows/main.yml",
+    "retrieved_at": "2025-10-11T01:27:12.945856Z",
+    "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow that triggers on workflow dispatch and a daily cron schedule, building and uploading Python wheels to PyPI.",
+    "answer": "name: Wheels\non:\n  workflow_dispatch:\n  schedule:    \n    - cron: \"0 0 * * *\"\n\njobs:\n\n  Build-Wheels:\n    \n    runs-on: [self-hosted, V100]\n\n    steps:\n\n      - name: Checkout\n        uses: actions/checkout@v2\n\n      - name: Patch setup.py\n        run: |\n          #sed -i 's/name\\=\\\"triton\\\"/name=\"triton-nightly\"/g' python/setup.py\n          export LATEST_DATE=$(TZ=UTC0 git show --quiet --date='format-local:%Y%m%d' --format=\"%cd\")\n          sed -i -r \"s/version\\=\\\"(.*)\\\"/version=\\\"\\1-dev\"$LATEST_DATE\"\\\"/g\" python/setup.py\n          echo \"\" >> python/setup.cfg\n          echo \"[build_ext]\" >> python/setup.cfg\n          echo \"base-dir=/project\" >> python/setup.cfg\n\n      - name: Build wheels\n        run: |\n          export CIBW_MANYLINUX_X86_64_IMAGE=\"manylinux2014\"\n          export CIBW_MANYLINUX_PYPY_X86_64_IMAGE=\"manylinux2014\"\n          export CIBW_BEFORE_BUILD=\"pip install cmake;\\\n                                    yum install -y llvm11 llvm11-devel llvm11-static llvm11-libs zlib-devel;\"\n          export CIBW_SKIP=\"{cp,pp}35-*\"\n          export CIBW_BUILD=\"{cp,pp}3*-manylinux_x86_64\"\n          python3 -m cibuildwheel python --output-dir wheelhouse\n\n\n      - name: Upload wheels to PyPI\n        run: |\n          python3 -m twine upload wheelhouse/* --skip-existing",
+    "source": "YukeWang96/TCGNN-trition",
+    "path": ".github/workflows/wheels.yml",
+    "url": "https://github.com/YukeWang96/TCGNN-trition/blob/ca7b55d3b3caa22f94f0d5be5e689191432dc1fc/.github/workflows/wheels.yml",
+    "retrieved_at": "2025-10-11T01:27:13.770943Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events or schedules trigger the execution of the \"Wheels\" workflow?",
+    "answer": "name: Wheels\non:\n  workflow_dispatch:\n  schedule:    \n    - cron: \"0 0 * * *\"\n\njobs:\n\n  Build-Wheels:\n    \n    runs-on: [self-hosted, V100]\n\n    steps:\n\n      - name: Checkout\n        uses: actions/checkout@v2\n\n      - name: Patch setup.py\n        run: |\n          #sed -i 's/name\\=\\\"triton\\\"/name=\"triton-nightly\"/g' python/setup.py\n          export LATEST_DATE=$(TZ=UTC0 git show --quiet --date='format-local:%Y%m%d' --format=\"%cd\")\n          sed -i -r \"s/version\\=\\\"(.*)\\\"/version=\\\"\\1-dev\"$LATEST_DATE\"\\\"/g\" python/setup.py\n          echo \"\" >> python/setup.cfg\n          echo \"[build_ext]\" >> python/setup.cfg\n          echo \"base-dir=/project\" >> python/setup.cfg\n\n      - name: Build wheels\n        run: |\n          export CIBW_MANYLINUX_X86_64_IMAGE=\"manylinux2014\"\n          export CIBW_MANYLINUX_PYPY_X86_64_IMAGE=\"manylinux2014\"\n          export CIBW_BEFORE_BUILD=\"pip install cmake;\\\n                                    yum install -y llvm11 llvm11-devel llvm11-static llvm11-libs zlib-devel;\"\n          export CIBW_SKIP=\"{cp,pp}35-*\"\n          export CIBW_BUILD=\"{cp,pp}3*-manylinux_x86_64\"\n          python3 -m cibuildwheel python --output-dir wheelhouse\n\n\n      - name: Upload wheels to PyPI\n        run: |\n          python3 -m twine upload wheelhouse/* --skip-existing",
+    "source": "YukeWang96/TCGNN-trition",
+    "path": ".github/workflows/wheels.yml",
+    "url": "https://github.com/YukeWang96/TCGNN-trition/blob/ca7b55d3b3caa22f94f0d5be5e689191432dc1fc/.github/workflows/wheels.yml",
+    "retrieved_at": "2025-10-11T01:27:14.329352Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within the \"Wheels\" workflow run in parallel, and which depend on others?",
+    "answer": "name: Wheels\non:\n  workflow_dispatch:\n  schedule:    \n    - cron: \"0 0 * * *\"\n\njobs:\n\n  Build-Wheels:\n    \n    runs-on: [self-hosted, V100]\n\n    steps:\n\n      - name: Checkout\n        uses: actions/checkout@v2\n\n      - name: Patch setup.py\n        run: |\n          #sed -i 's/name\\=\\\"triton\\\"/name=\"triton-nightly\"/g' python/setup.py\n          export LATEST_DATE=$(TZ=UTC0 git show --quiet --date='format-local:%Y%m%d' --format=\"%cd\")\n          sed -i -r \"s/version\\=\\\"(.*)\\\"/version=\\\"\\1-dev\"$LATEST_DATE\"\\\"/g\" python/setup.py\n          echo \"\" >> python/setup.cfg\n          echo \"[build_ext]\" >> python/setup.cfg\n          echo \"base-dir=/project\" >> python/setup.cfg\n\n      - name: Build wheels\n        run: |\n          export CIBW_MANYLINUX_X86_64_IMAGE=\"manylinux2014\"\n          export CIBW_MANYLINUX_PYPY_X86_64_IMAGE=\"manylinux2014\"\n          export CIBW_BEFORE_BUILD=\"pip install cmake;\\\n                                    yum install -y llvm11 llvm11-devel llvm11-static llvm11-libs zlib-devel;\"\n          export CIBW_SKIP=\"{cp,pp}35-*\"\n          export CIBW_BUILD=\"{cp,pp}3*-manylinux_x86_64\"\n          python3 -m cibuildwheel python --output-dir wheelhouse\n\n\n      - name: Upload wheels to PyPI\n        run: |\n          python3 -m twine upload wheelhouse/* --skip-existing",
+    "source": "YukeWang96/TCGNN-trition",
+    "path": ".github/workflows/wheels.yml",
+    "url": "https://github.com/YukeWang96/TCGNN-trition/blob/ca7b55d3b3caa22f94f0d5be5e689191432dc1fc/.github/workflows/wheels.yml",
+    "retrieved_at": "2025-10-11T01:27:14.820949Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "Are any secrets used to authenticate the wheel uploads to PyPI?",
+    "answer": "name: Wheels\non:\n  workflow_dispatch:\n  schedule:    \n    - cron: \"0 0 * * *\"\n\njobs:\n\n  Build-Wheels:\n    \n    runs-on: [self-hosted, V100]\n\n    steps:\n\n      - name: Checkout\n        uses: actions/checkout@v2\n\n      - name: Patch setup.py\n        run: |\n          #sed -i 's/name\\=\\\"triton\\\"/name=\"triton-nightly\"/g' python/setup.py\n          export LATEST_DATE=$(TZ=UTC0 git show --quiet --date='format-local:%Y%m%d' --format=\"%cd\")\n          sed -i -r \"s/version\\=\\\"(.*)\\\"/version=\\\"\\1-dev\"$LATEST_DATE\"\\\"/g\" python/setup.py\n          echo \"\" >> python/setup.cfg\n          echo \"[build_ext]\" >> python/setup.cfg\n          echo \"base-dir=/project\" >> python/setup.cfg\n\n      - name: Build wheels\n        run: |\n          export CIBW_MANYLINUX_X86_64_IMAGE=\"manylinux2014\"\n          export CIBW_MANYLINUX_PYPY_X86_64_IMAGE=\"manylinux2014\"\n          export CIBW_BEFORE_BUILD=\"pip install cmake;\\\n                                    yum install -y llvm11 llvm11-devel llvm11-static llvm11-libs zlib-devel;\"\n          export CIBW_SKIP=\"{cp,pp}35-*\"\n          export CIBW_BUILD=\"{cp,pp}3*-manylinux_x86_64\"\n          python3 -m cibuildwheel python --output-dir wheelhouse\n\n\n      - name: Upload wheels to PyPI\n        run: |\n          python3 -m twine upload wheelhouse/* --skip-existing",
+    "source": "YukeWang96/TCGNN-trition",
+    "path": ".github/workflows/wheels.yml",
+    "url": "https://github.com/YukeWang96/TCGNN-trition/blob/ca7b55d3b3caa22f94f0d5be5e689191432dc1fc/.github/workflows/wheels.yml",
+    "retrieved_at": "2025-10-11T01:27:15.383201Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the primary function or effect of this \"Wheels\" workflow?",
+    "answer": "name: Wheels\non:\n  workflow_dispatch:\n  schedule:    \n    - cron: \"0 0 * * *\"\n\njobs:\n\n  Build-Wheels:\n    \n    runs-on: [self-hosted, V100]\n\n    steps:\n\n      - name: Checkout\n        uses: actions/checkout@v2\n\n      - name: Patch setup.py\n        run: |\n          #sed -i 's/name\\=\\\"triton\\\"/name=\"triton-nightly\"/g' python/setup.py\n          export LATEST_DATE=$(TZ=UTC0 git show --quiet --date='format-local:%Y%m%d' --format=\"%cd\")\n          sed -i -r \"s/version\\=\\\"(.*)\\\"/version=\\\"\\1-dev\"$LATEST_DATE\"\\\"/g\" python/setup.py\n          echo \"\" >> python/setup.cfg\n          echo \"[build_ext]\" >> python/setup.cfg\n          echo \"base-dir=/project\" >> python/setup.cfg\n\n      - name: Build wheels\n        run: |\n          export CIBW_MANYLINUX_X86_64_IMAGE=\"manylinux2014\"\n          export CIBW_MANYLINUX_PYPY_X86_64_IMAGE=\"manylinux2014\"\n          export CIBW_BEFORE_BUILD=\"pip install cmake;\\\n                                    yum install -y llvm11 llvm11-devel llvm11-static llvm11-libs zlib-devel;\"\n          export CIBW_SKIP=\"{cp,pp}35-*\"\n          export CIBW_BUILD=\"{cp,pp}3*-manylinux_x86_64\"\n          python3 -m cibuildwheel python --output-dir wheelhouse\n\n\n      - name: Upload wheels to PyPI\n        run: |\n          python3 -m twine upload wheelhouse/* --skip-existing",
+    "source": "YukeWang96/TCGNN-trition",
+    "path": ".github/workflows/wheels.yml",
+    "url": "https://github.com/YukeWang96/TCGNN-trition/blob/ca7b55d3b3caa22f94f0d5be5e689191432dc1fc/.github/workflows/wheels.yml",
+    "retrieved_at": "2025-10-11T01:27:15.952451Z",
+    "question_style": "style_5"
   }
 ]
