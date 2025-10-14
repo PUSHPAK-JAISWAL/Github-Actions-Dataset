@@ -3508,5 +3508,95 @@
     "url": "https://github.com/vigneshdevelopr/frappe/blob/5985d4c0db13be9a75efef25f3ed686ae45cc7aa/.github/workflows/linters.yml",
     "retrieved_at": "2025-10-13T01:45:09.371209Z",
     "question_style": "style_5"
+  },
+  {
+    "question": "Generate a GitHub Actions workflow YAML file equivalent to the provided example, ensuring identical triggers, jobs, and steps.",
+    "answer": "name: CI\n\non: [push, pull_request]\n\njobs:\n  industrial_ci:\n    strategy:\n      matrix:\n        env:\n          - {ROS_DISTRO: melodic}\n          - {ROS_DISTRO: noetic}\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: 'ros-industrial/industrial_ci@master'\n        env: ${{matrix.env}}\n",
+    "source": "rosdistro-bloom-testing/async_web_server_cpp-release",
+    "path": ".github/workflows/main.yml",
+    "url": "https://github.com/rosdistro-bloom-testing/async_web_server_cpp-release/blob/6037dea2de6517f717e036f28db88fc72c448557/.github/workflows/main.yml",
+    "retrieved_at": "2025-10-14T01:38:37.266087Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events trigger the execution of this CI workflow?",
+    "answer": "name: CI\n\non: [push, pull_request]\n\njobs:\n  industrial_ci:\n    strategy:\n      matrix:\n        env:\n          - {ROS_DISTRO: melodic}\n          - {ROS_DISTRO: noetic}\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: 'ros-industrial/industrial_ci@master'\n        env: ${{matrix.env}}\n",
+    "source": "rosdistro-bloom-testing/async_web_server_cpp-release",
+    "path": ".github/workflows/main.yml",
+    "url": "https://github.com/rosdistro-bloom-testing/async_web_server_cpp-release/blob/6037dea2de6517f717e036f28db88fc72c448557/.github/workflows/main.yml",
+    "retrieved_at": "2025-10-14T01:38:37.708248Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within the 'industrial_ci' job run in parallel, and are there any dependencies between them?",
+    "answer": "name: CI\n\non: [push, pull_request]\n\njobs:\n  industrial_ci:\n    strategy:\n      matrix:\n        env:\n          - {ROS_DISTRO: melodic}\n          - {ROS_DISTRO: noetic}\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: 'ros-industrial/industrial_ci@master'\n        env: ${{matrix.env}}\n",
+    "source": "rosdistro-bloom-testing/async_web_server_cpp-release",
+    "path": ".github/workflows/main.yml",
+    "url": "https://github.com/rosdistro-bloom-testing/async_web_server_cpp-release/blob/6037dea2de6517f717e036f28db88fc72c448557/.github/workflows/main.yml",
+    "retrieved_at": "2025-10-14T01:38:38.254762Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "How are environment variables from the matrix strategy utilized within the industrial_ci action?",
+    "answer": "name: CI\n\non: [push, pull_request]\n\njobs:\n  industrial_ci:\n    strategy:\n      matrix:\n        env:\n          - {ROS_DISTRO: melodic}\n          - {ROS_DISTRO: noetic}\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: 'ros-industrial/industrial_ci@master'\n        env: ${{matrix.env}}\n",
+    "source": "rosdistro-bloom-testing/async_web_server_cpp-release",
+    "path": ".github/workflows/main.yml",
+    "url": "https://github.com/rosdistro-bloom-testing/async_web_server_cpp-release/blob/6037dea2de6517f717e036f28db88fc72c448557/.github/workflows/main.yml",
+    "retrieved_at": "2025-10-14T01:38:38.838790Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the primary function or impact of this continuous integration workflow?",
+    "answer": "name: CI\n\non: [push, pull_request]\n\njobs:\n  industrial_ci:\n    strategy:\n      matrix:\n        env:\n          - {ROS_DISTRO: melodic}\n          - {ROS_DISTRO: noetic}\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: 'ros-industrial/industrial_ci@master'\n        env: ${{matrix.env}}\n",
+    "source": "rosdistro-bloom-testing/async_web_server_cpp-release",
+    "path": ".github/workflows/main.yml",
+    "url": "https://github.com/rosdistro-bloom-testing/async_web_server_cpp-release/blob/6037dea2de6517f717e036f28db88fc72c448557/.github/workflows/main.yml",
+    "retrieved_at": "2025-10-14T01:38:39.529121Z",
+    "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow replicating the functionality of the provided YAML file, including triggers, concurrency, and job steps.",
+    "answer": "name: CI\n\non:\n  push:\n    branches:\n      - main\n    paths:\n      - 'src/**'\n      - 'tests/**'\n      - 'pnpm-lock.yaml'\n      - '.github/workflows/main.yml'\n  pull_request:\n    paths:\n      - 'src/**'\n      - 'tests/**'\n      - 'pnpm-lock.yaml'\n      - '.github/workflows/main.yml'\n\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}\n  cancel-in-progress: true\n\njobs:\n  tests:\n    runs-on: ubuntu-latest\n\n    env:\n      PLAYWRIGHT_BROWSERS_PATH: 0\n\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/cache@v4\n        with:\n          path: /home/runner/.local/share/pnpm/store\n          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}\n          restore-keys: |\n            ${{ runner.os }}-\n      - uses: pnpm/action-setup@v3\n        with:\n          version: 9\n          run_install: true\n      - uses: actions/setup-node@v4\n        with:\n          node-version: 22\n          cache: 'pnpm'\n\n      - name: Type Check\n        run: pnpm type-check\n\n      - name: Install Playwright browsers\n        run: npx playwright install --with-deps\n\n      - name: Run e2e tests\n        run: |\n          pnpm build\n          pnpm test:ci-e2e\n\n      - name: Run unit tests\n        run: pnpm test:ci\n\n      - name: Coverage\n        uses: davelosert/vitest-coverage-report-action@v2.5.0\n        if: ${{ always() }}\n",
+    "source": "hellonobug9/vue3-template",
+    "path": ".github/workflows/main.yml",
+    "url": "https://github.com/hellonobug9/vue3-template/blob/82d0743456e3703239c284c10df062b0b10f8ff9/.github/workflows/main.yml",
+    "retrieved_at": "2025-10-14T01:38:40.664801Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What push branches and file paths, or pull request file paths, trigger this CI workflow?",
+    "answer": "name: CI\n\non:\n  push:\n    branches:\n      - main\n    paths:\n      - 'src/**'\n      - 'tests/**'\n      - 'pnpm-lock.yaml'\n      - '.github/workflows/main.yml'\n  pull_request:\n    paths:\n      - 'src/**'\n      - 'tests/**'\n      - 'pnpm-lock.yaml'\n      - '.github/workflows/main.yml'\n\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}\n  cancel-in-progress: true\n\njobs:\n  tests:\n    runs-on: ubuntu-latest\n\n    env:\n      PLAYWRIGHT_BROWSERS_PATH: 0\n\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/cache@v4\n        with:\n          path: /home/runner/.local/share/pnpm/store\n          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}\n          restore-keys: |\n            ${{ runner.os }}-\n      - uses: pnpm/action-setup@v3\n        with:\n          version: 9\n          run_install: true\n      - uses: actions/setup-node@v4\n        with:\n          node-version: 22\n          cache: 'pnpm'\n\n      - name: Type Check\n        run: pnpm type-check\n\n      - name: Install Playwright browsers\n        run: npx playwright install --with-deps\n\n      - name: Run e2e tests\n        run: |\n          pnpm build\n          pnpm test:ci-e2e\n\n      - name: Run unit tests\n        run: pnpm test:ci\n\n      - name: Coverage\n        uses: davelosert/vitest-coverage-report-action@v2.5.0\n        if: ${{ always() }}\n",
+    "source": "hellonobug9/vue3-template",
+    "path": ".github/workflows/main.yml",
+    "url": "https://github.com/hellonobug9/vue3-template/blob/82d0743456e3703239c284c10df062b0b10f8ff9/.github/workflows/main.yml",
+    "retrieved_at": "2025-10-14T01:38:41.314053Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within the 'CI' workflow execute concurrently, and which have dependencies?",
+    "answer": "name: CI\n\non:\n  push:\n    branches:\n      - main\n    paths:\n      - 'src/**'\n      - 'tests/**'\n      - 'pnpm-lock.yaml'\n      - '.github/workflows/main.yml'\n  pull_request:\n    paths:\n      - 'src/**'\n      - 'tests/**'\n      - 'pnpm-lock.yaml'\n      - '.github/workflows/main.yml'\n\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}\n  cancel-in-progress: true\n\njobs:\n  tests:\n    runs-on: ubuntu-latest\n\n    env:\n      PLAYWRIGHT_BROWSERS_PATH: 0\n\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/cache@v4\n        with:\n          path: /home/runner/.local/share/pnpm/store\n          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}\n          restore-keys: |\n            ${{ runner.os }}-\n      - uses: pnpm/action-setup@v3\n        with:\n          version: 9\n          run_install: true\n      - uses: actions/setup-node@v4\n        with:\n          node-version: 22\n          cache: 'pnpm'\n\n      - name: Type Check\n        run: pnpm type-check\n\n      - name: Install Playwright browsers\n        run: npx playwright install --with-deps\n\n      - name: Run e2e tests\n        run: |\n          pnpm build\n          pnpm test:ci-e2e\n\n      - name: Run unit tests\n        run: pnpm test:ci\n\n      - name: Coverage\n        uses: davelosert/vitest-coverage-report-action@v2.5.0\n        if: ${{ always() }}\n",
+    "source": "hellonobug9/vue3-template",
+    "path": ".github/workflows/main.yml",
+    "url": "https://github.com/hellonobug9/vue3-template/blob/82d0743456e3703239c284c10df062b0b10f8ff9/.github/workflows/main.yml",
+    "retrieved_at": "2025-10-14T01:38:42.168435Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "How are caching and artifacts utilized to optimize dependency management and test execution?",
+    "answer": "name: CI\n\non:\n  push:\n    branches:\n      - main\n    paths:\n      - 'src/**'\n      - 'tests/**'\n      - 'pnpm-lock.yaml'\n      - '.github/workflows/main.yml'\n  pull_request:\n    paths:\n      - 'src/**'\n      - 'tests/**'\n      - 'pnpm-lock.yaml'\n      - '.github/workflows/main.yml'\n\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}\n  cancel-in-progress: true\n\njobs:\n  tests:\n    runs-on: ubuntu-latest\n\n    env:\n      PLAYWRIGHT_BROWSERS_PATH: 0\n\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/cache@v4\n        with:\n          path: /home/runner/.local/share/pnpm/store\n          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}\n          restore-keys: |\n            ${{ runner.os }}-\n      - uses: pnpm/action-setup@v3\n        with:\n          version: 9\n          run_install: true\n      - uses: actions/setup-node@v4\n        with:\n          node-version: 22\n          cache: 'pnpm'\n\n      - name: Type Check\n        run: pnpm type-check\n\n      - name: Install Playwright browsers\n        run: npx playwright install --with-deps\n\n      - name: Run e2e tests\n        run: |\n          pnpm build\n          pnpm test:ci-e2e\n\n      - name: Run unit tests\n        run: pnpm test:ci\n\n      - name: Coverage\n        uses: davelosert/vitest-coverage-report-action@v2.5.0\n        if: ${{ always() }}\n",
+    "source": "hellonobug9/vue3-template",
+    "path": ".github/workflows/main.yml",
+    "url": "https://github.com/hellonobug9/vue3-template/blob/82d0743456e3703239c284c10df062b0b10f8ff9/.github/workflows/main.yml",
+    "retrieved_at": "2025-10-14T01:38:42.767928Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the main purpose or effect of this CI workflow?",
+    "answer": "name: CI\n\non:\n  push:\n    branches:\n      - main\n    paths:\n      - 'src/**'\n      - 'tests/**'\n      - 'pnpm-lock.yaml'\n      - '.github/workflows/main.yml'\n  pull_request:\n    paths:\n      - 'src/**'\n      - 'tests/**'\n      - 'pnpm-lock.yaml'\n      - '.github/workflows/main.yml'\n\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}\n  cancel-in-progress: true\n\njobs:\n  tests:\n    runs-on: ubuntu-latest\n\n    env:\n      PLAYWRIGHT_BROWSERS_PATH: 0\n\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/cache@v4\n        with:\n          path: /home/runner/.local/share/pnpm/store\n          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}\n          restore-keys: |\n            ${{ runner.os }}-\n      - uses: pnpm/action-setup@v3\n        with:\n          version: 9\n          run_install: true\n      - uses: actions/setup-node@v4\n        with:\n          node-version: 22\n          cache: 'pnpm'\n\n      - name: Type Check\n        run: pnpm type-check\n\n      - name: Install Playwright browsers\n        run: npx playwright install --with-deps\n\n      - name: Run e2e tests\n        run: |\n          pnpm build\n          pnpm test:ci-e2e\n\n      - name: Run unit tests\n        run: pnpm test:ci\n\n      - name: Coverage\n        uses: davelosert/vitest-coverage-report-action@v2.5.0\n        if: ${{ always() }}\n",
+    "source": "hellonobug9/vue3-template",
+    "path": ".github/workflows/main.yml",
+    "url": "https://github.com/hellonobug9/vue3-template/blob/82d0743456e3703239c284c10df062b0b10f8ff9/.github/workflows/main.yml",
+    "retrieved_at": "2025-10-14T01:38:43.279679Z",
+    "question_style": "style_5"
   }
 ]
