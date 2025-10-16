@@ -3688,5 +3688,95 @@
     "url": "https://github.com/njit-cs-490-002-spring23/group-project-team-2/blob/fc7df680695f322a3c16b32db7b38abb5aca96f7/.github/workflows/main.yml",
     "retrieved_at": "2025-10-15T01:41:45.145587Z",
     "question_style": "style_5"
+  },
+  {
+    "question": "Generate a GitHub Actions workflow that links a merged pull request to a milestone using the `link-milestone` tool.",
+    "answer": "---\nname: Link Milestone\n\non:\n  pull_request_target:\n    branches: [main]\n    types: ['closed']\n\njobs:\n  link-milestone:\n    if: github.event.pull_request.merged == true\n    runs-on: ubuntu-latest\n    permissions:\n      contents: read\n      pull-requests: write\n      issues: write\n    steps:\n      - uses: actions/setup-go@0c52d547c9bc32b1aa3301fd7a9cb496313a4491 # v5.0.0\n        with:\n          # we cannot use go-version-file here because no repositories are checked out so there is no file to reference\n          go-version: '1.21.6'\n      - run: |\n          go install github.com/stephybun/link-milestone@latest\n          link-milestone\n        env:\n          PR_NUMBER: ${{ github.event.number }}\n          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n          GITHUB_REPO: ${{ github.repository }}\n",
+    "source": "KamalakarBadri/Terraform_Azure",
+    "path": ".github/workflows/link-milestone.yaml",
+    "url": "https://github.com/KamalakarBadri/Terraform_Azure/blob/dde736f5278b33e98393771815d5eef3b4d11cc4/.github/workflows/link-milestone.yaml",
+    "retrieved_at": "2025-10-16T01:40:46.750790Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What pull request events on the main branch trigger this workflow when closed and merged?",
+    "answer": "---\nname: Link Milestone\n\non:\n  pull_request_target:\n    branches: [main]\n    types: ['closed']\n\njobs:\n  link-milestone:\n    if: github.event.pull_request.merged == true\n    runs-on: ubuntu-latest\n    permissions:\n      contents: read\n      pull-requests: write\n      issues: write\n    steps:\n      - uses: actions/setup-go@0c52d547c9bc32b1aa3301fd7a9cb496313a4491 # v5.0.0\n        with:\n          # we cannot use go-version-file here because no repositories are checked out so there is no file to reference\n          go-version: '1.21.6'\n      - run: |\n          go install github.com/stephybun/link-milestone@latest\n          link-milestone\n        env:\n          PR_NUMBER: ${{ github.event.number }}\n          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n          GITHUB_REPO: ${{ github.repository }}\n",
+    "source": "KamalakarBadri/Terraform_Azure",
+    "path": ".github/workflows/link-milestone.yaml",
+    "url": "https://github.com/KamalakarBadri/Terraform_Azure/blob/dde736f5278b33e98393771815d5eef3b4d11cc4/.github/workflows/link-milestone.yaml",
+    "retrieved_at": "2025-10-16T01:40:47.372515Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within the workflow execute concurrently, and what dependencies exist between them?",
+    "answer": "---\nname: Link Milestone\n\non:\n  pull_request_target:\n    branches: [main]\n    types: ['closed']\n\njobs:\n  link-milestone:\n    if: github.event.pull_request.merged == true\n    runs-on: ubuntu-latest\n    permissions:\n      contents: read\n      pull-requests: write\n      issues: write\n    steps:\n      - uses: actions/setup-go@0c52d547c9bc32b1aa3301fd7a9cb496313a4491 # v5.0.0\n        with:\n          # we cannot use go-version-file here because no repositories are checked out so there is no file to reference\n          go-version: '1.21.6'\n      - run: |\n          go install github.com/stephybun/link-milestone@latest\n          link-milestone\n        env:\n          PR_NUMBER: ${{ github.event.number }}\n          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n          GITHUB_REPO: ${{ github.repository }}\n",
+    "source": "KamalakarBadri/Terraform_Azure",
+    "path": ".github/workflows/link-milestone.yaml",
+    "url": "https://github.com/KamalakarBadri/Terraform_Azure/blob/dde736f5278b33e98393771815d5eef3b4d11cc4/.github/workflows/link-milestone.yaml",
+    "retrieved_at": "2025-10-16T01:40:47.960028Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "How are the `GITHUB_TOKEN` and `GITHUB_REPO` environment variables used by the `link-milestone` command?",
+    "answer": "---\nname: Link Milestone\n\non:\n  pull_request_target:\n    branches: [main]\n    types: ['closed']\n\njobs:\n  link-milestone:\n    if: github.event.pull_request.merged == true\n    runs-on: ubuntu-latest\n    permissions:\n      contents: read\n      pull-requests: write\n      issues: write\n    steps:\n      - uses: actions/setup-go@0c52d547c9bc32b1aa3301fd7a9cb496313a4491 # v5.0.0\n        with:\n          # we cannot use go-version-file here because no repositories are checked out so there is no file to reference\n          go-version: '1.21.6'\n      - run: |\n          go install github.com/stephybun/link-milestone@latest\n          link-milestone\n        env:\n          PR_NUMBER: ${{ github.event.number }}\n          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n          GITHUB_REPO: ${{ github.repository }}\n",
+    "source": "KamalakarBadri/Terraform_Azure",
+    "path": ".github/workflows/link-milestone.yaml",
+    "url": "https://github.com/KamalakarBadri/Terraform_Azure/blob/dde736f5278b33e98393771815d5eef3b4d11cc4/.github/workflows/link-milestone.yaml",
+    "retrieved_at": "2025-10-16T01:40:48.563932Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What does this workflow accomplish when a pull request is merged into the main branch?",
+    "answer": "---\nname: Link Milestone\n\non:\n  pull_request_target:\n    branches: [main]\n    types: ['closed']\n\njobs:\n  link-milestone:\n    if: github.event.pull_request.merged == true\n    runs-on: ubuntu-latest\n    permissions:\n      contents: read\n      pull-requests: write\n      issues: write\n    steps:\n      - uses: actions/setup-go@0c52d547c9bc32b1aa3301fd7a9cb496313a4491 # v5.0.0\n        with:\n          # we cannot use go-version-file here because no repositories are checked out so there is no file to reference\n          go-version: '1.21.6'\n      - run: |\n          go install github.com/stephybun/link-milestone@latest\n          link-milestone\n        env:\n          PR_NUMBER: ${{ github.event.number }}\n          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n          GITHUB_REPO: ${{ github.repository }}\n",
+    "source": "KamalakarBadri/Terraform_Azure",
+    "path": ".github/workflows/link-milestone.yaml",
+    "url": "https://github.com/KamalakarBadri/Terraform_Azure/blob/dde736f5278b33e98393771815d5eef3b4d11cc4/.github/workflows/link-milestone.yaml",
+    "retrieved_at": "2025-10-16T01:40:49.156213Z",
+    "question_style": "style_5"
+  },
+  {
+    "question": "Generate a GitHub Actions workflow YAML file that replicates the linting and build processes defined in the provided YAML.",
+    "answer": "name: QA\non: [pull_request]\njobs:\n  lint:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: pnpm/action-setup@v2.2.1\n        with:\n          version: 6.19.1\n      - uses: actions/setup-node@v3\n        with:\n          node-version: \"16\"\n          cache: \"pnpm\"\n      - name: Install dependencies\n        run: pnpm install\n      - name: Check linters\n        run: pnpm lint\n      - name: Validate paths\n        run: |\n          pnpm paths\n          git diff --exit-code ./lib/\\$path.ts\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: pnpm/action-setup@v2.2.1\n        with:\n          version: 6.19.1\n      - uses: actions/setup-node@v3\n        with:\n          node-version: \"16\"\n          cache: \"pnpm\"\n      - uses: actions/cache@v2\n        with:\n          path: |\n            ${{ github.workspace }}/.next/cache\n          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}\n          # If source files changed but packages didn't, rebuild from a prior cache.\n          restore-keys: |\n            ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.json') }}-\n      - name: Install dependencies\n        run: pnpm install\n      - name: Build project\n        run: pnpm build\n",
+    "source": "fly0305/storeft-react-graphql-tailwind-typescript-",
+    "path": ".github/workflows/main.yml",
+    "url": "https://github.com/fly0305/storeft-react-graphql-tailwind-typescript-/blob/b737cfb114dba1f30b675c9177729cf9ceb25284/.github/workflows/main.yml",
+    "retrieved_at": "2025-10-16T01:40:49.907941Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What event triggers the execution of this GitHub Actions workflow?",
+    "answer": "name: QA\non: [pull_request]\njobs:\n  lint:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: pnpm/action-setup@v2.2.1\n        with:\n          version: 6.19.1\n      - uses: actions/setup-node@v3\n        with:\n          node-version: \"16\"\n          cache: \"pnpm\"\n      - name: Install dependencies\n        run: pnpm install\n      - name: Check linters\n        run: pnpm lint\n      - name: Validate paths\n        run: |\n          pnpm paths\n          git diff --exit-code ./lib/\\$path.ts\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: pnpm/action-setup@v2.2.1\n        with:\n          version: 6.19.1\n      - uses: actions/setup-node@v3\n        with:\n          node-version: \"16\"\n          cache: \"pnpm\"\n      - uses: actions/cache@v2\n        with:\n          path: |\n            ${{ github.workspace }}/.next/cache\n          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}\n          # If source files changed but packages didn't, rebuild from a prior cache.\n          restore-keys: |\n            ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.json') }}-\n      - name: Install dependencies\n        run: pnpm install\n      - name: Build project\n        run: pnpm build\n",
+    "source": "fly0305/storeft-react-graphql-tailwind-typescript-",
+    "path": ".github/workflows/main.yml",
+    "url": "https://github.com/fly0305/storeft-react-graphql-tailwind-typescript-/blob/b737cfb114dba1f30b675c9177729cf9ceb25284/.github/workflows/main.yml",
+    "retrieved_at": "2025-10-16T01:40:50.493058Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within the workflow run concurrently or sequentially, and what are their dependencies?",
+    "answer": "name: QA\non: [pull_request]\njobs:\n  lint:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: pnpm/action-setup@v2.2.1\n        with:\n          version: 6.19.1\n      - uses: actions/setup-node@v3\n        with:\n          node-version: \"16\"\n          cache: \"pnpm\"\n      - name: Install dependencies\n        run: pnpm install\n      - name: Check linters\n        run: pnpm lint\n      - name: Validate paths\n        run: |\n          pnpm paths\n          git diff --exit-code ./lib/\\$path.ts\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: pnpm/action-setup@v2.2.1\n        with:\n          version: 6.19.1\n      - uses: actions/setup-node@v3\n        with:\n          node-version: \"16\"\n          cache: \"pnpm\"\n      - uses: actions/cache@v2\n        with:\n          path: |\n            ${{ github.workspace }}/.next/cache\n          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}\n          # If source files changed but packages didn't, rebuild from a prior cache.\n          restore-keys: |\n            ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.json') }}-\n      - name: Install dependencies\n        run: pnpm install\n      - name: Build project\n        run: pnpm build\n",
+    "source": "fly0305/storeft-react-graphql-tailwind-typescript-",
+    "path": ".github/workflows/main.yml",
+    "url": "https://github.com/fly0305/storeft-react-graphql-tailwind-typescript-/blob/b737cfb114dba1f30b675c9177729cf9ceb25284/.github/workflows/main.yml",
+    "retrieved_at": "2025-10-16T01:40:51.124702Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "How does the workflow leverage caching for dependencies and the Next.js build?",
+    "answer": "name: QA\non: [pull_request]\njobs:\n  lint:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: pnpm/action-setup@v2.2.1\n        with:\n          version: 6.19.1\n      - uses: actions/setup-node@v3\n        with:\n          node-version: \"16\"\n          cache: \"pnpm\"\n      - name: Install dependencies\n        run: pnpm install\n      - name: Check linters\n        run: pnpm lint\n      - name: Validate paths\n        run: |\n          pnpm paths\n          git diff --exit-code ./lib/\\$path.ts\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: pnpm/action-setup@v2.2.1\n        with:\n          version: 6.19.1\n      - uses: actions/setup-node@v3\n        with:\n          node-version: \"16\"\n          cache: \"pnpm\"\n      - uses: actions/cache@v2\n        with:\n          path: |\n            ${{ github.workspace }}/.next/cache\n          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}\n          # If source files changed but packages didn't, rebuild from a prior cache.\n          restore-keys: |\n            ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.json') }}-\n      - name: Install dependencies\n        run: pnpm install\n      - name: Build project\n        run: pnpm build\n",
+    "source": "fly0305/storeft-react-graphql-tailwind-typescript-",
+    "path": ".github/workflows/main.yml",
+    "url": "https://github.com/fly0305/storeft-react-graphql-tailwind-typescript-/blob/b737cfb114dba1f30b675c9177729cf9ceb25284/.github/workflows/main.yml",
+    "retrieved_at": "2025-10-16T01:40:51.745397Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What does this workflow do when a pull request is opened?",
+    "answer": "name: QA\non: [pull_request]\njobs:\n  lint:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: pnpm/action-setup@v2.2.1\n        with:\n          version: 6.19.1\n      - uses: actions/setup-node@v3\n        with:\n          node-version: \"16\"\n          cache: \"pnpm\"\n      - name: Install dependencies\n        run: pnpm install\n      - name: Check linters\n        run: pnpm lint\n      - name: Validate paths\n        run: |\n          pnpm paths\n          git diff --exit-code ./lib/\\$path.ts\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: pnpm/action-setup@v2.2.1\n        with:\n          version: 6.19.1\n      - uses: actions/setup-node@v3\n        with:\n          node-version: \"16\"\n          cache: \"pnpm\"\n      - uses: actions/cache@v2\n        with:\n          path: |\n            ${{ github.workspace }}/.next/cache\n          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}\n          # If source files changed but packages didn't, rebuild from a prior cache.\n          restore-keys: |\n            ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.json') }}-\n      - name: Install dependencies\n        run: pnpm install\n      - name: Build project\n        run: pnpm build\n",
+    "source": "fly0305/storeft-react-graphql-tailwind-typescript-",
+    "path": ".github/workflows/main.yml",
+    "url": "https://github.com/fly0305/storeft-react-graphql-tailwind-typescript-/blob/b737cfb114dba1f30b675c9177729cf9ceb25284/.github/workflows/main.yml",
+    "retrieved_at": "2025-10-16T01:40:52.319891Z",
+    "question_style": "style_5"
   }
 ]
