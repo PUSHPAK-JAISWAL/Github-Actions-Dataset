@@ -3778,5 +3778,95 @@
     "url": "https://github.com/fly0305/storeft-react-graphql-tailwind-typescript-/blob/b737cfb114dba1f30b675c9177729cf9ceb25284/.github/workflows/main.yml",
     "retrieved_at": "2025-10-16T01:40:52.319891Z",
     "question_style": "style_5"
+  },
+  {
+    "question": "Generate a GitHub Actions workflow YAML file that replicates the functionality of the provided YAML file.",
+    "answer": "---\nname: Issue Opened Triage\n\npermissions:\n  issues: write\n\non:\n  issues:\n    types: [opened]\n\njobs:\n  issue_triage:\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1\n    - uses: github/issue-labeler@c1b0f9f52a63158c4adc09425e858e87b32e9685 # v3.4\n      with:\n        repo-token: \"${{ secrets.GITHUB_TOKEN }}\"\n        configuration-path: .github/labeler-issue-triage.yml\n        enable-versioned-regex: 0\n",
+    "source": "KamalakarBadri/Terraform_Azure",
+    "path": ".github/workflows/issue-opened.yaml",
+    "url": "https://github.com/KamalakarBadri/Terraform_Azure/blob/dde736f5278b33e98393771815d5eef3b4d11cc4/.github/workflows/issue-opened.yaml",
+    "retrieved_at": "2025-10-17T01:39:51.276421Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What event involving issues triggers this GitHub Actions workflow?",
+    "answer": "---\nname: Issue Opened Triage\n\npermissions:\n  issues: write\n\non:\n  issues:\n    types: [opened]\n\njobs:\n  issue_triage:\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1\n    - uses: github/issue-labeler@c1b0f9f52a63158c4adc09425e858e87b32e9685 # v3.4\n      with:\n        repo-token: \"${{ secrets.GITHUB_TOKEN }}\"\n        configuration-path: .github/labeler-issue-triage.yml\n        enable-versioned-regex: 0\n",
+    "source": "KamalakarBadri/Terraform_Azure",
+    "path": ".github/workflows/issue-opened.yaml",
+    "url": "https://github.com/KamalakarBadri/Terraform_Azure/blob/dde736f5278b33e98393771815d5eef3b4d11cc4/.github/workflows/issue-opened.yaml",
+    "retrieved_at": "2025-10-17T01:39:51.764722Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps in this workflow run concurrently or have dependencies on other jobs or steps?",
+    "answer": "---\nname: Issue Opened Triage\n\npermissions:\n  issues: write\n\non:\n  issues:\n    types: [opened]\n\njobs:\n  issue_triage:\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1\n    - uses: github/issue-labeler@c1b0f9f52a63158c4adc09425e858e87b32e9685 # v3.4\n      with:\n        repo-token: \"${{ secrets.GITHUB_TOKEN }}\"\n        configuration-path: .github/labeler-issue-triage.yml\n        enable-versioned-regex: 0\n",
+    "source": "KamalakarBadri/Terraform_Azure",
+    "path": ".github/workflows/issue-opened.yaml",
+    "url": "https://github.com/KamalakarBadri/Terraform_Azure/blob/dde736f5278b33e98393771815d5eef3b4d11cc4/.github/workflows/issue-opened.yaml",
+    "retrieved_at": "2025-10-17T01:39:52.326734Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "How does the workflow utilize the `GITHUB_TOKEN` secret for issue labeling?",
+    "answer": "---\nname: Issue Opened Triage\n\npermissions:\n  issues: write\n\non:\n  issues:\n    types: [opened]\n\njobs:\n  issue_triage:\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1\n    - uses: github/issue-labeler@c1b0f9f52a63158c4adc09425e858e87b32e9685 # v3.4\n      with:\n        repo-token: \"${{ secrets.GITHUB_TOKEN }}\"\n        configuration-path: .github/labeler-issue-triage.yml\n        enable-versioned-regex: 0\n",
+    "source": "KamalakarBadri/Terraform_Azure",
+    "path": ".github/workflows/issue-opened.yaml",
+    "url": "https://github.com/KamalakarBadri/Terraform_Azure/blob/dde736f5278b33e98393771815d5eef3b4d11cc4/.github/workflows/issue-opened.yaml",
+    "retrieved_at": "2025-10-17T01:39:52.901400Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the primary function of the \"Issue Opened Triage\" workflow?",
+    "answer": "---\nname: Issue Opened Triage\n\npermissions:\n  issues: write\n\non:\n  issues:\n    types: [opened]\n\njobs:\n  issue_triage:\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1\n    - uses: github/issue-labeler@c1b0f9f52a63158c4adc09425e858e87b32e9685 # v3.4\n      with:\n        repo-token: \"${{ secrets.GITHUB_TOKEN }}\"\n        configuration-path: .github/labeler-issue-triage.yml\n        enable-versioned-regex: 0\n",
+    "source": "KamalakarBadri/Terraform_Azure",
+    "path": ".github/workflows/issue-opened.yaml",
+    "url": "https://github.com/KamalakarBadri/Terraform_Azure/blob/dde736f5278b33e98393771815d5eef3b4d11cc4/.github/workflows/issue-opened.yaml",
+    "retrieved_at": "2025-10-17T01:39:53.519651Z",
+    "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow that publishes the @devcontainers/cli package to npm when a tag is pushed.",
+    "answer": "name: Publish @devcontainers/cli\n\non:\n  push:\n    tags:\n      - 'v*'\n\njobs:\n  main:\n    runs-on: ubuntu-latest\n    steps:\n    - name: Checkout\n      uses: actions/checkout@v4\n    - name: Setup Node.js\n      uses: actions/setup-node@v4\n      with:\n        node-version: '18.x'\n        registry-url: 'https://registry.npmjs.org'\n        scope: '@devcontainers'\n    - name: Verify Versions\n      run: |\n        node -e \"\n          const packageRef = 'refs/tags/v' + require('./package.json').version;\n          const githubRef = '${{ github.ref }}';\n          if (packageRef !== githubRef && packageRef + '-pre-release' != githubRef) {\n            console.log('::error::' + 'Version Mismatch.', packageRef, githubRef);\n            throw Error('Version Mismatch');\n          }\n        \"\n    - name: TGZ name\n      run: |\n        VERSION=$(jq -r '.version' < package.json)\n        echo \"TGZ=devcontainers-cli-${VERSION}.tgz\" | tee -a $GITHUB_ENV\n        echo \"TGZ_UPLOAD=devcontainers-cli-${VERSION}-${GITHUB_SHA:0:8}.tgz\" | tee -a $GITHUB_ENV\n    - name: Download TGZ\n      uses: dawidd6/action-download-artifact@09f2f74827fd3a8607589e5ad7f9398816f540fe\n      with:\n        workflow: dev-containers.yml\n        workflow_conclusion: success\n        commit: ${{ github.sha }}\n        name: ${{ env.TGZ_UPLOAD }}\n        path: .\n    - name: Publish TGZ\n      run: npm publish ${TGZ} --access public\n      env:\n        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}\n",
+    "source": "Kaniska244/clibackup",
+    "path": ".github/workflows/publish-dev-containers.yml",
+    "url": "https://github.com/Kaniska244/clibackup/blob/f475b2be4c516e0b7191b338328210eae1ad9d62/.github/workflows/publish-dev-containers.yml",
+    "retrieved_at": "2025-10-17T01:39:54.475746Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What `push` events, specifically related to tags, trigger this GitHub Actions workflow?",
+    "answer": "name: Publish @devcontainers/cli\n\non:\n  push:\n    tags:\n      - 'v*'\n\njobs:\n  main:\n    runs-on: ubuntu-latest\n    steps:\n    - name: Checkout\n      uses: actions/checkout@v4\n    - name: Setup Node.js\n      uses: actions/setup-node@v4\n      with:\n        node-version: '18.x'\n        registry-url: 'https://registry.npmjs.org'\n        scope: '@devcontainers'\n    - name: Verify Versions\n      run: |\n        node -e \"\n          const packageRef = 'refs/tags/v' + require('./package.json').version;\n          const githubRef = '${{ github.ref }}';\n          if (packageRef !== githubRef && packageRef + '-pre-release' != githubRef) {\n            console.log('::error::' + 'Version Mismatch.', packageRef, githubRef);\n            throw Error('Version Mismatch');\n          }\n        \"\n    - name: TGZ name\n      run: |\n        VERSION=$(jq -r '.version' < package.json)\n        echo \"TGZ=devcontainers-cli-${VERSION}.tgz\" | tee -a $GITHUB_ENV\n        echo \"TGZ_UPLOAD=devcontainers-cli-${VERSION}-${GITHUB_SHA:0:8}.tgz\" | tee -a $GITHUB_ENV\n    - name: Download TGZ\n      uses: dawidd6/action-download-artifact@09f2f74827fd3a8607589e5ad7f9398816f540fe\n      with:\n        workflow: dev-containers.yml\n        workflow_conclusion: success\n        commit: ${{ github.sha }}\n        name: ${{ env.TGZ_UPLOAD }}\n        path: .\n    - name: Publish TGZ\n      run: npm publish ${TGZ} --access public\n      env:\n        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}\n",
+    "source": "Kaniska244/clibackup",
+    "path": ".github/workflows/publish-dev-containers.yml",
+    "url": "https://github.com/Kaniska244/clibackup/blob/f475b2be4c516e0b7191b338328210eae1ad9d62/.github/workflows/publish-dev-containers.yml",
+    "retrieved_at": "2025-10-17T01:39:55.351856Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within the workflow run in parallel, and which ones have dependencies on others?",
+    "answer": "name: Publish @devcontainers/cli\n\non:\n  push:\n    tags:\n      - 'v*'\n\njobs:\n  main:\n    runs-on: ubuntu-latest\n    steps:\n    - name: Checkout\n      uses: actions/checkout@v4\n    - name: Setup Node.js\n      uses: actions/setup-node@v4\n      with:\n        node-version: '18.x'\n        registry-url: 'https://registry.npmjs.org'\n        scope: '@devcontainers'\n    - name: Verify Versions\n      run: |\n        node -e \"\n          const packageRef = 'refs/tags/v' + require('./package.json').version;\n          const githubRef = '${{ github.ref }}';\n          if (packageRef !== githubRef && packageRef + '-pre-release' != githubRef) {\n            console.log('::error::' + 'Version Mismatch.', packageRef, githubRef);\n            throw Error('Version Mismatch');\n          }\n        \"\n    - name: TGZ name\n      run: |\n        VERSION=$(jq -r '.version' < package.json)\n        echo \"TGZ=devcontainers-cli-${VERSION}.tgz\" | tee -a $GITHUB_ENV\n        echo \"TGZ_UPLOAD=devcontainers-cli-${VERSION}-${GITHUB_SHA:0:8}.tgz\" | tee -a $GITHUB_ENV\n    - name: Download TGZ\n      uses: dawidd6/action-download-artifact@09f2f74827fd3a8607589e5ad7f9398816f540fe\n      with:\n        workflow: dev-containers.yml\n        workflow_conclusion: success\n        commit: ${{ github.sha }}\n        name: ${{ env.TGZ_UPLOAD }}\n        path: .\n    - name: Publish TGZ\n      run: npm publish ${TGZ} --access public\n      env:\n        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}\n",
+    "source": "Kaniska244/clibackup",
+    "path": ".github/workflows/publish-dev-containers.yml",
+    "url": "https://github.com/Kaniska244/clibackup/blob/f475b2be4c516e0b7191b338328210eae1ad9d62/.github/workflows/publish-dev-containers.yml",
+    "retrieved_at": "2025-10-17T01:39:55.982576Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "How is the `NPM_TOKEN` secret used to authenticate the npm publish command?",
+    "answer": "name: Publish @devcontainers/cli\n\non:\n  push:\n    tags:\n      - 'v*'\n\njobs:\n  main:\n    runs-on: ubuntu-latest\n    steps:\n    - name: Checkout\n      uses: actions/checkout@v4\n    - name: Setup Node.js\n      uses: actions/setup-node@v4\n      with:\n        node-version: '18.x'\n        registry-url: 'https://registry.npmjs.org'\n        scope: '@devcontainers'\n    - name: Verify Versions\n      run: |\n        node -e \"\n          const packageRef = 'refs/tags/v' + require('./package.json').version;\n          const githubRef = '${{ github.ref }}';\n          if (packageRef !== githubRef && packageRef + '-pre-release' != githubRef) {\n            console.log('::error::' + 'Version Mismatch.', packageRef, githubRef);\n            throw Error('Version Mismatch');\n          }\n        \"\n    - name: TGZ name\n      run: |\n        VERSION=$(jq -r '.version' < package.json)\n        echo \"TGZ=devcontainers-cli-${VERSION}.tgz\" | tee -a $GITHUB_ENV\n        echo \"TGZ_UPLOAD=devcontainers-cli-${VERSION}-${GITHUB_SHA:0:8}.tgz\" | tee -a $GITHUB_ENV\n    - name: Download TGZ\n      uses: dawidd6/action-download-artifact@09f2f74827fd3a8607589e5ad7f9398816f540fe\n      with:\n        workflow: dev-containers.yml\n        workflow_conclusion: success\n        commit: ${{ github.sha }}\n        name: ${{ env.TGZ_UPLOAD }}\n        path: .\n    - name: Publish TGZ\n      run: npm publish ${TGZ} --access public\n      env:\n        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}\n",
+    "source": "Kaniska244/clibackup",
+    "path": ".github/workflows/publish-dev-containers.yml",
+    "url": "https://github.com/Kaniska244/clibackup/blob/f475b2be4c516e0b7191b338328210eae1ad9d62/.github/workflows/publish-dev-containers.yml",
+    "retrieved_at": "2025-10-17T01:39:56.985830Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the purpose of this workflow, triggered by tagged pushes?",
+    "answer": "name: Publish @devcontainers/cli\n\non:\n  push:\n    tags:\n      - 'v*'\n\njobs:\n  main:\n    runs-on: ubuntu-latest\n    steps:\n    - name: Checkout\n      uses: actions/checkout@v4\n    - name: Setup Node.js\n      uses: actions/setup-node@v4\n      with:\n        node-version: '18.x'\n        registry-url: 'https://registry.npmjs.org'\n        scope: '@devcontainers'\n    - name: Verify Versions\n      run: |\n        node -e \"\n          const packageRef = 'refs/tags/v' + require('./package.json').version;\n          const githubRef = '${{ github.ref }}';\n          if (packageRef !== githubRef && packageRef + '-pre-release' != githubRef) {\n            console.log('::error::' + 'Version Mismatch.', packageRef, githubRef);\n            throw Error('Version Mismatch');\n          }\n        \"\n    - name: TGZ name\n      run: |\n        VERSION=$(jq -r '.version' < package.json)\n        echo \"TGZ=devcontainers-cli-${VERSION}.tgz\" | tee -a $GITHUB_ENV\n        echo \"TGZ_UPLOAD=devcontainers-cli-${VERSION}-${GITHUB_SHA:0:8}.tgz\" | tee -a $GITHUB_ENV\n    - name: Download TGZ\n      uses: dawidd6/action-download-artifact@09f2f74827fd3a8607589e5ad7f9398816f540fe\n      with:\n        workflow: dev-containers.yml\n        workflow_conclusion: success\n        commit: ${{ github.sha }}\n        name: ${{ env.TGZ_UPLOAD }}\n        path: .\n    - name: Publish TGZ\n      run: npm publish ${TGZ} --access public\n      env:\n        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}\n",
+    "source": "Kaniska244/clibackup",
+    "path": ".github/workflows/publish-dev-containers.yml",
+    "url": "https://github.com/Kaniska244/clibackup/blob/f475b2be4c516e0b7191b338328210eae1ad9d62/.github/workflows/publish-dev-containers.yml",
+    "retrieved_at": "2025-10-17T01:39:57.571225Z",
+    "question_style": "style_5"
   }
 ]
