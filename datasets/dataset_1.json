@@ -3868,5 +3868,95 @@
     "url": "https://github.com/Kaniska244/clibackup/blob/f475b2be4c516e0b7191b338328210eae1ad9d62/.github/workflows/publish-dev-containers.yml",
     "retrieved_at": "2025-10-17T01:39:57.571225Z",
     "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow YAML file that replicates the functionality of the provided YAML.",
+    "answer": "name: build\non:\n  push:\n    tags:\n      - v*\n    branches:\n      - master\n      - main\n      - kafqa_ci_fix\n  pull_request:\njobs:\n  test:\n    name: test\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - name: build\n        uses: actions/setup-go@v2\n        with:\n          go-version: '^1.13.1'\n      - name: install librdkafka\n        run: |\n          git clone https://github.com/edenhill/librdkafka.git\n          pushd librdkafka && ./configure --prefix /usr\n          sudo make\n          sudo make install\n          popd\n      - name: build\n        run: make test\n",
+    "source": "gojek/kafqa",
+    "path": ".github/workflows/build.yml",
+    "url": "https://github.com/gojek/kafqa/blob/a82c1558a463d33e4ed8131435e15d1d335527db/.github/workflows/build.yml",
+    "retrieved_at": "2025-10-18T01:27:44.369441Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events related to pushes and pull requests trigger this \"build\" workflow?",
+    "answer": "name: build\non:\n  push:\n    tags:\n      - v*\n    branches:\n      - master\n      - main\n      - kafqa_ci_fix\n  pull_request:\njobs:\n  test:\n    name: test\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - name: build\n        uses: actions/setup-go@v2\n        with:\n          go-version: '^1.13.1'\n      - name: install librdkafka\n        run: |\n          git clone https://github.com/edenhill/librdkafka.git\n          pushd librdkafka && ./configure --prefix /usr\n          sudo make\n          sudo make install\n          popd\n      - name: build\n        run: make test\n",
+    "source": "gojek/kafqa",
+    "path": ".github/workflows/build.yml",
+    "url": "https://github.com/gojek/kafqa/blob/a82c1558a463d33e4ed8131435e15d1d335527db/.github/workflows/build.yml",
+    "retrieved_at": "2025-10-18T01:27:45.257909Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within this workflow execute concurrently versus sequentially, based on dependencies?",
+    "answer": "name: build\non:\n  push:\n    tags:\n      - v*\n    branches:\n      - master\n      - main\n      - kafqa_ci_fix\n  pull_request:\njobs:\n  test:\n    name: test\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - name: build\n        uses: actions/setup-go@v2\n        with:\n          go-version: '^1.13.1'\n      - name: install librdkafka\n        run: |\n          git clone https://github.com/edenhill/librdkafka.git\n          pushd librdkafka && ./configure --prefix /usr\n          sudo make\n          sudo make install\n          popd\n      - name: build\n        run: make test\n",
+    "source": "gojek/kafqa",
+    "path": ".github/workflows/build.yml",
+    "url": "https://github.com/gojek/kafqa/blob/a82c1558a463d33e4ed8131435e15d1d335527db/.github/workflows/build.yml",
+    "retrieved_at": "2025-10-18T01:27:45.870720Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "Does the workflow utilize environment variables, secrets, or caching/artifacts, and if so, how?",
+    "answer": "name: build\non:\n  push:\n    tags:\n      - v*\n    branches:\n      - master\n      - main\n      - kafqa_ci_fix\n  pull_request:\njobs:\n  test:\n    name: test\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - name: build\n        uses: actions/setup-go@v2\n        with:\n          go-version: '^1.13.1'\n      - name: install librdkafka\n        run: |\n          git clone https://github.com/edenhill/librdkafka.git\n          pushd librdkafka && ./configure --prefix /usr\n          sudo make\n          sudo make install\n          popd\n      - name: build\n        run: make test\n",
+    "source": "gojek/kafqa",
+    "path": ".github/workflows/build.yml",
+    "url": "https://github.com/gojek/kafqa/blob/a82c1558a463d33e4ed8131435e15d1d335527db/.github/workflows/build.yml",
+    "retrieved_at": "2025-10-18T01:27:46.552703Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the main purpose of this workflow, triggered by pushes and pull requests?",
+    "answer": "name: build\non:\n  push:\n    tags:\n      - v*\n    branches:\n      - master\n      - main\n      - kafqa_ci_fix\n  pull_request:\njobs:\n  test:\n    name: test\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - name: build\n        uses: actions/setup-go@v2\n        with:\n          go-version: '^1.13.1'\n      - name: install librdkafka\n        run: |\n          git clone https://github.com/edenhill/librdkafka.git\n          pushd librdkafka && ./configure --prefix /usr\n          sudo make\n          sudo make install\n          popd\n      - name: build\n        run: make test\n",
+    "source": "gojek/kafqa",
+    "path": ".github/workflows/build.yml",
+    "url": "https://github.com/gojek/kafqa/blob/a82c1558a463d33e4ed8131435e15d1d335527db/.github/workflows/build.yml",
+    "retrieved_at": "2025-10-18T01:27:47.136671Z",
+    "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow YAML file that replicates the functionality of the provided YAML file.",
+    "answer": "name: Native CI workflow\n\non:\n  pull_request:\n  push:\n    branches:\n      - master\n\njobs:\n\n  build-melodic:\n\n    runs-on: ${{ matrix.os }}\n    strategy:\n      matrix:\n        os: [ubuntu-latest] #[ubuntu-latest, self-hosted]\n      fail-fast: false\n\n    container:\n      image: autoware/autoware:bleedingedge-melodic-base\n      env:\n        ROS_DISTRO: melodic\n      options: --user root\n\n    steps:\n\n    - name: Checkout repo\n      uses: actions/checkout@v2\n\n    - name: Prepare repo\n      run: |\n        mkdir -p src_tmp/ && mv `find -maxdepth 1 -not -name . -not -name src_tmp` src_tmp/ && mv src_tmp/ src/\n        rosdep update && apt-get update -qqq\n        rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO\n\n    - name: Build and test repo\n      run: |\n        bash -c 'source /opt/ros/$ROS_DISTRO/setup.bash; \\\n        colcon build --cmake-args -DCMAKE_CXX_FLAGS=\"${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage\" -DCMAKE_C_FLAGS=\"${CMAKE_C_FLAGS} -fprofile-arcs -ftest-coverage\" -DCMAKE_BUILD_TYPE=Debug; \\\n        colcon build --cmake-target tests --cmake-args -DCMAKE_CXX_FLAGS=\"${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage\" -DCMAKE_C_FLAGS=\"${CMAKE_C_FLAGS} -fprofile-arcs -ftest-coverage\" -DCMAKE_BUILD_TYPE=Debug; \\\n        colcon test; \\\n        colcon test-result --verbose'\n",
+    "source": "autowarefoundation/qpoases_vendor",
+    "path": ".github/workflows/native-ci.yaml",
+    "url": "https://github.com/autowarefoundation/qpoases_vendor/blob/ca4e3e1e1c796f4ce4e17e46ba4372607d87f87b/.github/workflows/native-ci.yaml",
+    "retrieved_at": "2025-10-18T01:27:48.134975Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What pull requests or pushes to the master branch trigger this workflow?",
+    "answer": "name: Native CI workflow\n\non:\n  pull_request:\n  push:\n    branches:\n      - master\n\njobs:\n\n  build-melodic:\n\n    runs-on: ${{ matrix.os }}\n    strategy:\n      matrix:\n        os: [ubuntu-latest] #[ubuntu-latest, self-hosted]\n      fail-fast: false\n\n    container:\n      image: autoware/autoware:bleedingedge-melodic-base\n      env:\n        ROS_DISTRO: melodic\n      options: --user root\n\n    steps:\n\n    - name: Checkout repo\n      uses: actions/checkout@v2\n\n    - name: Prepare repo\n      run: |\n        mkdir -p src_tmp/ && mv `find -maxdepth 1 -not -name . -not -name src_tmp` src_tmp/ && mv src_tmp/ src/\n        rosdep update && apt-get update -qqq\n        rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO\n\n    - name: Build and test repo\n      run: |\n        bash -c 'source /opt/ros/$ROS_DISTRO/setup.bash; \\\n        colcon build --cmake-args -DCMAKE_CXX_FLAGS=\"${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage\" -DCMAKE_C_FLAGS=\"${CMAKE_C_FLAGS} -fprofile-arcs -ftest-coverage\" -DCMAKE_BUILD_TYPE=Debug; \\\n        colcon build --cmake-target tests --cmake-args -DCMAKE_CXX_FLAGS=\"${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage\" -DCMAKE_C_FLAGS=\"${CMAKE_C_FLAGS} -fprofile-arcs -ftest-coverage\" -DCMAKE_BUILD_TYPE=Debug; \\\n        colcon test; \\\n        colcon test-result --verbose'\n",
+    "source": "autowarefoundation/qpoases_vendor",
+    "path": ".github/workflows/native-ci.yaml",
+    "url": "https://github.com/autowarefoundation/qpoases_vendor/blob/ca4e3e1e1c796f4ce4e17e46ba4372607d87f87b/.github/workflows/native-ci.yaml",
+    "retrieved_at": "2025-10-18T01:27:48.755114Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within the workflow execute in parallel, and are there any dependencies between them?",
+    "answer": "name: Native CI workflow\n\non:\n  pull_request:\n  push:\n    branches:\n      - master\n\njobs:\n\n  build-melodic:\n\n    runs-on: ${{ matrix.os }}\n    strategy:\n      matrix:\n        os: [ubuntu-latest] #[ubuntu-latest, self-hosted]\n      fail-fast: false\n\n    container:\n      image: autoware/autoware:bleedingedge-melodic-base\n      env:\n        ROS_DISTRO: melodic\n      options: --user root\n\n    steps:\n\n    - name: Checkout repo\n      uses: actions/checkout@v2\n\n    - name: Prepare repo\n      run: |\n        mkdir -p src_tmp/ && mv `find -maxdepth 1 -not -name . -not -name src_tmp` src_tmp/ && mv src_tmp/ src/\n        rosdep update && apt-get update -qqq\n        rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO\n\n    - name: Build and test repo\n      run: |\n        bash -c 'source /opt/ros/$ROS_DISTRO/setup.bash; \\\n        colcon build --cmake-args -DCMAKE_CXX_FLAGS=\"${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage\" -DCMAKE_C_FLAGS=\"${CMAKE_C_FLAGS} -fprofile-arcs -ftest-coverage\" -DCMAKE_BUILD_TYPE=Debug; \\\n        colcon build --cmake-target tests --cmake-args -DCMAKE_CXX_FLAGS=\"${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage\" -DCMAKE_C_FLAGS=\"${CMAKE_C_FLAGS} -fprofile-arcs -ftest-coverage\" -DCMAKE_BUILD_TYPE=Debug; \\\n        colcon test; \\\n        colcon test-result --verbose'\n",
+    "source": "autowarefoundation/qpoases_vendor",
+    "path": ".github/workflows/native-ci.yaml",
+    "url": "https://github.com/autowarefoundation/qpoases_vendor/blob/ca4e3e1e1c796f4ce4e17e46ba4372607d87f87b/.github/workflows/native-ci.yaml",
+    "retrieved_at": "2025-10-18T01:27:49.310996Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "How does the workflow utilize the `ROS_DISTRO` environment variable within the container and build steps?",
+    "answer": "name: Native CI workflow\n\non:\n  pull_request:\n  push:\n    branches:\n      - master\n\njobs:\n\n  build-melodic:\n\n    runs-on: ${{ matrix.os }}\n    strategy:\n      matrix:\n        os: [ubuntu-latest] #[ubuntu-latest, self-hosted]\n      fail-fast: false\n\n    container:\n      image: autoware/autoware:bleedingedge-melodic-base\n      env:\n        ROS_DISTRO: melodic\n      options: --user root\n\n    steps:\n\n    - name: Checkout repo\n      uses: actions/checkout@v2\n\n    - name: Prepare repo\n      run: |\n        mkdir -p src_tmp/ && mv `find -maxdepth 1 -not -name . -not -name src_tmp` src_tmp/ && mv src_tmp/ src/\n        rosdep update && apt-get update -qqq\n        rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO\n\n    - name: Build and test repo\n      run: |\n        bash -c 'source /opt/ros/$ROS_DISTRO/setup.bash; \\\n        colcon build --cmake-args -DCMAKE_CXX_FLAGS=\"${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage\" -DCMAKE_C_FLAGS=\"${CMAKE_C_FLAGS} -fprofile-arcs -ftest-coverage\" -DCMAKE_BUILD_TYPE=Debug; \\\n        colcon build --cmake-target tests --cmake-args -DCMAKE_CXX_FLAGS=\"${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage\" -DCMAKE_C_FLAGS=\"${CMAKE_C_FLAGS} -fprofile-arcs -ftest-coverage\" -DCMAKE_BUILD_TYPE=Debug; \\\n        colcon test; \\\n        colcon test-result --verbose'\n",
+    "source": "autowarefoundation/qpoases_vendor",
+    "path": ".github/workflows/native-ci.yaml",
+    "url": "https://github.com/autowarefoundation/qpoases_vendor/blob/ca4e3e1e1c796f4ce4e17e46ba4372607d87f87b/.github/workflows/native-ci.yaml",
+    "retrieved_at": "2025-10-18T01:27:50.016200Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the primary function of this workflow for the Autoware project?",
+    "answer": "name: Native CI workflow\n\non:\n  pull_request:\n  push:\n    branches:\n      - master\n\njobs:\n\n  build-melodic:\n\n    runs-on: ${{ matrix.os }}\n    strategy:\n      matrix:\n        os: [ubuntu-latest] #[ubuntu-latest, self-hosted]\n      fail-fast: false\n\n    container:\n      image: autoware/autoware:bleedingedge-melodic-base\n      env:\n        ROS_DISTRO: melodic\n      options: --user root\n\n    steps:\n\n    - name: Checkout repo\n      uses: actions/checkout@v2\n\n    - name: Prepare repo\n      run: |\n        mkdir -p src_tmp/ && mv `find -maxdepth 1 -not -name . -not -name src_tmp` src_tmp/ && mv src_tmp/ src/\n        rosdep update && apt-get update -qqq\n        rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO\n\n    - name: Build and test repo\n      run: |\n        bash -c 'source /opt/ros/$ROS_DISTRO/setup.bash; \\\n        colcon build --cmake-args -DCMAKE_CXX_FLAGS=\"${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage\" -DCMAKE_C_FLAGS=\"${CMAKE_C_FLAGS} -fprofile-arcs -ftest-coverage\" -DCMAKE_BUILD_TYPE=Debug; \\\n        colcon build --cmake-target tests --cmake-args -DCMAKE_CXX_FLAGS=\"${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage\" -DCMAKE_C_FLAGS=\"${CMAKE_C_FLAGS} -fprofile-arcs -ftest-coverage\" -DCMAKE_BUILD_TYPE=Debug; \\\n        colcon test; \\\n        colcon test-result --verbose'\n",
+    "source": "autowarefoundation/qpoases_vendor",
+    "path": ".github/workflows/native-ci.yaml",
+    "url": "https://github.com/autowarefoundation/qpoases_vendor/blob/ca4e3e1e1c796f4ce4e17e46ba4372607d87f87b/.github/workflows/native-ci.yaml",
+    "retrieved_at": "2025-10-18T01:27:50.586810Z",
+    "question_style": "style_5"
   }
 ]
