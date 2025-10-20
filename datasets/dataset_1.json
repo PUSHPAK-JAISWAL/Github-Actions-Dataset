@@ -4048,5 +4048,95 @@
     "url": "https://github.com/Vitorlima02/projeto-trybers-and-dragons/blob/b1193ce0c4992951680e3257680854ea7cf49530/.github/workflows/main.yml",
     "retrieved_at": "2025-10-19T01:50:39.577727Z",
     "question_style": "style_5"
+  },
+  {
+    "question": "Generate a GitHub Actions workflow YAML file that replicates the functionality of the provided workflow YAML file.",
+    "answer": "# For most projects, this workflow file will not need changing; you simply need\n# to commit it to your repository.\n#\n# You may wish to alter this file to override the set of languages analyzed,\n# or to provide custom queries or build logic.\n#\n# ******** NOTE ********\n# We have attempted to detect the languages in your repository. Please check\n# the `language` matrix defined below to confirm you have the correct set of\n# supported CodeQL languages.\n#\nname: \"CodeQL\"\n\non:\n  push:\n    branches: [ master, stable ]\n  pull_request:\n    # The branches below must be a subset of the branches above\n    branches: [ master, stable ]\n  schedule:\n    - cron: '41 12 * * 4'\n\njobs:\n  analyze:\n    name: Analyze\n    runs-on: ubuntu-22.04\n\n    strategy:\n      fail-fast: false\n      matrix:\n        language: [ 'c', 'cpp', 'python' ]\n        # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python' ]\n        # Learn more:\n        # https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#changing-the-languages-that-are-analyzed\n\n    steps:\n    - name: Checkout repository\n      uses: actions/checkout@v2\n\n    # Initializes the CodeQL tools for scanning.\n    - name: Initialize CodeQL\n      uses: github/codeql-action/init@v2\n      with:\n        languages: ${{ matrix.language }}\n        # If you wish to specify custom queries, you can do so here or in a config file.\n        # By default, queries listed here will override any specified in a config file.\n        # Prefix the list here with \"+\" to use these queries and those in the config file.\n        # queries: ./path/to/local/query, your-org/your-repo/queries@main\n\n    - run: |\n       sudo apt update && sudo apt -y install python3-twisted libpcap-dev libsodium-dev python3-pyroute2 python3-future python3-msgpack\n       make all_bin\n\n    - name: Perform CodeQL Analysis\n      uses: github/codeql-action/analyze@v2\n",
+    "source": "tipoman9/wfb_fec",
+    "path": ".github/workflows/codeql-analysis.yml",
+    "url": "https://github.com/tipoman9/wfb_fec/blob/8d5b14cf92dbe286cc4e16d42beff4974ecfd427/.github/workflows/codeql-analysis.yml",
+    "retrieved_at": "2025-10-20T01:48:09.732564Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events trigger the CodeQL workflow in this YAML configuration?",
+    "answer": "# For most projects, this workflow file will not need changing; you simply need\n# to commit it to your repository.\n#\n# You may wish to alter this file to override the set of languages analyzed,\n# or to provide custom queries or build logic.\n#\n# ******** NOTE ********\n# We have attempted to detect the languages in your repository. Please check\n# the `language` matrix defined below to confirm you have the correct set of\n# supported CodeQL languages.\n#\nname: \"CodeQL\"\n\non:\n  push:\n    branches: [ master, stable ]\n  pull_request:\n    # The branches below must be a subset of the branches above\n    branches: [ master, stable ]\n  schedule:\n    - cron: '41 12 * * 4'\n\njobs:\n  analyze:\n    name: Analyze\n    runs-on: ubuntu-22.04\n\n    strategy:\n      fail-fast: false\n      matrix:\n        language: [ 'c', 'cpp', 'python' ]\n        # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python' ]\n        # Learn more:\n        # https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#changing-the-languages-that-are-analyzed\n\n    steps:\n    - name: Checkout repository\n      uses: actions/checkout@v2\n\n    # Initializes the CodeQL tools for scanning.\n    - name: Initialize CodeQL\n      uses: github/codeql-action/init@v2\n      with:\n        languages: ${{ matrix.language }}\n        # If you wish to specify custom queries, you can do so here or in a config file.\n        # By default, queries listed here will override any specified in a config file.\n        # Prefix the list here with \"+\" to use these queries and those in the config file.\n        # queries: ./path/to/local/query, your-org/your-repo/queries@main\n\n    - run: |\n       sudo apt update && sudo apt -y install python3-twisted libpcap-dev libsodium-dev python3-pyroute2 python3-future python3-msgpack\n       make all_bin\n\n    - name: Perform CodeQL Analysis\n      uses: github/codeql-action/analyze@v2\n",
+    "source": "tipoman9/wfb_fec",
+    "path": ".github/workflows/codeql-analysis.yml",
+    "url": "https://github.com/tipoman9/wfb_fec/blob/8d5b14cf92dbe286cc4e16d42beff4974ecfd427/.github/workflows/codeql-analysis.yml",
+    "retrieved_at": "2025-10-20T01:48:10.277303Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within the \"CodeQL\" workflow run in parallel or depend on the completion of other jobs or steps?",
+    "answer": "# For most projects, this workflow file will not need changing; you simply need\n# to commit it to your repository.\n#\n# You may wish to alter this file to override the set of languages analyzed,\n# or to provide custom queries or build logic.\n#\n# ******** NOTE ********\n# We have attempted to detect the languages in your repository. Please check\n# the `language` matrix defined below to confirm you have the correct set of\n# supported CodeQL languages.\n#\nname: \"CodeQL\"\n\non:\n  push:\n    branches: [ master, stable ]\n  pull_request:\n    # The branches below must be a subset of the branches above\n    branches: [ master, stable ]\n  schedule:\n    - cron: '41 12 * * 4'\n\njobs:\n  analyze:\n    name: Analyze\n    runs-on: ubuntu-22.04\n\n    strategy:\n      fail-fast: false\n      matrix:\n        language: [ 'c', 'cpp', 'python' ]\n        # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python' ]\n        # Learn more:\n        # https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#changing-the-languages-that-are-analyzed\n\n    steps:\n    - name: Checkout repository\n      uses: actions/checkout@v2\n\n    # Initializes the CodeQL tools for scanning.\n    - name: Initialize CodeQL\n      uses: github/codeql-action/init@v2\n      with:\n        languages: ${{ matrix.language }}\n        # If you wish to specify custom queries, you can do so here or in a config file.\n        # By default, queries listed here will override any specified in a config file.\n        # Prefix the list here with \"+\" to use these queries and those in the config file.\n        # queries: ./path/to/local/query, your-org/your-repo/queries@main\n\n    - run: |\n       sudo apt update && sudo apt -y install python3-twisted libpcap-dev libsodium-dev python3-pyroute2 python3-future python3-msgpack\n       make all_bin\n\n    - name: Perform CodeQL Analysis\n      uses: github/codeql-action/analyze@v2\n",
+    "source": "tipoman9/wfb_fec",
+    "path": ".github/workflows/codeql-analysis.yml",
+    "url": "https://github.com/tipoman9/wfb_fec/blob/8d5b14cf92dbe286cc4e16d42beff4974ecfd427/.github/workflows/codeql-analysis.yml",
+    "retrieved_at": "2025-10-20T01:48:10.893778Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "Are any environment variables or secrets used within the `run` step to install dependencies or build the project?",
+    "answer": "# For most projects, this workflow file will not need changing; you simply need\n# to commit it to your repository.\n#\n# You may wish to alter this file to override the set of languages analyzed,\n# or to provide custom queries or build logic.\n#\n# ******** NOTE ********\n# We have attempted to detect the languages in your repository. Please check\n# the `language` matrix defined below to confirm you have the correct set of\n# supported CodeQL languages.\n#\nname: \"CodeQL\"\n\non:\n  push:\n    branches: [ master, stable ]\n  pull_request:\n    # The branches below must be a subset of the branches above\n    branches: [ master, stable ]\n  schedule:\n    - cron: '41 12 * * 4'\n\njobs:\n  analyze:\n    name: Analyze\n    runs-on: ubuntu-22.04\n\n    strategy:\n      fail-fast: false\n      matrix:\n        language: [ 'c', 'cpp', 'python' ]\n        # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python' ]\n        # Learn more:\n        # https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#changing-the-languages-that-are-analyzed\n\n    steps:\n    - name: Checkout repository\n      uses: actions/checkout@v2\n\n    # Initializes the CodeQL tools for scanning.\n    - name: Initialize CodeQL\n      uses: github/codeql-action/init@v2\n      with:\n        languages: ${{ matrix.language }}\n        # If you wish to specify custom queries, you can do so here or in a config file.\n        # By default, queries listed here will override any specified in a config file.\n        # Prefix the list here with \"+\" to use these queries and those in the config file.\n        # queries: ./path/to/local/query, your-org/your-repo/queries@main\n\n    - run: |\n       sudo apt update && sudo apt -y install python3-twisted libpcap-dev libsodium-dev python3-pyroute2 python3-future python3-msgpack\n       make all_bin\n\n    - name: Perform CodeQL Analysis\n      uses: github/codeql-action/analyze@v2\n",
+    "source": "tipoman9/wfb_fec",
+    "path": ".github/workflows/codeql-analysis.yml",
+    "url": "https://github.com/tipoman9/wfb_fec/blob/8d5b14cf92dbe286cc4e16d42beff4974ecfd427/.github/workflows/codeql-analysis.yml",
+    "retrieved_at": "2025-10-20T01:48:11.514498Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the main purpose of this CodeQL workflow?",
+    "answer": "# For most projects, this workflow file will not need changing; you simply need\n# to commit it to your repository.\n#\n# You may wish to alter this file to override the set of languages analyzed,\n# or to provide custom queries or build logic.\n#\n# ******** NOTE ********\n# We have attempted to detect the languages in your repository. Please check\n# the `language` matrix defined below to confirm you have the correct set of\n# supported CodeQL languages.\n#\nname: \"CodeQL\"\n\non:\n  push:\n    branches: [ master, stable ]\n  pull_request:\n    # The branches below must be a subset of the branches above\n    branches: [ master, stable ]\n  schedule:\n    - cron: '41 12 * * 4'\n\njobs:\n  analyze:\n    name: Analyze\n    runs-on: ubuntu-22.04\n\n    strategy:\n      fail-fast: false\n      matrix:\n        language: [ 'c', 'cpp', 'python' ]\n        # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python' ]\n        # Learn more:\n        # https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#changing-the-languages-that-are-analyzed\n\n    steps:\n    - name: Checkout repository\n      uses: actions/checkout@v2\n\n    # Initializes the CodeQL tools for scanning.\n    - name: Initialize CodeQL\n      uses: github/codeql-action/init@v2\n      with:\n        languages: ${{ matrix.language }}\n        # If you wish to specify custom queries, you can do so here or in a config file.\n        # By default, queries listed here will override any specified in a config file.\n        # Prefix the list here with \"+\" to use these queries and those in the config file.\n        # queries: ./path/to/local/query, your-org/your-repo/queries@main\n\n    - run: |\n       sudo apt update && sudo apt -y install python3-twisted libpcap-dev libsodium-dev python3-pyroute2 python3-future python3-msgpack\n       make all_bin\n\n    - name: Perform CodeQL Analysis\n      uses: github/codeql-action/analyze@v2\n",
+    "source": "tipoman9/wfb_fec",
+    "path": ".github/workflows/codeql-analysis.yml",
+    "url": "https://github.com/tipoman9/wfb_fec/blob/8d5b14cf92dbe286cc4e16d42beff4974ecfd427/.github/workflows/codeql-analysis.yml",
+    "retrieved_at": "2025-10-20T01:48:12.053806Z",
+    "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow YAML file that deploys to Firebase Hosting on pull requests using the provided configuration.",
+    "answer": "# This file was auto-generated by the Firebase CLI\n# https://github.com/firebase/firebase-tools\n\nname: Deploy to Firebase Hosting on PR\n'on': pull_request\njobs:\n  build_and_preview:\n    if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - run: npm ci && npm run build\n      - uses: FirebaseExtended/action-hosting-deploy@v0\n        with:\n          repoToken: '${{ secrets.GITHUB_TOKEN }}'\n          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_HURRICANE_AGATHA_2022_MAP }}'\n          projectId: hurricane-agatha-2022-map\n",
+    "source": "Ihovanna/hurricane-agatha-map",
+    "path": ".github/workflows/firebase-hosting-pull-request.yml",
+    "url": "https://github.com/Ihovanna/hurricane-agatha-map/blob/61d4f80eaf76a04bcf454625f2dfc75b0fd7db2e/.github/workflows/firebase-hosting-pull-request.yml",
+    "retrieved_at": "2025-10-20T01:48:12.785042Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What event triggers this GitHub Actions workflow?",
+    "answer": "# This file was auto-generated by the Firebase CLI\n# https://github.com/firebase/firebase-tools\n\nname: Deploy to Firebase Hosting on PR\n'on': pull_request\njobs:\n  build_and_preview:\n    if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - run: npm ci && npm run build\n      - uses: FirebaseExtended/action-hosting-deploy@v0\n        with:\n          repoToken: '${{ secrets.GITHUB_TOKEN }}'\n          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_HURRICANE_AGATHA_2022_MAP }}'\n          projectId: hurricane-agatha-2022-map\n",
+    "source": "Ihovanna/hurricane-agatha-map",
+    "path": ".github/workflows/firebase-hosting-pull-request.yml",
+    "url": "https://github.com/Ihovanna/hurricane-agatha-map/blob/61d4f80eaf76a04bcf454625f2dfc75b0fd7db2e/.github/workflows/firebase-hosting-pull-request.yml",
+    "retrieved_at": "2025-10-20T01:48:13.279581Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which steps within the `build_and_preview` job run in parallel or sequentially?",
+    "answer": "# This file was auto-generated by the Firebase CLI\n# https://github.com/firebase/firebase-tools\n\nname: Deploy to Firebase Hosting on PR\n'on': pull_request\njobs:\n  build_and_preview:\n    if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - run: npm ci && npm run build\n      - uses: FirebaseExtended/action-hosting-deploy@v0\n        with:\n          repoToken: '${{ secrets.GITHUB_TOKEN }}'\n          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_HURRICANE_AGATHA_2022_MAP }}'\n          projectId: hurricane-agatha-2022-map\n",
+    "source": "Ihovanna/hurricane-agatha-map",
+    "path": ".github/workflows/firebase-hosting-pull-request.yml",
+    "url": "https://github.com/Ihovanna/hurricane-agatha-map/blob/61d4f80eaf76a04bcf454625f2dfc75b0fd7db2e/.github/workflows/firebase-hosting-pull-request.yml",
+    "retrieved_at": "2025-10-20T01:48:13.909027Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "How are the GITHUB_TOKEN and FIREBASE_SERVICE_ACCOUNT_HURRICANE_AGATHA_2022_MAP secrets used for authentication and authorization?",
+    "answer": "# This file was auto-generated by the Firebase CLI\n# https://github.com/firebase/firebase-tools\n\nname: Deploy to Firebase Hosting on PR\n'on': pull_request\njobs:\n  build_and_preview:\n    if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - run: npm ci && npm run build\n      - uses: FirebaseExtended/action-hosting-deploy@v0\n        with:\n          repoToken: '${{ secrets.GITHUB_TOKEN }}'\n          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_HURRICANE_AGATHA_2022_MAP }}'\n          projectId: hurricane-agatha-2022-map\n",
+    "source": "Ihovanna/hurricane-agatha-map",
+    "path": ".github/workflows/firebase-hosting-pull-request.yml",
+    "url": "https://github.com/Ihovanna/hurricane-agatha-map/blob/61d4f80eaf76a04bcf454625f2dfc75b0fd7db2e/.github/workflows/firebase-hosting-pull-request.yml",
+    "retrieved_at": "2025-10-20T01:48:14.583197Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What does this workflow achieve when a pull request is created?",
+    "answer": "# This file was auto-generated by the Firebase CLI\n# https://github.com/firebase/firebase-tools\n\nname: Deploy to Firebase Hosting on PR\n'on': pull_request\njobs:\n  build_and_preview:\n    if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - run: npm ci && npm run build\n      - uses: FirebaseExtended/action-hosting-deploy@v0\n        with:\n          repoToken: '${{ secrets.GITHUB_TOKEN }}'\n          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_HURRICANE_AGATHA_2022_MAP }}'\n          projectId: hurricane-agatha-2022-map\n",
+    "source": "Ihovanna/hurricane-agatha-map",
+    "path": ".github/workflows/firebase-hosting-pull-request.yml",
+    "url": "https://github.com/Ihovanna/hurricane-agatha-map/blob/61d4f80eaf76a04bcf454625f2dfc75b0fd7db2e/.github/workflows/firebase-hosting-pull-request.yml",
+    "retrieved_at": "2025-10-20T01:48:15.064166Z",
+    "question_style": "style_5"
   }
 ]
