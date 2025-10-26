@@ -4588,5 +4588,95 @@
     "url": "https://github.com/claranet/terraform-modules-ci/blob/65b00271d36fd2fa4f349c74b5850335369f4094/.github/workflows/lint.yaml",
     "retrieved_at": "2025-10-25T01:39:29.019297Z",
     "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow YAML file that replicates the functionality of the provided workflow.",
+    "answer": "name: Go\non: [push]\njobs:\n\n  build:\n    name: Build\n    runs-on: ubuntu-latest\n    steps:\n\n    - name: Set up Go 1.12\n      uses: actions/setup-go@v1\n      with:\n        go-version: 1.12\n      id: go\n\n    - name: Check out code into the Go module directory\n      uses: actions/checkout@v1\n\n    - name: Get dependencies\n      run: |\n        go get -v -t -d ./...\n        if [ -f Gopkg.toml ]; then\n            curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh\n            dep ensure\n        fi\n\n    - name: Build\n      run: go build -v .\n\n    - name: Test\n      run: go test -v .\n",
+    "source": "brahma-adshonor/gohook",
+    "path": ".github/workflows/go.yml",
+    "url": "https://github.com/brahma-adshonor/gohook/blob/5342d81802c3fb42f77979b3369c088a51786550/.github/workflows/go.yml",
+    "retrieved_at": "2025-10-26T01:47:11.823714Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What event(s) trigger this GitHub Actions workflow?",
+    "answer": "name: Go\non: [push]\njobs:\n\n  build:\n    name: Build\n    runs-on: ubuntu-latest\n    steps:\n\n    - name: Set up Go 1.12\n      uses: actions/setup-go@v1\n      with:\n        go-version: 1.12\n      id: go\n\n    - name: Check out code into the Go module directory\n      uses: actions/checkout@v1\n\n    - name: Get dependencies\n      run: |\n        go get -v -t -d ./...\n        if [ -f Gopkg.toml ]; then\n            curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh\n            dep ensure\n        fi\n\n    - name: Build\n      run: go build -v .\n\n    - name: Test\n      run: go test -v .\n",
+    "source": "brahma-adshonor/gohook",
+    "path": ".github/workflows/go.yml",
+    "url": "https://github.com/brahma-adshonor/gohook/blob/5342d81802c3fb42f77979b3369c088a51786550/.github/workflows/go.yml",
+    "retrieved_at": "2025-10-26T01:47:12.246102Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within the workflow run concurrently or sequentially based on dependencies?",
+    "answer": "name: Go\non: [push]\njobs:\n\n  build:\n    name: Build\n    runs-on: ubuntu-latest\n    steps:\n\n    - name: Set up Go 1.12\n      uses: actions/setup-go@v1\n      with:\n        go-version: 1.12\n      id: go\n\n    - name: Check out code into the Go module directory\n      uses: actions/checkout@v1\n\n    - name: Get dependencies\n      run: |\n        go get -v -t -d ./...\n        if [ -f Gopkg.toml ]; then\n            curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh\n            dep ensure\n        fi\n\n    - name: Build\n      run: go build -v .\n\n    - name: Test\n      run: go test -v .\n",
+    "source": "brahma-adshonor/gohook",
+    "path": ".github/workflows/go.yml",
+    "url": "https://github.com/brahma-adshonor/gohook/blob/5342d81802c3fb42f77979b3369c088a51786550/.github/workflows/go.yml",
+    "retrieved_at": "2025-10-26T01:47:12.918471Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "Does this workflow utilize any environment variables, secrets, or caching mechanisms?",
+    "answer": "name: Go\non: [push]\njobs:\n\n  build:\n    name: Build\n    runs-on: ubuntu-latest\n    steps:\n\n    - name: Set up Go 1.12\n      uses: actions/setup-go@v1\n      with:\n        go-version: 1.12\n      id: go\n\n    - name: Check out code into the Go module directory\n      uses: actions/checkout@v1\n\n    - name: Get dependencies\n      run: |\n        go get -v -t -d ./...\n        if [ -f Gopkg.toml ]; then\n            curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh\n            dep ensure\n        fi\n\n    - name: Build\n      run: go build -v .\n\n    - name: Test\n      run: go test -v .\n",
+    "source": "brahma-adshonor/gohook",
+    "path": ".github/workflows/go.yml",
+    "url": "https://github.com/brahma-adshonor/gohook/blob/5342d81802c3fb42f77979b3369c088a51786550/.github/workflows/go.yml",
+    "retrieved_at": "2025-10-26T01:47:13.417180Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the primary function or result of this Go workflow?",
+    "answer": "name: Go\non: [push]\njobs:\n\n  build:\n    name: Build\n    runs-on: ubuntu-latest\n    steps:\n\n    - name: Set up Go 1.12\n      uses: actions/setup-go@v1\n      with:\n        go-version: 1.12\n      id: go\n\n    - name: Check out code into the Go module directory\n      uses: actions/checkout@v1\n\n    - name: Get dependencies\n      run: |\n        go get -v -t -d ./...\n        if [ -f Gopkg.toml ]; then\n            curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh\n            dep ensure\n        fi\n\n    - name: Build\n      run: go build -v .\n\n    - name: Test\n      run: go test -v .\n",
+    "source": "brahma-adshonor/gohook",
+    "path": ".github/workflows/go.yml",
+    "url": "https://github.com/brahma-adshonor/gohook/blob/5342d81802c3fb42f77979b3369c088a51786550/.github/workflows/go.yml",
+    "retrieved_at": "2025-10-26T01:47:13.935843Z",
+    "question_style": "style_5"
+  },
+  {
+    "question": "Generate a GitHub Actions workflow YAML file that performs R package checks on multiple operating systems and R versions, mirroring the provided YAML file's functionality.",
+    "answer": "# Workflow derived from https://github.com/r-lib/actions/tree/master/examples\n# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help\n#\n# NOTE: This workflow is overkill for most R packages and\n# check-standard.yaml is likely a better choice.\n# usethis::use_github_action(\"check-standard\") will install it.\non:\n  push:\n    branches: [main, master]\n  pull_request:\n    branches: [main, master]\n\nname: R-CMD-check\n\njobs:\n  R-CMD-check:\n    runs-on: ${{ matrix.config.os }}\n\n    name: ${{ matrix.config.os }} (${{ matrix.config.r }})\n\n    strategy:\n      fail-fast: false\n      matrix:\n        config:\n          - {os: macOS-latest,   r: 'release'}\n\n          - {os: windows-latest, r: 'release'}\n          # Use 3.6 to trigger usage of RTools35\n          - {os: windows-latest, r: '3.6'}\n\n          # Use older ubuntu to maximise backward compatibility\n          - {os: ubuntu-18.04,   r: 'devel', http-user-agent: 'release'}\n          - {os: ubuntu-18.04,   r: 'release'}\n          - {os: ubuntu-18.04,   r: 'oldrel-1'}\n          - {os: ubuntu-18.04,   r: 'oldrel-2'}\n          - {os: ubuntu-18.04,   r: 'oldrel-3'}\n          - {os: ubuntu-18.04,   r: 'oldrel-4'}\n\n    env:\n      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}\n      R_KEEP_PKG_SOURCE: yes\n\n    steps:\n      - uses: actions/checkout@v2\n\n      - uses: r-lib/actions/setup-pandoc@v1\n\n      - uses: r-lib/actions/setup-r@v1\n        with:\n          r-version: ${{ matrix.config.r }}\n          http-user-agent: ${{ matrix.config.http-user-agent }}\n          use-public-rspm: true\n\n      - uses: r-lib/actions/setup-r-dependencies@v1\n        with:\n          extra-packages: rcmdcheck\n\n      - uses: r-lib/actions/check-r-package@v1\n\n      - name: Show testthat output\n        if: always()\n        run: find check -name 'testthat.Rout*' -exec cat '{}' \\; || true\n        shell: bash\n\n      - name: Upload check results\n        if: failure()\n        uses: actions/upload-artifact@main\n        with:\n          name: ${{ runner.os }}-r${{ matrix.config.r }}-results\n          path: check\n",
+    "source": "Alven8816/deeper",
+    "path": ".github/workflows/R-CMD-check.yaml",
+    "url": "https://github.com/Alven8816/deeper/blob/9d3fd2180a6f4c5872f5705ca536ee0c519fe657/.github/workflows/R-CMD-check.yaml",
+    "retrieved_at": "2025-10-26T01:47:14.756704Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events trigger this R-CMD-check workflow?",
+    "answer": "# Workflow derived from https://github.com/r-lib/actions/tree/master/examples\n# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help\n#\n# NOTE: This workflow is overkill for most R packages and\n# check-standard.yaml is likely a better choice.\n# usethis::use_github_action(\"check-standard\") will install it.\non:\n  push:\n    branches: [main, master]\n  pull_request:\n    branches: [main, master]\n\nname: R-CMD-check\n\njobs:\n  R-CMD-check:\n    runs-on: ${{ matrix.config.os }}\n\n    name: ${{ matrix.config.os }} (${{ matrix.config.r }})\n\n    strategy:\n      fail-fast: false\n      matrix:\n        config:\n          - {os: macOS-latest,   r: 'release'}\n\n          - {os: windows-latest, r: 'release'}\n          # Use 3.6 to trigger usage of RTools35\n          - {os: windows-latest, r: '3.6'}\n\n          # Use older ubuntu to maximise backward compatibility\n          - {os: ubuntu-18.04,   r: 'devel', http-user-agent: 'release'}\n          - {os: ubuntu-18.04,   r: 'release'}\n          - {os: ubuntu-18.04,   r: 'oldrel-1'}\n          - {os: ubuntu-18.04,   r: 'oldrel-2'}\n          - {os: ubuntu-18.04,   r: 'oldrel-3'}\n          - {os: ubuntu-18.04,   r: 'oldrel-4'}\n\n    env:\n      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}\n      R_KEEP_PKG_SOURCE: yes\n\n    steps:\n      - uses: actions/checkout@v2\n\n      - uses: r-lib/actions/setup-pandoc@v1\n\n      - uses: r-lib/actions/setup-r@v1\n        with:\n          r-version: ${{ matrix.config.r }}\n          http-user-agent: ${{ matrix.config.http-user-agent }}\n          use-public-rspm: true\n\n      - uses: r-lib/actions/setup-r-dependencies@v1\n        with:\n          extra-packages: rcmdcheck\n\n      - uses: r-lib/actions/check-r-package@v1\n\n      - name: Show testthat output\n        if: always()\n        run: find check -name 'testthat.Rout*' -exec cat '{}' \\; || true\n        shell: bash\n\n      - name: Upload check results\n        if: failure()\n        uses: actions/upload-artifact@main\n        with:\n          name: ${{ runner.os }}-r${{ matrix.config.r }}-results\n          path: check\n",
+    "source": "Alven8816/deeper",
+    "path": ".github/workflows/R-CMD-check.yaml",
+    "url": "https://github.com/Alven8816/deeper/blob/9d3fd2180a6f4c5872f5705ca536ee0c519fe657/.github/workflows/R-CMD-check.yaml",
+    "retrieved_at": "2025-10-26T01:47:15.182763Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps in this workflow run in parallel, and which depend on the successful completion of others?",
+    "answer": "# Workflow derived from https://github.com/r-lib/actions/tree/master/examples\n# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help\n#\n# NOTE: This workflow is overkill for most R packages and\n# check-standard.yaml is likely a better choice.\n# usethis::use_github_action(\"check-standard\") will install it.\non:\n  push:\n    branches: [main, master]\n  pull_request:\n    branches: [main, master]\n\nname: R-CMD-check\n\njobs:\n  R-CMD-check:\n    runs-on: ${{ matrix.config.os }}\n\n    name: ${{ matrix.config.os }} (${{ matrix.config.r }})\n\n    strategy:\n      fail-fast: false\n      matrix:\n        config:\n          - {os: macOS-latest,   r: 'release'}\n\n          - {os: windows-latest, r: 'release'}\n          # Use 3.6 to trigger usage of RTools35\n          - {os: windows-latest, r: '3.6'}\n\n          # Use older ubuntu to maximise backward compatibility\n          - {os: ubuntu-18.04,   r: 'devel', http-user-agent: 'release'}\n          - {os: ubuntu-18.04,   r: 'release'}\n          - {os: ubuntu-18.04,   r: 'oldrel-1'}\n          - {os: ubuntu-18.04,   r: 'oldrel-2'}\n          - {os: ubuntu-18.04,   r: 'oldrel-3'}\n          - {os: ubuntu-18.04,   r: 'oldrel-4'}\n\n    env:\n      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}\n      R_KEEP_PKG_SOURCE: yes\n\n    steps:\n      - uses: actions/checkout@v2\n\n      - uses: r-lib/actions/setup-pandoc@v1\n\n      - uses: r-lib/actions/setup-r@v1\n        with:\n          r-version: ${{ matrix.config.r }}\n          http-user-agent: ${{ matrix.config.http-user-agent }}\n          use-public-rspm: true\n\n      - uses: r-lib/actions/setup-r-dependencies@v1\n        with:\n          extra-packages: rcmdcheck\n\n      - uses: r-lib/actions/check-r-package@v1\n\n      - name: Show testthat output\n        if: always()\n        run: find check -name 'testthat.Rout*' -exec cat '{}' \\; || true\n        shell: bash\n\n      - name: Upload check results\n        if: failure()\n        uses: actions/upload-artifact@main\n        with:\n          name: ${{ runner.os }}-r${{ matrix.config.r }}-results\n          path: check\n",
+    "source": "Alven8816/deeper",
+    "path": ".github/workflows/R-CMD-check.yaml",
+    "url": "https://github.com/Alven8816/deeper/blob/9d3fd2180a6f4c5872f5705ca536ee0c519fe657/.github/workflows/R-CMD-check.yaml",
+    "retrieved_at": "2025-10-26T01:47:15.789065Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "How is the `GITHUB_TOKEN` secret used to provide authentication within the workflow?",
+    "answer": "# Workflow derived from https://github.com/r-lib/actions/tree/master/examples\n# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help\n#\n# NOTE: This workflow is overkill for most R packages and\n# check-standard.yaml is likely a better choice.\n# usethis::use_github_action(\"check-standard\") will install it.\non:\n  push:\n    branches: [main, master]\n  pull_request:\n    branches: [main, master]\n\nname: R-CMD-check\n\njobs:\n  R-CMD-check:\n    runs-on: ${{ matrix.config.os }}\n\n    name: ${{ matrix.config.os }} (${{ matrix.config.r }})\n\n    strategy:\n      fail-fast: false\n      matrix:\n        config:\n          - {os: macOS-latest,   r: 'release'}\n\n          - {os: windows-latest, r: 'release'}\n          # Use 3.6 to trigger usage of RTools35\n          - {os: windows-latest, r: '3.6'}\n\n          # Use older ubuntu to maximise backward compatibility\n          - {os: ubuntu-18.04,   r: 'devel', http-user-agent: 'release'}\n          - {os: ubuntu-18.04,   r: 'release'}\n          - {os: ubuntu-18.04,   r: 'oldrel-1'}\n          - {os: ubuntu-18.04,   r: 'oldrel-2'}\n          - {os: ubuntu-18.04,   r: 'oldrel-3'}\n          - {os: ubuntu-18.04,   r: 'oldrel-4'}\n\n    env:\n      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}\n      R_KEEP_PKG_SOURCE: yes\n\n    steps:\n      - uses: actions/checkout@v2\n\n      - uses: r-lib/actions/setup-pandoc@v1\n\n      - uses: r-lib/actions/setup-r@v1\n        with:\n          r-version: ${{ matrix.config.r }}\n          http-user-agent: ${{ matrix.config.http-user-agent }}\n          use-public-rspm: true\n\n      - uses: r-lib/actions/setup-r-dependencies@v1\n        with:\n          extra-packages: rcmdcheck\n\n      - uses: r-lib/actions/check-r-package@v1\n\n      - name: Show testthat output\n        if: always()\n        run: find check -name 'testthat.Rout*' -exec cat '{}' \\; || true\n        shell: bash\n\n      - name: Upload check results\n        if: failure()\n        uses: actions/upload-artifact@main\n        with:\n          name: ${{ runner.os }}-r${{ matrix.config.r }}-results\n          path: check\n",
+    "source": "Alven8816/deeper",
+    "path": ".github/workflows/R-CMD-check.yaml",
+    "url": "https://github.com/Alven8816/deeper/blob/9d3fd2180a6f4c5872f5705ca536ee0c519fe657/.github/workflows/R-CMD-check.yaml",
+    "retrieved_at": "2025-10-26T01:47:16.391168Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the primary purpose or function of this R-CMD-check workflow?",
+    "answer": "# Workflow derived from https://github.com/r-lib/actions/tree/master/examples\n# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help\n#\n# NOTE: This workflow is overkill for most R packages and\n# check-standard.yaml is likely a better choice.\n# usethis::use_github_action(\"check-standard\") will install it.\non:\n  push:\n    branches: [main, master]\n  pull_request:\n    branches: [main, master]\n\nname: R-CMD-check\n\njobs:\n  R-CMD-check:\n    runs-on: ${{ matrix.config.os }}\n\n    name: ${{ matrix.config.os }} (${{ matrix.config.r }})\n\n    strategy:\n      fail-fast: false\n      matrix:\n        config:\n          - {os: macOS-latest,   r: 'release'}\n\n          - {os: windows-latest, r: 'release'}\n          # Use 3.6 to trigger usage of RTools35\n          - {os: windows-latest, r: '3.6'}\n\n          # Use older ubuntu to maximise backward compatibility\n          - {os: ubuntu-18.04,   r: 'devel', http-user-agent: 'release'}\n          - {os: ubuntu-18.04,   r: 'release'}\n          - {os: ubuntu-18.04,   r: 'oldrel-1'}\n          - {os: ubuntu-18.04,   r: 'oldrel-2'}\n          - {os: ubuntu-18.04,   r: 'oldrel-3'}\n          - {os: ubuntu-18.04,   r: 'oldrel-4'}\n\n    env:\n      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}\n      R_KEEP_PKG_SOURCE: yes\n\n    steps:\n      - uses: actions/checkout@v2\n\n      - uses: r-lib/actions/setup-pandoc@v1\n\n      - uses: r-lib/actions/setup-r@v1\n        with:\n          r-version: ${{ matrix.config.r }}\n          http-user-agent: ${{ matrix.config.http-user-agent }}\n          use-public-rspm: true\n\n      - uses: r-lib/actions/setup-r-dependencies@v1\n        with:\n          extra-packages: rcmdcheck\n\n      - uses: r-lib/actions/check-r-package@v1\n\n      - name: Show testthat output\n        if: always()\n        run: find check -name 'testthat.Rout*' -exec cat '{}' \\; || true\n        shell: bash\n\n      - name: Upload check results\n        if: failure()\n        uses: actions/upload-artifact@main\n        with:\n          name: ${{ runner.os }}-r${{ matrix.config.r }}-results\n          path: check\n",
+    "source": "Alven8816/deeper",
+    "path": ".github/workflows/R-CMD-check.yaml",
+    "url": "https://github.com/Alven8816/deeper/blob/9d3fd2180a6f4c5872f5705ca536ee0c519fe657/.github/workflows/R-CMD-check.yaml",
+    "retrieved_at": "2025-10-26T01:47:16.984574Z",
+    "question_style": "style_5"
   }
 ]
