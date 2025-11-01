@@ -41,6 +41,7 @@
   "YOU-i-Labs/harfbuzz:.github/workflows/msvc-ci.yml",
   "YukeWang96/TCGNN-trition:.github/workflows/wheels.yml",
   "aave/aave-ui:.github/workflows/draft-release.yml",
+  "alvyC/NFD-CCLF:.github/workflows/ci.yml",
   "amihaiemil/docker-java-api:.github/workflows/maven.yml",
   "anaisbetts/postiz:.github/workflows/build.yaml",
   "autowarefoundation/qpoases_vendor:.github/workflows/cross-ci.yaml",
@@ -101,6 +102,7 @@
   "sdiehl/pairing:.github/workflows/cabal.yml",
   "sgtest/pinned-axios:.github/workflows/ci.yml",
   "sgtest/pinned-axios:.github/workflows/release.yml",
+  "szmyty/flutter_template:.github/workflows/api.yaml",
   "tilaktilak/zmk-config:.github/workflows/build.yml",
   "tipoman9/wfb_fec:.github/workflows/codeql-analysis.yml",
   "tjfernandes/SE2122_57464_58763_57677_58125_63764:.github/workflows/refresh-csl-subtrees.yml",
@@ -110,5 +112,6 @@
   "westonrobot/ugv_sdk:.github/workflows/standalone-ci.yml",
   "wsdevv/n8n-clockify-workaround:.github/workflows/chromatic.yml",
   "xsolisolisoli/webgame:.github/workflows/content.yml",
-  "yunghegel/opengl_starter:.github/workflows/cmake-build.yml"
+  "yunghegel/opengl_starter:.github/workflows/cmake-build.yml",
+  "zal-orz/pytorch:.github/workflows/slow.yml"
 ]
