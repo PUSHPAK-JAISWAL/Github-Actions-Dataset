@@ -2,6 +2,7 @@
   "1485840691-eng/trl:.github/workflows/benchmark.yml",
   "8212369/SDL:.github/workflows/android.yml",
   "8212369/SDL:.github/workflows/emscripten.yml",
+  "Adam-dev-coder/django-cms:.github/workflows/codeql.yml",
   "Alven8816/deeper:.github/workflows/R-CMD-check.yaml",
   "AnthonyTechnologies/python-precog:.github/workflows/labeler.yml",
   "CurryTang/gfm_webpage:.github/workflows/hugo.yml",
@@ -44,6 +45,7 @@
   "alvyC/NFD-CCLF:.github/workflows/ci.yml",
   "amihaiemil/docker-java-api:.github/workflows/maven.yml",
   "anaisbetts/postiz:.github/workflows/build.yaml",
+  "arjun-raj-kuppala/pytorchtest:.github/workflows/lint.yml",
   "autowarefoundation/qpoases_vendor:.github/workflows/cross-ci.yaml",
   "autowarefoundation/qpoases_vendor:.github/workflows/native-ci.yaml",
   "awaazo/awaazo:.github/workflows/e2e.yml",
@@ -116,6 +118,7 @@
   "westonrobot/ugv_sdk:.github/workflows/standalone-ci.yml",
   "wsdevv/n8n-clockify-workaround:.github/workflows/chromatic.yml",
   "xsolisolisoli/webgame:.github/workflows/content.yml",
+  "yuhua0731/zephyr:.github/workflows/codecov.yaml",
   "yunghegel/opengl_starter:.github/workflows/cmake-build.yml",
   "zal-orz/pytorch:.github/workflows/slow.yml"
 ]
