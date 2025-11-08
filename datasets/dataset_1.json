@@ -5668,5 +5668,95 @@
     "url": "https://github.com/prisma-lab/qgroundcontrol/blob/16607c4d24efc4f1b42d4630fc7001f72ca3301d/.github/workflows/windows_release.yml",
     "retrieved_at": "2025-11-07T01:45:02.245517Z",
     "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow YAML file that replicates the functionality of the provided workflow.",
+    "answer": "name: SonarQube analysis\n\non:\n  push:\n    branches:\n      - develop\n\njobs:\n  sonarqube:\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/checkout@v2\n      with:\n        # Disabling shallow clone is recommended for improving relevancy of reporting.\n        fetch-depth: 0\n\n    # Triggering SonarQube analysis as results of it are required by Quality Gate check.\n    - name: SonarQube Scan\n      uses: sonarsource/sonarqube-scan-action@master\n      env:\n        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}\n        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}\n",
+    "source": "ZKFair/zkfair-cdk-validium-node",
+    "path": ".github/workflows/sonarqube.yml",
+    "url": "https://github.com/ZKFair/zkfair-cdk-validium-node/blob/0e0ae6045e69e6b74cccf5e05ef93dd6490ecf01/.github/workflows/sonarqube.yml",
+    "retrieved_at": "2025-11-08T01:39:23.656976Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events and branches trigger the \"SonarQube analysis\" workflow?",
+    "answer": "name: SonarQube analysis\n\non:\n  push:\n    branches:\n      - develop\n\njobs:\n  sonarqube:\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/checkout@v2\n      with:\n        # Disabling shallow clone is recommended for improving relevancy of reporting.\n        fetch-depth: 0\n\n    # Triggering SonarQube analysis as results of it are required by Quality Gate check.\n    - name: SonarQube Scan\n      uses: sonarsource/sonarqube-scan-action@master\n      env:\n        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}\n        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}\n",
+    "source": "ZKFair/zkfair-cdk-validium-node",
+    "path": ".github/workflows/sonarqube.yml",
+    "url": "https://github.com/ZKFair/zkfair-cdk-validium-node/blob/0e0ae6045e69e6b74cccf5e05ef93dd6490ecf01/.github/workflows/sonarqube.yml",
+    "retrieved_at": "2025-11-08T01:39:24.422362Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps in this workflow execute concurrently or sequentially based on dependencies?",
+    "answer": "name: SonarQube analysis\n\non:\n  push:\n    branches:\n      - develop\n\njobs:\n  sonarqube:\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/checkout@v2\n      with:\n        # Disabling shallow clone is recommended for improving relevancy of reporting.\n        fetch-depth: 0\n\n    # Triggering SonarQube analysis as results of it are required by Quality Gate check.\n    - name: SonarQube Scan\n      uses: sonarsource/sonarqube-scan-action@master\n      env:\n        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}\n        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}\n",
+    "source": "ZKFair/zkfair-cdk-validium-node",
+    "path": ".github/workflows/sonarqube.yml",
+    "url": "https://github.com/ZKFair/zkfair-cdk-validium-node/blob/0e0ae6045e69e6b74cccf5e05ef93dd6490ecf01/.github/workflows/sonarqube.yml",
+    "retrieved_at": "2025-11-08T01:39:25.164655Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "How are the `SONAR_TOKEN` and `SONAR_HOST_URL` secrets used for SonarQube authentication and server location?",
+    "answer": "name: SonarQube analysis\n\non:\n  push:\n    branches:\n      - develop\n\njobs:\n  sonarqube:\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/checkout@v2\n      with:\n        # Disabling shallow clone is recommended for improving relevancy of reporting.\n        fetch-depth: 0\n\n    # Triggering SonarQube analysis as results of it are required by Quality Gate check.\n    - name: SonarQube Scan\n      uses: sonarsource/sonarqube-scan-action@master\n      env:\n        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}\n        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}\n",
+    "source": "ZKFair/zkfair-cdk-validium-node",
+    "path": ".github/workflows/sonarqube.yml",
+    "url": "https://github.com/ZKFair/zkfair-cdk-validium-node/blob/0e0ae6045e69e6b74cccf5e05ef93dd6490ecf01/.github/workflows/sonarqube.yml",
+    "retrieved_at": "2025-11-08T01:39:25.967606Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the primary goal or effect of this SonarQube analysis workflow?",
+    "answer": "name: SonarQube analysis\n\non:\n  push:\n    branches:\n      - develop\n\njobs:\n  sonarqube:\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/checkout@v2\n      with:\n        # Disabling shallow clone is recommended for improving relevancy of reporting.\n        fetch-depth: 0\n\n    # Triggering SonarQube analysis as results of it are required by Quality Gate check.\n    - name: SonarQube Scan\n      uses: sonarsource/sonarqube-scan-action@master\n      env:\n        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}\n        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}\n",
+    "source": "ZKFair/zkfair-cdk-validium-node",
+    "path": ".github/workflows/sonarqube.yml",
+    "url": "https://github.com/ZKFair/zkfair-cdk-validium-node/blob/0e0ae6045e69e6b74cccf5e05ef93dd6490ecf01/.github/workflows/sonarqube.yml",
+    "retrieved_at": "2025-11-08T01:39:26.575931Z",
+    "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow YAML file that replicates the given workflow's functionality for code coverage analysis and reporting to Coveralls.",
+    "answer": "name: Coverage\n\non: [push, pull_request]\n\njobs:\n  coverage:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v2\n\n      - name: Setup PHP\n        uses: shivammathur/setup-php@v2\n        with:\n          php-version: 7.4\n\n      - name: Install dependencies\n        run: composer install --no-progress --no-suggest --optimize-autoloader\n\n      - name: Add coveralls dependency\n        run: composer require --dev php-coveralls/php-coveralls --no-progress --no-suggest --no-interaction\n\n      - name: Run tests with coverage\n        run: composer test-coverage\n\n      - name: Upload coverage to Coveralls\n        env:\n          COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n        run: php vendor/bin/php-coveralls -v\n",
+    "source": "webimpress/coding-standard",
+    "path": ".github/workflows/coverage.yml",
+    "url": "https://github.com/webimpress/coding-standard/blob/6f6a1a90bd9e18fc8bee0660dd1d1ce68cf9fc53/.github/workflows/coverage.yml",
+    "retrieved_at": "2025-11-08T01:39:27.515897Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events trigger the execution of this \"Coverage\" workflow?",
+    "answer": "name: Coverage\n\non: [push, pull_request]\n\njobs:\n  coverage:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v2\n\n      - name: Setup PHP\n        uses: shivammathur/setup-php@v2\n        with:\n          php-version: 7.4\n\n      - name: Install dependencies\n        run: composer install --no-progress --no-suggest --optimize-autoloader\n\n      - name: Add coveralls dependency\n        run: composer require --dev php-coveralls/php-coveralls --no-progress --no-suggest --no-interaction\n\n      - name: Run tests with coverage\n        run: composer test-coverage\n\n      - name: Upload coverage to Coveralls\n        env:\n          COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n        run: php vendor/bin/php-coveralls -v\n",
+    "source": "webimpress/coding-standard",
+    "path": ".github/workflows/coverage.yml",
+    "url": "https://github.com/webimpress/coding-standard/blob/6f6a1a90bd9e18fc8bee0660dd1d1ce68cf9fc53/.github/workflows/coverage.yml",
+    "retrieved_at": "2025-11-08T01:39:28.128839Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which steps within the \"coverage\" job run in parallel or have dependencies on previous steps?",
+    "answer": "name: Coverage\n\non: [push, pull_request]\n\njobs:\n  coverage:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v2\n\n      - name: Setup PHP\n        uses: shivammathur/setup-php@v2\n        with:\n          php-version: 7.4\n\n      - name: Install dependencies\n        run: composer install --no-progress --no-suggest --optimize-autoloader\n\n      - name: Add coveralls dependency\n        run: composer require --dev php-coveralls/php-coveralls --no-progress --no-suggest --no-interaction\n\n      - name: Run tests with coverage\n        run: composer test-coverage\n\n      - name: Upload coverage to Coveralls\n        env:\n          COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n        run: php vendor/bin/php-coveralls -v\n",
+    "source": "webimpress/coding-standard",
+    "path": ".github/workflows/coverage.yml",
+    "url": "https://github.com/webimpress/coding-standard/blob/6f6a1a90bd9e18fc8bee0660dd1d1ce68cf9fc53/.github/workflows/coverage.yml",
+    "retrieved_at": "2025-11-08T01:39:28.724033Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "How is the `GITHUB_TOKEN` secret used to authenticate with Coveralls for uploading code coverage data?",
+    "answer": "name: Coverage\n\non: [push, pull_request]\n\njobs:\n  coverage:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v2\n\n      - name: Setup PHP\n        uses: shivammathur/setup-php@v2\n        with:\n          php-version: 7.4\n\n      - name: Install dependencies\n        run: composer install --no-progress --no-suggest --optimize-autoloader\n\n      - name: Add coveralls dependency\n        run: composer require --dev php-coveralls/php-coveralls --no-progress --no-suggest --no-interaction\n\n      - name: Run tests with coverage\n        run: composer test-coverage\n\n      - name: Upload coverage to Coveralls\n        env:\n          COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n        run: php vendor/bin/php-coveralls -v\n",
+    "source": "webimpress/coding-standard",
+    "path": ".github/workflows/coverage.yml",
+    "url": "https://github.com/webimpress/coding-standard/blob/6f6a1a90bd9e18fc8bee0660dd1d1ce68cf9fc53/.github/workflows/coverage.yml",
+    "retrieved_at": "2025-11-08T01:39:29.491598Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the primary function of this workflow regarding code quality?",
+    "answer": "name: Coverage\n\non: [push, pull_request]\n\njobs:\n  coverage:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v2\n\n      - name: Setup PHP\n        uses: shivammathur/setup-php@v2\n        with:\n          php-version: 7.4\n\n      - name: Install dependencies\n        run: composer install --no-progress --no-suggest --optimize-autoloader\n\n      - name: Add coveralls dependency\n        run: composer require --dev php-coveralls/php-coveralls --no-progress --no-suggest --no-interaction\n\n      - name: Run tests with coverage\n        run: composer test-coverage\n\n      - name: Upload coverage to Coveralls\n        env:\n          COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n        run: php vendor/bin/php-coveralls -v\n",
+    "source": "webimpress/coding-standard",
+    "path": ".github/workflows/coverage.yml",
+    "url": "https://github.com/webimpress/coding-standard/blob/6f6a1a90bd9e18fc8bee0660dd1d1ce68cf9fc53/.github/workflows/coverage.yml",
+    "retrieved_at": "2025-11-08T01:39:30.116378Z",
+    "question_style": "style_5"
   }
 ]
