@@ -5848,5 +5848,95 @@
     "url": "https://github.com/Tulipr9/saas_app/blob/80cbdcc4e87fecc97e8451fd5a42d8a3e58f1315/.github/workflows/codeql-analysis.yml",
     "retrieved_at": "2025-11-09T01:48:43.789155Z",
     "question_style": "style_5"
+  },
+  {
+    "question": "Generate a GitHub Actions workflow YAML file that replicates the QA build and deploy process described in the provided YAML.",
+    "answer": "name: RNS QA build and deploy\n\non:\n  push:\n    branches: [ qa ]\n\njobs:\n  qa_build_and_deploy:\n\n    runs-on: ubuntu-latest\n\n    steps:\n    - name: Checkout\n      uses: actions/checkout@v2\n\n    - name: Setup Node 14\n      uses: actions/setup-node@v1\n      with:\n        node-version: '14'\n\n    - name: Install dependencies\n      run: yarn\n\n    - name: Build site\n      run: yarn build:testnet\n\n    - name: Configure AWS credentials\n      uses: aws-actions/configure-aws-credentials@v1\n      with:\n        aws-access-key-id: ${{ secrets.QA_AWS_ACCESS_KEY_ID }}\n        aws-secret-access-key: ${{ secrets.QA_AWS_SECRET_ACCESS_KEY }}\n        aws-region: ${{ secrets.TESTNET_AWS_REGION }}\n\n    - name: Deploy site to S3\n      run: |\n        aws s3 sync --delete --only-show-errors build/ ${{ secrets.QA_S3_BUCKET }}",
+    "source": "rsksmart/rns-manager-react",
+    "path": ".github/workflows/qa-deploy.yml",
+    "url": "https://github.com/rsksmart/rns-manager-react/blob/ae0f7ea49da51bcef09c07b9e2c9232e92d57fd9/.github/workflows/qa-deploy.yml",
+    "retrieved_at": "2025-11-10T01:49:57.489920Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What event and branch trigger the \"RNS QA build and deploy\" workflow?",
+    "answer": "name: RNS QA build and deploy\n\non:\n  push:\n    branches: [ qa ]\n\njobs:\n  qa_build_and_deploy:\n\n    runs-on: ubuntu-latest\n\n    steps:\n    - name: Checkout\n      uses: actions/checkout@v2\n\n    - name: Setup Node 14\n      uses: actions/setup-node@v1\n      with:\n        node-version: '14'\n\n    - name: Install dependencies\n      run: yarn\n\n    - name: Build site\n      run: yarn build:testnet\n\n    - name: Configure AWS credentials\n      uses: aws-actions/configure-aws-credentials@v1\n      with:\n        aws-access-key-id: ${{ secrets.QA_AWS_ACCESS_KEY_ID }}\n        aws-secret-access-key: ${{ secrets.QA_AWS_SECRET_ACCESS_KEY }}\n        aws-region: ${{ secrets.TESTNET_AWS_REGION }}\n\n    - name: Deploy site to S3\n      run: |\n        aws s3 sync --delete --only-show-errors build/ ${{ secrets.QA_S3_BUCKET }}",
+    "source": "rsksmart/rns-manager-react",
+    "path": ".github/workflows/qa-deploy.yml",
+    "url": "https://github.com/rsksmart/rns-manager-react/blob/ae0f7ea49da51bcef09c07b9e2c9232e92d57fd9/.github/workflows/qa-deploy.yml",
+    "retrieved_at": "2025-11-10T01:49:58.183719Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps in the workflow run in parallel or have dependencies on each other?",
+    "answer": "name: RNS QA build and deploy\n\non:\n  push:\n    branches: [ qa ]\n\njobs:\n  qa_build_and_deploy:\n\n    runs-on: ubuntu-latest\n\n    steps:\n    - name: Checkout\n      uses: actions/checkout@v2\n\n    - name: Setup Node 14\n      uses: actions/setup-node@v1\n      with:\n        node-version: '14'\n\n    - name: Install dependencies\n      run: yarn\n\n    - name: Build site\n      run: yarn build:testnet\n\n    - name: Configure AWS credentials\n      uses: aws-actions/configure-aws-credentials@v1\n      with:\n        aws-access-key-id: ${{ secrets.QA_AWS_ACCESS_KEY_ID }}\n        aws-secret-access-key: ${{ secrets.QA_AWS_SECRET_ACCESS_KEY }}\n        aws-region: ${{ secrets.TESTNET_AWS_REGION }}\n\n    - name: Deploy site to S3\n      run: |\n        aws s3 sync --delete --only-show-errors build/ ${{ secrets.QA_S3_BUCKET }}",
+    "source": "rsksmart/rns-manager-react",
+    "path": ".github/workflows/qa-deploy.yml",
+    "url": "https://github.com/rsksmart/rns-manager-react/blob/ae0f7ea49da51bcef09c07b9e2c9232e92d57fd9/.github/workflows/qa-deploy.yml",
+    "retrieved_at": "2025-11-10T01:49:58.874938Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "How are the `QA_AWS_ACCESS_KEY_ID`, `QA_AWS_SECRET_ACCESS_KEY`, `TESTNET_AWS_REGION`, and `QA_S3_BUCKET` secrets used for AWS authentication and S3 deployment?",
+    "answer": "name: RNS QA build and deploy\n\non:\n  push:\n    branches: [ qa ]\n\njobs:\n  qa_build_and_deploy:\n\n    runs-on: ubuntu-latest\n\n    steps:\n    - name: Checkout\n      uses: actions/checkout@v2\n\n    - name: Setup Node 14\n      uses: actions/setup-node@v1\n      with:\n        node-version: '14'\n\n    - name: Install dependencies\n      run: yarn\n\n    - name: Build site\n      run: yarn build:testnet\n\n    - name: Configure AWS credentials\n      uses: aws-actions/configure-aws-credentials@v1\n      with:\n        aws-access-key-id: ${{ secrets.QA_AWS_ACCESS_KEY_ID }}\n        aws-secret-access-key: ${{ secrets.QA_AWS_SECRET_ACCESS_KEY }}\n        aws-region: ${{ secrets.TESTNET_AWS_REGION }}\n\n    - name: Deploy site to S3\n      run: |\n        aws s3 sync --delete --only-show-errors build/ ${{ secrets.QA_S3_BUCKET }}",
+    "source": "rsksmart/rns-manager-react",
+    "path": ".github/workflows/qa-deploy.yml",
+    "url": "https://github.com/rsksmart/rns-manager-react/blob/ae0f7ea49da51bcef09c07b9e2c9232e92d57fd9/.github/workflows/qa-deploy.yml",
+    "retrieved_at": "2025-11-10T01:49:59.663293Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What does this workflow accomplish when code is pushed to the `qa` branch?",
+    "answer": "name: RNS QA build and deploy\n\non:\n  push:\n    branches: [ qa ]\n\njobs:\n  qa_build_and_deploy:\n\n    runs-on: ubuntu-latest\n\n    steps:\n    - name: Checkout\n      uses: actions/checkout@v2\n\n    - name: Setup Node 14\n      uses: actions/setup-node@v1\n      with:\n        node-version: '14'\n\n    - name: Install dependencies\n      run: yarn\n\n    - name: Build site\n      run: yarn build:testnet\n\n    - name: Configure AWS credentials\n      uses: aws-actions/configure-aws-credentials@v1\n      with:\n        aws-access-key-id: ${{ secrets.QA_AWS_ACCESS_KEY_ID }}\n        aws-secret-access-key: ${{ secrets.QA_AWS_SECRET_ACCESS_KEY }}\n        aws-region: ${{ secrets.TESTNET_AWS_REGION }}\n\n    - name: Deploy site to S3\n      run: |\n        aws s3 sync --delete --only-show-errors build/ ${{ secrets.QA_S3_BUCKET }}",
+    "source": "rsksmart/rns-manager-react",
+    "path": ".github/workflows/qa-deploy.yml",
+    "url": "https://github.com/rsksmart/rns-manager-react/blob/ae0f7ea49da51bcef09c07b9e2c9232e92d57fd9/.github/workflows/qa-deploy.yml",
+    "retrieved_at": "2025-11-10T01:50:00.382300Z",
+    "question_style": "style_5"
+  },
+  {
+    "question": "Generate a GitHub Actions workflow YAML file that replicates the functionality of the provided workflow YAML.",
+    "answer": "name: Mac MPS\n\non:\n  push:\n    tags:\n      - ciflow/mps/*\n  workflow_dispatch:\n\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref_name }}-${{ github.ref_type == 'branch' && github.sha }}-${{ github.event_name == 'workflow_dispatch' }}\n  cancel-in-progress: true\n\njobs:\n  macos-12-py3-arm64-build:\n    name: macos-12-py3-arm64\n    uses: ./.github/workflows/_mac-build.yml\n    with:\n      sync-tag: macos-12-py3-arm64-build\n      build-environment: macos-12-py3-arm64\n      xcode-version: \"13.3.1\"\n      runner-type: macos-12-xl\n      build-generates-artifacts: true\n      # To match the one pre-installed in the m1 runners\n      python_version: 3.9.12\n      # We need to set the environment file here instead of trying to detect it automatically because\n      # MacOS arm64 is cross-compiled from x86-64. Specifically, it means that arm64 conda environment\n      # is needed when building PyTorch MacOS arm64 from x86-64\n      environment-file: .github/requirements/conda-env-macOS-ARM64\n    secrets:\n      MACOS_SCCACHE_S3_ACCESS_KEY_ID: ${{ secrets.MACOS_SCCACHE_S3_ACCESS_KEY_ID }}\n      MACOS_SCCACHE_S3_SECRET_ACCESS_KEY: ${{ secrets.MACOS_SCCACHE_S3_SECRET_ACCESS_KEY }}\n\n  macos-12-py3-arm64-mps-test:\n    name: macos-12-py3-arm64-mps\n    uses: ./.github/workflows/_mac-test-mps.yml\n    needs: macos-12-py3-arm64-build\n    with:\n      sync-tag: macos-12-py3-arm64-mps-test\n      build-environment: macos-12-py3-arm64\n\n  macos-13-py3-arm64-mps-test:\n    name: macos-13-py3-arm64-mps\n    uses: ./.github/workflows/_mac-test-mps.yml\n    needs: macos-12-py3-arm64-build\n    with:\n      build-environment: macos-12-py3-arm64\n      runs-on: macos-m1-13\n",
+    "source": "UEFI-code/PyTorch_For_PoorGuys",
+    "path": ".github/workflows/mac-mps.yml",
+    "url": "https://github.com/UEFI-code/PyTorch_For_PoorGuys/blob/a66ed97b99aa81e94e5700e495e62fdaa97ecf00/.github/workflows/mac-mps.yml",
+    "retrieved_at": "2025-11-10T01:50:01.400206Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events trigger the Mac MPS workflow to run?",
+    "answer": "name: Mac MPS\n\non:\n  push:\n    tags:\n      - ciflow/mps/*\n  workflow_dispatch:\n\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref_name }}-${{ github.ref_type == 'branch' && github.sha }}-${{ github.event_name == 'workflow_dispatch' }}\n  cancel-in-progress: true\n\njobs:\n  macos-12-py3-arm64-build:\n    name: macos-12-py3-arm64\n    uses: ./.github/workflows/_mac-build.yml\n    with:\n      sync-tag: macos-12-py3-arm64-build\n      build-environment: macos-12-py3-arm64\n      xcode-version: \"13.3.1\"\n      runner-type: macos-12-xl\n      build-generates-artifacts: true\n      # To match the one pre-installed in the m1 runners\n      python_version: 3.9.12\n      # We need to set the environment file here instead of trying to detect it automatically because\n      # MacOS arm64 is cross-compiled from x86-64. Specifically, it means that arm64 conda environment\n      # is needed when building PyTorch MacOS arm64 from x86-64\n      environment-file: .github/requirements/conda-env-macOS-ARM64\n    secrets:\n      MACOS_SCCACHE_S3_ACCESS_KEY_ID: ${{ secrets.MACOS_SCCACHE_S3_ACCESS_KEY_ID }}\n      MACOS_SCCACHE_S3_SECRET_ACCESS_KEY: ${{ secrets.MACOS_SCCACHE_S3_SECRET_ACCESS_KEY }}\n\n  macos-12-py3-arm64-mps-test:\n    name: macos-12-py3-arm64-mps\n    uses: ./.github/workflows/_mac-test-mps.yml\n    needs: macos-12-py3-arm64-build\n    with:\n      sync-tag: macos-12-py3-arm64-mps-test\n      build-environment: macos-12-py3-arm64\n\n  macos-13-py3-arm64-mps-test:\n    name: macos-13-py3-arm64-mps\n    uses: ./.github/workflows/_mac-test-mps.yml\n    needs: macos-12-py3-arm64-build\n    with:\n      build-environment: macos-12-py3-arm64\n      runs-on: macos-m1-13\n",
+    "source": "UEFI-code/PyTorch_For_PoorGuys",
+    "path": ".github/workflows/mac-mps.yml",
+    "url": "https://github.com/UEFI-code/PyTorch_For_PoorGuys/blob/a66ed97b99aa81e94e5700e495e62fdaa97ecf00/.github/workflows/mac-mps.yml",
+    "retrieved_at": "2025-11-10T01:50:02.031168Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps in this workflow run in parallel, and which depend on the completion of others?",
+    "answer": "name: Mac MPS\n\non:\n  push:\n    tags:\n      - ciflow/mps/*\n  workflow_dispatch:\n\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref_name }}-${{ github.ref_type == 'branch' && github.sha }}-${{ github.event_name == 'workflow_dispatch' }}\n  cancel-in-progress: true\n\njobs:\n  macos-12-py3-arm64-build:\n    name: macos-12-py3-arm64\n    uses: ./.github/workflows/_mac-build.yml\n    with:\n      sync-tag: macos-12-py3-arm64-build\n      build-environment: macos-12-py3-arm64\n      xcode-version: \"13.3.1\"\n      runner-type: macos-12-xl\n      build-generates-artifacts: true\n      # To match the one pre-installed in the m1 runners\n      python_version: 3.9.12\n      # We need to set the environment file here instead of trying to detect it automatically because\n      # MacOS arm64 is cross-compiled from x86-64. Specifically, it means that arm64 conda environment\n      # is needed when building PyTorch MacOS arm64 from x86-64\n      environment-file: .github/requirements/conda-env-macOS-ARM64\n    secrets:\n      MACOS_SCCACHE_S3_ACCESS_KEY_ID: ${{ secrets.MACOS_SCCACHE_S3_ACCESS_KEY_ID }}\n      MACOS_SCCACHE_S3_SECRET_ACCESS_KEY: ${{ secrets.MACOS_SCCACHE_S3_SECRET_ACCESS_KEY }}\n\n  macos-12-py3-arm64-mps-test:\n    name: macos-12-py3-arm64-mps\n    uses: ./.github/workflows/_mac-test-mps.yml\n    needs: macos-12-py3-arm64-build\n    with:\n      sync-tag: macos-12-py3-arm64-mps-test\n      build-environment: macos-12-py3-arm64\n\n  macos-13-py3-arm64-mps-test:\n    name: macos-13-py3-arm64-mps\n    uses: ./.github/workflows/_mac-test-mps.yml\n    needs: macos-12-py3-arm64-build\n    with:\n      build-environment: macos-12-py3-arm64\n      runs-on: macos-m1-13\n",
+    "source": "UEFI-code/PyTorch_For_PoorGuys",
+    "path": ".github/workflows/mac-mps.yml",
+    "url": "https://github.com/UEFI-code/PyTorch_For_PoorGuys/blob/a66ed97b99aa81e94e5700e495e62fdaa97ecf00/.github/workflows/mac-mps.yml",
+    "retrieved_at": "2025-11-10T01:50:02.721903Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "How are the secrets `MACOS_SCCACHE_S3_ACCESS_KEY_ID` and `MACOS_SCCACHE_S3_SECRET_ACCESS_KEY` used within the `macos-12-py3-arm64-build` job?",
+    "answer": "name: Mac MPS\n\non:\n  push:\n    tags:\n      - ciflow/mps/*\n  workflow_dispatch:\n\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref_name }}-${{ github.ref_type == 'branch' && github.sha }}-${{ github.event_name == 'workflow_dispatch' }}\n  cancel-in-progress: true\n\njobs:\n  macos-12-py3-arm64-build:\n    name: macos-12-py3-arm64\n    uses: ./.github/workflows/_mac-build.yml\n    with:\n      sync-tag: macos-12-py3-arm64-build\n      build-environment: macos-12-py3-arm64\n      xcode-version: \"13.3.1\"\n      runner-type: macos-12-xl\n      build-generates-artifacts: true\n      # To match the one pre-installed in the m1 runners\n      python_version: 3.9.12\n      # We need to set the environment file here instead of trying to detect it automatically because\n      # MacOS arm64 is cross-compiled from x86-64. Specifically, it means that arm64 conda environment\n      # is needed when building PyTorch MacOS arm64 from x86-64\n      environment-file: .github/requirements/conda-env-macOS-ARM64\n    secrets:\n      MACOS_SCCACHE_S3_ACCESS_KEY_ID: ${{ secrets.MACOS_SCCACHE_S3_ACCESS_KEY_ID }}\n      MACOS_SCCACHE_S3_SECRET_ACCESS_KEY: ${{ secrets.MACOS_SCCACHE_S3_SECRET_ACCESS_KEY }}\n\n  macos-12-py3-arm64-mps-test:\n    name: macos-12-py3-arm64-mps\n    uses: ./.github/workflows/_mac-test-mps.yml\n    needs: macos-12-py3-arm64-build\n    with:\n      sync-tag: macos-12-py3-arm64-mps-test\n      build-environment: macos-12-py3-arm64\n\n  macos-13-py3-arm64-mps-test:\n    name: macos-13-py3-arm64-mps\n    uses: ./.github/workflows/_mac-test-mps.yml\n    needs: macos-12-py3-arm64-build\n    with:\n      build-environment: macos-12-py3-arm64\n      runs-on: macos-m1-13\n",
+    "source": "UEFI-code/PyTorch_For_PoorGuys",
+    "path": ".github/workflows/mac-mps.yml",
+    "url": "https://github.com/UEFI-code/PyTorch_For_PoorGuys/blob/a66ed97b99aa81e94e5700e495e62fdaa97ecf00/.github/workflows/mac-mps.yml",
+    "retrieved_at": "2025-11-10T01:50:03.571248Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the main purpose of the \"Mac MPS\" workflow?",
+    "answer": "name: Mac MPS\n\non:\n  push:\n    tags:\n      - ciflow/mps/*\n  workflow_dispatch:\n\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref_name }}-${{ github.ref_type == 'branch' && github.sha }}-${{ github.event_name == 'workflow_dispatch' }}\n  cancel-in-progress: true\n\njobs:\n  macos-12-py3-arm64-build:\n    name: macos-12-py3-arm64\n    uses: ./.github/workflows/_mac-build.yml\n    with:\n      sync-tag: macos-12-py3-arm64-build\n      build-environment: macos-12-py3-arm64\n      xcode-version: \"13.3.1\"\n      runner-type: macos-12-xl\n      build-generates-artifacts: true\n      # To match the one pre-installed in the m1 runners\n      python_version: 3.9.12\n      # We need to set the environment file here instead of trying to detect it automatically because\n      # MacOS arm64 is cross-compiled from x86-64. Specifically, it means that arm64 conda environment\n      # is needed when building PyTorch MacOS arm64 from x86-64\n      environment-file: .github/requirements/conda-env-macOS-ARM64\n    secrets:\n      MACOS_SCCACHE_S3_ACCESS_KEY_ID: ${{ secrets.MACOS_SCCACHE_S3_ACCESS_KEY_ID }}\n      MACOS_SCCACHE_S3_SECRET_ACCESS_KEY: ${{ secrets.MACOS_SCCACHE_S3_SECRET_ACCESS_KEY }}\n\n  macos-12-py3-arm64-mps-test:\n    name: macos-12-py3-arm64-mps\n    uses: ./.github/workflows/_mac-test-mps.yml\n    needs: macos-12-py3-arm64-build\n    with:\n      sync-tag: macos-12-py3-arm64-mps-test\n      build-environment: macos-12-py3-arm64\n\n  macos-13-py3-arm64-mps-test:\n    name: macos-13-py3-arm64-mps\n    uses: ./.github/workflows/_mac-test-mps.yml\n    needs: macos-12-py3-arm64-build\n    with:\n      build-environment: macos-12-py3-arm64\n      runs-on: macos-m1-13\n",
+    "source": "UEFI-code/PyTorch_For_PoorGuys",
+    "path": ".github/workflows/mac-mps.yml",
+    "url": "https://github.com/UEFI-code/PyTorch_For_PoorGuys/blob/a66ed97b99aa81e94e5700e495e62fdaa97ecf00/.github/workflows/mac-mps.yml",
+    "retrieved_at": "2025-11-10T01:50:04.172927Z",
+    "question_style": "style_5"
   }
 ]
