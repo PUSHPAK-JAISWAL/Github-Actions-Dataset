@@ -6028,5 +6028,95 @@
     "url": "https://github.com/HETONGAPP/SpiriGroundControlTest/blob/00121d4b66079e93d099b002c94101f2774131ca/.github/workflows/windows_release.yml",
     "retrieved_at": "2025-11-11T01:46:49.294290Z",
     "question_style": "style_5"
+  },
+  {
+    "question": "Generate a GitHub Actions workflow YAML file that replicates the functionality of the provided Codespell workflow.",
+    "answer": "---\nname: Codespell\n\non:\n  push:\n    branches: [master]\n  pull_request:\n    branches: [master]\n\npermissions:\n  contents: read\n\njobs:\n  codespell:\n    name: Check for spelling errors\n    runs-on: ubuntu-latest\n\n    steps:\n      - name: Checkout\n        uses: actions/checkout@44c2b7a8a4ea60a981eaca3cf939b5f4305c123b # v4.1.5\n      - name: Codespell\n        uses: codespell-project/actions-codespell@94259cd8be02ad2903ba34a22d9c13de21a74461 # v2.0\n",
+    "source": "yaap/external_libfuse",
+    "path": ".github/workflows/codespell.yml",
+    "url": "https://github.com/yaap/external_libfuse/blob/720740ad252354f593d0f121b24f5fddaf768ae3/.github/workflows/codespell.yml",
+    "retrieved_at": "2025-11-12T01:45:54.432808Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events and branch conditions trigger the Codespell workflow to run?",
+    "answer": "---\nname: Codespell\n\non:\n  push:\n    branches: [master]\n  pull_request:\n    branches: [master]\n\npermissions:\n  contents: read\n\njobs:\n  codespell:\n    name: Check for spelling errors\n    runs-on: ubuntu-latest\n\n    steps:\n      - name: Checkout\n        uses: actions/checkout@44c2b7a8a4ea60a981eaca3cf939b5f4305c123b # v4.1.5\n      - name: Codespell\n        uses: codespell-project/actions-codespell@94259cd8be02ad2903ba34a22d9c13de21a74461 # v2.0\n",
+    "source": "yaap/external_libfuse",
+    "path": ".github/workflows/codespell.yml",
+    "url": "https://github.com/yaap/external_libfuse/blob/720740ad252354f593d0f121b24f5fddaf768ae3/.github/workflows/codespell.yml",
+    "retrieved_at": "2025-11-12T01:45:54.999148Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs and steps within the workflow run in parallel or depend on the completion of others?",
+    "answer": "---\nname: Codespell\n\non:\n  push:\n    branches: [master]\n  pull_request:\n    branches: [master]\n\npermissions:\n  contents: read\n\njobs:\n  codespell:\n    name: Check for spelling errors\n    runs-on: ubuntu-latest\n\n    steps:\n      - name: Checkout\n        uses: actions/checkout@44c2b7a8a4ea60a981eaca3cf939b5f4305c123b # v4.1.5\n      - name: Codespell\n        uses: codespell-project/actions-codespell@94259cd8be02ad2903ba34a22d9c13de21a74461 # v2.0\n",
+    "source": "yaap/external_libfuse",
+    "path": ".github/workflows/codespell.yml",
+    "url": "https://github.com/yaap/external_libfuse/blob/720740ad252354f593d0f121b24f5fddaf768ae3/.github/workflows/codespell.yml",
+    "retrieved_at": "2025-11-12T01:45:55.647091Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "Does the codespell action utilize any environment variables or secrets for configuration?",
+    "answer": "---\nname: Codespell\n\non:\n  push:\n    branches: [master]\n  pull_request:\n    branches: [master]\n\npermissions:\n  contents: read\n\njobs:\n  codespell:\n    name: Check for spelling errors\n    runs-on: ubuntu-latest\n\n    steps:\n      - name: Checkout\n        uses: actions/checkout@44c2b7a8a4ea60a981eaca3cf939b5f4305c123b # v4.1.5\n      - name: Codespell\n        uses: codespell-project/actions-codespell@94259cd8be02ad2903ba34a22d9c13de21a74461 # v2.0\n",
+    "source": "yaap/external_libfuse",
+    "path": ".github/workflows/codespell.yml",
+    "url": "https://github.com/yaap/external_libfuse/blob/720740ad252354f593d0f121b24f5fddaf768ae3/.github/workflows/codespell.yml",
+    "retrieved_at": "2025-11-12T01:45:56.243005Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What does this GitHub Actions workflow accomplish?",
+    "answer": "---\nname: Codespell\n\non:\n  push:\n    branches: [master]\n  pull_request:\n    branches: [master]\n\npermissions:\n  contents: read\n\njobs:\n  codespell:\n    name: Check for spelling errors\n    runs-on: ubuntu-latest\n\n    steps:\n      - name: Checkout\n        uses: actions/checkout@44c2b7a8a4ea60a981eaca3cf939b5f4305c123b # v4.1.5\n      - name: Codespell\n        uses: codespell-project/actions-codespell@94259cd8be02ad2903ba34a22d9c13de21a74461 # v2.0\n",
+    "source": "yaap/external_libfuse",
+    "path": ".github/workflows/codespell.yml",
+    "url": "https://github.com/yaap/external_libfuse/blob/720740ad252354f593d0f121b24f5fddaf768ae3/.github/workflows/codespell.yml",
+    "retrieved_at": "2025-11-12T01:45:56.760124Z",
+    "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow YAML file replicating the build and push actions defined in the provided YAML, including Docker metadata and registry login.",
+    "answer": "# https://github.com/docker/build-push-action/blob/master/docs/advanced/tags-labels.md\n\nname: Build\n\non:\n  push:\n    branches:\n      - 'main'\n    tags:\n      - 'v*.*.*'\n\njobs:\n\n  docker:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v3\n\n      - name: Docker meta\n        id: meta\n        uses: docker/metadata-action@v4\n        with:\n          # list of Docker images to use as base name for tags\n          images: |\n            ghcr.io/flow-hydraulics/flow-wallet-api\n          # generate Docker tags based on the following events/attributes\n          tags: |\n            type=ref,event=branch\n            type=ref,event=pr\n            type=semver,pattern={{version}}\n            type=semver,pattern={{major}}.{{minor}}\n            type=semver,pattern={{major}}\n\n      - name: Set up QEMU\n        uses: docker/setup-qemu-action@v1\n\n      - name: Set up Docker Buildx\n        id: buildx\n        uses: docker/setup-buildx-action@v2\n\n      - name: Login to GitHub Container Registry\n        uses: docker/login-action@v2\n        with:\n          registry: ghcr.io\n          username: ${{ github.repository_owner }}\n          password: ${{ secrets.GITHUB_TOKEN }}\n\n      - name: Build and push\n        id: docker_build\n        uses: docker/build-push-action@v2\n        with:\n          context: .\n          file: ./docker/wallet/Dockerfile\n          builder: ${{ steps.buildx.outputs.name }}\n          push: ${{ github.event_name != 'pull_request' }}\n          platforms: linux/amd64\n          tags: ${{ steps.meta.outputs.tags }}\n          labels: ${{ steps.meta.outputs.labels }}\n          cache-from: type=gha\n          cache-to: type=gha,mode=max\n\n      - name: Image digest\n        run: echo ${{ steps.docker_build.outputs.digest }}\n",
+    "source": "flow-hydraulics/flow-wallet-api",
+    "path": ".github/workflows/build.yml",
+    "url": "https://github.com/flow-hydraulics/flow-wallet-api/blob/b95ea454c02d892d0de671778f4ed67c67d783dd/.github/workflows/build.yml",
+    "retrieved_at": "2025-11-12T01:45:57.676041Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What push events to the `main` branch or tags matching `v*.*.*` trigger this workflow?",
+    "answer": "# https://github.com/docker/build-push-action/blob/master/docs/advanced/tags-labels.md\n\nname: Build\n\non:\n  push:\n    branches:\n      - 'main'\n    tags:\n      - 'v*.*.*'\n\njobs:\n\n  docker:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v3\n\n      - name: Docker meta\n        id: meta\n        uses: docker/metadata-action@v4\n        with:\n          # list of Docker images to use as base name for tags\n          images: |\n            ghcr.io/flow-hydraulics/flow-wallet-api\n          # generate Docker tags based on the following events/attributes\n          tags: |\n            type=ref,event=branch\n            type=ref,event=pr\n            type=semver,pattern={{version}}\n            type=semver,pattern={{major}}.{{minor}}\n            type=semver,pattern={{major}}\n\n      - name: Set up QEMU\n        uses: docker/setup-qemu-action@v1\n\n      - name: Set up Docker Buildx\n        id: buildx\n        uses: docker/setup-buildx-action@v2\n\n      - name: Login to GitHub Container Registry\n        uses: docker/login-action@v2\n        with:\n          registry: ghcr.io\n          username: ${{ github.repository_owner }}\n          password: ${{ secrets.GITHUB_TOKEN }}\n\n      - name: Build and push\n        id: docker_build\n        uses: docker/build-push-action@v2\n        with:\n          context: .\n          file: ./docker/wallet/Dockerfile\n          builder: ${{ steps.buildx.outputs.name }}\n          push: ${{ github.event_name != 'pull_request' }}\n          platforms: linux/amd64\n          tags: ${{ steps.meta.outputs.tags }}\n          labels: ${{ steps.meta.outputs.labels }}\n          cache-from: type=gha\n          cache-to: type=gha,mode=max\n\n      - name: Image digest\n        run: echo ${{ steps.docker_build.outputs.digest }}\n",
+    "source": "flow-hydraulics/flow-wallet-api",
+    "path": ".github/workflows/build.yml",
+    "url": "https://github.com/flow-hydraulics/flow-wallet-api/blob/b95ea454c02d892d0de671778f4ed67c67d783dd/.github/workflows/build.yml",
+    "retrieved_at": "2025-11-12T01:45:58.278024Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "What dependencies or parallel execution exists between the job and steps in this workflow?",
+    "answer": "# https://github.com/docker/build-push-action/blob/master/docs/advanced/tags-labels.md\n\nname: Build\n\non:\n  push:\n    branches:\n      - 'main'\n    tags:\n      - 'v*.*.*'\n\njobs:\n\n  docker:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v3\n\n      - name: Docker meta\n        id: meta\n        uses: docker/metadata-action@v4\n        with:\n          # list of Docker images to use as base name for tags\n          images: |\n            ghcr.io/flow-hydraulics/flow-wallet-api\n          # generate Docker tags based on the following events/attributes\n          tags: |\n            type=ref,event=branch\n            type=ref,event=pr\n            type=semver,pattern={{version}}\n            type=semver,pattern={{major}}.{{minor}}\n            type=semver,pattern={{major}}\n\n      - name: Set up QEMU\n        uses: docker/setup-qemu-action@v1\n\n      - name: Set up Docker Buildx\n        id: buildx\n        uses: docker/setup-buildx-action@v2\n\n      - name: Login to GitHub Container Registry\n        uses: docker/login-action@v2\n        with:\n          registry: ghcr.io\n          username: ${{ github.repository_owner }}\n          password: ${{ secrets.GITHUB_TOKEN }}\n\n      - name: Build and push\n        id: docker_build\n        uses: docker/build-push-action@v2\n        with:\n          context: .\n          file: ./docker/wallet/Dockerfile\n          builder: ${{ steps.buildx.outputs.name }}\n          push: ${{ github.event_name != 'pull_request' }}\n          platforms: linux/amd64\n          tags: ${{ steps.meta.outputs.tags }}\n          labels: ${{ steps.meta.outputs.labels }}\n          cache-from: type=gha\n          cache-to: type=gha,mode=max\n\n      - name: Image digest\n        run: echo ${{ steps.docker_build.outputs.digest }}\n",
+    "source": "flow-hydraulics/flow-wallet-api",
+    "path": ".github/workflows/build.yml",
+    "url": "https://github.com/flow-hydraulics/flow-wallet-api/blob/b95ea454c02d892d0de671778f4ed67c67d783dd/.github/workflows/build.yml",
+    "retrieved_at": "2025-11-12T01:45:58.924225Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "How is the `GITHUB_TOKEN` secret used to authenticate with the GitHub Container Registry?",
+    "answer": "# https://github.com/docker/build-push-action/blob/master/docs/advanced/tags-labels.md\n\nname: Build\n\non:\n  push:\n    branches:\n      - 'main'\n    tags:\n      - 'v*.*.*'\n\njobs:\n\n  docker:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v3\n\n      - name: Docker meta\n        id: meta\n        uses: docker/metadata-action@v4\n        with:\n          # list of Docker images to use as base name for tags\n          images: |\n            ghcr.io/flow-hydraulics/flow-wallet-api\n          # generate Docker tags based on the following events/attributes\n          tags: |\n            type=ref,event=branch\n            type=ref,event=pr\n            type=semver,pattern={{version}}\n            type=semver,pattern={{major}}.{{minor}}\n            type=semver,pattern={{major}}\n\n      - name: Set up QEMU\n        uses: docker/setup-qemu-action@v1\n\n      - name: Set up Docker Buildx\n        id: buildx\n        uses: docker/setup-buildx-action@v2\n\n      - name: Login to GitHub Container Registry\n        uses: docker/login-action@v2\n        with:\n          registry: ghcr.io\n          username: ${{ github.repository_owner }}\n          password: ${{ secrets.GITHUB_TOKEN }}\n\n      - name: Build and push\n        id: docker_build\n        uses: docker/build-push-action@v2\n        with:\n          context: .\n          file: ./docker/wallet/Dockerfile\n          builder: ${{ steps.buildx.outputs.name }}\n          push: ${{ github.event_name != 'pull_request' }}\n          platforms: linux/amd64\n          tags: ${{ steps.meta.outputs.tags }}\n          labels: ${{ steps.meta.outputs.labels }}\n          cache-from: type=gha\n          cache-to: type=gha,mode=max\n\n      - name: Image digest\n        run: echo ${{ steps.docker_build.outputs.digest }}\n",
+    "source": "flow-hydraulics/flow-wallet-api",
+    "path": ".github/workflows/build.yml",
+    "url": "https://github.com/flow-hydraulics/flow-wallet-api/blob/b95ea454c02d892d0de671778f4ed67c67d783dd/.github/workflows/build.yml",
+    "retrieved_at": "2025-11-12T01:45:59.610760Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What does this workflow accomplish by building and pushing a Docker image to GitHub Container Registry?",
+    "answer": "# https://github.com/docker/build-push-action/blob/master/docs/advanced/tags-labels.md\n\nname: Build\n\non:\n  push:\n    branches:\n      - 'main'\n    tags:\n      - 'v*.*.*'\n\njobs:\n\n  docker:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v3\n\n      - name: Docker meta\n        id: meta\n        uses: docker/metadata-action@v4\n        with:\n          # list of Docker images to use as base name for tags\n          images: |\n            ghcr.io/flow-hydraulics/flow-wallet-api\n          # generate Docker tags based on the following events/attributes\n          tags: |\n            type=ref,event=branch\n            type=ref,event=pr\n            type=semver,pattern={{version}}\n            type=semver,pattern={{major}}.{{minor}}\n            type=semver,pattern={{major}}\n\n      - name: Set up QEMU\n        uses: docker/setup-qemu-action@v1\n\n      - name: Set up Docker Buildx\n        id: buildx\n        uses: docker/setup-buildx-action@v2\n\n      - name: Login to GitHub Container Registry\n        uses: docker/login-action@v2\n        with:\n          registry: ghcr.io\n          username: ${{ github.repository_owner }}\n          password: ${{ secrets.GITHUB_TOKEN }}\n\n      - name: Build and push\n        id: docker_build\n        uses: docker/build-push-action@v2\n        with:\n          context: .\n          file: ./docker/wallet/Dockerfile\n          builder: ${{ steps.buildx.outputs.name }}\n          push: ${{ github.event_name != 'pull_request' }}\n          platforms: linux/amd64\n          tags: ${{ steps.meta.outputs.tags }}\n          labels: ${{ steps.meta.outputs.labels }}\n          cache-from: type=gha\n          cache-to: type=gha,mode=max\n\n      - name: Image digest\n        run: echo ${{ steps.docker_build.outputs.digest }}\n",
+    "source": "flow-hydraulics/flow-wallet-api",
+    "path": ".github/workflows/build.yml",
+    "url": "https://github.com/flow-hydraulics/flow-wallet-api/blob/b95ea454c02d892d0de671778f4ed67c67d783dd/.github/workflows/build.yml",
+    "retrieved_at": "2025-11-12T01:46:00.198506Z",
+    "question_style": "style_5"
   }
 ]

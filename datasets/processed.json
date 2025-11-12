@@ -76,6 +76,7 @@
   "endlessm/flatpak:.github/workflows/check.yml",
   "etherfi-protocol/etherfi-avs-operator-CLI:.github/workflows/avs_rewards_claim.yml",
   "excel-azmin/Frappe-Docker:.github/workflows/build_stable.yml",
+  "flow-hydraulics/flow-wallet-api:.github/workflows/build.yml",
   "fly0305/storeft-react-graphql-tailwind-typescript-:.github/workflows/main.yml",
   "fractaldotbox/pedialab.io:.github/workflows/cd.yml",
   "fukuro-u/eccube:.github/workflows/deploy.yml",
@@ -132,6 +133,7 @@
   "westonrobot/ugv_sdk:.github/workflows/standalone-ci.yml",
   "wsdevv/n8n-clockify-workaround:.github/workflows/chromatic.yml",
   "xsolisolisoli/webgame:.github/workflows/content.yml",
+  "yaap/external_libfuse:.github/workflows/codespell.yml",
   "yuhua0731/zephyr:.github/workflows/codecov.yaml",
   "yunghegel/opengl_starter:.github/workflows/cmake-build.yml",
   "zal-orz/pytorch:.github/workflows/slow.yml"
