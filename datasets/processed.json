@@ -39,6 +39,7 @@
   "UEFI-code/PyTorch_For_PoorGuys:.github/workflows/mac-mps.yml",
   "UPB-SysSec/zcrypto:.github/workflows/gofmt.yml",
   "UvRoxx/frappe_docker:.github/workflows/docker-build-push.yml",
+  "VirtoCommerce/vc-platform:.github/workflows/pr-deploy.yml",
   "Vitorlima02/projeto-trybers-and-dragons:.github/workflows/main.yml",
   "Vonage/vonage-dotnet-sdk:.github/workflows/net-build.yml",
   "Wilcolab/Anythink-Market-keomW:.github/workflows/wilco-actions.yml",
@@ -137,6 +138,7 @@
   "xsolisolisoli/webgame:.github/workflows/content.yml",
   "yaap/external_libfuse:.github/workflows/codespell.yml",
   "yuhua0731/zephyr:.github/workflows/codecov.yaml",
+  "yukaryote/darknet:.github/workflows/ccpp.yml",
   "yunghegel/opengl_starter:.github/workflows/cmake-build.yml",
   "zal-orz/pytorch:.github/workflows/slow.yml"
 ]
