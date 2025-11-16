@@ -6388,5 +6388,95 @@
     "url": "https://github.com/arjun-raj-kuppala/pytorchtest/blob/17a66520ff6034cbb9476e6c5538e8b0296b94a9/.github/workflows/run_torchbench.yml",
     "retrieved_at": "2025-11-15T01:42:48.860185Z",
     "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow YAML file that replicates the functionality of the provided YAML file.",
+    "answer": "name: BalancerV2 - Liquidity mining pkg tests\n\non:\n  push:\n    branches: [ master, develop ]\n    paths:\n      - external/balancer-v2-monorepo/**/*.sol\n      - external/balancer-v2-monorepo/**/*.vy\n      - external/balancer-v2-monorepo/**/*.ts\n      - external/balancer-v2-monorepo/**/*.js\n      - external/balancer-v2-monorepo/**/*.json\n      - package.json\n      - yarn.lock\n\n  pull_request:\n    paths:\n      - external/balancer-v2-monorepo/**/*.sol\n      - external/balancer-v2-monorepo/**/*.vy\n      - external/balancer-v2-monorepo/**/*.ts\n      - external/balancer-v2-monorepo/**/*.js\n      - external/balancer-v2-monorepo/**/*.json\n      - package.json\n      - yarn.lock\n\njobs:\n  test:\n    strategy:\n      matrix:\n        node: [ 18.x ]\n        os: [ubuntu-latest]\n\n    runs-on: ${{ matrix.os }}\n\n    steps:\n      - uses: actions/checkout@v1\n\n      - name: Set up Node.js\n        uses: actions/setup-node@v3\n        with:\n          node-version: ${{ matrix.node }}\n          cache: 'yarn'\n\n      - run: npm install -g yarn\n\n      - run: yarn install\n      - run: yarn workspace @balancer-labs/v2-vault compile\n      - run: yarn workspace @balancer-labs/v2-liquidity-mining compile\n      - run: yarn workspace @balancer-labs/v2-liquidity-mining test\n",
+    "source": "Certora/silo-v2-cantina-fv",
+    "path": ".github/workflows/balancer-v2-liquidity-mining.yml",
+    "url": "https://github.com/Certora/silo-v2-cantina-fv/blob/bcdf28424d31ad44bd2ec3f8c5c019e71d5c44f4/.github/workflows/balancer-v2-liquidity-mining.yml",
+    "retrieved_at": "2025-11-16T01:51:25.080991Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events and file changes trigger the \"BalancerV2 - Liquidity mining pkg tests\" workflow?",
+    "answer": "name: BalancerV2 - Liquidity mining pkg tests\n\non:\n  push:\n    branches: [ master, develop ]\n    paths:\n      - external/balancer-v2-monorepo/**/*.sol\n      - external/balancer-v2-monorepo/**/*.vy\n      - external/balancer-v2-monorepo/**/*.ts\n      - external/balancer-v2-monorepo/**/*.js\n      - external/balancer-v2-monorepo/**/*.json\n      - package.json\n      - yarn.lock\n\n  pull_request:\n    paths:\n      - external/balancer-v2-monorepo/**/*.sol\n      - external/balancer-v2-monorepo/**/*.vy\n      - external/balancer-v2-monorepo/**/*.ts\n      - external/balancer-v2-monorepo/**/*.js\n      - external/balancer-v2-monorepo/**/*.json\n      - package.json\n      - yarn.lock\n\njobs:\n  test:\n    strategy:\n      matrix:\n        node: [ 18.x ]\n        os: [ubuntu-latest]\n\n    runs-on: ${{ matrix.os }}\n\n    steps:\n      - uses: actions/checkout@v1\n\n      - name: Set up Node.js\n        uses: actions/setup-node@v3\n        with:\n          node-version: ${{ matrix.node }}\n          cache: 'yarn'\n\n      - run: npm install -g yarn\n\n      - run: yarn install\n      - run: yarn workspace @balancer-labs/v2-vault compile\n      - run: yarn workspace @balancer-labs/v2-liquidity-mining compile\n      - run: yarn workspace @balancer-labs/v2-liquidity-mining test\n",
+    "source": "Certora/silo-v2-cantina-fv",
+    "path": ".github/workflows/balancer-v2-liquidity-mining.yml",
+    "url": "https://github.com/Certora/silo-v2-cantina-fv/blob/bcdf28424d31ad44bd2ec3f8c5c019e71d5c44f4/.github/workflows/balancer-v2-liquidity-mining.yml",
+    "retrieved_at": "2025-11-16T01:51:25.673302Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within the \"test\" job run in parallel, and are there any interdependencies between them?",
+    "answer": "name: BalancerV2 - Liquidity mining pkg tests\n\non:\n  push:\n    branches: [ master, develop ]\n    paths:\n      - external/balancer-v2-monorepo/**/*.sol\n      - external/balancer-v2-monorepo/**/*.vy\n      - external/balancer-v2-monorepo/**/*.ts\n      - external/balancer-v2-monorepo/**/*.js\n      - external/balancer-v2-monorepo/**/*.json\n      - package.json\n      - yarn.lock\n\n  pull_request:\n    paths:\n      - external/balancer-v2-monorepo/**/*.sol\n      - external/balancer-v2-monorepo/**/*.vy\n      - external/balancer-v2-monorepo/**/*.ts\n      - external/balancer-v2-monorepo/**/*.js\n      - external/balancer-v2-monorepo/**/*.json\n      - package.json\n      - yarn.lock\n\njobs:\n  test:\n    strategy:\n      matrix:\n        node: [ 18.x ]\n        os: [ubuntu-latest]\n\n    runs-on: ${{ matrix.os }}\n\n    steps:\n      - uses: actions/checkout@v1\n\n      - name: Set up Node.js\n        uses: actions/setup-node@v3\n        with:\n          node-version: ${{ matrix.node }}\n          cache: 'yarn'\n\n      - run: npm install -g yarn\n\n      - run: yarn install\n      - run: yarn workspace @balancer-labs/v2-vault compile\n      - run: yarn workspace @balancer-labs/v2-liquidity-mining compile\n      - run: yarn workspace @balancer-labs/v2-liquidity-mining test\n",
+    "source": "Certora/silo-v2-cantina-fv",
+    "path": ".github/workflows/balancer-v2-liquidity-mining.yml",
+    "url": "https://github.com/Certora/silo-v2-cantina-fv/blob/bcdf28424d31ad44bd2ec3f8c5c019e71d5c44f4/.github/workflows/balancer-v2-liquidity-mining.yml",
+    "retrieved_at": "2025-11-16T01:51:26.204561Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "Does this workflow use any environment variables or secrets for compilation or testing?",
+    "answer": "name: BalancerV2 - Liquidity mining pkg tests\n\non:\n  push:\n    branches: [ master, develop ]\n    paths:\n      - external/balancer-v2-monorepo/**/*.sol\n      - external/balancer-v2-monorepo/**/*.vy\n      - external/balancer-v2-monorepo/**/*.ts\n      - external/balancer-v2-monorepo/**/*.js\n      - external/balancer-v2-monorepo/**/*.json\n      - package.json\n      - yarn.lock\n\n  pull_request:\n    paths:\n      - external/balancer-v2-monorepo/**/*.sol\n      - external/balancer-v2-monorepo/**/*.vy\n      - external/balancer-v2-monorepo/**/*.ts\n      - external/balancer-v2-monorepo/**/*.js\n      - external/balancer-v2-monorepo/**/*.json\n      - package.json\n      - yarn.lock\n\njobs:\n  test:\n    strategy:\n      matrix:\n        node: [ 18.x ]\n        os: [ubuntu-latest]\n\n    runs-on: ${{ matrix.os }}\n\n    steps:\n      - uses: actions/checkout@v1\n\n      - name: Set up Node.js\n        uses: actions/setup-node@v3\n        with:\n          node-version: ${{ matrix.node }}\n          cache: 'yarn'\n\n      - run: npm install -g yarn\n\n      - run: yarn install\n      - run: yarn workspace @balancer-labs/v2-vault compile\n      - run: yarn workspace @balancer-labs/v2-liquidity-mining compile\n      - run: yarn workspace @balancer-labs/v2-liquidity-mining test\n",
+    "source": "Certora/silo-v2-cantina-fv",
+    "path": ".github/workflows/balancer-v2-liquidity-mining.yml",
+    "url": "https://github.com/Certora/silo-v2-cantina-fv/blob/bcdf28424d31ad44bd2ec3f8c5c019e71d5c44f4/.github/workflows/balancer-v2-liquidity-mining.yml",
+    "retrieved_at": "2025-11-16T01:51:26.709101Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the primary function of the BalancerV2 Liquidity Mining package tests workflow?",
+    "answer": "name: BalancerV2 - Liquidity mining pkg tests\n\non:\n  push:\n    branches: [ master, develop ]\n    paths:\n      - external/balancer-v2-monorepo/**/*.sol\n      - external/balancer-v2-monorepo/**/*.vy\n      - external/balancer-v2-monorepo/**/*.ts\n      - external/balancer-v2-monorepo/**/*.js\n      - external/balancer-v2-monorepo/**/*.json\n      - package.json\n      - yarn.lock\n\n  pull_request:\n    paths:\n      - external/balancer-v2-monorepo/**/*.sol\n      - external/balancer-v2-monorepo/**/*.vy\n      - external/balancer-v2-monorepo/**/*.ts\n      - external/balancer-v2-monorepo/**/*.js\n      - external/balancer-v2-monorepo/**/*.json\n      - package.json\n      - yarn.lock\n\njobs:\n  test:\n    strategy:\n      matrix:\n        node: [ 18.x ]\n        os: [ubuntu-latest]\n\n    runs-on: ${{ matrix.os }}\n\n    steps:\n      - uses: actions/checkout@v1\n\n      - name: Set up Node.js\n        uses: actions/setup-node@v3\n        with:\n          node-version: ${{ matrix.node }}\n          cache: 'yarn'\n\n      - run: npm install -g yarn\n\n      - run: yarn install\n      - run: yarn workspace @balancer-labs/v2-vault compile\n      - run: yarn workspace @balancer-labs/v2-liquidity-mining compile\n      - run: yarn workspace @balancer-labs/v2-liquidity-mining test\n",
+    "source": "Certora/silo-v2-cantina-fv",
+    "path": ".github/workflows/balancer-v2-liquidity-mining.yml",
+    "url": "https://github.com/Certora/silo-v2-cantina-fv/blob/bcdf28424d31ad44bd2ec3f8c5c019e71d5c44f4/.github/workflows/balancer-v2-liquidity-mining.yml",
+    "retrieved_at": "2025-11-16T01:51:27.369472Z",
+    "question_style": "style_5"
+  },
+  {
+    "question": "Generate a GitHub Actions workflow YAML file that implements a stale pull request marking and closing process as defined in the provided YAML.",
+    "answer": "name: Mark stale PRs\non:\n  workflow_dispatch:\n  schedule:\n  - cron: \"0 12 * * *\"\n\npermissions:\n  contents: read\n\njobs:\n  stale:\n    permissions:\n      issues: write  # for actions/stale to close stale issues\n      pull-requests: write  # for actions/stale to close stale PRs\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/stale@v9\n      with:\n        stale-pr-message: >\n          This pull request has been automatically marked as stale because it has not\n          had recent activity. It will be closed if no further activity occurs.\n          Thank you for your contributions.\n        stale-pr-label: \"stale\"\n        exempt-pr-labels: \"pinned,security,dependencies\"\n        days-before-pr-stale: 30\n        days-before-pr-close: 7\n        ascending: true\n        operations-per-run: 100\n",
+    "source": "foaed1234/Cox",
+    "path": ".github/workflows/stale.yml",
+    "url": "https://github.com/foaed1234/Cox/blob/2c5dd52a66f19542ac749feb0cea20df9670eebc/.github/workflows/stale.yml",
+    "retrieved_at": "2025-11-16T01:51:28.083404Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events or schedules trigger the \"Mark stale PRs\" GitHub Actions workflow?",
+    "answer": "name: Mark stale PRs\non:\n  workflow_dispatch:\n  schedule:\n  - cron: \"0 12 * * *\"\n\npermissions:\n  contents: read\n\njobs:\n  stale:\n    permissions:\n      issues: write  # for actions/stale to close stale issues\n      pull-requests: write  # for actions/stale to close stale PRs\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/stale@v9\n      with:\n        stale-pr-message: >\n          This pull request has been automatically marked as stale because it has not\n          had recent activity. It will be closed if no further activity occurs.\n          Thank you for your contributions.\n        stale-pr-label: \"stale\"\n        exempt-pr-labels: \"pinned,security,dependencies\"\n        days-before-pr-stale: 30\n        days-before-pr-close: 7\n        ascending: true\n        operations-per-run: 100\n",
+    "source": "foaed1234/Cox",
+    "path": ".github/workflows/stale.yml",
+    "url": "https://github.com/foaed1234/Cox/blob/2c5dd52a66f19542ac749feb0cea20df9670eebc/.github/workflows/stale.yml",
+    "retrieved_at": "2025-11-16T01:51:28.640730Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Does this workflow have any jobs or steps that run in parallel or depend on each other?",
+    "answer": "name: Mark stale PRs\non:\n  workflow_dispatch:\n  schedule:\n  - cron: \"0 12 * * *\"\n\npermissions:\n  contents: read\n\njobs:\n  stale:\n    permissions:\n      issues: write  # for actions/stale to close stale issues\n      pull-requests: write  # for actions/stale to close stale PRs\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/stale@v9\n      with:\n        stale-pr-message: >\n          This pull request has been automatically marked as stale because it has not\n          had recent activity. It will be closed if no further activity occurs.\n          Thank you for your contributions.\n        stale-pr-label: \"stale\"\n        exempt-pr-labels: \"pinned,security,dependencies\"\n        days-before-pr-stale: 30\n        days-before-pr-close: 7\n        ascending: true\n        operations-per-run: 100\n",
+    "source": "foaed1234/Cox",
+    "path": ".github/workflows/stale.yml",
+    "url": "https://github.com/foaed1234/Cox/blob/2c5dd52a66f19542ac749feb0cea20df9670eebc/.github/workflows/stale.yml",
+    "retrieved_at": "2025-11-16T01:51:29.170998Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "Does this workflow utilize any environment variables or secrets within the `actions/stale` step?",
+    "answer": "name: Mark stale PRs\non:\n  workflow_dispatch:\n  schedule:\n  - cron: \"0 12 * * *\"\n\npermissions:\n  contents: read\n\njobs:\n  stale:\n    permissions:\n      issues: write  # for actions/stale to close stale issues\n      pull-requests: write  # for actions/stale to close stale PRs\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/stale@v9\n      with:\n        stale-pr-message: >\n          This pull request has been automatically marked as stale because it has not\n          had recent activity. It will be closed if no further activity occurs.\n          Thank you for your contributions.\n        stale-pr-label: \"stale\"\n        exempt-pr-labels: \"pinned,security,dependencies\"\n        days-before-pr-stale: 30\n        days-before-pr-close: 7\n        ascending: true\n        operations-per-run: 100\n",
+    "source": "foaed1234/Cox",
+    "path": ".github/workflows/stale.yml",
+    "url": "https://github.com/foaed1234/Cox/blob/2c5dd52a66f19542ac749feb0cea20df9670eebc/.github/workflows/stale.yml",
+    "retrieved_at": "2025-11-16T01:51:29.737374Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What does this workflow accomplish by marking pull requests as stale?",
+    "answer": "name: Mark stale PRs\non:\n  workflow_dispatch:\n  schedule:\n  - cron: \"0 12 * * *\"\n\npermissions:\n  contents: read\n\njobs:\n  stale:\n    permissions:\n      issues: write  # for actions/stale to close stale issues\n      pull-requests: write  # for actions/stale to close stale PRs\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/stale@v9\n      with:\n        stale-pr-message: >\n          This pull request has been automatically marked as stale because it has not\n          had recent activity. It will be closed if no further activity occurs.\n          Thank you for your contributions.\n        stale-pr-label: \"stale\"\n        exempt-pr-labels: \"pinned,security,dependencies\"\n        days-before-pr-stale: 30\n        days-before-pr-close: 7\n        ascending: true\n        operations-per-run: 100\n",
+    "source": "foaed1234/Cox",
+    "path": ".github/workflows/stale.yml",
+    "url": "https://github.com/foaed1234/Cox/blob/2c5dd52a66f19542ac749feb0cea20df9670eebc/.github/workflows/stale.yml",
+    "retrieved_at": "2025-11-16T01:51:30.186452Z",
+    "question_style": "style_5"
   }
 ]
