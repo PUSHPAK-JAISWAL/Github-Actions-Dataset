@@ -7108,5 +7108,95 @@
     "url": "https://github.com/Aidenkopec/freqtrade/blob/ccbc48b59038d35e56aedd087788f9ecb829daf0/.github/workflows/zizmor.yml",
     "retrieved_at": "2025-11-23T01:58:38.055816Z",
     "question_style": "style_5"
+  },
+  {
+    "question": "Generate a GitHub Actions workflow that mirrors the functionality of the provided YAML, including triggers, concurrency, permissions, environment variables, container setup, and steps.",
+    "answer": "name: sandbox\n\non:\n  # Trigger the workflow on push or pull request,\n  # but only for the main branch\n  push:\n    branches:\n      - main\n      - v0.*\n  pull_request:\n    branches:\n      - main\n      - v0.*\n    paths:\n      - \"**/*.py\"\n      - .github/workflows/sandbox.yml\n\n# Cancel jobs on the same ref if a new one is triggered\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.ref }}\n  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}\n\n# Declare permissions just read content.\npermissions:\n  contents: read\n\njobs:\n  sandbox:\n    runs-on: [L20x8]\n    timeout-minutes: 10 # Increase this timeout value as needed\n    env:\n      HTTP_PROXY: ${{ secrets.PROXY_HTTP }}\n      HTTPS_PROXY: ${{ secrets.PROXY_HTTPS }}\n      NO_PROXY: \"localhost,127.0.0.1,hf-mirror.com\"\n      HF_ENDPOINT: \"https://hf-mirror.com\"\n      HF_HUB_ENABLE_HF_TRANSFER: \"0\" # This is more stable\n    container:\n      image: whatcanyousee/verl:ngc-cu124-vllm0.8.3-sglang0.4.5-mcore0.12.0-te2.2\n      options: --gpus all --shm-size=10g\n    steps:\n      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2\n        with:\n          fetch-depth: 0\n      - name: Install the current repository\n        run: |\n          pip3 install -e .[test,prime]\n          pip3 install vllm==0.5.4\n      - name: Running sandbox tests on 8 L20 GPUs\n        run: |\n          cd tests/sandbox\n          pytest -s -x .\n",
+    "source": "chunhuizhang/multi-turn-verl",
+    "path": ".github/workflows/sandbox.yml",
+    "url": "https://github.com/chunhuizhang/multi-turn-verl/blob/d0f15a735ec09f779aa14944f7c11a87347ac418/.github/workflows/sandbox.yml",
+    "retrieved_at": "2025-11-24T01:53:07.444277Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events on the main or v0.* branches, or changes to Python files, trigger this workflow?",
+    "answer": "name: sandbox\n\non:\n  # Trigger the workflow on push or pull request,\n  # but only for the main branch\n  push:\n    branches:\n      - main\n      - v0.*\n  pull_request:\n    branches:\n      - main\n      - v0.*\n    paths:\n      - \"**/*.py\"\n      - .github/workflows/sandbox.yml\n\n# Cancel jobs on the same ref if a new one is triggered\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.ref }}\n  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}\n\n# Declare permissions just read content.\npermissions:\n  contents: read\n\njobs:\n  sandbox:\n    runs-on: [L20x8]\n    timeout-minutes: 10 # Increase this timeout value as needed\n    env:\n      HTTP_PROXY: ${{ secrets.PROXY_HTTP }}\n      HTTPS_PROXY: ${{ secrets.PROXY_HTTPS }}\n      NO_PROXY: \"localhost,127.0.0.1,hf-mirror.com\"\n      HF_ENDPOINT: \"https://hf-mirror.com\"\n      HF_HUB_ENABLE_HF_TRANSFER: \"0\" # This is more stable\n    container:\n      image: whatcanyousee/verl:ngc-cu124-vllm0.8.3-sglang0.4.5-mcore0.12.0-te2.2\n      options: --gpus all --shm-size=10g\n    steps:\n      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2\n        with:\n          fetch-depth: 0\n      - name: Install the current repository\n        run: |\n          pip3 install -e .[test,prime]\n          pip3 install vllm==0.5.4\n      - name: Running sandbox tests on 8 L20 GPUs\n        run: |\n          cd tests/sandbox\n          pytest -s -x .\n",
+    "source": "chunhuizhang/multi-turn-verl",
+    "path": ".github/workflows/sandbox.yml",
+    "url": "https://github.com/chunhuizhang/multi-turn-verl/blob/d0f15a735ec09f779aa14944f7c11a87347ac418/.github/workflows/sandbox.yml",
+    "retrieved_at": "2025-11-24T01:53:08.093866Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within the 'sandbox' workflow run concurrently or sequentially based on dependencies?",
+    "answer": "name: sandbox\n\non:\n  # Trigger the workflow on push or pull request,\n  # but only for the main branch\n  push:\n    branches:\n      - main\n      - v0.*\n  pull_request:\n    branches:\n      - main\n      - v0.*\n    paths:\n      - \"**/*.py\"\n      - .github/workflows/sandbox.yml\n\n# Cancel jobs on the same ref if a new one is triggered\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.ref }}\n  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}\n\n# Declare permissions just read content.\npermissions:\n  contents: read\n\njobs:\n  sandbox:\n    runs-on: [L20x8]\n    timeout-minutes: 10 # Increase this timeout value as needed\n    env:\n      HTTP_PROXY: ${{ secrets.PROXY_HTTP }}\n      HTTPS_PROXY: ${{ secrets.PROXY_HTTPS }}\n      NO_PROXY: \"localhost,127.0.0.1,hf-mirror.com\"\n      HF_ENDPOINT: \"https://hf-mirror.com\"\n      HF_HUB_ENABLE_HF_TRANSFER: \"0\" # This is more stable\n    container:\n      image: whatcanyousee/verl:ngc-cu124-vllm0.8.3-sglang0.4.5-mcore0.12.0-te2.2\n      options: --gpus all --shm-size=10g\n    steps:\n      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2\n        with:\n          fetch-depth: 0\n      - name: Install the current repository\n        run: |\n          pip3 install -e .[test,prime]\n          pip3 install vllm==0.5.4\n      - name: Running sandbox tests on 8 L20 GPUs\n        run: |\n          cd tests/sandbox\n          pytest -s -x .\n",
+    "source": "chunhuizhang/multi-turn-verl",
+    "path": ".github/workflows/sandbox.yml",
+    "url": "https://github.com/chunhuizhang/multi-turn-verl/blob/d0f15a735ec09f779aa14944f7c11a87347ac418/.github/workflows/sandbox.yml",
+    "retrieved_at": "2025-11-24T01:53:08.661929Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "How are the `PROXY_HTTP` and `PROXY_HTTPS` secrets used to configure proxy settings within the job environment?",
+    "answer": "name: sandbox\n\non:\n  # Trigger the workflow on push or pull request,\n  # but only for the main branch\n  push:\n    branches:\n      - main\n      - v0.*\n  pull_request:\n    branches:\n      - main\n      - v0.*\n    paths:\n      - \"**/*.py\"\n      - .github/workflows/sandbox.yml\n\n# Cancel jobs on the same ref if a new one is triggered\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.ref }}\n  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}\n\n# Declare permissions just read content.\npermissions:\n  contents: read\n\njobs:\n  sandbox:\n    runs-on: [L20x8]\n    timeout-minutes: 10 # Increase this timeout value as needed\n    env:\n      HTTP_PROXY: ${{ secrets.PROXY_HTTP }}\n      HTTPS_PROXY: ${{ secrets.PROXY_HTTPS }}\n      NO_PROXY: \"localhost,127.0.0.1,hf-mirror.com\"\n      HF_ENDPOINT: \"https://hf-mirror.com\"\n      HF_HUB_ENABLE_HF_TRANSFER: \"0\" # This is more stable\n    container:\n      image: whatcanyousee/verl:ngc-cu124-vllm0.8.3-sglang0.4.5-mcore0.12.0-te2.2\n      options: --gpus all --shm-size=10g\n    steps:\n      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2\n        with:\n          fetch-depth: 0\n      - name: Install the current repository\n        run: |\n          pip3 install -e .[test,prime]\n          pip3 install vllm==0.5.4\n      - name: Running sandbox tests on 8 L20 GPUs\n        run: |\n          cd tests/sandbox\n          pytest -s -x .\n",
+    "source": "chunhuizhang/multi-turn-verl",
+    "path": ".github/workflows/sandbox.yml",
+    "url": "https://github.com/chunhuizhang/multi-turn-verl/blob/d0f15a735ec09f779aa14944f7c11a87347ac418/.github/workflows/sandbox.yml",
+    "retrieved_at": "2025-11-24T01:53:09.326436Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the purpose of this GitHub Actions workflow, which appears to run sandbox tests?",
+    "answer": "name: sandbox\n\non:\n  # Trigger the workflow on push or pull request,\n  # but only for the main branch\n  push:\n    branches:\n      - main\n      - v0.*\n  pull_request:\n    branches:\n      - main\n      - v0.*\n    paths:\n      - \"**/*.py\"\n      - .github/workflows/sandbox.yml\n\n# Cancel jobs on the same ref if a new one is triggered\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.ref }}\n  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}\n\n# Declare permissions just read content.\npermissions:\n  contents: read\n\njobs:\n  sandbox:\n    runs-on: [L20x8]\n    timeout-minutes: 10 # Increase this timeout value as needed\n    env:\n      HTTP_PROXY: ${{ secrets.PROXY_HTTP }}\n      HTTPS_PROXY: ${{ secrets.PROXY_HTTPS }}\n      NO_PROXY: \"localhost,127.0.0.1,hf-mirror.com\"\n      HF_ENDPOINT: \"https://hf-mirror.com\"\n      HF_HUB_ENABLE_HF_TRANSFER: \"0\" # This is more stable\n    container:\n      image: whatcanyousee/verl:ngc-cu124-vllm0.8.3-sglang0.4.5-mcore0.12.0-te2.2\n      options: --gpus all --shm-size=10g\n    steps:\n      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2\n        with:\n          fetch-depth: 0\n      - name: Install the current repository\n        run: |\n          pip3 install -e .[test,prime]\n          pip3 install vllm==0.5.4\n      - name: Running sandbox tests on 8 L20 GPUs\n        run: |\n          cd tests/sandbox\n          pytest -s -x .\n",
+    "source": "chunhuizhang/multi-turn-verl",
+    "path": ".github/workflows/sandbox.yml",
+    "url": "https://github.com/chunhuizhang/multi-turn-verl/blob/d0f15a735ec09f779aa14944f7c11a87347ac418/.github/workflows/sandbox.yml",
+    "retrieved_at": "2025-11-24T01:53:09.947729Z",
+    "question_style": "style_5"
+  },
+  {
+    "question": "Generate a GitHub Actions workflow YAML file that lints PHP code with Pint and commits the changes.",
+    "answer": "name: Fix Code Style\n\non: [push]\n\njobs:\n  lint:\n    runs-on: ubuntu-latest\n    strategy:\n      fail-fast: true\n      matrix:\n        php: [8.2]\n\n    steps:\n      - name: Checkout code\n        uses: actions/checkout@v4\n\n      - name: Setup PHP\n        uses: shivammathur/setup-php@v2\n        with:\n          php-version: ${{ matrix.php }}\n          extensions: json, dom, curl, libxml, mbstring\n          coverage: none\n\n      - name: Install Pint\n        run: composer global require laravel/pint\n\n      - name: Run Pint\n        run: pint\n\n      - name: Commit linted files\n        uses: stefanzweifel/git-auto-commit-action@v5\n        with:\n          commit_message: \"Fixes coding style\"",
+    "source": "bdsumon4u/HotCMS",
+    "path": ".github/workflows/lint.yml",
+    "url": "https://github.com/bdsumon4u/HotCMS/blob/1e919c7d137097e1fb67b01817695b7af7169df4/.github/workflows/lint.yml",
+    "retrieved_at": "2025-11-24T01:53:10.736659Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What event triggers this workflow to run?",
+    "answer": "name: Fix Code Style\n\non: [push]\n\njobs:\n  lint:\n    runs-on: ubuntu-latest\n    strategy:\n      fail-fast: true\n      matrix:\n        php: [8.2]\n\n    steps:\n      - name: Checkout code\n        uses: actions/checkout@v4\n\n      - name: Setup PHP\n        uses: shivammathur/setup-php@v2\n        with:\n          php-version: ${{ matrix.php }}\n          extensions: json, dom, curl, libxml, mbstring\n          coverage: none\n\n      - name: Install Pint\n        run: composer global require laravel/pint\n\n      - name: Run Pint\n        run: pint\n\n      - name: Commit linted files\n        uses: stefanzweifel/git-auto-commit-action@v5\n        with:\n          commit_message: \"Fixes coding style\"",
+    "source": "bdsumon4u/HotCMS",
+    "path": ".github/workflows/lint.yml",
+    "url": "https://github.com/bdsumon4u/HotCMS/blob/1e919c7d137097e1fb67b01817695b7af7169df4/.github/workflows/lint.yml",
+    "retrieved_at": "2025-11-24T01:53:11.230818Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps within the \"Fix Code Style\" workflow run in parallel or have dependencies?",
+    "answer": "name: Fix Code Style\n\non: [push]\n\njobs:\n  lint:\n    runs-on: ubuntu-latest\n    strategy:\n      fail-fast: true\n      matrix:\n        php: [8.2]\n\n    steps:\n      - name: Checkout code\n        uses: actions/checkout@v4\n\n      - name: Setup PHP\n        uses: shivammathur/setup-php@v2\n        with:\n          php-version: ${{ matrix.php }}\n          extensions: json, dom, curl, libxml, mbstring\n          coverage: none\n\n      - name: Install Pint\n        run: composer global require laravel/pint\n\n      - name: Run Pint\n        run: pint\n\n      - name: Commit linted files\n        uses: stefanzweifel/git-auto-commit-action@v5\n        with:\n          commit_message: \"Fixes coding style\"",
+    "source": "bdsumon4u/HotCMS",
+    "path": ".github/workflows/lint.yml",
+    "url": "https://github.com/bdsumon4u/HotCMS/blob/1e919c7d137097e1fb67b01817695b7af7169df4/.github/workflows/lint.yml",
+    "retrieved_at": "2025-11-24T01:53:11.744770Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "Does this workflow utilize any environment variables, secrets, or caching for dependencies or configuration?",
+    "answer": "name: Fix Code Style\n\non: [push]\n\njobs:\n  lint:\n    runs-on: ubuntu-latest\n    strategy:\n      fail-fast: true\n      matrix:\n        php: [8.2]\n\n    steps:\n      - name: Checkout code\n        uses: actions/checkout@v4\n\n      - name: Setup PHP\n        uses: shivammathur/setup-php@v2\n        with:\n          php-version: ${{ matrix.php }}\n          extensions: json, dom, curl, libxml, mbstring\n          coverage: none\n\n      - name: Install Pint\n        run: composer global require laravel/pint\n\n      - name: Run Pint\n        run: pint\n\n      - name: Commit linted files\n        uses: stefanzweifel/git-auto-commit-action@v5\n        with:\n          commit_message: \"Fixes coding style\"",
+    "source": "bdsumon4u/HotCMS",
+    "path": ".github/workflows/lint.yml",
+    "url": "https://github.com/bdsumon4u/HotCMS/blob/1e919c7d137097e1fb67b01817695b7af7169df4/.github/workflows/lint.yml",
+    "retrieved_at": "2025-11-24T01:53:12.342135Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What code styling changes does this workflow automatically apply on each push?",
+    "answer": "name: Fix Code Style\n\non: [push]\n\njobs:\n  lint:\n    runs-on: ubuntu-latest\n    strategy:\n      fail-fast: true\n      matrix:\n        php: [8.2]\n\n    steps:\n      - name: Checkout code\n        uses: actions/checkout@v4\n\n      - name: Setup PHP\n        uses: shivammathur/setup-php@v2\n        with:\n          php-version: ${{ matrix.php }}\n          extensions: json, dom, curl, libxml, mbstring\n          coverage: none\n\n      - name: Install Pint\n        run: composer global require laravel/pint\n\n      - name: Run Pint\n        run: pint\n\n      - name: Commit linted files\n        uses: stefanzweifel/git-auto-commit-action@v5\n        with:\n          commit_message: \"Fixes coding style\"",
+    "source": "bdsumon4u/HotCMS",
+    "path": ".github/workflows/lint.yml",
+    "url": "https://github.com/bdsumon4u/HotCMS/blob/1e919c7d137097e1fb67b01817695b7af7169df4/.github/workflows/lint.yml",
+    "retrieved_at": "2025-11-24T01:53:12.929325Z",
+    "question_style": "style_5"
   }
 ]
