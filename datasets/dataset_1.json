@@ -7288,5 +7288,95 @@
     "url": "https://github.com/MrE-Fog/k3s-ansible-2qqe/blob/0b217cbcfcc1792e7ce230a935ea3bec34306839/.github/workflows/lint.yml",
     "retrieved_at": "2025-11-25T01:47:19.265506Z",
     "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow that replicates the functionality defined in the provided YAML file.",
+    "answer": "name: Java CI\n\non: [pull_request, push]\n\njobs:\n  tests:\n    runs-on: ubuntu-latest\n\n    steps:\n      - uses: actions/checkout@v2\n      - name: Set up JDK 8\n        uses: actions/setup-java@v2\n        with:\n          java-version: '8'\n          distribution: 'adopt'\n      - name: Run Gradle Tests\n        uses: eskatos/gradle-command-action@v1\n        with:\n          arguments: check \n          distributions-cache-enabled: true\n          dependencies-cache-enabled: true\n          configuration-cache-enabled: true\n",
+    "source": "google/re2j",
+    "path": ".github/workflows/gradle.yaml",
+    "url": "https://github.com/google/re2j/blob/84237cbbd0fbd637c6eb6856717c1e248daae729/.github/workflows/gradle.yaml",
+    "retrieved_at": "2025-11-26T01:46:53.110864Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events trigger the execution of the Java CI workflow?",
+    "answer": "name: Java CI\n\non: [pull_request, push]\n\njobs:\n  tests:\n    runs-on: ubuntu-latest\n\n    steps:\n      - uses: actions/checkout@v2\n      - name: Set up JDK 8\n        uses: actions/setup-java@v2\n        with:\n          java-version: '8'\n          distribution: 'adopt'\n      - name: Run Gradle Tests\n        uses: eskatos/gradle-command-action@v1\n        with:\n          arguments: check \n          distributions-cache-enabled: true\n          dependencies-cache-enabled: true\n          configuration-cache-enabled: true\n",
+    "source": "google/re2j",
+    "path": ".github/workflows/gradle.yaml",
+    "url": "https://github.com/google/re2j/blob/84237cbbd0fbd637c6eb6856717c1e248daae729/.github/workflows/gradle.yaml",
+    "retrieved_at": "2025-11-26T01:46:53.734894Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps in this workflow run concurrently or sequentially based on dependencies?",
+    "answer": "name: Java CI\n\non: [pull_request, push]\n\njobs:\n  tests:\n    runs-on: ubuntu-latest\n\n    steps:\n      - uses: actions/checkout@v2\n      - name: Set up JDK 8\n        uses: actions/setup-java@v2\n        with:\n          java-version: '8'\n          distribution: 'adopt'\n      - name: Run Gradle Tests\n        uses: eskatos/gradle-command-action@v1\n        with:\n          arguments: check \n          distributions-cache-enabled: true\n          dependencies-cache-enabled: true\n          configuration-cache-enabled: true\n",
+    "source": "google/re2j",
+    "path": ".github/workflows/gradle.yaml",
+    "url": "https://github.com/google/re2j/blob/84237cbbd0fbd637c6eb6856717c1e248daae729/.github/workflows/gradle.yaml",
+    "retrieved_at": "2025-11-26T01:46:54.426917Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "How are caching mechanisms configured for Gradle dependencies, distributions, and configuration?",
+    "answer": "name: Java CI\n\non: [pull_request, push]\n\njobs:\n  tests:\n    runs-on: ubuntu-latest\n\n    steps:\n      - uses: actions/checkout@v2\n      - name: Set up JDK 8\n        uses: actions/setup-java@v2\n        with:\n          java-version: '8'\n          distribution: 'adopt'\n      - name: Run Gradle Tests\n        uses: eskatos/gradle-command-action@v1\n        with:\n          arguments: check \n          distributions-cache-enabled: true\n          dependencies-cache-enabled: true\n          configuration-cache-enabled: true\n",
+    "source": "google/re2j",
+    "path": ".github/workflows/gradle.yaml",
+    "url": "https://github.com/google/re2j/blob/84237cbbd0fbd637c6eb6856717c1e248daae729/.github/workflows/gradle.yaml",
+    "retrieved_at": "2025-11-26T01:46:55.101204Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What does this Java CI workflow achieve regarding code quality and integration?",
+    "answer": "name: Java CI\n\non: [pull_request, push]\n\njobs:\n  tests:\n    runs-on: ubuntu-latest\n\n    steps:\n      - uses: actions/checkout@v2\n      - name: Set up JDK 8\n        uses: actions/setup-java@v2\n        with:\n          java-version: '8'\n          distribution: 'adopt'\n      - name: Run Gradle Tests\n        uses: eskatos/gradle-command-action@v1\n        with:\n          arguments: check \n          distributions-cache-enabled: true\n          dependencies-cache-enabled: true\n          configuration-cache-enabled: true\n",
+    "source": "google/re2j",
+    "path": ".github/workflows/gradle.yaml",
+    "url": "https://github.com/google/re2j/blob/84237cbbd0fbd637c6eb6856717c1e248daae729/.github/workflows/gradle.yaml",
+    "retrieved_at": "2025-11-26T01:46:56.014446Z",
+    "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow YAML file that replicates the build process described in the provided YAML file.",
+    "answer": "name: Build\n\non:\n  push:\n  pull_request:\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - name: checkout code\n        uses: actions/checkout@v4\n      - name: setup go\n        uses: actions/setup-go@v4\n        with:\n          go-version: '1.24.x'\n      - name: build and unit test\n        run: make build\n",
+    "source": "aws/amazon-vpc-cni-plugins",
+    "path": ".github/workflows/build.yaml",
+    "url": "https://github.com/aws/amazon-vpc-cni-plugins/blob/a4e9ac076709c882a904afabc4c24c7700600f6b/.github/workflows/build.yaml",
+    "retrieved_at": "2025-11-26T01:46:56.985517Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events trigger the execution of this GitHub Actions workflow?",
+    "answer": "name: Build\n\non:\n  push:\n  pull_request:\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - name: checkout code\n        uses: actions/checkout@v4\n      - name: setup go\n        uses: actions/setup-go@v4\n        with:\n          go-version: '1.24.x'\n      - name: build and unit test\n        run: make build\n",
+    "source": "aws/amazon-vpc-cni-plugins",
+    "path": ".github/workflows/build.yaml",
+    "url": "https://github.com/aws/amazon-vpc-cni-plugins/blob/a4e9ac076709c882a904afabc4c24c7700600f6b/.github/workflows/build.yaml",
+    "retrieved_at": "2025-11-26T01:46:58.133239Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps in this workflow run in parallel or sequentially based on dependencies?",
+    "answer": "name: Build\n\non:\n  push:\n  pull_request:\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - name: checkout code\n        uses: actions/checkout@v4\n      - name: setup go\n        uses: actions/setup-go@v4\n        with:\n          go-version: '1.24.x'\n      - name: build and unit test\n        run: make build\n",
+    "source": "aws/amazon-vpc-cni-plugins",
+    "path": ".github/workflows/build.yaml",
+    "url": "https://github.com/aws/amazon-vpc-cni-plugins/blob/a4e9ac076709c882a904afabc4c24c7700600f6b/.github/workflows/build.yaml",
+    "retrieved_at": "2025-11-26T01:46:58.835637Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "Does the build process utilize any environment variables, secrets, caching, or artifacts?",
+    "answer": "name: Build\n\non:\n  push:\n  pull_request:\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - name: checkout code\n        uses: actions/checkout@v4\n      - name: setup go\n        uses: actions/setup-go@v4\n        with:\n          go-version: '1.24.x'\n      - name: build and unit test\n        run: make build\n",
+    "source": "aws/amazon-vpc-cni-plugins",
+    "path": ".github/workflows/build.yaml",
+    "url": "https://github.com/aws/amazon-vpc-cni-plugins/blob/a4e9ac076709c882a904afabc4c24c7700600f6b/.github/workflows/build.yaml",
+    "retrieved_at": "2025-11-26T01:46:59.510852Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the primary function of this workflow, which builds and tests Go code on pushes and pull requests?",
+    "answer": "name: Build\n\non:\n  push:\n  pull_request:\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - name: checkout code\n        uses: actions/checkout@v4\n      - name: setup go\n        uses: actions/setup-go@v4\n        with:\n          go-version: '1.24.x'\n      - name: build and unit test\n        run: make build\n",
+    "source": "aws/amazon-vpc-cni-plugins",
+    "path": ".github/workflows/build.yaml",
+    "url": "https://github.com/aws/amazon-vpc-cni-plugins/blob/a4e9ac076709c882a904afabc4c24c7700600f6b/.github/workflows/build.yaml",
+    "retrieved_at": "2025-11-26T01:47:00.226109Z",
+    "question_style": "style_5"
   }
 ]
