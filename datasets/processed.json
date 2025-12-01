@@ -13,6 +13,7 @@
   "DiegoJRAleixandre/RemoteID-for-QgroundControl:.github/workflows/linux_debug.yml",
   "DiegoJRAleixandre/RemoteID-for-QgroundControl:.github/workflows/linux_release.yml",
   "GPE-Sistemas/zephyr-ncs-gpe:.github/workflows/west_cmds.yml",
+  "Gbessaya-joseph/n8n:.github/workflows/chromatic.yml",
   "GenuineArt/langflow-ai:.github/workflows/release.yml",
   "HETONGAPP/SpiriGroundControlTest:.github/workflows/windows_release.yml",
   "HETONGAPP/qgroundcontrol:.github/workflows/android_64_release.yml",
@@ -172,5 +173,6 @@
   "yuhua0731/zephyr:.github/workflows/codecov.yaml",
   "yukaryote/darknet:.github/workflows/ccpp.yml",
   "yunghegel/opengl_starter:.github/workflows/cmake-build.yml",
-  "zal-orz/pytorch:.github/workflows/slow.yml"
+  "zal-orz/pytorch:.github/workflows/slow.yml",
+  "zju3dv/AutoRecon:.github/workflows/core_code_checks.yml"
 ]
