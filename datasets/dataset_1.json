@@ -8188,5 +8188,95 @@
     "url": "https://github.com/redhat-actions/push-to-registry/blob/5ed88d269cf581ea9ef6dd6806d01562096bee9c/.github/workflows/security_scan.yml",
     "retrieved_at": "2025-12-05T01:50:02.586506Z",
     "question_style": "style_5"
+  },
+  {
+    "question": "Generate a GitHub Actions workflow YAML file that replicates the functionality of the provided YAML.",
+    "answer": "name: ruff lint\n\non:\n  push:\n    branches:\n      - 'main'\n  pull_request:\n    types: [opened, synchronize, reopened, ready_for_review]\n\njobs:\n  run:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: jpetrucciani/ruff-check@main\n",
+    "source": "riffusion/riffusion-hobby",
+    "path": ".github/workflows/ruff.yml",
+    "url": "https://github.com/riffusion/riffusion-hobby/blob/94c29abbdc1de60b3e03131715ea8c3da12bd933/.github/workflows/ruff.yml",
+    "retrieved_at": "2025-12-06T01:43:42.019446Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What events and branch(es) trigger this ruff lint workflow to run?",
+    "answer": "name: ruff lint\n\non:\n  push:\n    branches:\n      - 'main'\n  pull_request:\n    types: [opened, synchronize, reopened, ready_for_review]\n\njobs:\n  run:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: jpetrucciani/ruff-check@main\n",
+    "source": "riffusion/riffusion-hobby",
+    "path": ".github/workflows/ruff.yml",
+    "url": "https://github.com/riffusion/riffusion-hobby/blob/94c29abbdc1de60b3e03131715ea8c3da12bd933/.github/workflows/ruff.yml",
+    "retrieved_at": "2025-12-06T01:43:42.734807Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs or steps in the workflow execute concurrently or rely on the completion of preceding steps?",
+    "answer": "name: ruff lint\n\non:\n  push:\n    branches:\n      - 'main'\n  pull_request:\n    types: [opened, synchronize, reopened, ready_for_review]\n\njobs:\n  run:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: jpetrucciani/ruff-check@main\n",
+    "source": "riffusion/riffusion-hobby",
+    "path": ".github/workflows/ruff.yml",
+    "url": "https://github.com/riffusion/riffusion-hobby/blob/94c29abbdc1de60b3e03131715ea8c3da12bd933/.github/workflows/ruff.yml",
+    "retrieved_at": "2025-12-06T01:43:43.521542Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "Does this workflow utilize any environment variables, secrets, or caching mechanisms for configuration or dependency management?",
+    "answer": "name: ruff lint\n\non:\n  push:\n    branches:\n      - 'main'\n  pull_request:\n    types: [opened, synchronize, reopened, ready_for_review]\n\njobs:\n  run:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: jpetrucciani/ruff-check@main\n",
+    "source": "riffusion/riffusion-hobby",
+    "path": ".github/workflows/ruff.yml",
+    "url": "https://github.com/riffusion/riffusion-hobby/blob/94c29abbdc1de60b3e03131715ea8c3da12bd933/.github/workflows/ruff.yml",
+    "retrieved_at": "2025-12-06T01:43:44.078560Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the purpose of the \"ruff lint\" workflow?",
+    "answer": "name: ruff lint\n\non:\n  push:\n    branches:\n      - 'main'\n  pull_request:\n    types: [opened, synchronize, reopened, ready_for_review]\n\njobs:\n  run:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: jpetrucciani/ruff-check@main\n",
+    "source": "riffusion/riffusion-hobby",
+    "path": ".github/workflows/ruff.yml",
+    "url": "https://github.com/riffusion/riffusion-hobby/blob/94c29abbdc1de60b3e03131715ea8c3da12bd933/.github/workflows/ruff.yml",
+    "retrieved_at": "2025-12-06T01:43:44.645551Z",
+    "question_style": "style_5"
+  },
+  {
+    "question": "Create a GitHub Actions workflow that, on push to master, releases a new version and pushes a Docker image to a container registry.",
+    "answer": "name: Deploying\n\non:\n  push:\n    branches:\n      - master\n\njobs:\n  release:\n    name: Release\n    runs-on: ubuntu-latest\n\n    steps:\n    - name: Checkout code\n      uses: actions/checkout@v4\n\n    - name: Get version\n      id: package-version\n      uses: martinbeentjes/npm-get-version-action@main\n\n    - name: Create Release\n      uses: actions/create-release@v1\n      env:\n        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n      with:\n        tag_name: ${{ steps.package-version.outputs.current-version }}\n        release_name: Backend v${{ steps.package-version.outputs.current-version }}\n        draft: false\n        prerelease: false\n\n  registry:\n    name: Push to registry\n    runs-on: ubuntu-latest\n    permissions:\n      contents: read\n      packages: write\n      id-token: write\n\n    env:\n      REGISTRY: ghcr.io\n      IMAGE_NAME: ${{ github.repository }}\n\n    steps:\n      - name: Checkout repository\n        uses: actions/checkout@v4\n\n      - name: Setup Docker buildx\n        uses: docker/setup-buildx-action@v3\n\n      - name: Get version\n        id: package-version\n        uses: martinbeentjes/npm-get-version-action@main\n\n      - name: Log into registry ${{ env.REGISTRY }}\n        uses: docker/login-action@v2\n        with:\n          registry: ${{ env.REGISTRY }}\n          username: ${{ github.actor }}\n          password: ${{ secrets.GITHUB_TOKEN }}\n\n      - name: Extract Docker metadata\n        id: meta\n        uses: docker/metadata-action@v4\n        with:\n          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}\n          flavor: |\n            latest=auto\n          tags: |\n            type=semver,pattern={{version}},value=v${{ steps.package-version.outputs.current-version }}\n\n      - name: Build and push Docker image\n        id: build-and-push\n        uses: docker/build-push-action@v5\n        with:\n          push: true\n          platforms: linux/amd64,linux/arm64\n          context: .\n          labels: ${{ steps.meta.outputs.labels }}\n          tags: ${{ steps.meta.outputs.tags }}\n          cache-from: type=gha\n          cache-to: type=gha,mode=max\n",
+    "source": "ligmajohn/mw-back",
+    "path": ".github/workflows/release.yml",
+    "url": "https://github.com/ligmajohn/mw-back/blob/f5cec7ba247bdd6ea19c9e28c4f218d26e29fbb8/.github/workflows/release.yml",
+    "retrieved_at": "2025-12-06T01:43:45.527159Z",
+    "question_style": "style_1"
+  },
+  {
+    "question": "What event and branch trigger this GitHub Actions workflow?",
+    "answer": "name: Deploying\n\non:\n  push:\n    branches:\n      - master\n\njobs:\n  release:\n    name: Release\n    runs-on: ubuntu-latest\n\n    steps:\n    - name: Checkout code\n      uses: actions/checkout@v4\n\n    - name: Get version\n      id: package-version\n      uses: martinbeentjes/npm-get-version-action@main\n\n    - name: Create Release\n      uses: actions/create-release@v1\n      env:\n        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n      with:\n        tag_name: ${{ steps.package-version.outputs.current-version }}\n        release_name: Backend v${{ steps.package-version.outputs.current-version }}\n        draft: false\n        prerelease: false\n\n  registry:\n    name: Push to registry\n    runs-on: ubuntu-latest\n    permissions:\n      contents: read\n      packages: write\n      id-token: write\n\n    env:\n      REGISTRY: ghcr.io\n      IMAGE_NAME: ${{ github.repository }}\n\n    steps:\n      - name: Checkout repository\n        uses: actions/checkout@v4\n\n      - name: Setup Docker buildx\n        uses: docker/setup-buildx-action@v3\n\n      - name: Get version\n        id: package-version\n        uses: martinbeentjes/npm-get-version-action@main\n\n      - name: Log into registry ${{ env.REGISTRY }}\n        uses: docker/login-action@v2\n        with:\n          registry: ${{ env.REGISTRY }}\n          username: ${{ github.actor }}\n          password: ${{ secrets.GITHUB_TOKEN }}\n\n      - name: Extract Docker metadata\n        id: meta\n        uses: docker/metadata-action@v4\n        with:\n          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}\n          flavor: |\n            latest=auto\n          tags: |\n            type=semver,pattern={{version}},value=v${{ steps.package-version.outputs.current-version }}\n\n      - name: Build and push Docker image\n        id: build-and-push\n        uses: docker/build-push-action@v5\n        with:\n          push: true\n          platforms: linux/amd64,linux/arm64\n          context: .\n          labels: ${{ steps.meta.outputs.labels }}\n          tags: ${{ steps.meta.outputs.tags }}\n          cache-from: type=gha\n          cache-to: type=gha,mode=max\n",
+    "source": "ligmajohn/mw-back",
+    "path": ".github/workflows/release.yml",
+    "url": "https://github.com/ligmajohn/mw-back/blob/f5cec7ba247bdd6ea19c9e28c4f218d26e29fbb8/.github/workflows/release.yml",
+    "retrieved_at": "2025-12-06T01:43:46.134544Z",
+    "question_style": "style_2"
+  },
+  {
+    "question": "Which jobs run in parallel, and are there any dependencies between jobs or steps within each job?",
+    "answer": "name: Deploying\n\non:\n  push:\n    branches:\n      - master\n\njobs:\n  release:\n    name: Release\n    runs-on: ubuntu-latest\n\n    steps:\n    - name: Checkout code\n      uses: actions/checkout@v4\n\n    - name: Get version\n      id: package-version\n      uses: martinbeentjes/npm-get-version-action@main\n\n    - name: Create Release\n      uses: actions/create-release@v1\n      env:\n        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n      with:\n        tag_name: ${{ steps.package-version.outputs.current-version }}\n        release_name: Backend v${{ steps.package-version.outputs.current-version }}\n        draft: false\n        prerelease: false\n\n  registry:\n    name: Push to registry\n    runs-on: ubuntu-latest\n    permissions:\n      contents: read\n      packages: write\n      id-token: write\n\n    env:\n      REGISTRY: ghcr.io\n      IMAGE_NAME: ${{ github.repository }}\n\n    steps:\n      - name: Checkout repository\n        uses: actions/checkout@v4\n\n      - name: Setup Docker buildx\n        uses: docker/setup-buildx-action@v3\n\n      - name: Get version\n        id: package-version\n        uses: martinbeentjes/npm-get-version-action@main\n\n      - name: Log into registry ${{ env.REGISTRY }}\n        uses: docker/login-action@v2\n        with:\n          registry: ${{ env.REGISTRY }}\n          username: ${{ github.actor }}\n          password: ${{ secrets.GITHUB_TOKEN }}\n\n      - name: Extract Docker metadata\n        id: meta\n        uses: docker/metadata-action@v4\n        with:\n          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}\n          flavor: |\n            latest=auto\n          tags: |\n            type=semver,pattern={{version}},value=v${{ steps.package-version.outputs.current-version }}\n\n      - name: Build and push Docker image\n        id: build-and-push\n        uses: docker/build-push-action@v5\n        with:\n          push: true\n          platforms: linux/amd64,linux/arm64\n          context: .\n          labels: ${{ steps.meta.outputs.labels }}\n          tags: ${{ steps.meta.outputs.tags }}\n          cache-from: type=gha\n          cache-to: type=gha,mode=max\n",
+    "source": "ligmajohn/mw-back",
+    "path": ".github/workflows/release.yml",
+    "url": "https://github.com/ligmajohn/mw-back/blob/f5cec7ba247bdd6ea19c9e28c4f218d26e29fbb8/.github/workflows/release.yml",
+    "retrieved_at": "2025-12-06T01:43:46.806511Z",
+    "question_style": "style_3"
+  },
+  {
+    "question": "How is the GITHUB_TOKEN secret used in the release creation and registry login steps?",
+    "answer": "name: Deploying\n\non:\n  push:\n    branches:\n      - master\n\njobs:\n  release:\n    name: Release\n    runs-on: ubuntu-latest\n\n    steps:\n    - name: Checkout code\n      uses: actions/checkout@v4\n\n    - name: Get version\n      id: package-version\n      uses: martinbeentjes/npm-get-version-action@main\n\n    - name: Create Release\n      uses: actions/create-release@v1\n      env:\n        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n      with:\n        tag_name: ${{ steps.package-version.outputs.current-version }}\n        release_name: Backend v${{ steps.package-version.outputs.current-version }}\n        draft: false\n        prerelease: false\n\n  registry:\n    name: Push to registry\n    runs-on: ubuntu-latest\n    permissions:\n      contents: read\n      packages: write\n      id-token: write\n\n    env:\n      REGISTRY: ghcr.io\n      IMAGE_NAME: ${{ github.repository }}\n\n    steps:\n      - name: Checkout repository\n        uses: actions/checkout@v4\n\n      - name: Setup Docker buildx\n        uses: docker/setup-buildx-action@v3\n\n      - name: Get version\n        id: package-version\n        uses: martinbeentjes/npm-get-version-action@main\n\n      - name: Log into registry ${{ env.REGISTRY }}\n        uses: docker/login-action@v2\n        with:\n          registry: ${{ env.REGISTRY }}\n          username: ${{ github.actor }}\n          password: ${{ secrets.GITHUB_TOKEN }}\n\n      - name: Extract Docker metadata\n        id: meta\n        uses: docker/metadata-action@v4\n        with:\n          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}\n          flavor: |\n            latest=auto\n          tags: |\n            type=semver,pattern={{version}},value=v${{ steps.package-version.outputs.current-version }}\n\n      - name: Build and push Docker image\n        id: build-and-push\n        uses: docker/build-push-action@v5\n        with:\n          push: true\n          platforms: linux/amd64,linux/arm64\n          context: .\n          labels: ${{ steps.meta.outputs.labels }}\n          tags: ${{ steps.meta.outputs.tags }}\n          cache-from: type=gha\n          cache-to: type=gha,mode=max\n",
+    "source": "ligmajohn/mw-back",
+    "path": ".github/workflows/release.yml",
+    "url": "https://github.com/ligmajohn/mw-back/blob/f5cec7ba247bdd6ea19c9e28c4f218d26e29fbb8/.github/workflows/release.yml",
+    "retrieved_at": "2025-12-06T01:43:47.537467Z",
+    "question_style": "style_4"
+  },
+  {
+    "question": "What is the primary purpose of this GitHub Actions workflow?",
+    "answer": "name: Deploying\n\non:\n  push:\n    branches:\n      - master\n\njobs:\n  release:\n    name: Release\n    runs-on: ubuntu-latest\n\n    steps:\n    - name: Checkout code\n      uses: actions/checkout@v4\n\n    - name: Get version\n      id: package-version\n      uses: martinbeentjes/npm-get-version-action@main\n\n    - name: Create Release\n      uses: actions/create-release@v1\n      env:\n        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n      with:\n        tag_name: ${{ steps.package-version.outputs.current-version }}\n        release_name: Backend v${{ steps.package-version.outputs.current-version }}\n        draft: false\n        prerelease: false\n\n  registry:\n    name: Push to registry\n    runs-on: ubuntu-latest\n    permissions:\n      contents: read\n      packages: write\n      id-token: write\n\n    env:\n      REGISTRY: ghcr.io\n      IMAGE_NAME: ${{ github.repository }}\n\n    steps:\n      - name: Checkout repository\n        uses: actions/checkout@v4\n\n      - name: Setup Docker buildx\n        uses: docker/setup-buildx-action@v3\n\n      - name: Get version\n        id: package-version\n        uses: martinbeentjes/npm-get-version-action@main\n\n      - name: Log into registry ${{ env.REGISTRY }}\n        uses: docker/login-action@v2\n        with:\n          registry: ${{ env.REGISTRY }}\n          username: ${{ github.actor }}\n          password: ${{ secrets.GITHUB_TOKEN }}\n\n      - name: Extract Docker metadata\n        id: meta\n        uses: docker/metadata-action@v4\n        with:\n          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}\n          flavor: |\n            latest=auto\n          tags: |\n            type=semver,pattern={{version}},value=v${{ steps.package-version.outputs.current-version }}\n\n      - name: Build and push Docker image\n        id: build-and-push\n        uses: docker/build-push-action@v5\n        with:\n          push: true\n          platforms: linux/amd64,linux/arm64\n          context: .\n          labels: ${{ steps.meta.outputs.labels }}\n          tags: ${{ steps.meta.outputs.tags }}\n          cache-from: type=gha\n          cache-to: type=gha,mode=max\n",
+    "source": "ligmajohn/mw-back",
+    "path": ".github/workflows/release.yml",
+    "url": "https://github.com/ligmajohn/mw-back/blob/f5cec7ba247bdd6ea19c9e28c4f218d26e29fbb8/.github/workflows/release.yml",
+    "retrieved_at": "2025-12-06T01:43:48.019641Z",
+    "question_style": "style_5"
   }
 ]
